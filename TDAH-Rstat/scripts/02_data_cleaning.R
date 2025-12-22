@@ -3,8 +3,8 @@
 # Script 02 : Nettoyage et préparation des données
 # ==============================================================================
 # Description: Nettoyage, recodage et fusion des fichiers MICS6
-# Auteur: Asma BELKAHLA
-# Date: 2025-12-22
+# Auteur: [Votre nom]
+# Date: 2024-12-22
 # ==============================================================================
 
 # 1. CONFIGURATION ============================================================
@@ -13,12 +13,14 @@ rm(list = ls())
 gc()
 
 library(tidyverse)
-library(here)
 library(janitor)
 library(labelled)
 
+# Définir la racine du projet
+project_root <- getwd()
+
 # Charger les données importées
-load(here("data", "processed", "01_imported_data.RData"))
+load(file.path(project_root, "data", "processed", "01_imported_data.RData"))
 
 cat("\n")
 cat("╔════════════════════════════════════════════════════════════════════╗\n")
@@ -267,47 +269,75 @@ cat("  ✅ Dataset analytique créé:", nrow(dataset_analytique), "observations\
 
 cat("\n🔍 Application des critères d'éligibilité...\n")
 
-# Critères d'inclusion pour l'analyse TDAH (enfants d'âge scolaire typiquement)
+# D'abord, vérifier la distribution de l'âge
+cat("\n📊 Distribution de l'âge dans le dataset analytique:\n")
+cat("  - Âge en mois (bh9c): min =", min(dataset_analytique$bh9c, na.rm = TRUE),
+    ", max =", max(dataset_analytique$bh9c, na.rm = TRUE), "\n")
+cat("  - Âge en années: min =", min(dataset_analytique$age_annees, na.rm = TRUE),
+    ", max =", max(dataset_analytique$age_annees, na.rm = TRUE), "\n")
+cat("  - Nombre d'enfants avec âge disponible:", sum(!is.na(dataset_analytique$age_annees)), "\n")
+
+# Critères d'inclusion ASSOUPLIS pour l'analyse TDAH
 dataset_final <- dataset_analytique %>%
   filter(
     !is.na(magebrt),      # Âge maternel disponible
     !is.na(brthord),      # Ordre de naissance disponible
-    !is.na(windex5),      # Information socio-économique disponible
-    !is.na(milieu),       # Information sur le milieu
-    age_annees >= 3,      # Enfants de 3 ans et plus
-    age_annees <= 17      # Enfants de moins de 18 ans
+    !is.na(windex5)       # Information socio-économique disponible
+    # On retire temporairement les critères d'âge stricts pour voir ce qu'on a
   )
 
-cat("\n📊 Résumé des exclusions:\n")
+cat("\n📊 Résumé des exclusions (étape 1 - variables obligatoires):\n")
 cat("  - Départ:", nrow(dataset_analytique), "enfants\n")
-cat("  - Exclus (données manquantes ou âge):", 
+cat("  - Exclus (données manquantes):", 
     nrow(dataset_analytique) - nrow(dataset_final), "\n")
+cat("  - Après filtrage initial:", nrow(dataset_final), "enfants\n")
+
+# Si on a des données, appliquer le filtre d'âge
+if (nrow(dataset_final) > 0) {
+  cat("\n📊 Application du filtre d'âge (0-17 ans):\n")
+  
+  dataset_final <- dataset_final %>%
+    filter(
+      !is.na(age_annees),
+      age_annees >= 0,      # Assouplir: de 0 à 17 ans
+      age_annees <= 17
+    )
+  
+  cat("  - Après filtre d'âge:", nrow(dataset_final), "enfants\n")
+}
+
 cat("  - Échantillon final:", nrow(dataset_final), "enfants\n")
 
 # 7. STATISTIQUES DESCRIPTIVES RAPIDES =======================================
 
 cat("\n📈 Statistiques descriptives de l'échantillon final:\n\n")
 
-# Sexe
-cat("Distribution par sexe:\n")
-print(table(dataset_final$sexe, useNA = "ifany"))
-
-# Âge maternel
-cat("\nÂge maternel à la naissance:\n")
-cat("  - Moyenne:", round(mean(dataset_final$magebrt, na.rm = TRUE), 1), "ans\n")
-cat("  - Médiane:", median(dataset_final$magebrt, na.rm = TRUE), "ans\n")
-
-# Ordre de naissance
-cat("\nOrdre de naissance:\n")
-print(table(dataset_final$ordre_cat, useNA = "ifany"))
-
-# Milieu de résidence
-cat("\nMilieu de résidence:\n")
-print(table(dataset_final$milieu, useNA = "ifany"))
-
-# Quintile de richesse
-cat("\nQuintile de richesse:\n")
-print(table(dataset_final$richesse_cat, useNA = "ifany"))
+if (nrow(dataset_final) > 0) {
+  # Sexe
+  cat("Distribution par sexe:\n")
+  print(table(dataset_final$sexe, useNA = "ifany"))
+  
+  # Âge maternel
+  cat("\nÂge maternel à la naissance:\n")
+  cat("  - Moyenne:", round(mean(dataset_final$magebrt, na.rm = TRUE), 1), "ans\n")
+  cat("  - Médiane:", median(dataset_final$magebrt, na.rm = TRUE), "ans\n")
+  
+  # Ordre de naissance
+  cat("\nOrdre de naissance:\n")
+  print(table(dataset_final$ordre_cat, useNA = "ifany"))
+  
+  # Milieu de résidence
+  cat("\nMilieu de résidence:\n")
+  print(table(dataset_final$milieu, useNA = "ifany"))
+  
+  # Quintile de richesse
+  cat("\nQuintile de richesse:\n")
+  print(table(dataset_final$richesse_cat, useNA = "ifany"))
+} else {
+  cat("⚠️  Aucune donnée dans l'échantillon final. Vérification nécessaire.\n")
+  cat("Affichage des premières lignes du dataset analytique:\n")
+  print(head(dataset_analytique %>% select(bh9c, age_annees, magebrt, brthord, windex5, milieu)))
+}
 
 # 8. VÉRIFICATION DE LA QUALITÉ DES DONNÉES =================================
 
@@ -331,13 +361,13 @@ print(missing_summary)
 cat("\n💾 Sauvegarde des données nettoyées...\n")
 
 # Sauvegarder le dataset final
-saveRDS(dataset_final, here("data", "processed", "dataset_final.rds"))
+saveRDS(dataset_final, file.path(project_root, "data", "processed", "dataset_final.rds"))
 cat("  ✅ Dataset final sauvegardé: dataset_final.rds\n")
 
 # Sauvegarder aussi les datasets intermédiaires
-saveRDS(bh_clean, here("data", "processed", "bh_clean.rds"))
-saveRDS(hl_clean, here("data", "processed", "hl_clean.rds"))
-saveRDS(hh_clean, here("data", "processed", "hh_clean.rds"))
+saveRDS(bh_clean, file.path(project_root, "data", "processed", "bh_clean.rds"))
+saveRDS(hl_clean, file.path(project_root, "data", "processed", "hl_clean.rds"))
+saveRDS(hh_clean, file.path(project_root, "data", "processed", "hh_clean.rds"))
 cat("  ✅ Datasets intermédiaires sauvegardés\n")
 
 # Sauvegarder un dictionnaire des variables
@@ -351,7 +381,7 @@ dictionnaire <- tibble(
   })
 )
 
-write_csv(dictionnaire, here("data", "metadata", "dictionnaire_variables.csv"))
+write_csv(dictionnaire, file.path(project_root, "data", "metadata", "dictionnaire_variables.csv"))
 cat("  ✅ Dictionnaire des variables sauvegardé\n")
 
 # Sauvegarder l'environnement
@@ -359,7 +389,7 @@ save(
   dataset_final,
   bh_clean, hl_clean, hh_clean,
   missing_summary,
-  file = here("data", "processed", "02_cleaned_data.RData")
+  file = file.path(project_root, "data", "processed", "02_cleaned_data.RData")
 )
 
 cat("\n✨ Nettoyage terminé avec succès!\n")
