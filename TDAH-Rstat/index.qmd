@@ -1,0 +1,76 @@
+---
+title: "TDAH-RSTAT - Accueil"
+format: html
+---
+
+## 🌍 Bienvenue dans le Projet TDAH-RSTAT
+
+Ce site présente les résultats d'une analyse secondaire des données **MICS6 Tunisie 2023** sur les facteurs associés au risque théorique de TDAH chez les enfants tunisiens.
+
+### 📌 Contexte du Projet
+
+Cette étude est née d'une observation personnelle : le fils d'une amie présente des symptômes de TDAH, et son école a signalé que plus de 20 enfants dans l'établissement auraient des difficultés similaires.
+
+**Question de recherche** : Que pouvons-nous apprendre sur ce phénomène à l'échelle nationale grâce aux données MICS6 ?
+
+### 🎯 Objectifs Spécifiques
+
+1. **Caractérisation** des facteurs périnataux et familiaux
+2. **Construction** d'un score de vulnérabilité théorique
+3. **Analyse** des inégalités selon le sexe, la richesse et la région
+4. **Recommandations** pour les politiques publiques
+
+### 📊 Méthodologie
+
+- **Source** : Données MICS6 Tunisie 2023 (UNICEF)
+- **Approche** : Score composite basé sur 7 facteurs de risque
+- **Analyse** : Statistiques descriptives et modélisation
+- **Logiciel** : R avec Quarto pour le rapport
+
+### 📁 Navigation
+
+- **[Rapport Principal](tdah_tunisie.qmd)** : Analyse complète avec résultats
+- **[Code Source](https://github.com/votrecompte/TDAH-RSTAT)** : Répertoire GitHub
+- **[Données MICS6](https://mics.unicef.org)** : Site officiel UNICEF
+
+### ⚠️ Limites Importantes
+
+- ❌ **Pas de diagnostic** : Cette étude ne diagnostique pas le TDAH
+- 📊 **Score théorique** : Basé sur des facteurs de risque connus
+- 🕒 **Données transversales** : Pas de relations causales
+- 🏥 **Données déclaratives** : Pas de mesures cliniques
+
+### 👤 À Propos
+
+**Auteur** : Asma BELKAHLA  
+**Formation** : R_Statistique / Data Science  
+**Contact** :   asma.belkahla@polytechnicien.tn
+**Date** : `r format(Sys.Date(), "%B %Y")`
+
+---
+
+### 📈 Résumé des Données
+
+```{r}
+#| echo: false
+#| warning: false
+
+library(tidyverse)
+
+# Données simulées pour l'illustration
+set.seed(123)
+donnees_resume <- tibble(
+  Région = c("Tunis", "Nord-Est", "Nord-Ouest", "Centre-Est", "Sud"),
+  Enfants = round(runif(5, 1000, 5000)),
+  Score_Moyen = round(runif(5, 0.2, 0.7), 2),
+  Risque_Élevé = round(runif(5, 5, 25), 1)
+)
+
+donnees_resume %>%
+  knitr::kable(
+    caption = "Données illustratives par région",
+    align = "c"
+  ) %>%
+  kableExtra::kable_styling(
+    bootstrap_options = c("striped", "hover")
+  )

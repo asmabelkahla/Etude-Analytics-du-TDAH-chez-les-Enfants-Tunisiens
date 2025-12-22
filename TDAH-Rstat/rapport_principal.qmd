@@ -1,0 +1,359 @@
+---
+title: "Facteurs de Risque du TDAH chez l'Enfant en Tunisie"
+subtitle: "Analyse Secondaire des Données MICS6 (2023)"
+author: "Asma BELKAHLA"
+date: "`r Sys.Date()`"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    number-sections: true
+    code-fold: true
+    code-summary: "Voir le code"
+    theme: cosmo
+    embed-resources: true
+    smooth-scroll: true
+    fig-width: 10
+    fig-height: 6
+  pdf:
+    toc: true
+    number-sections: true
+    colorlinks: true
+    geometry: margin=2.5cm
+editor: visual
+lang: fr
+---
+
+```{r setup, include=FALSE}
+#| label: setup
+#| include: false
+
+# Configuration de knitr
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  fig.align = "center",
+  dpi = 300
+)
+
+# Chargement des packages
+library(tidyverse)
+library(here)
+library(gtsummary)
+library(survey)
+library(scales)
+library(patchwork)
+library(kableExtra)
+
+# Thème ggplot personnalisé
+theme_set(theme_minimal(base_size = 12))
+```
+
+# Contexte et Justification {#sec-contexte}
+
+## Problématique
+
+Le **Trouble du Déficit de l'Attention avec ou sans Hyperactivité (TDAH)** est un trouble neurodéveloppemental qui affecte significativement le développement et la qualité de vie des enfants. En Tunisie, l'observation sur le terrain révèle une prévalence croissante de ce trouble dans les établissements scolaires.
+
+::: callout-note
+## Observation Terrain
+
+Dans une école tunisienne, plus de 20 enfants ont été identifiés avec un profil compatible avec le TDAH, ce qui soulève des questions sur les facteurs de risque et les populations vulnérables.
+:::
+
+## Objectifs de l'Étude
+
+### Objectif Général
+
+Étudier l'association entre certains **facteurs périnataux, familiaux et socio-économiques** et un profil de vulnérabilité théorique au TDAH chez les enfants en Tunisie, à partir des données MICS6 (2023).
+
+### Objectifs Spécifiques
+
+1.  Caractériser les **facteurs périnataux** (âge maternel, ordre de naissance, espacement)
+2.  Décrire le **profil socio-économique** des ménages
+3.  Construire un **score de vulnérabilité théorique** au TDAH
+4.  Analyser les **associations** avec les caractéristiques de l'enfant et du ménage
+5.  Explorer les **inégalités** selon le sexe, la richesse, le milieu de résidence
+
+## Avertissements Importants {.unnumbered}
+
+::: callout-warning
+## Limites de l'Étude
+
+Cette étude **NE PERMET PAS** de :
+
+-   ❌ Diagnostiquer le TDAH (aucune évaluation clinique)
+-   ❌ Établir des relations causales (design transversal)
+-   ❌ Mesurer la prévalence réelle du TDAH
+
+Elle permet de :
+
+-   ✅ Identifier des facteurs de risque reconnus
+-   ✅ Construire un profil de vulnérabilité théorique
+-   ✅ Décrire les inégalités dans la distribution du risque
+:::
+
+# Méthodologie {#sec-methodo}
+
+## Source des Données
+
+Les données proviennent de l'enquête **MICS6 (Multiple Indicator Cluster Survey)** réalisée en Tunisie en 2023 par l'UNICEF.
+
+```{r}
+#| label: load-data
+#| echo: false
+
+
+```
+
+### Fichiers Utilisés
+
+| Fichier  | Description                 | N observations |
+|----------|-----------------------------|----------------|
+| `hh.csv` | Données sur les ménages     | ---            |
+| `hl.csv` | Liste des membres du ménage | ---            |
+| `wm.csv` | Femmes âgées de 15-49 ans   | ---            |
+| `bh.csv` | Historique des naissances   | ---            |
+| `ch.csv` | Données sur les enfants     | ---            |
+
+: Fichiers MICS6 utilisés {#tbl-fichiers}
+
+## Population d'Étude
+
+-   **Population cible** : Enfants tunisiens présents dans MICS6 (2023)
+-   **Critères d'inclusion** : Enfants avec informations disponibles sur caractéristiques périnatales et contexte familial
+-   **Type d'étude** : Analyse transversale
+
+## Variables d'Intérêt
+
+### Variables Dépendantes (à construire)
+
+1.  **Score de vulnérabilité théorique au TDAH** (variable continue)
+2.  **Profil de risque catégoriel** : Faible / Moyen / Élevé
+
+### Variables Indépendantes
+
+:::::: columns
+::: {.column width="33%"}
+**Facteurs Périnataux**
+
+-   Âge maternel
+-   Ordre de naissance
+-   Intervalle intergénésique
+-   Poids de naissance
+-   Suivi prénatal
+:::
+
+::: {.column width="33%"}
+**Facteurs Familiaux**
+
+-   Éducation des parents
+-   Structure familiale
+-   Taille du ménage
+-   Nombre d'enfants
+:::
+
+::: {.column width="33%"}
+**Facteurs Socio-économiques**
+
+-   Quintile de richesse
+-   Milieu de résidence
+-   Région/gouvernorat
+-   Accès aux services
+:::
+::::::
+
+## Méthodes Statistiques
+
+1.  **Analyses descriptives** : Fréquences, moyennes, écarts-types
+2.  **Analyses bivariées** : Chi², tests de Student, ANOVA
+3.  **Analyses multivariées** : Régressions logistique et linéaire
+4.  **Prise en compte du plan de sondage** : Pondérations, stratification
+
+# Résultats {#sec-resultats}
+
+## Caractéristiques de l'Échantillon
+
+```{r}
+#| label: fig-flowchart
+#| fig-cap: "Diagramme de flux de l'échantillon"
+#| echo: false
+
+# Code pour créer le flowchart de sélection
+
+```
+
+## Statistiques Descriptives
+
+### Caractéristiques Sociodémographiques
+
+```{r}
+#| label: tbl-descriptives
+#| tbl-cap: "Caractéristiques sociodémographiques de l'échantillon"
+
+# Tableau descriptif avec gtsummary
+
+```
+
+### Distribution des Facteurs Périnataux
+
+```{r}
+#| label: fig-perinataux
+#| fig-cap: "Distribution des facteurs périnataux"
+#| fig-width: 12
+#| fig-height: 8
+
+# Graphiques des facteurs périnataux
+
+```
+
+## Score de Vulnérabilité au TDAH
+
+### Construction du Score
+
+Le score de vulnérabilité théorique au TDAH a été construit selon la méthode suivante :
+
+::: callout-tip
+## Méthodologie du Score
+
+Le score intègre les facteurs de risque suivants, pondérés selon la littérature :
+
+1.  **Facteurs périnataux** (40%)
+    -   Âge maternel \< 20 ans ou \> 35 ans
+    -   Ordre de naissance ≥ 4
+    -   Intervalle intergénésique \< 24 mois
+2.  **Facteurs socio-économiques** (30%)
+    -   Quintile de richesse (Q1-Q2)
+    -   Faible éducation maternelle
+3.  **Facteurs familiaux** (30%)
+    -   Famille monoparentale
+    -   Taille du ménage \> 7 personnes
+:::
+
+```{r}
+#| label: fig-score-distribution
+#| fig-cap: "Distribution du score de vulnérabilité au TDAH"
+
+# Distribution du score
+
+```
+
+## Analyses Bivariées
+
+### Association avec les Caractéristiques de l'Enfant
+
+```{r}
+#| label: tbl-bivariate-child
+#| tbl-cap: "Association entre le risque TDAH et les caractéristiques de l'enfant"
+
+# Tests bivariés
+
+```
+
+### Association avec les Facteurs Socio-économiques
+
+```{r}
+#| label: fig-richesse
+#| fig-cap: "Risque TDAH selon le quintile de richesse"
+
+# Graphique richesse
+
+```
+
+## Analyses Multivariées
+
+### Modèle de Régression Logistique
+
+```{r}
+#| label: tbl-regression
+#| tbl-cap: "Modèle de régression logistique - Facteurs associés au risque élevé de TDAH"
+
+# Régression logistique
+
+```
+
+## Exploration des Inégalités
+
+### Inégalités de Genre
+
+```{r}
+#| label: fig-genre
+#| fig-cap: "Distribution du risque TDAH selon le sexe"
+
+# Comparaison garçons/filles
+
+```
+
+### Inégalités Géographiques
+
+```{r}
+#| label: fig-regions
+#| fig-cap: "Risque TDAH par région et milieu de résidence"
+#| fig-width: 14
+#| fig-height: 8
+
+# Carte ou graphiques régionaux
+
+```
+
+# Discussion {#sec-discussion}
+
+## Principaux Résultats
+
+\[À compléter après l'analyse\]
+
+## Comparaison avec la Littérature
+
+\[# comparer avec études internationales sur TDAH\]
+
+## Forces et Limites
+
+### Forces
+
+-   Échantillon représentatif au niveau national (MICS6)
+-   Standardisation internationale des méthodes
+-   Prise en compte du plan de sondage complexe
+-   Multitude de facteurs de risque analysés
+
+### Limites
+
+-   Pas de diagnostic clinique du TDAH
+-   Design transversal (pas de causalité)
+-   Score théorique basé sur la littérature
+-   Possibles variables confondantes non mesurées
+
+## Implications pour la Santé Publique
+
+\[ recommandations pratiques\]
+
+# Conclusion {#sec-conclusion}
+
+\[ après l'analyse complète\]
+
+# Références {.unnumbered}
+
+::: {#refs}
+:::
+
+# Annexes {.unnumbered}
+
+## Annexe A : Variables MICS6 Utilisées
+
+\[Liste détaillée des variables\]
+
+## Annexe B : Code R Complet
+
+Disponible sur GitHub :
+
+------------------------------------------------------------------------
+
+**Session Info**
+
+```{r}
+#| label: session-info
+#| echo: false
+
+sessionInfo()
+```
