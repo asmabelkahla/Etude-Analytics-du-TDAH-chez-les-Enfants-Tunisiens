@@ -4,236 +4,317 @@
 # ==============================================================================
 # Description: Import et première inspection des fichiers MICS6
 # Auteur: Asma BELKAHLA
-# Date: 2025-12-22
+# Date: 2025-12-23
 # ==============================================================================
+
 
 # 1. CONFIGURATION ============================================================
 
-# Nettoyage de l'environnement
 rm(list = ls())
 gc()
 
-# Chargement des packages nécessaires
+# Packages nécessaires
 library(tidyverse)
-library(readr)
-library(haven)  # Pour lire .dta ou .sav si nécessaire
-library(janitor) # Pour nettoyer les noms de colonnes
+library(haven)      # Pour lire les fichiers SPSS
+library(labelled)   # Pour gérer les labels SPSS
+library(janitor)
 
-# Configuration des options
-options(
-  scipen = 999,  # Désactiver la notation scientifique
-  encoding = "UTF-8"
-)
-
-# Définir la racine du projet (sans utiliser here pour éviter les problèmes)
+# Définir la racine du projet
 project_root <- getwd()
+
+options(scipen = 999, encoding = "UTF-8")
 
 # Créer les dossiers nécessaires
 dir.create(file.path(project_root, "data", "processed"), showWarnings = FALSE, recursive = TRUE)
 dir.create(file.path(project_root, "data", "metadata"), showWarnings = FALSE, recursive = TRUE)
 dir.create(file.path(project_root, "reports", "figures"), showWarnings = FALSE, recursive = TRUE)
 
-# 2. FONCTIONS UTILITAIRES ====================================================
+cat("\n")
+cat("╔════════════════════════════════════════════════════════════════════╗\n")
+cat("║       IMPORT DES DONNÉES MICS6 TUNISIE 2023 (FORMAT SPSS)         ║\n")
+cat("╚════════════════════════════════════════════════════════════════════╝\n\n")
 
-#' Import et inspection d'un fichier CSV MICS6
-#'
-#' @param filename Nom du fichier (sans le chemin)
-#' @param path Chemin vers le dossier des données
-#' @return Un tibble avec les données importées
-import_mics_file <- function(filename, path = file.path(project_root, "data", "raw")) {
-  
-  filepath <- file.path(path, filename)
-  
-  # Vérifier que le fichier existe
-  if (!file.exists(filepath)) {
-    stop(paste("Fichier introuvable:", filepath))
+# 2. VÉRIFICATION DES FICHIERS ================================================
+
+cat("🔍 Recherche des fichiers SPSS (.sav)...\n\n")
+
+# Chercher les fichiers .sav
+sav_files <- list.files(file.path(project_root, "data", "raw"), 
+                        pattern = "\\.sav$", 
+                        full.names = TRUE,
+                        ignore.case = TRUE)
+
+cat("📁 Fichiers SPSS trouvés:\n")
+if (length(sav_files) > 0) {
+  for (f in sav_files) {
+    cat("  ✅", basename(f), 
+        " (", format(file.info(f)$size / 1024^2, digits = 2), " MB)\n")
   }
+} else {
+  cat("  ❌ Aucun fichier .sav trouvé dans data/raw/\n\n")
+  cat("🚨 ACTIONS À FAIRE:\n")
+  cat("  1. Téléchargez les fichiers SPSS depuis UNICEF/INS\n")
+  cat("  2. Copiez les 7 fichiers .sav dans: ", file.path(project_root, "data", "raw"), "\n")
+  cat("  3. Fichiers attendus: bh.sav, ch.sav, fs.sav, hh.sav, hl.sav, mn.sav, wm.sav\n")
+  stop("Fichiers SPSS introuvables")
+}
+
+# Identifier les fichiers MICS6 par leur nom
+mics_files_map <- list(
+  bh = grep("bh\\.sav$", sav_files, value = TRUE, ignore.case = TRUE)[1],
+  ch = grep("ch\\.sav$", sav_files, value = TRUE, ignore.case = TRUE)[1],
+  fs = grep("fs\\.sav$", sav_files, value = TRUE, ignore.case = TRUE)[1],
+  hh = grep("hh\\.sav$", sav_files, value = TRUE, ignore.case = TRUE)[1],
+  hl = grep("hl\\.sav$", sav_files, value = TRUE, ignore.case = TRUE)[1],
+  mn = grep("mn\\.sav$", sav_files, value = TRUE, ignore.case = TRUE)[1],
+  wm = grep("wm\\.sav$", sav_files, value = TRUE, ignore.case = TRUE)[1]
+)
+
+# Retirer les fichiers non trouvés
+mics_files_map <- Filter(Negate(is.na), mics_files_map)
+
+cat("\n✅ Fichiers MICS6 identifiés:", length(mics_files_map), "/ 7\n\n")
+
+# 3. FONCTION D'IMPORT SPSS ===================================================
+
+import_spss_file <- function(filepath, dataset_name) {
   
-  cat("\n", strrep("=", 70), "\n")
-  cat("Import de:", filename, "\n")
+  cat(strrep("=", 70), "\n")
+  cat("📥 Import de:", dataset_name, "->", basename(filepath), "\n")
   cat(strrep("=", 70), "\n")
   
-  # Import selon l'extension
-  if (str_ends(filename, ".csv")) {
-    data <- read_csv(filepath, show_col_types = FALSE)
-  } else if (str_ends(filename, ".dta")) {
-    data <- read_dta(filepath)
-  } else if (str_ends(filename, ".sav")) {
-    data <- read_sav(filepath)
-  } else {
-    stop("Format de fichier non supporté")
-  }
+  # Import du fichier SPSS avec haven
+  data <- read_sav(filepath, user_na = TRUE)
   
-  # Nettoyer les noms de colonnes
-  data <- clean_names(data)
+  # Informations sur les labels
+  n_labelled <- sum(sapply(data, is.labelled))
   
-  # Afficher les informations de base
   cat("\n📊 Dimensions:", nrow(data), "lignes x", ncol(data), "colonnes\n")
-  cat("📝 Premières colonnes:\n")
-  print(names(data)[1:min(10, ncol(data))])
+  cat("🏷️  Variables avec labels:", n_labelled, "/", ncol(data), "\n")
+  cat("💾 Taille mémoire:", format(object.size(data), units = "Mb"), "\n")
   
-  cat("\n💾 Taille mémoire:", format(object.size(data), units = "Mb"), "\n")
-  cat(strrep("=", 70), "\n")
+  # Afficher quelques informations sur les labels
+  if (n_labelled > 0) {
+    cat("\n🔍 Exemples de variables labellisées:\n")
+    labelled_vars <- names(data)[sapply(data, is.labelled)][1:min(5, n_labelled)]
+    for (var in labelled_vars) {
+      cat("  -", var, ":", length(val_labels(data[[var]])), "labels\n")
+    }
+  }
+  
+  cat("\n📝 Premières colonnes:\n")
+  print(names(data)[1:min(15, ncol(data))])
+  
+  cat(strrep("=", 70), "\n\n")
   
   return(data)
 }
 
-#' Générer un rapport de structure pour chaque dataset
-#'
-#' @param data Dataset à analyser
-#' @param name Nom du dataset
-generate_structure_report <- function(data, name) {
+# 4. IMPORT DES FICHIERS SPSS =================================================
+
+mics_data_spss <- list()
+
+for (name in names(mics_files_map)) {
+  tryCatch({
+    mics_data_spss[[name]] <- import_spss_file(mics_files_map[[name]], toupper(name))
+  }, error = function(e) {
+    cat("❌ ERREUR lors de l'import de", name, ":", e$message, "\n\n")
+    mics_data_spss[[name]] <- NULL
+  })
+}
+
+# 5. GÉNÉRATION DU RAPPORT DE STRUCTURE =======================================
+
+cat("📋 Génération du rapport de structure avec labels SPSS...\n")
+
+generate_spss_structure <- function(data, name) {
   
-  report <- tibble(
+  structure_df <- tibble(
     dataset = name,
     variable = names(data),
-    type = sapply(data, class),
+    type = sapply(data, function(x) class(x)[1]),
+    is_labelled = sapply(data, is.labelled),
+    n_labels = sapply(data, function(x) {
+      if (is.labelled(x)) length(val_labels(x)) else 0
+    }),
+    variable_label = sapply(data, function(x) {
+      lbl <- attr(x, "label")
+      if (is.null(lbl)) "" else as.character(lbl)
+    }),
     n_missing = sapply(data, function(x) sum(is.na(x))),
     pct_missing = round(sapply(data, function(x) sum(is.na(x)) / length(x) * 100), 2),
     n_unique = sapply(data, function(x) length(unique(x)))
   )
   
-  return(report)
+  return(structure_df)
 }
 
-# 3. IMPORT DES FICHIERS MICS6 ===============================================
-
-cat("\n")
-cat("╔════════════════════════════════════════════════════════════════════╗\n")
-cat("║       IMPORT DES DONNÉES MICS6 TUNISIE 2023                        ║\n")
-cat("╚════════════════════════════════════════════════════════════════════╝\n")
-
-# Vérifier le répertoire de travail
-cat("📁 Répertoire de travail:", getwd(), "\n")
-cat("📁 Fichiers disponibles dans data/raw:\n")
-available_files <- list.files("data/raw")
-print(available_files)
-
-# Liste des fichiers à importer
-mics_files <- c(
-  "hh.csv",  # Ménages
-  "hl.csv",  # Liste des membres
-  "wm.csv",  # Femmes 15-49 ans
-  "mn.csv",  # Hommes 15-49 ans
-  "bh.csv",  # Historique des naissances
-  "ch.csv",  # Enfants
-  "fs.csv"   # Sécurité alimentaire
-)
-
-# Import de tous les fichiers
-mics_data <- list()
-
-for (file in mics_files) {
-  
-  # Extraire le nom du dataset (sans extension)
-  dataset_name <- str_remove(file, "\\.csv$")
-  
-  # Importer le fichier
-  tryCatch({
-    mics_data[[dataset_name]] <- import_mics_file(file)
-  }, error = function(e) {
-    cat("❌ ERREUR lors de l'import de", file, ":", e$message, "\n")
-    mics_data[[dataset_name]] <- NULL
-  })
-}
-
-# 4. GÉNÉRATION DES RAPPORTS DE STRUCTURE ====================================
-
-cat("\n📋 Génération des rapports de structure...\n")
-
-structure_reports <- list()
-
-for (name in names(mics_data)) {
-  if (!is.null(mics_data[[name]])) {
-    structure_reports[[name]] <- generate_structure_report(mics_data[[name]], name)
+structure_reports_spss <- list()
+for (name in names(mics_data_spss)) {
+  if (!is.null(mics_data_spss[[name]])) {
+    structure_reports_spss[[name]] <- generate_spss_structure(mics_data_spss[[name]], name)
   }
 }
 
-# Combiner tous les rapports
-all_structures <- bind_rows(structure_reports)
+all_structures_spss <- bind_rows(structure_reports_spss)
 
-# Sauvegarder le rapport complet
+# Sauvegarder le rapport
 write_csv(
-  all_structures,
-  file.path(project_root, "data", "metadata", "mics6_structure_report.csv")
+  all_structures_spss,
+  file.path(project_root, "data", "metadata", "mics6_spss_structure_report.csv")
 )
 
-cat("✅ Rapport de structure sauvegardé dans data/metadata/\n")
+cat("✅ Rapport de structure SPSS sauvegardé\n\n")
 
-# 5. RÉSUMÉ DES IMPORTS =======================================================
+# 6. EXTRACTION DES LABELS ====================================================
 
-cat("\n")
+cat("🏷️  Extraction des dictionnaires de labels...\n")
+
+extract_all_labels <- function(data, dataset_name) {
+  
+  labels_list <- list()
+  
+  for (var_name in names(data)) {
+    if (is.labelled(data[[var_name]])) {
+      var_labels <- val_labels(data[[var_name]])
+      
+      if (length(var_labels) > 0) {
+        labels_list[[var_name]] <- tibble(
+          dataset = dataset_name,
+          variable = var_name,
+          value = as.numeric(var_labels),
+          label = names(var_labels)
+        )
+      }
+    }
+  }
+  
+  if (length(labels_list) > 0) {
+    return(bind_rows(labels_list))
+  } else {
+    return(NULL)
+  }
+}
+
+# Extraire tous les labels
+all_labels <- list()
+for (name in names(mics_data_spss)) {
+  if (!is.null(mics_data_spss[[name]])) {
+    labels_df <- extract_all_labels(mics_data_spss[[name]], name)
+    if (!is.null(labels_df)) {
+      all_labels[[name]] <- labels_df
+    }
+  }
+}
+
+labels_dictionary <- bind_rows(all_labels)
+
+if (nrow(labels_dictionary) > 0) {
+  write_csv(
+    labels_dictionary,
+    file.path(project_root, "data", "metadata", "mics6_labels_dictionary.csv")
+  )
+  cat("✅ Dictionnaire des labels sauvegardé (", nrow(labels_dictionary), "labels)\n\n")
+}
+
+# 7. RÉSUMÉ DES IMPORTS =======================================================
+
 cat("╔════════════════════════════════════════════════════════════════════╗\n")
-cat("║                    RÉSUMÉ DES IMPORTS                              ║\n")
+cat("║                    RÉSUMÉ DES IMPORTS SPSS                         ║\n")
 cat("╚════════════════════════════════════════════════════════════════════╝\n\n")
 
-import_summary <- tibble(
-  dataset = names(mics_data),
-  n_rows = sapply(mics_data, nrow),
-  n_cols = sapply(mics_data, ncol),
-  size_mb = sapply(mics_data, function(x) {
+import_summary_spss <- tibble(
+  dataset = names(mics_data_spss),
+  n_rows = sapply(mics_data_spss, nrow),
+  n_cols = sapply(mics_data_spss, ncol),
+  n_labelled = sapply(mics_data_spss, function(x) sum(sapply(x, is.labelled))),
+  size_mb = sapply(mics_data_spss, function(x) {
     round(as.numeric(object.size(x)) / 1024^2, 2)
   })
 )
 
-print(import_summary)
+print(import_summary_spss)
 
-cat("\n📊 Datasets importés avec succès:", length(mics_data), "/", length(mics_files), "\n")
+cat("\n📊 Datasets importés avec succès:", length(mics_data_spss), "/ 7\n")
 
-# 6. VARIABLES CLÉS À IDENTIFIER ==============================================
+# 8. VÉRIFICATION DES VARIABLES CLÉS ==========================================
 
-cat("\n🔍 Recherche des variables clés pour l'analyse...\n\n")
+cat("\n🔍 Vérification des variables clés dans BH...\n\n")
 
-# Variables attendues (à adapter selon les données réelles)
-key_variables <- list(
+if (!is.null(mics_data_spss$bh)) {
+  bh_vars_check <- c("BH4C", "BH4F", "BH9C", "BH9F", "MAGEBRT", "BRTHORD", 
+                     "BIRTHINT", "WINDEX5", "WELEVEL", "HH6", "HH7")
   
-  # Variables d'identification
-  identifiants = c("hh1", "hh2", "ln", "cluster", "wm1", "bh1"),
+  cat("Variables clés dans BH:\n")
+  for (v in bh_vars_check) {
+    if (v %in% names(mics_data_spss$bh)) {
+      var_label <- attr(mics_data_spss$bh[[v]], "label")
+      cat("  ✅", v)
+      if (!is.null(var_label)) cat(" -", var_label)
+      cat("\n")
+    } else {
+      cat("  ❌", v, "- NON TROUVÉ\n")
+    }
+  }
   
-  # Variables périnatales
-  perinatales = c("age_mere", "ordre_naissance", "intervalle", "poids_naissance"),
+  # Afficher un échantillon de BH
+  cat("\n📊 Aperçu des données BH (premières lignes):\n")
+  print(head(mics_data_spss$bh[, 1:15]))
   
-  # Variables démographiques
-  demographiques = c("age", "sexe", "milieu", "region"),
-  
-  # Variables socio-économiques
-  socioeconomiques = c("education", "richesse", "quintile", "emploi"),
-  
-  # Variables familiales
-  familiales = c("taille_menage", "structure_famille", "nb_enfants")
-)
-
-cat("📝 Variables clés à vérifier dans les prochaines étapes:\n")
-for (category in names(key_variables)) {
-  cat("  -", category, ":", paste(key_variables[[category]], collapse = ", "), "\n")
+  # Statistiques sur BH9C (âge en mois)
+  if ("BH9C" %in% names(mics_data_spss$bh)) {
+    cat("\n📈 Statistiques BH9C (âge en mois):\n")
+    print(summary(mics_data_spss$bh$BH9C))
+  }
 }
 
-# 7. SAUVEGARDE DES DONNÉES IMPORTÉES =========================================
+# 9. CONVERSION OPTIONNELLE EN FACTEURS =======================================
 
-cat("\n💾 Sauvegarde des données importées...\n")
+cat("\n🔄 Conversion des variables labellisées...\n")
 
-# Sauvegarder chaque dataset en format .rds (plus efficace)
+# Option 1: Garder les variables labellisées (recommandé)
+mics_data <- mics_data_spss
+
+# Option 2: Convertir en facteurs (si nécessaire pour certaines analyses)
+# Décommenter si vous préférez des facteurs
+# mics_data <- lapply(mics_data_spss, function(df) {
+#   as_factor(df, levels = "labels")
+# })
+
+cat("✅ Données prêtes (format labelled préservé)\n")
+
+# 10. SAUVEGARDE ==============================================================
+
+cat("\n💾 Sauvegarde des données SPSS importées...\n")
+
+# Sauvegarder chaque dataset
 for (name in names(mics_data)) {
   if (!is.null(mics_data[[name]])) {
     saveRDS(
       mics_data[[name]],
-      file.path(project_root, "data", "processed", paste0(name, "_imported.rds"))
+      file.path(project_root, "data", "processed", paste0(name, "_spss.rds"))
     )
     cat("  ✅", name, "sauvegardé\n")
   }
 }
 
-# Sauvegarder aussi l'environnement complet
+# Sauvegarder l'environnement complet
 save(
   mics_data,
-  import_summary,
-  all_structures,
-  file = file.path(project_root, "data", "processed", "01_imported_data.RData")
+  mics_data_spss,
+  import_summary_spss,
+  all_structures_spss,
+  labels_dictionary,
+  mics_files_map,
+  file = file.path(project_root, "data", "processed", "01_imported_data_SPSS.RData")
 )
 
-cat("\n✨ Import terminé avec succès!\n")
+cat("\n✨ Import SPSS terminé avec succès!\n")
 cat("📁 Fichiers disponibles dans: data/processed/\n")
-cat("\n🚀 Prochaine étape: Exécuter 02_data_cleaning.R\n\n")
+cat("📚 Métadonnées disponibles dans: data/metadata/\n")
+cat("   - mics6_spss_structure_report.csv (structure complète)\n")
+cat("   - mics6_labels_dictionary.csv (tous les labels)\n")
+cat("\n🚀 Prochaine étape: Exécuter 02_data_cleaning_SPSS.R\n\n")
 
 # ==============================================================================
 # FIN DU SCRIPT
