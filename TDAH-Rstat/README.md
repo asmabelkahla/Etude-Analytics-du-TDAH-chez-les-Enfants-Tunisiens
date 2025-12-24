@@ -159,18 +159,6 @@ quarto render reports/rapport_principal.qmd
    - Stratification
    - Clusters
 
-## 📝 Workflow Git
-
-```bash
-# Créer une branche pour chaque étape
-git checkout -b feature/import-data
-# ... travail ...
-git add .
-git commit -m "Import et nettoyage des données MICS6"
-git push origin feature/import-data
-
-# Puis merge dans main après validation
-```
 
 ## 👥 Contribution
 

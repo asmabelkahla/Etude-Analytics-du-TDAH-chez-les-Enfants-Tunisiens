@@ -1,10 +1,10 @@
 # ==============================================================================
 # PROJET TDAH TUNISIE - MICS6 2023
-# Script 03 : Construction du score de risque théorique TDAH
+# Script 03 : Feature Engineering - Création de variables dérivées
 # ==============================================================================
-# Description: Création d'un indicateur synthétique de vulnérabilité au TDAH
-# Auteur: Asma Belkahla
-# Date: 22/12/2025
+# Description: Création de variables composites et d'interaction
+# Auteur: Asma BELKAHLA
+# Date: 2025-12-23
 # ==============================================================================
 
 # 1. CONFIGURATION ============================================================
@@ -13,357 +13,321 @@ rm(list = ls())
 gc()
 
 library(tidyverse)
-library(here)
-library(psych)      # Pour l'analyse factorielle si nécessaire
-library(corrplot)   # Pour visualiser les corrélations
-library(ggridges)   # Pour des graphiques de distribution
+library(labelled)
+
+project_root <- getwd()
 
 # Charger les données nettoyées
-load(here("data", "processed", "02_cleaned_data.RData"))
+load(file.path(project_root, "data", "processed", "02_cleaned_data_SPSS.RData"))
 
 cat("\n")
 cat("╔════════════════════════════════════════════════════════════════════╗\n")
-cat("║        CONSTRUCTION DU SCORE DE RISQUE THÉORIQUE TDAH              ║\n")
+cat("║              FEATURE ENGINEERING - VARIABLES DÉRIVÉES              ║\n")
 cat("╚════════════════════════════════════════════════════════════════════╝\n\n")
 
-# 2. FACTEURS DE RISQUE TDAH (BASÉS SUR LA LITTÉRATURE) ====================
+cat("📊 Dataset de départ:", nrow(dataset_final), "enfants\n\n")
 
-cat("📚 Facteurs de risque du TDAH reconnus dans la littérature:\n\n")
+# 2. VARIABLES D'INTERACTION ==================================================
 
-facteurs_info <- tribble(
-  ~Catégorie, ~Facteur, ~Poids, ~Reference,
-  "Périnataux", "Âge maternel extrême (<20 ou ≥35)", 0.15, "Thapar et al., 2013",
-  "Périnataux", "Rang de naissance élevé (≥4)", 0.10, "Russell et al., 2016",
-  "Périnataux", "Espacement court (<24 mois)", 0.15, "Cheslack-Postava et al., 2011",
-  "Socio-économiques", "Pauvreté (Q1-Q2)", 0.20, "Russell et al., 2014",
-  "Socio-économiques", "Faible éducation maternelle", 0.15, "Rowland et al., 2018",
-  "Familiaux", "Grande taille du ménage (>7)", 0.10, "Larsson et al., 2014",
-  "Démographiques", "Sexe masculin", 0.15, "Willcutt, 2012"
-)
+cat("🔧 Création des variables d'interaction...\n\n")
 
-print(facteurs_info)
-
-# 3. CRÉATION DES VARIABLES DE RISQUE =======================================
-
-cat("\n🔧 Création des variables de risque binaires...\n")
-
-dataset_score <- dataset_final %>%
+dataset_features <- dataset_final %>%
   mutate(
-    # 1. FACTEURS PÉRINATAUX
+    # === INTERACTIONS SOCIO-DÉMOGRAPHIQUES ===
     
-    # Âge maternel à risque (déjà créé dans 02_)
-    # age_mere_risque = 1 si <20 ou ≥35
-    
-    # Ordre de naissance à risque (déjà créé)
-    # ordre_risque = 1 si ≥4
-    
-    # Intervalle intergénésique à risque (déjà créé)
-    # intervalle_risque = 1 si <24 mois
-    
-    # 2. FACTEURS SOCIO-ÉCONOMIQUES
-    
-    # Pauvreté (Q1-Q2) (déjà créé)
-    # richesse_risque = 1 si Q1 ou Q2
-    
-    # Faible éducation maternelle (déjà créé)
-    # educ_mere_risque = 1 si aucune ou primaire
-    
-    # 3. FACTEURS FAMILIAUX
-    
-    # Grande taille du ménage (déjà créé)
-    # taille_menage_risque = 1 si >7
-    
-    # 4. FACTEURS DÉMOGRAPHIQUES
-    
-    # Sexe masculin
-    sexe_risque = ifelse(sexe == "Masculin", 1, 0),
-    
-    # Milieu rural (facteur de risque additionnel - accès aux soins)
-    milieu_risque = ifelse(milieu == "Rural", 1, 0)
-  )
-
-# Vérifier la création des variables
-cat("\n✅ Variables de risque créées:\n")
-risk_vars <- c("age_mere_risque", "ordre_risque", "intervalle_risque",
-               "richesse_risque", "educ_mere_risque", "taille_menage_risque",
-               "sexe_risque", "milieu_risque")
-
-for (var in risk_vars) {
-  n_risk <- sum(dataset_score[[var]], na.rm = TRUE)
-  pct_risk <- round(n_risk / nrow(dataset_score) * 100, 1)
-  cat(sprintf("  - %-25s: %5d enfants (%5.1f%%)\n", var, n_risk, pct_risk))
-}
-
-# 4. CONSTRUCTION DU SCORE PONDÉRÉ ==========================================
-
-cat("\n📊 Construction du score de risque pondéré...\n")
-
-# Pondérations basées sur la littérature
-poids <- list(
-  age_mere_risque = 0.15,
-  ordre_risque = 0.10,
-  intervalle_risque = 0.15,
-  richesse_risque = 0.20,
-  educ_mere_risque = 0.15,
-  taille_menage_risque = 0.10,
-  sexe_risque = 0.15
-  # milieu_risque = 0.00  # Pas inclus dans le score principal
-)
-
-# Vérifier que les poids somment à 1
-cat("Somme des poids:", sum(unlist(poids)), "\n")
-
-# Calculer le score pondéré (0-100)
-dataset_score <- dataset_score %>%
-  mutate(
-    # Score pondéré (0-100)
-    score_tdah = (
-      age_mere_risque * poids$age_mere_risque +
-      ordre_risque * poids$ordre_risque +
-      intervalle_risque * poids$intervalle_risque +
-      richesse_risque * poids$richesse_risque +
-      educ_mere_risque * poids$educ_mere_risque +
-      taille_menage_risque * poids$taille_menage_risque +
-      sexe_risque * poids$sexe_risque
-    ) * 100,
-    
-    # Score simple (nombre de facteurs de risque présents)
-    score_simple = age_mere_risque + ordre_risque + intervalle_risque +
-                   richesse_risque + educ_mere_risque + taille_menage_risque +
-                   sexe_risque,
-    
-    # Catégories de risque basées sur le score pondéré
-    risque_cat = case_when(
-      score_tdah < 20 ~ "Faible",
-      score_tdah >= 20 & score_tdah < 40 ~ "Moyen",
-      score_tdah >= 40 ~ "Élevé",
+    # Pauvreté urbaine vs rurale
+    pauvrete_milieu = case_when(
+      richesse_risque == 1 & milieu == "Urbain" ~ "Pauvre urbain",
+      richesse_risque == 1 & milieu == "Rural" ~ "Pauvre rural",
+      richesse_risque == 0 & milieu == "Urbain" ~ "Non-pauvre urbain",
+      richesse_risque == 0 & milieu == "Rural" ~ "Non-pauvre rural",
       TRUE ~ NA_character_
     ),
     
-    # Version binaire (risque élevé vs non)
-    risque_eleve = ifelse(score_tdah >= 40, 1, 0)
+    # Éducation et richesse combinées
+    educ_richesse = case_when(
+      educ_mere_risque == 1 & richesse_risque == 1 ~ "Faible éduc + Pauvre",
+      educ_mere_risque == 1 & richesse_risque == 0 ~ "Faible éduc + Non-pauvre",
+      educ_mere_risque == 0 & richesse_risque == 1 ~ "Bonne éduc + Pauvre",
+      educ_mere_risque == 0 & richesse_risque == 0 ~ "Bonne éduc + Non-pauvre",
+      TRUE ~ NA_character_
+    ),
+    
+    # === CUMUL DE FACTEURS PÉRINATAUX ===
+    
+    # Nombre de facteurs périnataux à risque
+    nb_risques_perinataux = (age_mere_risque + ordre_risque + intervalle_risque),
+    
+    # Catégorie de risque périnatal
+    risque_perinatal_cat = case_when(
+      nb_risques_perinataux == 0 ~ "Aucun risque",
+      nb_risques_perinataux == 1 ~ "1 risque",
+      nb_risques_perinataux >= 2 ~ "2+ risques",
+      TRUE ~ NA_character_
+    ),
+    
+    # === CUMUL DE FACTEURS SOCIO-ÉCONOMIQUES ===
+    
+    # Nombre de facteurs socio-économiques à risque
+    nb_risques_socioeco = (richesse_risque + educ_mere_risque + milieu_risque),
+    
+    # Catégorie de risque socio-économique
+    risque_socioeco_cat = case_when(
+      nb_risques_socioeco == 0 ~ "Aucun risque",
+      nb_risques_socioeco == 1 ~ "1 risque",
+      nb_risques_socioeco >= 2 ~ "2+ risques",
+      TRUE ~ NA_character_
+    ),
+    
+    # === VARIABLES D'ÂGE GROUPÉ ===
+    
+    # Groupes d'âge larges
+    age_groupe = case_when(
+      age_annees < 6 ~ "0-5 ans (Préscolaire)",
+      age_annees >= 6 & age_annees < 12 ~ "6-11 ans (Primaire)",
+      age_annees >= 12 & age_annees < 15 ~ "12-14 ans (Collège)",
+      age_annees >= 15 ~ "15-17 ans (Lycée)",
+      TRUE ~ NA_character_
+    ),
+    
+    # Âge maternel détaillé
+    age_mere_detail = case_when(
+      magebrt < 18 ~ "< 18 ans",
+      magebrt >= 18 & magebrt < 20 ~ "18-19 ans",
+      magebrt >= 20 & magebrt < 25 ~ "20-24 ans",
+      magebrt >= 25 & magebrt < 30 ~ "25-29 ans",
+      magebrt >= 30 & magebrt < 35 ~ "30-34 ans",
+      magebrt >= 35 & magebrt < 40 ~ "35-39 ans",
+      magebrt >= 40 ~ "≥ 40 ans",
+      TRUE ~ NA_character_
+    ),
+    
+    # === PROFILS FAMILIAUX ===
+    
+    # Famille nombreuse avec espacement court
+    famille_vulnerable = case_when(
+      taille_menage_risque == 1 & intervalle_risque == 1 ~ "Très vulnérable",
+      taille_menage_risque == 1 | intervalle_risque == 1 ~ "Vulnérable",
+      taille_menage_risque == 0 & intervalle_risque == 0 ~ "Favorable",
+      TRUE ~ NA_character_
+    ),
+    
+    # Position dans la fratrie
+    position_fratrie = case_when(
+      brthord == 1 ~ "Aîné",
+      brthord == 2 ~ "Cadet",
+      brthord >= 3 & brthord <= 4 ~ "Milieu (3-4)",
+      brthord > 4 ~ "Dernier/Grand rang (5+)",
+      TRUE ~ NA_character_
+    ),
+    
+    # === INDICES COMPOSITES ===
+    
+    # Indice de vulnérabilité familiale (0-3)
+    vulnerabilite_familiale = (
+      if_else(taille_menage > median(taille_menage, na.rm = TRUE), 1, 0) +
+      if_else(brthord >= 3, 1, 0) +
+      if_else(!is.na(birthint) & birthint < 36, 1, 0)
+    ),
+    
+    # Indice d'adversité socio-économique (0-4)
+    adversite_socioeco = (
+      richesse_risque +
+      educ_mere_risque +
+      milieu_risque +
+      if_else(taille_menage_risque == 1, 1, 0)
+    ),
+    
+    # === VARIABLES BINAIRES COMBINÉES ===
+    
+    # Au moins 1 risque périnatal
+    risque_perinatal_present = if_else(nb_risques_perinataux >= 1, 1, 0),
+    
+    # Au moins 1 risque socio-économique
+    risque_socioeco_present = if_else(nb_risques_socioeco >= 1, 1, 0),
+    
+    # Cumul risque périnatal + socio-économique
+    double_risque = if_else(
+      risque_perinatal_present == 1 & risque_socioeco_present == 1, 1, 0
+    )
   ) %>%
+  
+  # Convertir en facteurs
   mutate(
-    risque_cat = factor(risque_cat, levels = c("Faible", "Moyen", "Élevé"))
+    pauvrete_milieu = factor(pauvrete_milieu,
+      levels = c("Non-pauvre urbain", "Non-pauvre rural", 
+                 "Pauvre urbain", "Pauvre rural")),
+    
+    educ_richesse = factor(educ_richesse,
+      levels = c("Bonne éduc + Non-pauvre", "Bonne éduc + Pauvre",
+                 "Faible éduc + Non-pauvre", "Faible éduc + Pauvre")),
+    
+    risque_perinatal_cat = factor(risque_perinatal_cat,
+      levels = c("Aucun risque", "1 risque", "2+ risques")),
+    
+    risque_socioeco_cat = factor(risque_socioeco_cat,
+      levels = c("Aucun risque", "1 risque", "2+ risques")),
+    
+    age_groupe = factor(age_groupe,
+      levels = c("0-5 ans (Préscolaire)", "6-11 ans (Primaire)",
+                 "12-14 ans (Collège)", "15-17 ans (Lycée)")),
+    
+    famille_vulnerable = factor(famille_vulnerable,
+      levels = c("Favorable", "Vulnérable", "Très vulnérable")),
+    
+    position_fratrie = factor(position_fratrie,
+      levels = c("Aîné", "Cadet", "Milieu (3-4)", "Dernier/Grand rang (5+)"))
   )
 
-# 5. STATISTIQUES DESCRIPTIVES DU SCORE =====================================
+cat("✅ Variables d'interaction créées\n\n")
 
-cat("\n📈 Statistiques descriptives du score TDAH:\n\n")
+# 3. STATISTIQUES DESCRIPTIVES DES NOUVELLES VARIABLES =======================
 
-# Score pondéré
-cat("Score pondéré (0-100):\n")
-summary_score <- summary(dataset_score$score_tdah)
-print(summary_score)
+cat("📊 Distribution des nouvelles variables:\n\n")
 
-cat("\nÉcart-type:", round(sd(dataset_score$score_tdah, na.rm = TRUE), 2), "\n")
+# Cumul de risques périnataux
+cat("Risques périnataux cumulés:\n")
+print(table(dataset_features$risque_perinatal_cat, useNA = "ifany"))
 
-# Score simple
-cat("\nScore simple (nombre de facteurs):\n")
-table_simple <- table(dataset_score$score_simple)
-print(table_simple)
+# Cumul de risques socio-économiques
+cat("\nRisques socio-économiques cumulés:\n")
+print(table(dataset_features$risque_socioeco_cat, useNA = "ifany"))
 
-# Distribution des catégories de risque
-cat("\nDistribution des catégories de risque:\n")
-table_risque <- dataset_score %>%
-  count(risque_cat) %>%
+# Double risque
+cat("\nDouble risque (périnatal + socio-éco):\n")
+print(table(dataset_features$double_risque, useNA = "ifany"))
+cat("Proportion:", round(mean(dataset_features$double_risque, na.rm = TRUE) * 100, 1), "%\n")
+
+# Pauvreté selon le milieu
+cat("\nPauvreté selon le milieu:\n")
+print(table(dataset_features$pauvrete_milieu, useNA = "ifany"))
+
+# Groupes d'âge
+cat("\nDistribution par groupe d'âge:\n")
+print(table(dataset_features$age_groupe, useNA = "ifany"))
+
+# 4. MATRICE DE CORRÉLATIONS ENTRE FACTEURS ==================================
+
+cat("\n📈 Corrélations entre facteurs de risque:\n\n")
+
+risk_vars <- dataset_features %>%
+  select(
+    age_mere_risque, ordre_risque, intervalle_risque,
+    richesse_risque, educ_mere_risque, milieu_risque,
+    taille_menage_risque, sexe_risque
+  )
+
+cor_matrix <- cor(risk_vars, use = "pairwise.complete.obs")
+print(round(cor_matrix, 2))
+
+# 5. ANALYSES CROISÉES ========================================================
+
+cat("\n📊 Analyses croisées:\n\n")
+
+# Risque périnatal selon le milieu
+cat("Risque périnatal selon le milieu de résidence:\n")
+risk_milieu <- dataset_features %>%
+  count(milieu, risque_perinatal_cat) %>%
+  group_by(milieu) %>%
+  mutate(pct = round(n / sum(n) * 100, 1)) %>%
+  ungroup()
+print(risk_milieu)
+
+# Risque socio-économique selon la richesse
+cat("\nRisque socio-économique selon le quintile de richesse:\n")
+risk_richesse <- dataset_features %>%
+  count(richesse_cat, risque_socioeco_cat) %>%
+  group_by(richesse_cat) %>%
+  mutate(pct = round(n / sum(n) * 100, 1)) %>%
+  ungroup()
+print(risk_richesse)
+
+# 6. CRÉATION DE SOUS-GROUPES POUR ANALYSES STRATIFIÉES ======================
+
+cat("\n🎯 Identification des sous-groupes clés:\n\n")
+
+dataset_features <- dataset_features %>%
   mutate(
-    pct = round(n / sum(n) * 100, 1),
-    pct_cum = cumsum(pct)
-  )
-print(table_risque)
-
-cat("\nPrévalence du risque élevé:", 
-    sum(dataset_score$risque_eleve, na.rm = TRUE), "enfants (",
-    round(mean(dataset_score$risque_eleve, na.rm = TRUE) * 100, 1), "%)\n")
-
-# 6. VISUALISATIONS DU SCORE =================================================
-
-cat("\n📊 Création des visualisations...\n")
-
-# Créer le dossier figures si nécessaire
-dir.create(here("reports", "figures"), showWarnings = FALSE, recursive = TRUE)
-
-# 6.1 Distribution du score pondéré
-p1 <- ggplot(dataset_score, aes(x = score_tdah)) +
-  geom_histogram(aes(y = after_stat(density)), 
-                 bins = 30, fill = "steelblue", alpha = 0.7, color = "white") +
-  geom_density(color = "red", size = 1) +
-  geom_vline(xintercept = c(20, 40), linetype = "dashed", color = "darkred") +
-  annotate("text", x = 10, y = 0.03, label = "Faible", color = "darkgreen", size = 4) +
-  annotate("text", x = 30, y = 0.03, label = "Moyen", color = "orange", size = 4) +
-  annotate("text", x = 50, y = 0.03, label = "Élevé", color = "red", size = 4) +
-  labs(
-    title = "Distribution du Score de Risque Théorique TDAH",
-    subtitle = paste0("N = ", nrow(dataset_score), " enfants"),
-    x = "Score de risque (0-100)",
-    y = "Densité"
-  ) +
-  theme_minimal(base_size = 12) +
-  theme(plot.title = element_text(face = "bold", size = 14))
-
-ggsave(here("reports", "figures", "01_distribution_score.png"), 
-       p1, width = 10, height = 6, dpi = 300)
-
-# 6.2 Distribution par catégorie de risque
-p2 <- dataset_score %>%
-  count(risque_cat) %>%
-  mutate(
-    pct = n / sum(n) * 100,
-    label = paste0(n, "\n(", round(pct, 1), "%)")
-  ) %>%
-  ggplot(aes(x = risque_cat, y = n, fill = risque_cat)) +
-  geom_col(alpha = 0.8, color = "white", size = 1) +
-  geom_text(aes(label = label), vjust = -0.5, size = 4, fontface = "bold") +
-  scale_fill_manual(values = c("Faible" = "#2ecc71", 
-                                "Moyen" = "#f39c12", 
-                                "Élevé" = "#e74c3c")) +
-  labs(
-    title = "Répartition des Enfants par Catégorie de Risque TDAH",
-    x = "Catégorie de risque",
-    y = "Nombre d'enfants"
-  ) +
-  theme_minimal(base_size = 12) +
-  theme(
-    legend.position = "none",
-    plot.title = element_text(face = "bold", size = 14)
-  ) +
-  scale_y_continuous(expand = expansion(mult = c(0, 0.15)))
-
-ggsave(here("reports", "figures", "02_categories_risque.png"), 
-       p2, width = 10, height = 6, dpi = 300)
-
-# 6.3 Score par sexe
-p3 <- ggplot(dataset_score, aes(x = score_tdah, y = sexe, fill = sexe)) +
-  geom_density_ridges(alpha = 0.7, scale = 1.2) +
-  geom_vline(xintercept = c(20, 40), linetype = "dashed", alpha = 0.5) +
-  scale_fill_manual(values = c("Masculin" = "#3498db", "Féminin" = "#e91e63")) +
-  labs(
-    title = "Distribution du Score TDAH selon le Sexe",
-    x = "Score de risque (0-100)",
-    y = "Sexe"
-  ) +
-  theme_minimal(base_size = 12) +
-  theme(
-    legend.position = "none",
-    plot.title = element_text(face = "bold", size = 14)
+    # Groupe 1: Enfants à haut risque multiple (3+ facteurs)
+    haut_risque_multiple = if_else(
+      (nb_risques_perinataux + nb_risques_socioeco) >= 3, 1, 0
+    ),
+    
+    # Groupe 2: Garçons avec facteurs cumulés
+    garcon_risque = if_else(
+      sexe == "Masculin" & (nb_risques_perinataux + nb_risques_socioeco) >= 2, 1, 0
+    ),
+    
+    # Groupe 3: Milieu rural défavorisé
+    rural_defavorise = if_else(
+      milieu == "Rural" & richesse_risque == 1 & educ_mere_risque == 1, 1, 0
+    )
   )
 
-ggsave(here("reports", "figures", "03_score_par_sexe.png"), 
-       p3, width = 10, height = 6, dpi = 300)
+cat("Sous-groupes identifiés:\n")
+cat("  - Haut risque multiple (3+ facteurs):", 
+    sum(dataset_features$haut_risque_multiple), "enfants (",
+    round(mean(dataset_features$haut_risque_multiple) * 100, 1), "%)\n")
+cat("  - Garçons avec risques cumulés:", 
+    sum(dataset_features$garcon_risque), "enfants (",
+    round(mean(dataset_features$garcon_risque) * 100, 1), "%)\n")
+cat("  - Rural défavorisé:", 
+    sum(dataset_features$rural_defavorise), "enfants (",
+    round(mean(dataset_features$rural_defavorise) * 100, 1), "%)\n")
 
-# 6.4 Score par quintile de richesse
-p4 <- ggplot(dataset_score, aes(x = richesse_cat, y = score_tdah, fill = richesse_cat)) +
-  geom_boxplot(alpha = 0.7, outlier.alpha = 0.3) +
-  stat_summary(fun = mean, geom = "point", shape = 23, size = 3, fill = "red") +
-  labs(
-    title = "Score TDAH selon le Quintile de Richesse",
-    x = "Quintile de richesse",
-    y = "Score de risque (0-100)"
-  ) +
-  theme_minimal(base_size = 12) +
-  theme(
-    legend.position = "none",
-    plot.title = element_text(face = "bold", size = 14),
-    axis.text.x = element_text(angle = 20, hjust = 1)
-  ) +
-  scale_fill_brewer(palette = "RdYlGn", direction = -1)
+# 7. SAUVEGARDE ===============================================================
 
-ggsave(here("reports", "figures", "04_score_par_richesse.png"), 
-       p4, width = 10, height = 6, dpi = 300)
+cat("\n💾 Sauvegarde des données enrichies...\n")
 
-cat("  ✅ Graphiques sauvegardés dans reports/figures/\n")
-
-# 7. ANALYSE DES CORRÉLATIONS ENTRE FACTEURS ================================
-
-cat("\n🔍 Analyse des corrélations entre facteurs de risque...\n")
-
-# Matrice de corrélation
-cor_matrix <- dataset_score %>%
-  select(all_of(risk_vars)) %>%
-  cor(use = "pairwise.complete.obs", method = "pearson")
-
-# Visualisation
-png(here("reports", "figures", "05_correlation_facteurs.png"), 
-    width = 800, height = 800, res = 120)
-corrplot(cor_matrix, 
-         method = "color", 
-         type = "upper",
-         addCoef.col = "black",
-         tl.col = "black",
-         tl.srt = 45,
-         title = "Corrélations entre Facteurs de Risque TDAH",
-         mar = c(0,0,2,0))
-dev.off()
-
-cat("  ✅ Matrice de corrélation sauvegardée\n")
-
-# 8. VALIDATION DU SCORE ====================================================
-
-cat("\n✅ Validation du score de risque:\n\n")
-
-# Cohérence interne (alpha de Cronbach)
-alpha_result <- psych::alpha(dataset_score[, risk_vars], check.keys = TRUE)
-cat("Alpha de Cronbach:", round(alpha_result$total$raw_alpha, 3), "\n")
-
-# Distribution par sous-groupes
-cat("\nScore moyen par sous-groupes:\n")
-scores_groupes <- dataset_score %>%
-  group_by(sexe, milieu) %>%
-  summarise(
-    n = n(),
-    score_moyen = round(mean(score_tdah, na.rm = TRUE), 1),
-    score_sd = round(sd(score_tdah, na.rm = TRUE), 1),
-    pct_risque_eleve = round(mean(risque_eleve, na.rm = TRUE) * 100, 1),
-    .groups = "drop"
-  )
-print(scores_groupes)
-
-# 9. SAUVEGARDE DES RÉSULTATS ================================================
-
-cat("\n💾 Sauvegarde des résultats...\n")
-
-# Sauvegarder le dataset avec scores
-saveRDS(dataset_score, here("data", "processed", "dataset_with_score.rds"))
-cat("  ✅ Dataset avec scores sauvegardé\n")
-
-# Sauvegarder un résumé des scores
-resume_scores <- tibble(
-  statistique = c("N", "Moyenne", "Médiane", "Écart-type", "Min", "Max",
-                  "% Risque faible", "% Risque moyen", "% Risque élevé"),
-  valeur = c(
-    nrow(dataset_score),
-    round(mean(dataset_score$score_tdah, na.rm = TRUE), 2),
-    round(median(dataset_score$score_tdah, na.rm = TRUE), 2),
-    round(sd(dataset_score$score_tdah, na.rm = TRUE), 2),
-    round(min(dataset_score$score_tdah, na.rm = TRUE), 2),
-    round(max(dataset_score$score_tdah, na.rm = TRUE), 2),
-    round(sum(dataset_score$risque_cat == "Faible", na.rm = TRUE) / 
-            nrow(dataset_score) * 100, 1),
-    round(sum(dataset_score$risque_cat == "Moyen", na.rm = TRUE) / 
-            nrow(dataset_score) * 100, 1),
-    round(sum(dataset_score$risque_cat == "Élevé", na.rm = TRUE) / 
-            nrow(dataset_score) * 100, 1)
-  )
+saveRDS(
+  dataset_features,
+  file.path(project_root, "data", "processed", "dataset_features.rds")
 )
 
-write_csv(resume_scores, here("data", "processed", "resume_scores_tdah.csv"))
-cat("  ✅ Résumé des scores sauvegardé\n")
+# Créer un dictionnaire des nouvelles variables
+nouvelles_vars <- tibble(
+  variable = setdiff(names(dataset_features), names(dataset_final)),
+  description = c(
+    "Pauvreté selon milieu urbain/rural",
+    "Éducation maternelle et richesse combinées",
+    "Nombre de risques périnataux (0-3)",
+    "Catégorie de risque périnatal",
+    "Nombre de risques socio-économiques (0-3)",
+    "Catégorie de risque socio-économique",
+    "Groupe d'âge de l'enfant",
+    "Âge maternel détaillé",
+    "Vulnérabilité familiale",
+    "Position dans la fratrie",
+    "Indice de vulnérabilité familiale (0-3)",
+    "Indice d'adversité socio-économique (0-4)",
+    "Présence d'au moins 1 risque périnatal",
+    "Présence d'au moins 1 risque socio-économique",
+    "Double risque (périnatal + socio-éco)",
+    "Haut risque multiple (3+ facteurs)",
+    "Garçons avec risques cumulés",
+    "Rural défavorisé (pauvre + faible éduc)"
+  )[1:length(setdiff(names(dataset_features), names(dataset_final)))]
+)
 
-# Sauvegarder l'environnement
+write_csv(
+  nouvelles_vars,
+  file.path(project_root, "data", "metadata", "nouvelles_variables.csv")
+)
+
 save(
-  dataset_score,
-  facteurs_info,
-  poids,
+  dataset_features,
   cor_matrix,
-  resume_scores,
-  scores_groupes,
-  file = here("data", "processed", "03_risk_score.RData")
+  risk_milieu,
+  risk_richesse,
+  file = file.path(project_root, "data", "processed", "03_features.RData")
 )
 
-cat("\n✨ Construction du score terminée avec succès!\n")
-cat("📊 Graphiques disponibles dans: reports/figures/\n")
-cat("\n🚀 Prochaine étape: Exécuter 04_descriptive_analysis.R\n\n")
+cat("  ✅ Données sauvegardées:", nrow(dataset_features), "enfants\n")
+cat("  ✅ Nouvelles variables:", 
+    length(setdiff(names(dataset_features), names(dataset_final))), "\n\n")
+
+cat("✨ Feature engineering terminé!\n")
+cat("🚀 Prochaine étape: 04_descriptive_analysis.R\n\n")
 
 # ==============================================================================
 # FIN DU SCRIPT

@@ -1,12 +1,11 @@
 # ==============================================================================
 # PROJET TDAH TUNISIE - MICS6 2023
-# Script 01 : Import des données
+# Script 01 : Import des données SPSS (.sav)
 # ==============================================================================
-# Description: Import et première inspection des fichiers MICS6
+# Description: Import direct des fichiers SPSS sans conversion
 # Auteur: Asma BELKAHLA
 # Date: 2025-12-23
 # ==============================================================================
-
 
 # 1. CONFIGURATION ============================================================
 
@@ -242,14 +241,18 @@ cat("\n📊 Datasets importés avec succès:", length(mics_data_spss), "/ 7\n")
 cat("\n🔍 Vérification des variables clés dans BH...\n\n")
 
 if (!is.null(mics_data_spss$bh)) {
-  bh_vars_check <- c("BH4C", "BH4F", "BH9C", "BH9F", "MAGEBRT", "BRTHORD", 
-                     "BIRTHINT", "WINDEX5", "WELEVEL", "HH6", "HH7")
+  # Chercher en majuscules ET minuscules
+  bh_names_lower <- tolower(names(mics_data_spss$bh))
+  bh_vars_check <- c("bh4c", "bh4f", "bh9c", "bh9f", "magebrt", "brthord", 
+                     "birthint", "windex5", "welevel", "hh6", "hh7")
   
   cat("Variables clés dans BH:\n")
   for (v in bh_vars_check) {
-    if (v %in% names(mics_data_spss$bh)) {
-      var_label <- attr(mics_data_spss$bh[[v]], "label")
-      cat("  ✅", v)
+    idx <- which(bh_names_lower == v)
+    if (length(idx) > 0) {
+      actual_name <- names(mics_data_spss$bh)[idx[1]]
+      var_label <- attr(mics_data_spss$bh[[actual_name]], "label")
+      cat("  ✅", actual_name)
       if (!is.null(var_label)) cat(" -", var_label)
       cat("\n")
     } else {
