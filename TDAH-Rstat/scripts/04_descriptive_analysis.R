@@ -1,10 +1,10 @@
 # ==============================================================================
 # PROJET TDAH TUNISIE - MICS6 2023
-# Script 04 : Analyses descriptives complètes (VERSION SIMPLIFIÉE)
+# Script 04 : Analyses descriptives complètes (VERSION CORRIGÉE)
 # ==============================================================================
-# Description: Statistiques descriptives sans packages problématiques
+# Description: Statistiques descriptives avec correction de l'erreur pivot_longer
 # Auteur: Asma BELKAHLA
-# Date: 2025-12-23
+# Date: 2025-12-24
 # ==============================================================================
 
 # 1. CONFIGURATION ============================================================
@@ -83,7 +83,6 @@ table1_data <- dataset_features %>%
   summarise(
     N = n(),
     Age_moyen = round(mean(age_annees, na.rm = TRUE), 1),
-    Pct_garcons = round(mean(sexe == "Masculin", na.rm = TRUE) * 100, 1),
     Pct_urbain = round(mean(milieu == "Urbain", na.rm = TRUE) * 100, 1),
     Pct_pauvres = round(mean(richesse_risque, na.rm = TRUE) * 100, 1),
     Taille_menage_moy = round(mean(taille_menage, na.rm = TRUE), 1)
@@ -233,9 +232,12 @@ p2 <- dataset_features %>%
 ggsave(file.path(project_root, "reports", "figures", "02_cumul_facteurs.png"),
        p2, width = 12, height = 8, dpi = 300)
 
-# 5.3 Facteurs de risque par sexe
+# 5.3 Facteurs de risque par sexe - CORRIGÉ
 p3 <- dataset_features %>%
-  select(sexe, age_mere_risque:taille_menage_risque) %>%
+  # Sélectionner UNIQUEMENT les variables de risque binaires
+  select(sexe, age_mere_risque, ordre_risque, intervalle_risque,
+         richesse_risque, educ_mere_risque, milieu_risque,
+         taille_menage_risque) %>%
   pivot_longer(cols = -sexe, names_to = "Facteur", values_to = "Risque") %>%
   filter(!is.na(sexe)) %>%
   group_by(sexe, Facteur) %>%
@@ -285,7 +287,7 @@ p4 <- dataset_features %>%
                                "Rang ≥4", "Ménage >7"))
   ) %>%
   ggplot(aes(x = richesse_cat, y = pct, color = Facteur, group = Facteur)) +
-  geom_line(size = 1.2) +
+  geom_line(linewidth = 1.2) +
   geom_point(size = 3) +
   scale_color_brewer(palette = "Set1") +
   scale_y_continuous(labels = percent_format(scale = 1)) +
@@ -349,6 +351,7 @@ cat("✨ Analyses descriptives terminées!\n")
 cat("📊 Fichiers générés:\n")
 cat("  - 3 tableaux CSV (dans reports/figures/)\n")
 cat("  - 4 graphiques PNG\n")
+cat("  - 04_descriptive.RData créé avec succès ✅\n")
 cat("🚀 Prochaine étape: 05_risk_score.R\n\n")
 
 # ==============================================================================

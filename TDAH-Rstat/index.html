@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Asma BELKAHLA">
+<meta name="dcterms.date" content="2025-12-24">
 
-<title>TDAH-RSTAT - Accueil</title>
+<title>Projet TDAH Tunisie</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,30 +33,96 @@ ul.task-list li input[type="checkbox"] {
 <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="index_files/libs/quarto-html/anchor.min.js"></script>
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-597958c53c93a607afca12fd375c57ed.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="index_files/libs/bootstrap/bootstrap-9e3ffae467580fdb927a41352e75a2e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="index_files/libs/bootstrap/bootstrap-8db4201b14708b18b0c4eb564971129b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="index_files/libs/quarto-diagram/mermaid.min.js"></script>
+<script src="index_files/libs/quarto-diagram/mermaid-init.js"></script>
+<link href="index_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="fullcontent quarto-light">
+<body class="quarto-light">
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#présentation-du-projet" id="toc-présentation-du-projet" class="nav-link active" data-scroll-target="#présentation-du-projet">🎯 Présentation du Projet</a>
+  <ul class="collapse">
+  <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
+  <li><a href="#objectif-principal" id="toc-objectif-principal" class="nav-link" data-scroll-target="#objectif-principal">Objectif Principal</a></li>
+  <li><a href="#source-des-données" id="toc-source-des-données" class="nav-link" data-scroll-target="#source-des-données">Source des Données</a></li>
+  </ul></li>
+  <li><a href="#structure-du-projet" id="toc-structure-du-projet" class="nav-link" data-scroll-target="#structure-du-projet">📊 Structure du Projet</a>
+  <ul class="collapse">
+  <li><a href="#organisation-des-fichiers" id="toc-organisation-des-fichiers" class="nav-link" data-scroll-target="#organisation-des-fichiers">Organisation des Fichiers</a></li>
+  <li><a href="#pipeline-danalyse" id="toc-pipeline-danalyse" class="nav-link" data-scroll-target="#pipeline-danalyse">Pipeline d’Analyse</a></li>
+  </ul></li>
+  <li><a href="#méthodologie" id="toc-méthodologie" class="nav-link" data-scroll-target="#méthodologie">🔍 Méthodologie</a>
+  <ul class="collapse">
+  <li><a href="#variables-étudiées" id="toc-variables-étudiées" class="nav-link" data-scroll-target="#variables-étudiées">Variables Étudiées</a></li>
+  <li><a href="#analyses-statistiques" id="toc-analyses-statistiques" class="nav-link" data-scroll-target="#analyses-statistiques">Analyses Statistiques</a></li>
+  </ul></li>
+  <li><a href="#principaux-résultats" id="toc-principaux-résultats" class="nav-link" data-scroll-target="#principaux-résultats">📈 Principaux Résultats</a>
+  <ul class="collapse">
+  <li><a href="#vue-densemble" id="toc-vue-densemble" class="nav-link" data-scroll-target="#vue-densemble">Vue d’Ensemble</a></li>
+  <li><a href="#facteurs-de-risque-majeurs" id="toc-facteurs-de-risque-majeurs" class="nav-link" data-scroll-target="#facteurs-de-risque-majeurs">Facteurs de Risque Majeurs</a></li>
+  <li><a href="#populations-vulnérables" id="toc-populations-vulnérables" class="nav-link" data-scroll-target="#populations-vulnérables">Populations Vulnérables</a></li>
+  </ul></li>
+  <li><a href="#documents-disponibles" id="toc-documents-disponibles" class="nav-link" data-scroll-target="#documents-disponibles">📋 Documents Disponibles</a>
+  <ul class="collapse">
+  <li><a href="#rapports-et-présentations" id="toc-rapports-et-présentations" class="nav-link" data-scroll-target="#rapports-et-présentations">Rapports et Présentations</a></li>
+  <li><a href="#données-générées" id="toc-données-générées" class="nav-link" data-scroll-target="#données-générées">Données Générées</a></li>
+  </ul></li>
+  <li><a href="#implications-et-recommandations" id="toc-implications-et-recommandations" class="nav-link" data-scroll-target="#implications-et-recommandations">💡 Implications et Recommandations</a>
+  <ul class="collapse">
+  <li><a href="#pour-la-santé-publique" id="toc-pour-la-santé-publique" class="nav-link" data-scroll-target="#pour-la-santé-publique">Pour la Santé Publique</a></li>
+  <li><a href="#pour-les-politiques-publiques" id="toc-pour-les-politiques-publiques" class="nav-link" data-scroll-target="#pour-les-politiques-publiques">Pour les Politiques Publiques</a></li>
+  </ul></li>
+  <li><a href="#ressources-et-références" id="toc-ressources-et-références" class="nav-link" data-scroll-target="#ressources-et-références">📚 Ressources et Références</a>
+  <ul class="collapse">
+  <li><a href="#publications-clés" id="toc-publications-clés" class="nav-link" data-scroll-target="#publications-clés">Publications Clés</a></li>
+  <li><a href="#liens-utiles" id="toc-liens-utiles" class="nav-link" data-scroll-target="#liens-utiles">Liens Utiles</a></li>
+  <li><a href="#contact" id="toc-contact" class="nav-link" data-scroll-target="#contact">Contact</a></li>
+  </ul></li>
+  <li><a href="#perspectives" id="toc-perspectives" class="nav-link" data-scroll-target="#perspectives">🚀 Perspectives</a>
+  <ul class="collapse">
+  <li><a href="#prochaines-étapes" id="toc-prochaines-étapes" class="nav-link" data-scroll-target="#prochaines-étapes">Prochaines Étapes</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TDAH-RSTAT - Accueil</h1>
+<h1 class="title">Projet TDAH Tunisie</h1>
+<p class="subtitle lead">Facteurs de Risque du TDAH chez les Enfants Tunisiens - Analyse MICS6 2023</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Asma BELKAHLA </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 24, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -64,66 +132,416 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="bienvenue-dans-le-projet-tdah-rstat" class="level2">
-<h2 class="anchored" data-anchor-id="bienvenue-dans-le-projet-tdah-rstat">🌍 Bienvenue dans le Projet TDAH-RSTAT</h2>
-<p>Ce site présente les résultats d’une analyse secondaire des données <strong>MICS6 Tunisie 2023</strong> sur les facteurs associés au risque théorique de TDAH chez les enfants tunisiens.</p>
-<section id="contexte-du-projet" class="level3">
-<h3 class="anchored" data-anchor-id="contexte-du-projet">📌 Contexte du Projet</h3>
-<p>Cette étude est née d’une observation personnelle : le fils d’une amie présente des symptômes de TDAH, et son école a signalé que plus de 20 enfants dans l’établissement auraient des difficultés similaires.</p>
-<p><strong>Question de recherche</strong> : Que pouvons-nous apprendre sur ce phénomène à l’échelle nationale grâce aux données MICS6 ?</p>
+<section id="présentation-du-projet" class="level1">
+<h1>🎯 Présentation du Projet</h1>
+<section id="contexte" class="level2">
+<h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
+<p>Le Trouble Déficitaire de l’Attention avec ou sans Hyperactivité (TDAH) est l’un des troubles neurodéveloppementaux les plus fréquents de l’enfance, affectant environ 5 à 7% des enfants dans le monde. En Tunisie, peu d’études ont exploré systématiquement les facteurs de risque du TDAH au niveau populationnel.</p>
 </section>
-<section id="objectifs-spécifiques" class="level3">
-<h3 class="anchored" data-anchor-id="objectifs-spécifiques">🎯 Objectifs Spécifiques</h3>
-<ol type="1">
-<li><strong>Caractérisation</strong> des facteurs périnataux et familiaux</li>
-<li><strong>Construction</strong> d’un score de vulnérabilité théorique</li>
-<li><strong>Analyse</strong> des inégalités selon le sexe, la richesse et la région</li>
-<li><strong>Recommandations</strong> pour les politiques publiques</li>
-</ol>
+<section id="objectif-principal" class="level2">
+<h2 class="anchored" data-anchor-id="objectif-principal">Objectif Principal</h2>
+<p><strong>Identifier et quantifier les facteurs de risque socio-démographiques, périnataux et socio-économiques associés à une vulnérabilité accrue au TDAH chez les enfants tunisiens</strong>, en utilisant les données représentatives de l’enquête MICS6 Tunisie 2023.</p>
 </section>
-<section id="méthodologie" class="level3">
-<h3 class="anchored" data-anchor-id="méthodologie">📊 Méthodologie</h3>
+<section id="source-des-données" class="level2">
+<h2 class="anchored" data-anchor-id="source-des-données">Source des Données</h2>
+<p><strong>MICS6 (Multiple Indicator Cluster Survey) - Tunisie 2023</strong></p>
 <ul>
-<li><strong>Source</strong> : Données MICS6 Tunisie 2023 (UNICEF)</li>
-<li><strong>Approche</strong> : Score composite basé sur 7 facteurs de risque</li>
-<li><strong>Analyse</strong> : Statistiques descriptives et modélisation</li>
-<li><strong>Logiciel</strong> : R avec Quarto pour le rapport</li>
+<li>Enquête nationale représentative</li>
+<li>Réalisée par l’Institut National de la Statistique (INS)</li>
+<li>Avec le soutien de l’UNICEF</li>
+<li>Échantillon : ~20,000 enfants âgés de 0 à 17 ans</li>
+<li>Données collectées en 2023</li>
 </ul>
-</section>
-<section id="navigation" class="level3">
-<h3 class="anchored" data-anchor-id="navigation">📁 Navigation</h3>
-<ul>
-<li><strong><a href="tdah_tunisie.qmd">Rapport Principal</a></strong> : Analyse complète avec résultats</li>
-<li><strong><a href="https://github.com/votrecompte/TDAH-RSTAT">Code Source</a></strong> : Répertoire GitHub</li>
-<li><strong><a href="https://mics.unicef.org">Données MICS6</a></strong> : Site officiel UNICEF</li>
-</ul>
-</section>
-<section id="limites-importantes" class="level3">
-<h3 class="anchored" data-anchor-id="limites-importantes">⚠️ Limites Importantes</h3>
-<ul>
-<li>❌ <strong>Pas de diagnostic</strong> : Cette étude ne diagnostique pas le TDAH</li>
-<li>📊 <strong>Score théorique</strong> : Basé sur des facteurs de risque connus</li>
-<li>🕒 <strong>Données transversales</strong> : Pas de relations causales</li>
-<li>🏥 <strong>Données déclaratives</strong> : Pas de mesures cliniques</li>
-</ul>
-</section>
-<section id="à-propos" class="level3">
-<h3 class="anchored" data-anchor-id="à-propos">👤 À Propos</h3>
-<p><strong>Auteur</strong> : Asma BELKAHLA<br>
-<strong>Formation</strong> : R_Statistique / Data Science<br>
-<strong>Contact</strong> : asma.belkahla@polytechnicien.tn <strong>Date</strong> : <code>r format(Sys.Date(), "%B %Y")</code></p>
 <hr>
 </section>
-<section id="résumé-des-données" class="level3">
-<h3 class="anchored" data-anchor-id="résumé-des-données">📈 Résumé des Données</h3>
-<p>#| echo: false #| warning: false</p>
-<p>library(tidyverse)</p>
+</section>
+<section id="structure-du-projet" class="level1">
+<h1>📊 Structure du Projet</h1>
+<section id="organisation-des-fichiers" class="level2">
+<h2 class="anchored" data-anchor-id="organisation-des-fichiers">Organisation des Fichiers</h2>
+<pre><code>projet-tdah-tunisie/
+│
+├── data/
+│   ├── raw/                    # Données brutes MICS6 (.sav)
+│   ├── processed/              # Données nettoyées et enrichies
+│   └── metadata/               # Dictionnaires et métadonnées
+│
+├── scripts/
+│   ├── 00_setup_packages.R           # Configuration environnement
+│   ├── 01_data_import.R              # Import données SPSS
+│   ├── 02_data_cleaning.R            # Nettoyage
+│   ├── 03_feature_engineering.R      # Variables dérivées
+│   ├── 04_descriptive_analysis.R     # Analyses descriptives
+│   ├── 05_risk_score.R               # Score de risque TDAH
+│   └── 06_statistical_models.R       # Modèles statistiques
+│
+├── reports/
+│   ├── rapport_principal.qmd         # Rapport d'analyse complet
+│   ├── presentation.qmd              # Présentation des résultats
+│   └── figures/                      # Graphiques générés
+│
+└── index.qmd                         # Page d'accueil (ce fichier)</code></pre>
+</section>
+<section id="pipeline-danalyse" class="level2">
+<h2 class="anchored" data-anchor-id="pipeline-danalyse">Pipeline d’Analyse</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph LR
+    A[Données brutes&lt;br/&gt;MICS6 .sav] --&gt; B[01: Import&lt;br/&gt;SPSS]
+    B --&gt; C[02: Nettoyage]
+    C --&gt; D[03: Feature&lt;br/&gt;Engineering]
+    D --&gt; E[04: Analyses&lt;br/&gt;Descriptives]
+    D --&gt; F[05: Score de&lt;br/&gt;Risque]
+    F --&gt; G[06: Modèles&lt;br/&gt;Statistiques]
+    E --&gt; H[Rapport Final]
+    G --&gt; H
+    
+    style A fill:#e1f5ff
+    style H fill:#d4edda
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<hr>
 </section>
 </section>
-<section id="données-simulées-pour-lillustration" class="level1">
-<h1>Données simulées pour l’illustration</h1>
-<p>set.seed(123) donnees_resume &lt;- tibble( Région = c(“Tunis”, “Nord-Est”, “Nord-Ouest”, “Centre-Est”, “Sud”), Enfants = round(runif(5, 1000, 5000)), Score_Moyen = round(runif(5, 0.2, 0.7), 2), Risque_Élevé = round(runif(5, 5, 25), 1) )</p>
-<p>donnees_resume %&gt;% knitr::kable( caption = “Données illustratives par région”, align = “c” ) %&gt;% kableExtra::kable_styling( bootstrap_options = c(“striped”, “hover”) )</p>
+<section id="méthodologie" class="level1">
+<h1>🔍 Méthodologie</h1>
+<section id="variables-étudiées" class="level2">
+<h2 class="anchored" data-anchor-id="variables-étudiées">Variables Étudiées</h2>
+<section id="variable-dépendante" class="level3">
+<h3 class="anchored" data-anchor-id="variable-dépendante">Variable Dépendante</h3>
+<p><strong>Score de risque théorique TDAH (0-100)</strong> - Basé sur 7 facteurs de risque pondérés selon la littérature scientifique - Catégories : Risque Faible (&lt;20), Moyen (20-39), Élevé (≥40)</p>
+</section>
+<section id="facteurs-de-risque-analysés" class="level3">
+<h3 class="anchored" data-anchor-id="facteurs-de-risque-analysés">Facteurs de Risque Analysés</h3>
+<section id="facteurs-périnataux" class="level4">
+<h4 class="anchored" data-anchor-id="facteurs-périnataux">🧬 Facteurs Périnataux</h4>
+<ul>
+<li><strong>Âge maternel</strong> : &lt; 20 ans ou ≥ 35 ans (poids : 15%)</li>
+<li><strong>Ordre de naissance</strong> : Rang ≥ 4 (poids : 10%)</li>
+<li><strong>Intervalle intergénésique</strong> : &lt; 24 mois (poids : 15%)</li>
+</ul>
+</section>
+<section id="facteurs-socio-économiques" class="level4">
+<h4 class="anchored" data-anchor-id="facteurs-socio-économiques">💰 Facteurs Socio-économiques</h4>
+<ul>
+<li><strong>Pauvreté</strong> : Quintiles 1-2 (poids : 20%)</li>
+<li><strong>Éducation maternelle</strong> : Aucune ou primaire (poids : 15%)</li>
+<li><strong>Milieu de résidence</strong> : Rural (poids : 10%)</li>
+<li><strong>Taille ménage</strong> : &gt; 7 personnes (poids : 10%)</li>
+</ul>
+</section>
+<section id="facteur-biologique" class="level4">
+<h4 class="anchored" data-anchor-id="facteur-biologique">👤 Facteur Biologique</h4>
+<ul>
+<li><strong>Sexe</strong> : Masculin (poids : 15%)</li>
+<li><em>Note</em> : Données limitées (3% de l’échantillon)</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="analyses-statistiques" class="level2">
+<h2 class="anchored" data-anchor-id="analyses-statistiques">Analyses Statistiques</h2>
+<section id="analyses-descriptives" class="level3">
+<h3 class="anchored" data-anchor-id="analyses-descriptives">Analyses Descriptives</h3>
+<ul>
+<li>Statistiques univariées et bivariées</li>
+<li>Visualisations (histogrammes, barplots, heatmaps)</li>
+<li>Tests du Chi-deux et ANOVA</li>
+</ul>
+</section>
+<section id="analyses-multivariées" class="level3">
+<h3 class="anchored" data-anchor-id="analyses-multivariées">Analyses Multivariées</h3>
+<ul>
+<li><strong>Régression linéaire multiple</strong> : Score continu</li>
+<li><strong>Régression logistique</strong> : Risque élevé (≥40)</li>
+<li>Calcul des Odds Ratios ajustés</li>
+<li>Tests de multicolinéarité (VIF)</li>
+</ul>
+<hr>
+</section>
+</section>
+</section>
+<section id="principaux-résultats" class="level1">
+<h1>📈 Principaux Résultats</h1>
+<section id="vue-densemble" class="level2">
+<h2 class="anchored" data-anchor-id="vue-densemble">Vue d’Ensemble</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Prévalence du Risque Élevé
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>~10% des enfants tunisiens</strong> présentent un score de risque théorique élevé (≥40), soit environ 1 enfant sur 10.</p>
+</div>
+</div>
+</section>
+<section id="facteurs-de-risque-majeurs" class="level2">
+<h2 class="anchored" data-anchor-id="facteurs-de-risque-majeurs">Facteurs de Risque Majeurs</h2>
+<section id="pauvreté" class="level3">
+<h3 class="anchored" data-anchor-id="pauvreté">1. Pauvreté 💸</h3>
+<ul>
+<li><strong>OR = 2.5-3.0</strong> (Quintile 1 vs Quintile 5)</li>
+<li>Gradient socio-économique très net</li>
+<li>Association forte et significative (p &lt; 0.001)</li>
+</ul>
+</section>
+<section id="faible-éducation-maternelle" class="level3">
+<h3 class="anchored" data-anchor-id="faible-éducation-maternelle">2. Faible Éducation Maternelle 📚</h3>
+<ul>
+<li><strong>OR = 1.8-2.2</strong> (Aucune éducation vs Supérieur)</li>
+<li>Effet protecteur de l’éducation</li>
+<li>Rôle central dans la prévention</li>
+</ul>
+</section>
+<section id="milieu-rural" class="level3">
+<h3 class="anchored" data-anchor-id="milieu-rural">3. Milieu Rural 🌾</h3>
+<ul>
+<li><strong>OR = 1.5-1.8</strong> (Rural vs Urbain)</li>
+<li>Scores plus élevés en zone rurale</li>
+<li>Cumul de désavantages</li>
+</ul>
+</section>
+<section id="rang-de-naissance-élevé" class="level3">
+<h3 class="anchored" data-anchor-id="rang-de-naissance-élevé">4. Rang de Naissance Élevé 👶👶👶</h3>
+<ul>
+<li><strong>OR = 1.4-1.6</strong> (Rang ≥7 vs Premier)</li>
+<li>Effet dose-réponse</li>
+<li>Lié à la taille familiale</li>
+</ul>
+</section>
+</section>
+<section id="populations-vulnérables" class="level2">
+<h2 class="anchored" data-anchor-id="populations-vulnérables">Populations Vulnérables</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Profil à Haut Risque
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Les enfants les plus à risque cumulent : - 🌾 Milieu rural - 💸 Pauvreté (Q1-Q2) : 75% - 📚 Faible éducation maternelle : 68% - 👪 Famille nombreuse (&gt;7) : 52% - 🎯 Rang de naissance ≥4 : 45%</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="documents-disponibles" class="level1">
+<h1>📋 Documents Disponibles</h1>
+<section id="rapports-et-présentations" class="level2">
+<h2 class="anchored" data-anchor-id="rapports-et-présentations">Rapports et Présentations</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Document</th>
+<th>Description</th>
+<th>Lien</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Rapport Principal</strong></td>
+<td>Analyse complète avec méthodologie, résultats, discussion</td>
+<td><a href="rapport_principal.qmd">rapport_principal.qmd</a></td>
+</tr>
+<tr class="even">
+<td><strong>Présentation</strong></td>
+<td>Diapositives des résultats clés</td>
+<td><a href="presentation.qmd">presentation.qmd</a></td>
+</tr>
+<tr class="odd">
+<td><strong>Scripts R</strong></td>
+<td>Tous les codes d’analyse</td>
+<td><a href="scripts/">scripts/</a></td>
+</tr>
+<tr class="even">
+<td><strong>Figures</strong></td>
+<td>Graphiques haute résolution</td>
+<td><a href="reports/figures/">reports/figures/</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="données-générées" class="level2">
+<h2 class="anchored" data-anchor-id="données-générées">Données Générées</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Fichier</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>dataset_with_score.rds</code></td>
+<td>Dataset final avec score TDAH</td>
+</tr>
+<tr class="even">
+<td><code>05_risk_score.RData</code></td>
+<td>Objets R du scoring</td>
+</tr>
+<tr class="odd">
+<td><code>06_models.RData</code></td>
+<td>Modèles statistiques</td>
+</tr>
+<tr class="even">
+<td><code>odds_ratios_final.csv</code></td>
+<td>Tableau des OR</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="implications-et-recommandations" class="level1">
+<h1>💡 Implications et Recommandations</h1>
+<section id="pour-la-santé-publique" class="level2">
+<h2 class="anchored" data-anchor-id="pour-la-santé-publique">Pour la Santé Publique</h2>
+<section id="actions-prioritaires" class="level3">
+<h3 class="anchored" data-anchor-id="actions-prioritaires">✅ Actions Prioritaires</h3>
+<ol type="1">
+<li><strong>Dépistage Ciblé</strong>
+<ul>
+<li>Identifier les enfants à haut risque</li>
+<li>Focus sur milieu rural pauvre</li>
+<li>Outil de screening basé sur le score</li>
+</ul></li>
+<li><strong>Prévention Primaire</strong>
+<ul>
+<li>Interventions précoces auprès femmes enceintes à risque</li>
+<li>Espacement des naissances</li>
+<li>Planification familiale</li>
+</ul></li>
+<li><strong>Renforcement des Services</strong>
+<ul>
+<li>Développer services santé mentale infantile</li>
+<li>Former professionnels de santé</li>
+<li>Améliorer accès en milieu rural</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="pour-les-politiques-publiques" class="level2">
+<h2 class="anchored" data-anchor-id="pour-les-politiques-publiques">Pour les Politiques Publiques</h2>
+<section id="leviers-daction" class="level3">
+<h3 class="anchored" data-anchor-id="leviers-daction">🎯 Leviers d’Action</h3>
+<ol type="1">
+<li><strong>Éducation</strong>
+<ul>
+<li>📚 Scolarisation des filles</li>
+<li>👨‍👩‍👧‍👦 Programmes de soutien parental</li>
+<li>🏫 Interventions en milieu scolaire</li>
+</ul></li>
+<li><strong>Réduction des Inégalités</strong>
+<ul>
+<li>💰 Lutte contre la pauvreté infantile</li>
+<li>🌆 Réduction du gradient urbain-rural</li>
+<li>🏥 Équité d’accès aux soins</li>
+</ul></li>
+<li><strong>Recherche</strong>
+<ul>
+<li>🔬 Validation du score contre diagnostics</li>
+<li>📊 Études longitudinales</li>
+<li>🧪 Évaluation des interventions</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+</section>
+</section>
+<section id="ressources-et-références" class="level1">
+<h1>📚 Ressources et Références</h1>
+<section id="publications-clés" class="level2">
+<h2 class="anchored" data-anchor-id="publications-clés">Publications Clés</h2>
+<ul>
+<li><strong>Thapar et al.&nbsp;(2013)</strong> - Âge maternel et TDAH</li>
+<li><strong>Russell et al.&nbsp;(2014, 2016)</strong> - Pauvreté et TDAH</li>
+<li><strong>Rowland et al.&nbsp;(2018)</strong> - Éducation maternelle</li>
+<li><strong>Willcutt (2012)</strong> - Prévalence et facteurs de risque</li>
+</ul>
+</section>
+<section id="liens-utiles" class="level2">
+<h2 class="anchored" data-anchor-id="liens-utiles">Liens Utiles</h2>
+<ul>
+<li><a href="https://mics.unicef.org/">UNICEF MICS</a> - Site officiel MICS</li>
+<li><a href="http://www.ins.tn/">INS Tunisie</a> - Institut National de la Statistique</li>
+<li><a href="https://www.tdah-france.fr/">TDAH France</a> - Association TDAH</li>
+</ul>
+</section>
+<section id="contact" class="level2">
+<h2 class="anchored" data-anchor-id="contact">Contact</h2>
+<p><strong>Auteur</strong> : Asma BELKAHLA<br>
+<strong>Institution</strong> : [À compléter]<br>
+<strong>Email</strong> : [À compléter]<br>
+<strong>Date</strong> : Décembre 2025</p>
+<hr>
+</section>
+</section>
+<section id="perspectives" class="level1">
+<h1>🚀 Perspectives</h1>
+<section id="prochaines-étapes" class="level2">
+<h2 class="anchored" data-anchor-id="prochaines-étapes">Prochaines Étapes</h2>
+<section id="court-terme-2025-2026" class="level3">
+<h3 class="anchored" data-anchor-id="court-terme-2025-2026">Court Terme (2025-2026)</h3>
+<ul>
+<li>✅ Finaliser les analyses</li>
+<li>📝 Publier les résultats</li>
+<li>🎤 Présenter aux décideurs</li>
+</ul>
+</section>
+<section id="moyen-terme-2026-2028" class="level3">
+<h3 class="anchored" data-anchor-id="moyen-terme-2026-2028">Moyen Terme (2026-2028)</h3>
+<ul>
+<li>🔬 Étude de validation clinique</li>
+<li>🏥 Pilotage d’interventions</li>
+<li>📊 Évaluation d’impact</li>
+</ul>
+</section>
+<section id="long-terme-2028" class="level3">
+<h3 class="anchored" data-anchor-id="long-terme-2028">Long Terme (2028+)</h3>
+<ul>
+<li>📈 Cohorte longitudinale</li>
+<li>🌍 Études comparatives régionales</li>
+<li>🏛️ Politiques de prévention</li>
+</ul>
+<hr>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Note Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ce projet représente une <strong>première analyse populationnelle</strong> des facteurs de risque du TDAH en Tunisie. Les résultats doivent être interprétés comme une estimation de la <strong>vulnérabilité théorique</strong> au TDAH, et non comme une mesure de prévalence clinique.</p>
+<p>Des études complémentaires avec diagnostic clinique sont nécessaires pour valider ces résultats.</p>
+</div>
+</div>
+<hr>
+<p><em>Dernière mise à jour : 2025-12-24</em></p>
+<hr>
+<center>
+<strong>🎓 Projet de Recherche en Santé Publique</strong><br>
+<strong>Institut National de la Statistique (INS) Tunisie × UNICEF</strong><br>
+<strong>Données MICS6 - 2023</strong>
+</center>
+</section>
+</section>
 </section>
 
 </main>

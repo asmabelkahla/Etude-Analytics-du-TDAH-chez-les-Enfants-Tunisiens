@@ -180,5 +180,5 @@ Ce projet utilise des données UNICEF MICS6. Veuillez respecter les conditions d
 
 ---
 
-**Dernière mise à jour** : Décembre 2024
+**Dernière mise à jour** : Décembre 2025
 **Contact** : asma.belkahla@polytechnicien.tn
