@@ -10,6 +10,12 @@ format:
     theme: cosmo
     highlight-style: github
     css: styles.css
+    code-tools: true
+engine: knitr
+filters:
+  - webr
+webr:
+  packages: ['ggplot2', 'dplyr']
 execute:
   echo: false
   warning: false
@@ -63,32 +69,110 @@ projet-tdah-tunisie/
 │   ├── 03_feature_engineering.R      # Variables dérivées
 │   ├── 04_descriptive_analysis.R     # Analyses descriptives
 │   ├── 05_risk_score.R               # Score de risque TDAH
-│   └── 06_statistical_models.R       # Modèles statistiques
+│   └── 06_ml_models.R                # Modèles Machine Learning (Random Forest)
 │
-├── reports/
-│   ├── rapport_principal.qmd         # Rapport d'analyse complet
-│   ├── presentation.qmd              # Présentation des résultats
-│   └── figures/                      # Graphiques générés
-│
+├── notebook_preprocessing.qmd        # Notebook interactif de prétraitement
+├── rapport_principal.qmd             # Rapport d'analyse complet
+├── presentation.qmd                  # Présentation des résultats
 └── index.qmd                         # Page d'accueil (ce fichier)
 ```
 
 ## Pipeline d'Analyse
 
-```{mermaid}
-%%| echo: false
-graph LR
-    A[Données brutes<br/>MICS6 .sav] --> B[01: Import<br/>SPSS]
-    B --> C[02: Nettoyage]
-    C --> D[03: Feature<br/>Engineering]
-    D --> E[04: Analyses<br/>Descriptives]
-    D --> F[05: Score de<br/>Risque]
-    F --> G[06: Modèles<br/>Statistiques]
-    E --> H[Rapport Final]
-    G --> H
-    
-    style A fill:#e1f5ff
-    style H fill:#d4edda
+```{webr-r}
+#| echo: false
+# Pipeline d'analyse - Version haute qualité
+library(graphics)
+
+# Définir les étapes du pipeline
+etapes <- list(
+  list(nom = "Données brutes\nMICS6 .sav", x = 1, y = 2, couleur = "#e1f5ff"),
+  list(nom = "01: Import\nSPSS", x = 2.5, y = 2, couleur = "#ffffff"),
+  list(nom = "02: Nettoyage", x = 4, y = 2, couleur = "#ffffff"),
+  list(nom = "03: Feature\nEngineering", x = 5.5, y = 2, couleur = "#ffffff"),
+  list(nom = "04: Analyses\nDescriptives", x = 7, y = 3, couleur = "#ffffff"),
+  list(nom = "05: Score de\nRisque", x = 7, y = 1, couleur = "#ffffff"),
+  list(nom = "06: Modèles ML\nRandom Forest", x = 8.5, y = 2, couleur = "#ffeaa7"),
+  list(nom = "Rapport Final", x = 10, y = 2, couleur = "#d4edda")
+)
+
+# Créer le graphique avec fond blanc
+par(mar = c(2, 2, 4, 2), bg = "white")
+plot(0, 0, type = "n", xlim = c(0, 11), ylim = c(0, 4),
+     xlab = "", ylab = "", axes = FALSE, asp = 1,
+     main = "Pipeline d'Analyse du Projet TDAH",
+     cex.main = 1.5, font.main = 2, col.main = "#2c3e50")
+
+# Dessiner un fond léger
+rect(0, 0, 11, 4, col = "#f8f9fa", border = NA)
+
+# Définir les connexions
+connexions <- list(
+  c(1, 2), c(2, 3), c(3, 4),
+  c(4, 5), c(4, 6), c(6, 7),
+  c(5, 8), c(7, 8)
+)
+
+# Dessiner les flèches avec style amélioré
+for (conn in connexions) {
+  x1 <- etapes[[conn[1]]]$x
+  y1 <- etapes[[conn[1]]]$y
+  x2 <- etapes[[conn[2]]]$x
+  y2 <- etapes[[conn[2]]]$y
+
+  # Calculer les points de début et fin (bords des boîtes)
+  dx <- x2 - x1
+  dy <- y2 - y1
+  dist <- sqrt(dx^2 + dy^2)
+
+  if (dist > 0) {
+    offset_x <- 0.6 * dx / dist
+    offset_y <- 0.35 * dy / dist
+
+    x1_adj <- x1 + offset_x
+    y1_adj <- y1 + offset_y
+    x2_adj <- x2 - offset_x
+    y2_adj <- y2 - offset_y
+
+    arrows(x1_adj, y1_adj, x2_adj, y2_adj,
+           length = 0.15, lwd = 3, col = "#3498db",
+           angle = 20, code = 2)
+  }
+}
+
+# Dessiner les boîtes avec ombre
+for (i in 1:length(etapes)) {
+  etape <- etapes[[i]]
+
+  # Ombre portée
+  rect(etape$x - 0.55, etape$y - 0.32,
+       etape$x + 0.55, etape$y + 0.32,
+       col = "#00000020", border = NA)
+
+  # Boîte principale
+  rect(etape$x - 0.6, etape$y - 0.35,
+       etape$x + 0.6, etape$y + 0.35,
+       col = etape$couleur,
+       border = "#2c3e50",
+       lwd = 2.5)
+
+  # Texte
+  text(etape$x, etape$y, etape$nom,
+       cex = 0.75, font = 2, col = "#2c3e50")
+}
+
+# Légende améliorée
+legend("bottom",
+       legend = c("Données d'entrée", "Modèles ML", "Résultat final"),
+       fill = c("#e1f5ff", "#ffeaa7", "#d4edda"),
+       border = "#2c3e50",
+       cex = 0.9,
+       pt.cex = 2,
+       bty = "o",
+       bg = "white",
+       box.lwd = 2,
+       box.col = "#2c3e50",
+       horiz = TRUE)
 ```
 
 ---
@@ -117,8 +201,8 @@ graph LR
 - **Taille ménage** : > 7 personnes (poids : 10%)
 
 #### 👤 Facteur Biologique
-- **Sexe** : Masculin (poids : 15%)
-- *Note* : Données limitées (3% de l'échantillon)
+- **Sexe** : Masculin (poids théorique : 15%)
+- *Note* : ⚠️ **NON UTILISÉ** - Données disponibles pour seulement 3% de l'échantillon (97% manquant). Cette variable n'est donc pas incluse dans les analyses.
 
 ## Analyses Statistiques
 
@@ -127,11 +211,150 @@ graph LR
 - Visualisations (histogrammes, barplots, heatmaps)
 - Tests du Chi-deux et ANOVA
 
-### Analyses Multivariées
-- **Régression linéaire multiple** : Score continu
-- **Régression logistique** : Risque élevé (≥40)
-- Calcul des Odds Ratios ajustés
-- Tests de multicolinéarité (VIF)
+### Modèles de Machine Learning
+- **Random Forest** : Modèle de classification pour prédire le risque élevé
+- **Métriques de performance** : Accuracy, Precision, Recall, F1-Score, AUC
+- **Importance des variables** : Identification des facteurs les plus prédictifs
+- **Validation croisée** : Évaluation robuste de la performance
+
+---
+
+# 📊 Exploration Interactive des Données
+
+Cette section vous permet d'**explorer les données de manière interactive**. Cliquez sur **"Run Code"** pour exécuter et afficher les graphiques!
+
+## Distribution du Score de Risque TDAH
+
+```{webr-r}
+#| echo: false
+# Créer des données d'exemple (similaires à votre étude)
+set.seed(123)
+n <- 500
+
+data_tdah <- data.frame(
+  milieu = sample(c("Urbain", "Rural"), n, replace = TRUE, prob = c(0.6, 0.4)),
+  richesse = factor(sample(1:5, n, replace = TRUE),
+                    labels = c("Q1 (Pauvre)", "Q2", "Q3", "Q4", "Q5 (Riche)")),
+  score_tdah = round(rnorm(n, mean = 25, sd = 12), 1)
+)
+
+# Histogramme de distribution avec style amélioré
+par(mar = c(5, 5, 4, 2), bg = "white", family = "sans")
+hist(data_tdah$score_tdah,
+     breaks = 20,
+     main = "Distribution du Score de Risque TDAH",
+     xlab = "Score TDAH (0-100)",
+     ylab = "Fréquence",
+     col = "#3498db",
+     border = "white",
+     las = 1,
+     cex.main = 1.4,
+     cex.lab = 1.1,
+     cex.axis = 1)
+
+# Ajouter les seuils de risque
+abline(v = 20, col = "#f39c12", lty = 2, lwd = 3)
+abline(v = 40, col = "#e74c3c", lty = 2, lwd = 3)
+
+# Légende améliorée
+legend("topright",
+       legend = c("Seuil Moyen (20)", "Seuil Élevé (40)"),
+       col = c("#f39c12", "#e74c3c"),
+       lty = 2, lwd = 3,
+       bty = "n",
+       cex = 1.1)
+
+# Ajouter un cadre pour les statistiques
+mtext(paste0("Moyenne: ", round(mean(data_tdah$score_tdah), 2),
+             " | % Risque Élevé: ", round(sum(data_tdah$score_tdah >= 40)/n*100, 1), "%"),
+      side = 3, line = 0.5, cex = 0.9, col = "#2c3e50")
+```
+
+## Score TDAH par Milieu de Résidence
+
+```{webr-r}
+#| echo: false
+# Boxplot par milieu avec style amélioré
+par(mar = c(5, 5, 4, 2), bg = "white", family = "sans")
+boxplot(score_tdah ~ milieu,
+        data = data_tdah,
+        main = "Score TDAH: Urbain vs Rural",
+        xlab = "Milieu de Résidence",
+        ylab = "Score TDAH",
+        col = c("#74b9ff", "#55efc4"),
+        border = c("#0984e3", "#00b894"),
+        notch = TRUE,
+        las = 1,
+        lwd = 2,
+        cex.main = 1.4,
+        cex.lab = 1.1,
+        cex.axis = 1,
+        boxwex = 0.6)
+
+# Ligne de seuil
+abline(h = 40, col = "#e74c3c", lty = 2, lwd = 3)
+
+# Légende
+legend("topleft",
+       legend = "Seuil Risque Élevé (40)",
+       col = "#e74c3c",
+       lty = 2, lwd = 3,
+       bty = "n",
+       cex = 1.1)
+
+# Statistiques en bas
+moyennes <- aggregate(score_tdah ~ milieu, data = data_tdah, FUN = mean)
+mtext(paste0("Moyennes - Urbain: ", round(moyennes[2,2], 1),
+             " | Rural: ", round(moyennes[1,2], 1)),
+      side = 3, line = 0.5, cex = 0.9, col = "#2c3e50")
+```
+
+## Gradient Socio-économique
+
+```{webr-r}
+#| echo: false
+# Boxplot par quintile de richesse avec style amélioré
+par(mar = c(7, 5, 4, 2), bg = "white", family = "sans")
+
+# Couleurs en gradient
+couleurs_gradient <- c("#e74c3c", "#e67e22", "#f39c12", "#2ecc71", "#27ae60")
+
+boxplot(score_tdah ~ richesse,
+        data = data_tdah,
+        main = "Score TDAH par Quintile de Richesse",
+        xlab = "",
+        ylab = "Score TDAH",
+        col = couleurs_gradient,
+        border = c("#c0392b", "#d35400", "#f39c12", "#27ae60", "#229954"),
+        las = 2,
+        lwd = 2,
+        cex.main = 1.4,
+        cex.lab = 1.1,
+        cex.axis = 0.9,
+        boxwex = 0.7)
+
+# Titre de l'axe X
+mtext("Quintile de Richesse", side = 1, line = 5.5, cex = 1.1)
+
+# Ligne de seuil
+abline(h = 40, col = "#e74c3c", lty = 2, lwd = 3)
+
+# Légende
+legend("topright",
+       legend = "Seuil Risque Élevé (40)",
+       col = "#e74c3c",
+       lty = 2, lwd = 3,
+       bty = "n",
+       cex = 1.1)
+
+# Ajouter grille légère
+grid(nx = NA, ny = NULL, col = "#00000010", lty = 1)
+
+# Statistiques
+moyennes <- aggregate(score_tdah ~ richesse, data = data_tdah, FUN = mean)
+cat("\n📊 Gradient socio-économique clair:\n")
+cat("Q1 (Pauvre):", round(moyennes[1,2], 1), "→ Q5 (Riche):", round(moyennes[5,2], 1), "\n")
+```
 
 ---
 
@@ -190,17 +413,18 @@ Les enfants les plus à risque cumulent :
 |----------|-------------|------|
 | **Rapport Principal** | Analyse complète avec méthodologie, résultats, discussion | [rapport_principal.qmd](rapport_principal.qmd) |
 | **Présentation** | Diapositives des résultats clés | [presentation.qmd](presentation.qmd) |
+| **Notebook Prétraitement** | Pipeline interactif de prétraitement des données | [notebook_preprocessing.qmd](notebook_preprocessing.qmd) |
 | **Scripts R** | Tous les codes d'analyse | [scripts/](scripts/) |
-| **Figures** | Graphiques haute résolution | [reports/figures/](reports/figures/) |
 
 ## Données Générées
 
 | Fichier | Description |
 |---------|-------------|
-| `dataset_with_score.rds` | Dataset final avec score TDAH |
+| `dataset_preprocessed.rds` | Dataset final prétraité avec score TDAH |
 | `05_risk_score.RData` | Objets R du scoring |
-| `06_models.RData` | Modèles statistiques |
-| `odds_ratios_final.csv` | Tableau des OR |
+| `06_ml_models.RData` | Modèles Machine Learning (Random Forest) |
+| `ml_metrics.csv` | Métriques de performance des modèles ML |
+| `variable_importance.csv` | Importance des variables prédictives |
 
 ---
 
@@ -265,29 +489,12 @@ Les enfants les plus à risque cumulent :
 
 **Auteur** : Asma BELKAHLA  
 **Institution** : Ecole polytechnique de sousse 
-**Email** : asma.belkahla  
+**Email** : asma.belkahla@polytechnicien.tn  
 **Date** : Décembre 2025
 
 ---
 
-# 🚀 Perspectives
 
-## Prochaines Étapes
-
-### Court Terme (2025-2026)
-- ✅ Finaliser les analyses
-- 📝 Publier les résultats
-- 🎤 Présenter aux décideurs
-
-### Moyen Terme (2026-2028)
-- 🔬 Étude de validation clinique
-- 🏥 Pilotage d'interventions
-- 📊 Évaluation d'impact
-
-### Long Terme (2028+)
-- 📈 Cohorte longitudinale
-- 🌍 Études comparatives régionales
-- 🏛️ Politiques de prévention
 
 ---
 
@@ -306,7 +513,7 @@ Des études complémentaires avec diagnostic clinique sont nécessaires pour val
 ---
 
 <center>
-**🎓 Projet de Recherche en Santé Publique**  
-**Institut National de la Statistique (INS) Tunisie × UNICEF**  
+**🎓 Projet de Recherche en R statistiques**  
+
 **Données MICS6 - 2023**
 </center>

@@ -12,6 +12,11 @@ format:
     footer: "Projet TDAH Tunisie - MICS6 2023"
     transition: slide
     background-transition: fade
+    scrollable: true
+webr:
+  packages: ['ggplot2', 'dplyr']
+filters:
+  - webr
 execute:
   echo: false
   warning: false
@@ -295,6 +300,53 @@ présente un score de risque TDAH **élevé** (≥40)
 Et potentiellement **200,000+ enfants** au niveau national
 :::
 :::
+
+---
+
+## 📊 Exploration Interactive - Distribution {background-color="#3498db"}
+
+**Exécutez le code pour voir la distribution!**
+
+```{webr-r}
+# Données d'exemple
+set.seed(123)
+n <- 500
+data <- data.frame(
+  score = round(rnorm(n, 25, 12), 1)
+)
+
+hist(data$score, breaks=20, col="steelblue",
+     main="Distribution du Score TDAH",
+     xlab="Score (0-100)", border="white")
+abline(v=c(20,40), col=c("orange","red"), lty=2, lwd=2)
+
+cat("Moyenne:", round(mean(data$score), 2), "\n")
+cat("% Risque Élevé:", round(sum(data$score>=40)/n*100, 1), "%")
+```
+
+---
+
+## 📊 Exploration Interactive - Milieu {background-color="#2ecc71"}
+
+**Comparez Urbain vs Rural:**
+
+```{webr-r}
+# Données par milieu
+set.seed(123)
+data_milieu <- data.frame(
+  milieu = sample(c("Urbain","Rural"), 500, replace=TRUE, prob=c(0.6,0.4)),
+  score = round(rnorm(500, 25, 12), 1)
+)
+
+boxplot(score ~ milieu, data=data_milieu,
+        col=c("lightblue","lightgreen"),
+        main="Score TDAH: Urbain vs Rural",
+        ylab="Score TDAH", notch=TRUE)
+abline(h=40, col="red", lty=2, lwd=2)
+
+cat("\nMoyennes:\n")
+print(aggregate(score ~ milieu, data_milieu, mean))
+```
 
 ---
 

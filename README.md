@@ -55,21 +55,20 @@ Elle permet de :
 ```r
 # Manipulation de données
 - tidyverse (dplyr, ggplot2, tidyr, readr)
-- data.table
+- haven (import SPSS)
 
 # Analyses statistiques
-- survey (plan de sondage complexe)
-- gtsummary (tableaux descriptifs)
+- skimr (statistiques descriptives)
 - broom (résultats de modèles)
 
-# Modélisation
-- lme4 (modèles mixtes si nécessaire)
-- car (tests ANOVA)
+# Machine Learning
+- randomForest (modèles Random Forest)
+- caret (validation croisée et métriques)
+- pROC (courbes ROC et AUC)
 
 # Visualisation
 - ggplot2
 - patchwork
-- scales
 ```
 
 ## 🚀 Installation et Démarrage
@@ -96,19 +95,33 @@ renv::restore()
 Télécharger les fichiers MICS6 depuis UNICEF et les placer dans `data/raw/`
 
 ### 5. Exécuter l'Analyse
-```r
-# Scripts à exécuter dans l'ordre
-source("scripts/01_data_import.R")
-source("scripts/02_data_cleaning.R")
-source("scripts/03_feature_engineering.R")
-source("scripts/04_descriptive_analysis.R")
-source("scripts/05_risk_score.R")
-source("scripts/06_statistical_models.R")
+
+**Option 1 : Utiliser le Notebook Interactif (Recommandé pour débutants)**
+```bash
+quarto render TDAH-Rstat/notebook_preprocessing.qmd
 ```
 
-### 6. Générer le Rapport
+**Option 2 : Exécuter les Scripts R**
+```r
+# Scripts à exécuter dans l'ordre
+source("TDAH-Rstat/scripts/01_data_import.R")
+source("TDAH-Rstat/scripts/02_data_cleaning.R")
+source("TDAH-Rstat/scripts/03_feature_engineering.R")
+source("TDAH-Rstat/scripts/04_descriptive_analysis.R")
+source("TDAH-Rstat/scripts/05_risk_score.R")
+source("TDAH-Rstat/scripts/06_ml_models.R")
+```
+
+### 6. Générer les Rapports
 ```bash
-quarto render reports/rapport_principal.qmd
+# Rapport principal
+quarto render TDAH-Rstat/rapport_principal.qmd
+
+# Présentation
+quarto render TDAH-Rstat/presentation.qmd
+
+# Page d'accueil
+quarto render TDAH-Rstat/index.qmd
 ```
 
 ## 📊 Variables d'Intérêt
@@ -138,26 +151,28 @@ quarto render reports/rapport_principal.qmd
 - Région/gouvernorat
 - Accès aux services de santé
 
-## 📈 Méthodes Statistiques
+## 📈 Méthodes d'Analyse
 
 1. **Analyses Descriptives**
    - Fréquences, moyennes, écarts-types
    - Tableaux croisés
+   - Visualisations (histogrammes, barplots)
 
 2. **Analyses Bivariées**
    - Tests du Chi²
    - Tests de Student / ANOVA
-   - Corrélations
 
-3. **Analyses Multivariées**
-   - Régression logistique (risque élevé vs faible)
-   - Régression linéaire (score continu)
-   - Analyses de sous-groupes
+3. **Machine Learning**
+   - **Random Forest** pour la classification du risque élevé
+   - Validation croisée (5-fold)
+   - Métriques : Accuracy, Precision, Recall, F1-Score, AUC
+   - Importance des variables
+   - Courbes ROC
 
-4. **Prise en compte du Plan de Sondage**
-   - Pondérations
-   - Stratification
-   - Clusters
+4. **Interprétabilité**
+   - Identification des facteurs de risque principaux
+   - Analyse des erreurs de classification
+   - Prédictions individuelles
 
 ## 👥 Contribution
 

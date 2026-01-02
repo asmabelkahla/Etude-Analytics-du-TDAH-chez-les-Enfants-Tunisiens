@@ -23,6 +23,11 @@ format:
     colorlinks: true
     papersize: a4
     geometry: margin=2.5cm
+engine: knitr
+filters:
+  - webr
+webr:
+  packages: ['ggplot2', 'dplyr']
 execute:
   echo: false
   warning: false
@@ -560,8 +565,8 @@ dataset_score %>%
   ggplot(aes(x = risque_tdah_cat, y = n, fill = risque_tdah_cat)) +
   geom_col(alpha = 0.85, width = 0.7) +
   geom_text(aes(label = label), vjust = -0.5, size = 5, fontface = "bold") +
-  scale_fill_manual(values = c("Faible" = "#2ecc71", 
-                                "Moyen" = "#f39c12", 
+  scale_fill_manual(values = c("Faible" = "#2ecc71",
+                                "Moyen" = "#f39c12",
                                 "Élevé" = "#e74c3c")) +
   labs(
     title = "Répartition des Enfants par Catégorie de Risque TDAH",
@@ -590,6 +595,97 @@ distrib_cat %>%
 ```
 
 **Prévalence du risque élevé** : `r format(sum(dataset_score$risque_tdah_eleve), big.mark=" ")` enfants soit **`r round(mean(dataset_score$risque_tdah_eleve) * 100, 1)`%** de l'échantillon présentent un score de risque élevé (≥ 40).
+
+### 📊 Exploration Interactive de la Distribution
+
+::: {.callout-tip}
+## Visualisations Interactives
+
+Les graphiques ci-dessous sont **exécutables dans le navigateur**. Cliquez sur **"Run Code"** pour générer les visualisations avec des données d'exemple similaires à notre étude.
+:::
+
+#### Distribution Interactive du Score
+
+```{webr-r}
+# Créer des données d'exemple (similaires à l'étude)
+set.seed(123)
+n <- 500
+
+data_exemple <- data.frame(
+  score_tdah = round(rnorm(n, mean = 25, sd = 12), 1)
+)
+
+# Histogramme avec densité
+hist(data_exemple$score_tdah,
+     breaks = 20,
+     main = "Distribution du Score de Risque TDAH",
+     xlab = "Score TDAH (0-100)",
+     ylab = "Fréquence",
+     col = "steelblue",
+     border = "white",
+     las = 1)
+
+# Ajouter les seuils
+abline(v = c(20, 40), col = c("orange", "red"), lty = 2, lwd = 2)
+
+# Légende
+legend("topright",
+       legend = c("Faible (<20)", "Moyen (20-39)", "Élevé (≥40)"),
+       col = c("darkgreen", "orange", "red"),
+       lty = c(0, 2, 2), lwd = c(0, 2, 2),
+       pch = c(15, NA, NA),
+       col = c("steelblue", "orange", "red"),
+       cex = 0.8)
+
+# Statistiques
+cat("\n📊 Statistiques descriptives:\n")
+cat("Moyenne:", round(mean(data_exemple$score_tdah), 2), "\n")
+cat("Médiane:", round(median(data_exemple$score_tdah), 2), "\n")
+cat("Écart-type:", round(sd(data_exemple$score_tdah), 2), "\n")
+cat("\n📈 Répartition:\n")
+cat("Risque Faible:", sum(data_exemple$score_tdah < 20), "enfants (",
+    round(sum(data_exemple$score_tdah < 20)/n*100, 1), "%)\n")
+cat("Risque Moyen:", sum(data_exemple$score_tdah >= 20 & data_exemple$score_tdah < 40),
+    "enfants (", round(sum(data_exemple$score_tdah >= 20 & data_exemple$score_tdah < 40)/n*100, 1), "%)\n")
+cat("Risque Élevé:", sum(data_exemple$score_tdah >= 40), "enfants (",
+    round(sum(data_exemple$score_tdah >= 40)/n*100, 1), "%)\n")
+```
+
+#### Catégories de Risque Interactive
+
+```{webr-r}
+# Calculer les catégories
+categories <- cut(data_exemple$score_tdah,
+                  breaks = c(0, 20, 40, 100),
+                  labels = c("Faible", "Moyen", "Élevé"))
+
+# Compter
+counts <- table(categories)
+percentages <- prop.table(counts) * 100
+
+# Barplot
+barplot(counts,
+        main = "Répartition par Catégorie de Risque",
+        xlab = "Catégorie",
+        ylab = "Nombre d'Enfants",
+        col = c("#2ecc71", "#f39c12", "#e74c3c"),
+        border = "white",
+        ylim = c(0, max(counts) * 1.2),
+        las = 1)
+
+# Ajouter les pourcentages
+text(x = seq_along(counts) * 1.2 - 0.5,
+     y = counts + 10,
+     labels = paste0(round(percentages, 1), "%\n(n=", counts, ")"),
+     pos = 3, cex = 1, font = 2)
+
+# Résumé
+cat("\n📊 Résumé:\n")
+for(i in 1:length(counts)) {
+  cat(names(counts)[i], ":", counts[i], "enfants (",
+      round(percentages[i], 1), "%)\n")
+}
+```
 
 ### Score selon le milieu de résidence
 
