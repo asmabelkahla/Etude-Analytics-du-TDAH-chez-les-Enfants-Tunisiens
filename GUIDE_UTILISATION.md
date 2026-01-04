@@ -202,61 +202,6 @@ Après avoir exécuté tous les scripts, vous aurez:
 
 ---
 
-## 🎓 Pour Aller Plus Loin
-
-### Générer le Rapport Final
-
-```bash
-# Rapport complet HTML
-quarto render TDAH-Rstat/rapport_principal.qmd
-
-# Présentation (slides)
-quarto render TDAH-Rstat/presentation.qmd
-
-# Page d'accueil
-quarto render TDAH-Rstat/index.qmd
-```
-
-### Modifier les Analyses
-
-**Pour changer les poids des facteurs:**
-- Ouvrir `scripts/05_risk_score_v2.R`
-- Modifier la liste `poids` (lignes 35-42)
-- Les poids doivent totaliser 1.0 (100%)
-
-**Pour tester d'autres modèles ML:**
-- Ouvrir `scripts/06_ml_models.R`
-- Modifier les paramètres du Random Forest:
-  - `ntree`: nombre d'arbres (défaut: 500)
-  - `mtry`: variables par split (défaut: 3)
-
----
-
-## 🆘 Problèmes Fréquents
-
-### Erreur: "Fichier de données introuvable"
-**Solution:** Placer le fichier MICS6 dans `TDAH-Rstat/data/raw/`
-
-### Erreur: "Package non trouvé"
-**Solution:**
-```r
-install.packages(c("tidyverse", "randomForest", "caret", "pROC", "haven"))
-```
-
-### Erreur: "Variable manquante"
-**Solution:** Vérifier que les scripts ont été exécutés dans l'ordre (01→02→03→04→05→06)
-
-### Les graphiques ne s'affichent pas
-**Solution:**
-```r
-# Sous Windows
-windows()
-# Sous Mac
-quartz()
-```
-
----
-
 ## 📚 Ressources
 
 ### Documentation R
@@ -269,18 +214,6 @@ quartz()
 - Régression logistique: https://www.statology.org/logistic-regression-in-r/
 - Random Forest: https://www.stat.berkeley.edu/~breiman/RandomForests/
 
----
-
-## ✅ Checklist du Projet
-
-- [ ] Données MICS6 placées dans `data/raw/`
-- [ ] Packages R installés
-- [ ] Scripts 01-06 exécutés avec succès
-- [ ] Fichiers de résultats générés dans `data/processed/`
-- [ ] Graphiques créés
-- [ ] Rapport principal généré
-- [ ] Présentation générée
-- [ ] Résultats interprétés et documentés
 
 ---
 
@@ -288,6 +221,3 @@ quartz()
 **Auteur:** Asma BELKAHLA
 **Contact:** asma.belkahla@polytechnicien.tn
 
----
-
-**Bon courage avec votre analyse! 🎉**
