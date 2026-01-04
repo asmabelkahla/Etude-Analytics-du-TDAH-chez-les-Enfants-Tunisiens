@@ -1,0 +1,47 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Projet TDAH Tunisie"
+  navbar:
+    background: primary
+    left:
+      - text: "Accueil"
+        href: index.qmd
+      - text: "Rapport Principal"
+        href: rapport_principal.qmd
+      - text: "Présentation"
+        href: presentation.qmd
+    right:
+      - icon: github
+        href: https://github.com/asmabelkahla/Etude-Analytics-du-TDAH-chez-les-Enfants-Tunisiens
+  sidebar:
+    style: "floating"
+    contents:
+      - text: "🏠 Accueil"
+        href: index.qmd
+      - text: "---"
+      - section: "📚 Documents Principaux"
+        contents:
+          - text: "📊 Rapport Principal"
+            href: rapport_principal.qmd
+          - text: "🎤 Présentation"
+            href: presentation.qmd
+      - text: "---"
+     
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    code-fold: true
+    code-tools: true
+    embed-resources: false
+    html-math-method: katex
+
+execute:
+  echo: false
+  warning: false
+  message: false

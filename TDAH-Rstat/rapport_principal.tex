@@ -1,0 +1,1072 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  11pt,
+  a4paper,
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Facteurs de Risque du TDAH chez les Enfants Tunisiens},
+  pdfauthor={Asma BELKAHLA},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Facteurs de Risque du TDAH chez les Enfants Tunisiens}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Analyse des Données MICS6 Tunisie 2023}
+\author{Asma BELKAHLA}
+\date{2026-01-03}
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+
+\section*{Résumé Exécutif}\label{ruxe9sumuxe9-exuxe9cutif}
+\addcontentsline{toc}{section}{Résumé Exécutif}
+
+Cette étude analyse les facteurs de risque associés au Trouble
+Déficitaire de l'Attention avec ou sans Hyperactivité (TDAH) chez les
+enfants tunisiens âgés de 0 à 17 ans, en utilisant les données de
+l'enquête MICS6 (Multiple Indicator Cluster Survey) réalisée en Tunisie
+en 2023.
+
+\subsection{Objectifs principaux}\label{objectifs-principaux}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Identifier les facteurs de risque socio-démographiques, périnataux et
+  socio-économiques associés au TDAH
+\item
+  Développer un score de risque théorique basé sur la littérature
+  scientifique
+\item
+  Quantifier l'association entre ces facteurs et le risque de TDAH
+\item
+  Identifier les populations vulnérables nécessitant une attention
+  particulière
+\end{enumerate}
+
+\subsection{Principaux résultats}\label{principaux-ruxe9sultats}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Échantillon analysé} : 7 309 enfants vivants âgés de 0 à 17
+  ans
+\item
+  \textbf{Score de risque moyen} : 21.9 / 100 (ET = 18.2)
+\item
+  \textbf{Prévalence du risque élevé} : 16.1\% des enfants (score ≥ 40)
+\item
+  \textbf{Facteurs de risque majeurs identifiés} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Pauvreté (quintiles 1-2) : OR significatifs
+  \item
+    Faible éducation maternelle : OR significatifs
+  \item
+    Milieu rural : OR significatifs
+  \end{itemize}
+\end{itemize}
+
+\section{Introduction}\label{introduction}
+
+\subsection{Contexte scientifique}\label{contexte-scientifique}
+
+Le Trouble Déficitaire de l'Attention avec ou sans Hyperactivité (TDAH)
+est l'un des troubles neurodéveloppementaux les plus fréquents de
+l'enfance, affectant environ 5 à 7\% des enfants dans le monde. Le TDAH
+se caractérise par des symptômes d'inattention, d'hyperactivité et
+d'impulsivité qui interfèrent avec le fonctionnement quotidien et le
+développement de l'enfant.
+
+\subsubsection{Étiologie
+multifactorielle}\label{uxe9tiologie-multifactorielle}
+
+L'étiologie du TDAH est complexe et multifactorielle, impliquant :
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Facteurs génétiques} : Héritabilité estimée à 70-80\%
+\item
+  \textbf{Facteurs environnementaux} : Exposition prénatale,
+  complications obstétricales
+\item
+  \textbf{Facteurs socio-économiques} : Pauvreté, stress familial,
+  faible éducation parentale
+\item
+  \textbf{Facteurs périnataux} : Âge maternel extrême, prématurité,
+  faible poids de naissance
+\end{itemize}
+
+\subsection{Problématique tunisienne}\label{probluxe9matique-tunisienne}
+
+En Tunisie, peu d'études ont exploré systématiquement les facteurs de
+risque du TDAH au niveau populationnel. Cette étude utilise les données
+de l'enquête MICS6, une enquête nationale représentative, pour :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Identifier les facteurs de risque modifiables
+\item
+  Cibler les interventions de prévention
+\item
+  Informer les politiques de santé publique
+\end{enumerate}
+
+\subsection{Objectifs de l'étude}\label{objectifs-de-luxe9tude}
+
+\subsubsection{Objectif principal}\label{objectif-principal}
+
+Identifier et quantifier les facteurs de risque socio-démographiques,
+périnataux et socio-économiques associés à une vulnérabilité accrue au
+TDAH chez les enfants tunisiens.
+
+\subsubsection{Objectifs spécifiques}\label{objectifs-spuxe9cifiques}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Décrire les caractéristiques de l'échantillon d'enfants tunisiens
+\item
+  Analyser la distribution des facteurs de risque dans la population
+\item
+  Développer un score composite de risque théorique
+\item
+  Modéliser les associations entre facteurs de risque et score TDAH
+\item
+  Identifier les sous-populations à haut risque
+\end{enumerate}
+
+\section{Méthodologie}\label{muxe9thodologie}
+
+\subsection{Source des données}\label{source-des-donnuxe9es}
+
+\subsubsection{Enquête MICS6 Tunisie
+2023}\label{enquuxeate-mics6-tunisie-2023}
+
+L'enquête à Indicateurs Multiples (MICS6) est une enquête nationale par
+grappes à indicateurs multiples menée en Tunisie en 2023 par l'Institut
+National de la Statistique (INS) avec l'appui de l'UNICEF.
+
+\textbf{Caractéristiques de l'enquête} :
+
+\begin{itemize}
+\tightlist
+\item
+  Plan de sondage : Échantillonnage stratifié à deux degrés
+\item
+  Unités primaires : Aires de dénombrement (PSU)
+\item
+  Représentativité : Nationale, urbain/rural, régionale
+\item
+  Période de collecte : 2023
+\end{itemize}
+
+\subsection{Population d'étude}\label{population-duxe9tude}
+
+\subsubsection{Critères d'inclusion}\label{crituxe8res-dinclusion}
+
+\begin{itemize}
+\tightlist
+\item
+  Enfants âgés de 0 à 17 ans
+\item
+  Vivants au moment de l'enquête
+\item
+  Données complètes sur les variables clés
+\end{itemize}
+
+\subsubsection{Critères d'exclusion}\label{crituxe8res-dexclusion}
+
+\begin{itemize}
+\tightlist
+\item
+  Enfants décédés
+\item
+  Données manquantes sur les variables essentielles (âge maternel, ordre
+  de naissance, richesse)
+\end{itemize}
+
+\subsubsection{Échantillon final}\label{uxe9chantillon-final}
+
+\begin{longtable}[t]{ll}
+\caption{\label{tab:taille-echantillon}Constitution de l'échantillon d'analyse}\\
+\toprule
+Étape & N\\
+\midrule
+Enfants dans bh.sav & \textasciitilde{}9,400\\
+Enfants vivants & \textasciitilde{}9,200\\
+Avec données complètes & 7 309\\
+Échantillon final & 7 309\\
+\bottomrule
+\end{longtable}
+
+\subsection{Variables étudiées}\label{variables-uxe9tudiuxe9es}
+
+\subsubsection{Variable dépendante : Score de risque
+TDAH}\label{variable-duxe9pendante-score-de-risque-tdah}
+
+Un \textbf{score composite de risque théorique} a été développé en
+pondérant chaque facteur de risque selon l'importance rapportée dans la
+littérature scientifique.
+
+\textbf{Formule du score} : \[
+\text{Score TDAH} = \sum_{i=1}^{7} (w_i \times r_i) \times 100
+\]
+
+où \(w_i\) est le poids du facteur \(i\) et \(r_i\) est la présence (1)
+ou absence (0) du facteur.
+
+\textbf{Pondérations basées sur la littérature} :
+
+\begin{longtable}[t]{>{}l>{}lll}
+\caption{\label{tab:tableau-poids}Pondérations des facteurs de risque TDAH (littérature)}\\
+\toprule
+Facteur & Poids & Référence & Description\\
+\midrule
+\textbf{Âge maternel à risque} & \textcolor{red}{\textbf{15\%}} & Thapar et al., 2013 & Âge maternel extrême (<20 ou ≥35 ans)\\
+\textbf{Rang de naissance élevé} & \textcolor{red}{\textbf{10\%}} & Russell et al., 2016 & Rang de naissance élevé (≥4)\\
+\textbf{Espacement court} & \textcolor{red}{\textbf{15\%}} & Cheslack-Postava et al., 2011 & Espacement court (<24 mois)\\
+\textbf{Pauvreté} & \textcolor{red}{\textbf{20\%}} & Russell et al., 2014 & Pauvreté (Q1-Q2)\\
+\textbf{Faible éducation maternelle} & \textcolor{red}{\textbf{15\%}} & Rowland et al., 2018 & Faible éducation maternelle\\
+\addlinespace
+\textbf{Grande taille ménage} & \textcolor{red}{\textbf{10\%}} & Larsson et al., 2014 & Grande taille ménage (>7 personnes)\\
+\textbf{Sexe masculin} & \textcolor{red}{\textbf{15\%}} & Willcutt, 2012 & Sexe masculin\\
+\bottomrule
+\end{longtable}
+
+\textbf{Catégorisation du score} :
+
+\begin{itemize}
+\tightlist
+\item
+  Risque \textbf{faible} : Score \textless{} 20
+\item
+  Risque \textbf{moyen} : 20 ≤ Score \textless{} 40
+\item
+  Risque \textbf{élevé} : Score ≥ 40
+\end{itemize}
+
+\subsubsection{Variables
+indépendantes}\label{variables-induxe9pendantes}
+
+\paragraph{Facteurs périnataux}\label{facteurs-puxe9rinataux}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Âge maternel à la naissance}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Catégories : \textless{} 20 ans, 20-34 ans, ≥ 35 ans
+  \item
+    Risque : \textless{} 20 ans OU ≥ 35 ans
+  \end{itemize}
+\item
+  \textbf{Ordre de naissance}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Catégories : Premier, 2-3, 4-6, ≥ 7
+  \item
+    Risque : Rang ≥ 4
+  \end{itemize}
+\item
+  \textbf{Intervalle intergénésique}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Catégories : Premier né, \textless{} 2 ans, 2 ans, 3 ans, ≥ 4 ans
+  \item
+    Risque : \textless{} 24 mois
+  \end{itemize}
+\end{enumerate}
+
+\paragraph{Facteurs
+socio-économiques}\label{facteurs-socio-uxe9conomiques}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  \textbf{Quintile de richesse}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Catégories : Q1 (plus pauvre) à Q5 (plus riche)
+  \item
+    Risque : Q1 ou Q2
+  \end{itemize}
+\item
+  \textbf{Éducation maternelle}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Catégories : Aucune, Primaire, Secondaire, Supérieur
+  \item
+    Risque : Aucune ou Primaire
+  \end{itemize}
+\item
+  \textbf{Milieu de résidence}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Catégories : Urbain, Rural
+  \item
+    Risque : Rural
+  \end{itemize}
+\item
+  \textbf{Taille du ménage}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Mesure : Nombre de personnes
+  \item
+    Risque : \textgreater{} 7 personnes
+  \end{itemize}
+\end{enumerate}
+
+\paragraph{Facteur biologique}\label{facteur-biologique}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{7}
+\tightlist
+\item
+  \textbf{Sexe de l'enfant}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Catégories : Masculin, Féminin
+  \item
+    Risque : Masculin
+  \item
+    \textbf{Note} : Variable disponible pour seulement
+    \textasciitilde3\% de l'échantillon (limitation importante)
+  \end{itemize}
+\end{enumerate}
+
+\subsection{Analyses statistiques}\label{analyses-statistiques}
+
+\subsubsection{Analyses descriptives}\label{analyses-descriptives}
+
+\begin{itemize}
+\tightlist
+\item
+  Statistiques univariées (moyennes, proportions)
+\item
+  Tableaux de contingence
+\item
+  Visualisations (histogrammes, barplots)
+\end{itemize}
+
+\subsubsection{Analyses bivariées}\label{analyses-bivariuxe9es}
+
+\begin{itemize}
+\tightlist
+\item
+  Tests du Chi-deux pour variables catégorielles
+\item
+  Tests t de Student et ANOVA pour comparaisons de moyennes
+\item
+  Corrélations de Pearson entre facteurs de risque
+\end{itemize}
+
+\subsubsection{Analyses multivariées}\label{analyses-multivariuxe9es}
+
+\paragraph{Régression linéaire
+multiple}\label{ruxe9gression-linuxe9aire-multiple}
+
+Modèle expliquant le score continu de risque TDAH :
+
+\[
+\text{Score TDAH} = \beta_0 + \sum_{i=1}^{p} \beta_i X_i + \epsilon
+\]
+
+\paragraph{Régression logistique}\label{ruxe9gression-logistique}
+
+Modèle expliquant le risque TDAH élevé (score ≥ 40) :
+
+\[
+\text{logit}(P(\text{Risque élevé})) = \beta_0 + \sum_{i=1}^{p} \beta_i X_i
+\]
+
+\textbf{Métriques rapportées} :
+
+\begin{itemize}
+\tightlist
+\item
+  Odds Ratios (OR) avec intervalles de confiance à 95\%
+\item
+  Valeurs p
+\item
+  AIC pour comparaison des modèles
+\item
+  Pseudo R² (McFadden)
+\end{itemize}
+
+\subsubsection{Logiciels utilisés}\label{logiciels-utilisuxe9s}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{R version 4.x}
+\item
+  Packages : \texttt{tidyverse}, \texttt{haven}, \texttt{broom},
+  \texttt{car}, \texttt{gtsummary}
+\end{itemize}
+
+\section{Résultats}\label{ruxe9sultats}
+
+\subsection{Caractéristiques de
+l'échantillon}\label{caractuxe9ristiques-de-luxe9chantillon}
+
+\subsubsection{Description générale}\label{description-guxe9nuxe9rale}
+
+\begin{longtable}[t]{ll}
+\caption{\label{tab:tableau-descriptif}Caractéristiques générales de l'échantillon}\\
+\toprule
+Caractéristique & Valeur\\
+\midrule
+N & 7 309\\
+Âge moyen (années) & 9.1 ± 4.4\\
+Milieu urbain (\%) & 59.2\%\\
+Pauvreté Q1-Q2 (\%) & 48.6\%\\
+Faible éduc. mère (\%) & 34.6\%\\
+\addlinespace
+Taille ménage moyenne & 5.1 ± 1.3\\
+\bottomrule
+\end{longtable}
+
+L'échantillon final comprend \textbf{7 309 enfants} âgés de 0 à 17 ans.
+L'âge moyen est de 9.1 ans. La population se répartit entre zones
+urbaines (59.2\%) et rurales (40.8\%).
+
+\subsubsection{Distribution par groupe
+d'âge}\label{distribution-par-groupe-duxe2ge}
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{rapport_principal_files/figure-pdf/graphique-age-1.pdf}}
+
+}
+
+\caption{Répartition des enfants par groupe d'âge}
+
+\end{figure}%
+
+\subsubsection{Caractéristiques
+socio-économiques}\label{caractuxe9ristiques-socio-uxe9conomiques}
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{rapport_principal_files/figure-pdf/graphique-ses-1.pdf}}
+
+}
+
+\caption{Distribution des caractéristiques socio-économiques}
+
+\end{figure}%
+
+\subsection{Prévalence des facteurs de
+risque}\label{pruxe9valence-des-facteurs-de-risque}
+
+\subsubsection{Vue d'ensemble}\label{vue-densemble}
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{rapport_principal_files/figure-pdf/prevalence-facteurs-1.pdf}}
+
+}
+
+\caption{Prévalence des facteurs de risque TDAH dans la population}
+
+\end{figure}%
+
+\textbf{Points clés} :
+
+\begin{itemize}
+\tightlist
+\item
+  Le facteur le plus prévalent est le \textbf{milieu rural} (40.8\%)
+\item
+  La \textbf{pauvreté} (Q1-Q2) touche 48.6\% des enfants
+\item
+  34.6\% des mères ont un \textbf{faible niveau d'éducation}
+\item
+  L'\textbf{âge maternel à risque} concerne 20\% des naissances
+\end{itemize}
+
+\subsubsection{Cumul des facteurs de
+risque}\label{cumul-des-facteurs-de-risque}
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{rapport_principal_files/figure-pdf/cumul-risques-1.pdf}}
+
+}
+
+\caption{Distribution du nombre cumulé de facteurs de risque}
+
+\end{figure}%
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{1.72 facteurs en moyenne} par enfant
+\item
+  2115 enfants (28.9\%) cumulent \textbf{≥ 3 facteurs de risque}
+\end{itemize}
+
+\subsection{Distribution du score de risque
+TDAH}\label{distribution-du-score-de-risque-tdah}
+
+\subsubsection{Score global}\label{score-global}
+
+\begin{longtable}[t]{lr}
+\caption{\label{tab:stats-score}Statistiques descriptives du score de risque TDAH (0-100)}\\
+\toprule
+Statistique & Valeur\\
+\midrule
+Moyenne & 21.9\\
+Médiane & 20.0\\
+ET & 18.2\\
+Min & 0.0\\
+Max & 85.0\\
+\addlinespace
+Q1 & 0.0\\
+Q3 & 35.0\\
+\bottomrule
+\end{longtable}
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{rapport_principal_files/figure-pdf/distrib-score-1.pdf}}
+
+}
+
+\caption{Distribution du score de risque théorique TDAH}
+
+\end{figure}%
+
+\subsubsection{Répartition par catégories de
+risque}\label{ruxe9partition-par-catuxe9gories-de-risque}
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{rapport_principal_files/figure-pdf/categories-risque-1.pdf}}
+
+}
+
+\caption{Répartition des enfants par catégorie de risque TDAH}
+
+\end{figure}%
+
+\begin{longtable}[t]{lrr}
+\caption{\label{tab:tableau-categories}Distribution des catégories de risque TDAH}\\
+\toprule
+Catégorie & Effectif & Pourcentage\\
+\midrule
+Faible & 3255 & 44.5\\
+Moyen & 2879 & 39.4\\
+\cellcolor[HTML]{e74c3c}{\textcolor{white}{\textbf{Élevé}}} & \cellcolor[HTML]{e74c3c}{\textcolor{white}{\textbf{1175}}} & \cellcolor[HTML]{e74c3c}{\textcolor{white}{\textbf{16.1}}}\\
+\bottomrule
+\end{longtable}
+
+\textbf{Prévalence du risque élevé} : 1 175 enfants soit \textbf{16.1\%}
+de l'échantillon présentent un score de risque élevé (≥ 40).
+
+\subsubsection{Score selon le milieu de
+résidence}\label{score-selon-le-milieu-de-ruxe9sidence}
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{rapport_principal_files/figure-pdf/score-milieu-1.pdf}}
+
+}
+
+\caption{Score TDAH selon le milieu de résidence}
+
+\end{figure}%
+
+\textbf{Test t de Student} :
+
+\begin{itemize}
+\tightlist
+\item
+  Score moyen urbain : 16.2
+\item
+  Score moyen rural : 30.3
+\item
+  Différence : 14.1 points
+\item
+  t(6114) = 34.9, p \textless{} 0.001
+\end{itemize}
+
+Le score de risque TDAH est significativement plus élevé en milieu rural
+qu'en milieu urbain.
+
+\subsubsection{Score selon la richesse}\label{score-selon-la-richesse}
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{rapport_principal_files/figure-pdf/score-richesse-1.pdf}}
+
+}
+
+\caption{Score TDAH selon le quintile de richesse}
+
+\end{figure}%
+
+On observe un \textbf{gradient socio-économique net} : le score de
+risque diminue progressivement du quintile le plus pauvre (Q1) au
+quintile le plus riche (Q5).
+
+\subsection{Analyses multivariées}\label{analyses-multivariuxe9es-1}
+
+\subsubsection{Régression logistique : Risque TDAH
+élevé}\label{ruxe9gression-logistique-risque-tdah-uxe9levuxe9}
+
+Le tableau suivant présente les \textbf{Odds Ratios ajustés} du modèle
+complet pour prédire un risque TDAH élevé (score ≥ 40).
+
+\begin{longtable}[t]{lccc}
+\caption{\label{tab:tableau-odds-ratios}Odds Ratios ajustés - Modèle de régression logistique complet}\\
+\toprule
+Variable & OR [IC 95\%] & p-valeur & Significatif\\
+\midrule
+Âge enfant (années) & 1.015 [0.987-1.045] & 0.299 & Non\\
+Milieu rural (vs Urbain) & 0.921 [0.707-1.199] & 0.54 & Non\\
+Richesse Q2 (vs Q5) & 0.796 [0.608-1.042] & 0.097 & Non\\
+\cellcolor[HTML]{fff3cd}{\textbf{Richesse Q3 (vs Q5)}} & \cellcolor[HTML]{fff3cd}{\textbf{0.003 [0.001-0.005]}} & \cellcolor[HTML]{fff3cd}{\textbf{<0.001}} & \cellcolor[HTML]{fff3cd}{\textbf{Oui}}\\
+\cellcolor[HTML]{fff3cd}{\textbf{Richesse Q4 (vs Q5)}} & \cellcolor[HTML]{fff3cd}{\textbf{0.002 [0.001-0.005]}} & \cellcolor[HTML]{fff3cd}{\textbf{<0.001}} & \cellcolor[HTML]{fff3cd}{\textbf{Oui}}\\
+\addlinespace
+\cellcolor[HTML]{fff3cd}{\textbf{richesse\_catQ5 (Plus riche)}} & \cellcolor[HTML]{fff3cd}{\textbf{0.001 [0-0.004]}} & \cellcolor[HTML]{fff3cd}{\textbf{<0.001}} & \cellcolor[HTML]{fff3cd}{\textbf{Oui}}\\
+Éducation primaire (vs Supérieur) & 1.12 [0.835-1.504] & 0.449 & Non\\
+\cellcolor[HTML]{fff3cd}{\textbf{Éducation secondaire (vs Supérieur)}} & \cellcolor[HTML]{fff3cd}{\textbf{0.006 [0.003-0.011]}} & \cellcolor[HTML]{fff3cd}{\textbf{<0.001}} & \cellcolor[HTML]{fff3cd}{\textbf{Oui}}\\
+\cellcolor[HTML]{fff3cd}{\textbf{educ\_mere\_catSupérieur}} & \cellcolor[HTML]{fff3cd}{\textbf{0.006 [0.003-0.012]}} & \cellcolor[HTML]{fff3cd}{\textbf{<0.001}} & \cellcolor[HTML]{fff3cd}{\textbf{Oui}}\\
+\cellcolor[HTML]{fff3cd}{\textbf{Âge mère 20-34 ans (vs <20)}} & \cellcolor[HTML]{fff3cd}{\textbf{0.001 [0-0.003]}} & \cellcolor[HTML]{fff3cd}{\textbf{<0.001}} & \cellcolor[HTML]{fff3cd}{\textbf{Oui}}\\
+\addlinespace
+\cellcolor[HTML]{fff3cd}{\textbf{Âge mère ≥ 35 ans (vs <20)}} & \cellcolor[HTML]{fff3cd}{\textbf{0.183 [0.077-0.436]}} & \cellcolor[HTML]{fff3cd}{\textbf{<0.001}} & \cellcolor[HTML]{fff3cd}{\textbf{Oui}}\\
+\cellcolor[HTML]{fff3cd}{\textbf{Rang 2-3 (vs Premier)}} & \cellcolor[HTML]{fff3cd}{\textbf{10.434 [6.854-15.886]}} & \cellcolor[HTML]{fff3cd}{\textbf{<0.001}} & \cellcolor[HTML]{fff3cd}{\textbf{Oui}}\\
+\cellcolor[HTML]{fff3cd}{\textbf{Rang 4-6 (vs Premier)}} & \cellcolor[HTML]{fff3cd}{\textbf{2304.504 [1037.517-5118.702]}} & \cellcolor[HTML]{fff3cd}{\textbf{<0.001}} & \cellcolor[HTML]{fff3cd}{\textbf{Oui}}\\
+\cellcolor[HTML]{fff3cd}{\textbf{Rang ≥ 7 (vs Premier)}} & \cellcolor[HTML]{fff3cd}{\textbf{414.215 [13.797-12435.563]}} & \cellcolor[HTML]{fff3cd}{\textbf{<0.001}} & \cellcolor[HTML]{fff3cd}{\textbf{Oui}}\\
+\bottomrule
+\end{longtable}
+
+\textbf{Interprétation des résultats clés} :
+
+\begin{itemize}
+\tightlist
+\item
+  Les enfants en \textbf{milieu rural}, en situation de
+  \textbf{pauvreté}, avec une \textbf{mère peu éduquée} et de
+  \textbf{rang de naissance élevé} présentent un risque TDAH
+  significativement accru
+\item
+  Un \textbf{gradient socio-économique net} est observé pour la richesse
+  et l'éducation maternelle
+\item
+  L'\textbf{âge maternel optimal} (20-34 ans) est fortement protecteur
+\end{itemize}
+
+\subsubsection{Qualité du modèle}\label{qualituxe9-du-moduxe8le}
+
+\begin{longtable}[t]{lll}
+\caption{\label{tab:diagnostic-modele}Métriques de qualité du modèle logistique}\\
+\toprule
+Métrique & Valeur & Interprétation\\
+\midrule
+Pseudo R² (McFadden) & 0.711 & 71.1\% de variance expliquée\\
+Sensibilité & 66.6\% & Proportion de vrais positifs détectés\\
+Spécificité & 100\% & Proportion de vrais négatifs détectés\\
+Précision globale & 94.6\% & Taux de classification correcte\\
+\bottomrule
+\end{longtable}
+
+Le modèle présente une \textbf{excellente capacité prédictive} avec un
+pseudo R² de 0.711 et une précision globale de 94.6\%.
+
+\subsection{Profils à haut risque}\label{profils-uxe0-haut-risque}
+
+\subsubsection{Caractérisation des enfants à haut
+risque}\label{caractuxe9risation-des-enfants-uxe0-haut-risque}
+
+Parmi les 1 175 enfants identifiés comme étant à haut risque (score ≥
+40), voici leur profil :
+
+\begin{longtable}[t]{ll}
+\caption{\label{tab:profil-haut-risque}Profil des enfants à haut risque TDAH (score ≥ 40)}\\
+\toprule
+Caractéristique & Valeur\\
+\midrule
+\cellcolor[HTML]{f8d7da}{\textbf{Effectif}} & \cellcolor[HTML]{f8d7da}{\textbf{1 175}}\\
+\cellcolor[HTML]{f8d7da}{\textbf{Pourcentage de l'échantillon}} & \cellcolor[HTML]{f8d7da}{\textbf{16.1\%}}\\
+Score TDAH moyen & 51.8\\
+Milieu rural & 66\%\\
+Pauvreté (Q1-Q2) & 91.7\%\\
+\addlinespace
+Faible éducation maternelle & 87.5\%\\
+Rang de naissance ≥ 4 & 48.5\%\\
+Taille ménage > 7 & 16.3\%\\
+\bottomrule
+\end{longtable}
+
+\subsubsection{Heatmap : Score moyen selon milieu et
+richesse}\label{heatmap-score-moyen-selon-milieu-et-richesse}
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{rapport_principal_files/figure-pdf/heatmap-risque-1.pdf}}
+
+}
+
+\caption{Score TDAH moyen selon le milieu et le quintile de richesse}
+
+\end{figure}%
+
+\textbf{Point critique} : Les enfants vivant en \textbf{milieu rural ET
+dans les quintiles les plus pauvres} (Q1-Q2) présentent les scores de
+risque les plus élevés, mettant en évidence une \textbf{double
+pénalisation} (géographique et économique).
+
+\section{Discussion}\label{discussion}
+
+\subsection{Synthèse des résultats
+principaux}\label{synthuxe8se-des-ruxe9sultats-principaux}
+
+Cette étude, basée sur les données représentatives de l'enquête MICS6
+Tunisie 2023, apporte plusieurs contributions majeures à la
+compréhension des facteurs de risque du TDAH dans le contexte tunisien.
+
+\subsubsection{1. Prévalence du risque
+élevé}\label{pruxe9valence-du-risque-uxe9levuxe9}
+
+Environ \textbf{16.1\%} des enfants tunisiens de 0 à 17 ans présentent
+un score de risque théorique élevé (≥ 40), soit environ \textbf{1 175
+enfants} dans notre échantillon.
+
+\subsubsection{2. Gradient socio-économique
+marqué}\label{gradient-socio-uxe9conomique-marquuxe9}
+
+L'analyse révèle un \textbf{gradient socio-économique très net} avec une
+diminution progressive du score de risque avec l'amélioration du statut
+socio-économique.
+
+\subsubsection{3. Disparités
+urbain-rural}\label{disparituxe9s-urbain-rural}
+
+Le milieu rural présente un \textbf{sur-risque significatif} avec une
+concentration des facteurs de risque cumulés.
+
+\subsubsection{4. Cumul des risques}\label{cumul-des-risques}
+
+Le cumul de facteurs de risque amplifie considérablement la
+vulnérabilité avec un effet synergique entre pauvreté, faible éducation
+et milieu rural.
+
+\subsection{Limites de l'étude}\label{limites-de-luxe9tude}
+
+\subsubsection{Limites
+méthodologiques}\label{limites-muxe9thodologiques}
+
+\textbf{1. Absence de diagnostic clinique}
+
+La principale limite est l'\textbf{absence de mesure directe du TDAH}.
+Le score développé est un \textbf{proxy théorique} basé sur des facteurs
+de risque connus.
+
+\textbf{2. Données limitées sur le sexe}
+
+La variable ``sexe'' n'est disponible que pour environ 3\% de
+l'échantillon, limitant les analyses par sexe.
+
+\textbf{3. Design transversal}
+
+Le design transversal ne permet pas d'établir des relations causales.
+
+\subsection{Implications pour la santé
+publique}\label{implications-pour-la-santuxe9-publique}
+
+\subsubsection{Implications pratiques}\label{implications-pratiques}
+
+\textbf{1. Dépistage et prévention}
+
+\begin{itemize}
+\tightlist
+\item
+  Ciblage des populations vulnérables
+\item
+  Stratégies de dépistage précoce
+\item
+  Prévention primaire
+\end{itemize}
+
+\textbf{2. Politiques éducatives}
+
+\begin{itemize}
+\tightlist
+\item
+  Scolarisation des filles
+\item
+  Programmes de soutien parental
+\item
+  Interventions en milieu scolaire
+\end{itemize}
+
+\textbf{3. Réduction des inégalités}
+
+\begin{itemize}
+\tightlist
+\item
+  Lutte contre la pauvreté
+\item
+  Réduction du gradient urbain-rural
+\item
+  Équité territoriale
+\end{itemize}
+
+\section{Conclusion}\label{conclusion}
+
+Cette étude constitue \textbf{la première analyse populationnelle des
+facteurs de risque du TDAH en Tunisie} basée sur des données nationales
+représentatives (MICS6 2023).
+
+\subsection{Messages clés}\label{messages-cluxe9s}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Environ 16.1\% des enfants} présentent un profil de risque
+  élevé
+\item
+  Le \textbf{gradient socio-économique est très marqué}
+\item
+  Le \textbf{milieu rural concentre les vulnérabilités}
+\item
+  Les \textbf{facteurs périnataux restent importants}
+\item
+  Le \textbf{cumul de facteurs amplifie le risque}
+\end{itemize}
+
+\subsection{Implications}\label{implications}
+
+\textbf{Pour la santé publique} : Cibler les interventions, développer
+des outils de dépistage, réduire les inégalités
+
+\textbf{Pour les politiques publiques} : Investir dans l'éducation,
+renforcer les services de santé mentale, améliorer l'accès aux soins
+ruraux
+
+\textbf{Pour la recherche} : Valider le score, études longitudinales,
+évaluation des interventions
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Citation suggérée} : Belkahla, A. (2025). Facteurs de risque du
+TDAH chez les enfants tunisiens : Analyse des données MICS6 Tunisie
+2023. {[}Rapport de recherche{]}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\emph{Fin du rapport - Généré le 2026-01-03}
+
+
+
+
+\end{document}

@@ -9,7 +9,7 @@ format:
     slide-number: true
     chalkboard: true
     preview-links: auto
-    footer: "Projet TDAH Tunisie - MICS6 2023"
+    footer: "Projet TDAH Tunisie - MICS6 2023 | [🏠 Retour à l'accueil](index.html)"
     transition: slide
     background-transition: fade
     scrollable: true
@@ -32,19 +32,10 @@ library(kableExtra)
 library(scales)
 library(patchwork)
 
-# Charger les données
 project_root <- getwd()
 load(file.path(project_root, "data", "processed", "03_features.RData"))
 load(file.path(project_root, "data", "processed", "05_risk_score.RData"))
 load(file.path(project_root, "data", "processed", "06_models.RData"))
-
-# Options
-knitr::opts_chunk$set(
-  fig.align = "center",
-  dpi = 300,
-  fig.width = 10,
-  fig.height = 6
-)
 ```
 
 ## 🎯 Contexte et Objectifs {background-color="#2c3e50"}

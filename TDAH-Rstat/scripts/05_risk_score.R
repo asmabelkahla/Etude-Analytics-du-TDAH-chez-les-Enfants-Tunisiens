@@ -1,13 +1,6 @@
-# ==============================================================================
 # PROJET TDAH TUNISIE - MICS6 2023
 # Script 05 : Construction du score de risque TDAH
-# ==============================================================================
-# Description: Création du score de vulnérabilité théorique au TDAH
 # Auteur: Asma BELKAHLA
-# Date: 2025-12-23
-# ==============================================================================
-
-# 1. CONFIGURATION ============================================================
 
 rm(list = ls())
 gc()
@@ -19,18 +12,9 @@ library(ggridges)
 library(patchwork)
 
 project_root <- getwd()
-
-# Charger les données
 load(file.path(project_root, "data", "processed", "03_features.RData"))
 
-cat("\n")
-cat("╔════════════════════════════════════════════════════════════════════╗\n")
-cat("║        CONSTRUCTION DU SCORE DE RISQUE THÉORIQUE TDAH              ║\n")
-cat("╚════════════════════════════════════════════════════════════════════╝\n\n")
-
-# 2. PONDÉRATIONS BASÉES SUR LA LITTÉRATURE ==================================
-
-cat("📚 Pondérations des facteurs de risque (littérature scientifique):\n\n")
+cat("Construction du score de risque TDAH\n")
 
 poids <- list(
   age_mere_risque = 0.15,      # Thapar et al., 2013
@@ -65,12 +49,6 @@ facteurs_info <- tibble(
   )
 )
 
-print(facteurs_info)
-cat("\nSomme des poids:", sum(unlist(poids)), "(doit être = 1.0)\n\n")
-
-# 3. CALCUL DU SCORE PONDÉRÉ =================================================
-
-cat("🔧 Calcul du score de risque TDAH...\n\n")
 
 dataset_score <- dataset_features %>%
   mutate(
@@ -104,42 +82,12 @@ dataset_score <- dataset_features %>%
   mutate(
     risque_tdah_cat = factor(risque_tdah_cat, levels = c("Faible", "Moyen", "Élevé"))
   )
-
-cat("✅ Score calculé pour", nrow(dataset_score), "enfants\n\n")
-
-# 4. STATISTIQUES DESCRIPTIVES DU SCORE ======================================
-
-cat("📊 Statistiques du score de risque TDAH:\n\n")
-
-# Score pondéré
-cat("Score pondéré (0-100):\n")
-print(summary(dataset_score$score_tdah))
-cat("Écart-type:", round(sd(dataset_score$score_tdah, na.rm = TRUE), 2), "\n\n")
-
-# Score simple
-cat("Score simple (nombre de facteurs 0-7):\n")
-print(table(dataset_score$score_simple))
-cat("\n")
-
-# Distribution des catégories
-cat("Distribution des catégories de risque:\n")
 distrib_cat <- dataset_score %>%
   count(risque_tdah_cat) %>%
   mutate(
     pct = round(n / sum(n) * 100, 1),
     pct_cum = cumsum(pct)
   )
-print(distrib_cat)
-
-cat("\nPrévalence du risque élevé:", 
-    sum(dataset_score$risque_tdah_eleve, na.rm = TRUE), "enfants (",
-    round(mean(dataset_score$risque_tdah_eleve, na.rm = TRUE) * 100, 1), "%)\n\n")
-
-# 5. VISUALISATIONS DU SCORE =================================================
-
-cat("📊 Création des visualisations du score...\n\n")
-
-# 5.1 Distribution du score pondéré
 p1 <- ggplot(dataset_score, aes(x = score_tdah)) +
   geom_histogram(aes(y = after_stat(density)), 
                  bins = 30, fill = "steelblue", alpha = 0.7, color = "white") +
@@ -273,12 +221,6 @@ p5 <- dataset_score %>%
 ggsave(file.path(project_root, "reports", "figures", "09_heatmap_score.png"),
        p5, width = 12, height = 8, dpi = 300)
 
-cat("  ✅ 5 graphiques sauvegardés\n\n")
-
-# 6. CORRÉLATIONS ENTRE FACTEURS =============================================
-
-cat("📊 Analyse des corrélations entre facteurs de risque...\n\n")
-
 cor_matrix <- dataset_score %>%
   select(age_mere_risque, ordre_risque, intervalle_risque,
          richesse_risque, educ_mere_risque, milieu_risque,
@@ -299,33 +241,13 @@ corrplot(cor_matrix,
          title = "Corrélations entre Facteurs de Risque TDAH",
          mar = c(0,0,2,0))
 dev.off()
-
-cat("  ✅ Matrice de corrélation sauvegardée\n\n")
-
-# 7. VALIDATION DU SCORE ======================================================
-
-cat("✅ Validation du score:\n\n")
-
-# Cohérence interne (alpha de Cronbach) - GÉRER LES ERREURS
 alpha_result <- NULL
 tryCatch({
-  alpha_result <- psych::alpha(dataset_score %>% 
+  alpha_result <- psych::alpha(dataset_score %>%
                                  select(age_mere_risque:sexe_risque) %>%
                                  select_if(~sd(., na.rm = TRUE) > 0),
                                check.keys = TRUE)
-  cat("Alpha de Cronbach:", round(alpha_result$total$raw_alpha, 3), "\n")
-  if (alpha_result$total$raw_alpha >= 0.7) {
-    cat("  → Cohérence interne ACCEPTABLE (≥0.70)\n")
-  } else {
-    cat("  → Cohérence interne MODÉRÉE (<0.70)\n")
-  }
-}, error = function(e) {
-  cat("  ⚠️  Calcul de l'alpha de Cronbach impossible (variance nulle)\n")
-})
-cat("\n")
-
-# Score moyen par sous-groupes
-cat("Score moyen par sous-groupes:\n")
+}, error = function(e) {})
 scores_groupes <- dataset_score %>%
   group_by(milieu) %>%
   summarise(
@@ -335,29 +257,9 @@ scores_groupes <- dataset_score %>%
     pct_risque_eleve = round(mean(risque_tdah_eleve, na.rm = TRUE) * 100, 1),
     .groups = "drop"
   )
-print(scores_groupes)
 
-# 8. PROFILS À HAUT RISQUE ====================================================
-
-cat("\n🎯 Identification des profils à haut risque:\n\n")
-
-# Enfants avec score ≥ 40
 haut_risque <- dataset_score %>%
   filter(risque_tdah_eleve == 1)
-
-cat("Enfants à haut risque (score ≥40):", nrow(haut_risque), "\n")
-cat("Caractéristiques:\n")
-if(sum(!is.na(haut_risque$sexe)) > 0) {
-  cat("  - Sexe masculin:", round(mean(haut_risque$sexe=="Masculin", na.rm=TRUE)*100, 1), "%\n")
-}
-cat("  - Milieu rural:", round(mean(haut_risque$milieu=="Rural", na.rm=TRUE)*100, 1), "%\n")
-cat("  - Pauvres (Q1-Q2):", round(mean(haut_risque$richesse_risque==1, na.rm=TRUE)*100, 1), "%\n")
-cat("  - Faible éduc. mère:", round(mean(haut_risque$educ_mere_risque==1, na.rm=TRUE)*100, 1), "%\n")
-cat("  - Score moyen:", round(mean(haut_risque$score_tdah), 1), "\n")
-
-# 9. CRÉATION DU RÉSUMÉ POUR LE RAPPORT ======================================
-
-# Créer le résumé statistique du score
 resume_score <- tibble(
   Statistique = c("Minimum", "1er quartile", "Médiane", "Moyenne", 
                   "3e quartile", "Maximum", "Écart-type"),
@@ -372,45 +274,22 @@ resume_score <- tibble(
   )
 ) %>%
   mutate(Valeur = round(Valeur, 2))
-
-cat("\n✅ Résumé statistique créé\n")
-
-# 10. SAUVEGARDE ==============================================================
-
-cat("\n💾 Sauvegarde des résultats...\n")
-
-# Sauvegarder le dataset avec score
-saveRDS(dataset_score, 
+saveRDS(dataset_score,
         file.path(project_root, "data", "processed", "dataset_with_score.rds"))
 
-# Sauvegarder le résumé CSV
-write_csv(resume_score, 
+write_csv(resume_score,
           file.path(project_root, "data", "processed", "resume_score_tdah.csv"))
-
-# Sauvegarder tous les objets pour le rapport et les analyses suivantes
 save(
   dataset_score,
-  facteurs_info, 
+  facteurs_info,
   poids,
-  cor_matrix, 
+  cor_matrix,
   alpha_result,
-  resume_score, 
+  resume_score,
   scores_groupes,
   haut_risque,
   distrib_cat,
   file = file.path(project_root, "data", "processed", "05_risk_score.RData")
 )
 
-cat("  ✅ Données sauvegardées\n\n")
-
-cat("✨ Construction du score terminée!\n")
-cat("📊 Fichiers générés:\n")
-cat("  - 5-6 graphiques PNG\n")
-cat("  - Dataset avec score: dataset_with_score.rds\n")
-cat("  - Résumé: resume_score_tdah.csv\n")
-cat("  - RData: 05_risk_score.RData\n")
-cat("🚀 Prochaine étape: 06_statistical_models.R\n\n")
-
-# ==============================================================================
-# FIN DU SCRIPT
-# ==============================================================================
+cat("Score de risque calculé:", nrow(dataset_score), "enfants\n")

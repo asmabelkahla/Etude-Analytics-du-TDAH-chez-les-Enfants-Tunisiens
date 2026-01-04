@@ -1,61 +1,32 @@
-# ==============================================================================
 # PROJET TDAH TUNISIE - MICS6 2023
-# Script 01 : Import des données SPSS (.sav)
-# ==============================================================================
-# Description: Import direct des fichiers SPSS sans conversion
+# Script 01 : Import des données SPSS
 # Auteur: Asma BELKAHLA
-# Date: 2025-12-23
-# ==============================================================================
 
-# 1. CONFIGURATION ============================================================
+# CONFIGURATION
 
 rm(list = ls())
 gc()
 
-# Packages nécessaires
 library(tidyverse)
-library(haven)      # Pour lire les fichiers SPSS
-library(labelled)   # Pour gérer les labels SPSS
+library(haven)
+library(labelled)
 library(janitor)
 
-# Définir la racine du projet
 project_root <- getwd()
-
 options(scipen = 999, encoding = "UTF-8")
 
-# Créer les dossiers nécessaires
 dir.create(file.path(project_root, "data", "processed"), showWarnings = FALSE, recursive = TRUE)
 dir.create(file.path(project_root, "data", "metadata"), showWarnings = FALSE, recursive = TRUE)
 dir.create(file.path(project_root, "reports", "figures"), showWarnings = FALSE, recursive = TRUE)
 
-cat("\n")
-cat("╔════════════════════════════════════════════════════════════════════╗\n")
-cat("║       IMPORT DES DONNÉES MICS6 TUNISIE 2023 (FORMAT SPSS)         ║\n")
-cat("╚════════════════════════════════════════════════════════════════════╝\n\n")
-
-# 2. VÉRIFICATION DES FICHIERS ================================================
-
-cat("🔍 Recherche des fichiers SPSS (.sav)...\n\n")
-
-# Chercher les fichiers .sav
+cat("Import des données MICS6 Tunisie 2023\n\n")
 sav_files <- list.files(file.path(project_root, "data", "raw"), 
                         pattern = "\\.sav$", 
                         full.names = TRUE,
                         ignore.case = TRUE)
 
-cat("📁 Fichiers SPSS trouvés:\n")
-if (length(sav_files) > 0) {
-  for (f in sav_files) {
-    cat("  ✅", basename(f), 
-        " (", format(file.info(f)$size / 1024^2, digits = 2), " MB)\n")
-  }
-} else {
-  cat("  ❌ Aucun fichier .sav trouvé dans data/raw/\n\n")
-  cat("🚨 ACTIONS À FAIRE:\n")
-  cat("  1. Téléchargez les fichiers SPSS depuis UNICEF/INS\n")
-  cat("  2. Copiez les 7 fichiers .sav dans: ", file.path(project_root, "data", "raw"), "\n")
-  cat("  3. Fichiers attendus: bh.sav, ch.sav, fs.sav, hh.sav, hl.sav, mn.sav, wm.sav\n")
-  stop("Fichiers SPSS introuvables")
+if (length(sav_files) == 0) {
+  stop("Fichiers SPSS introuvables. Placez les fichiers .sav dans data/raw/")
 }
 
 # Identifier les fichiers MICS6 par leur nom
@@ -69,47 +40,14 @@ mics_files_map <- list(
   wm = grep("wm\\.sav$", sav_files, value = TRUE, ignore.case = TRUE)[1]
 )
 
-# Retirer les fichiers non trouvés
 mics_files_map <- Filter(Negate(is.na), mics_files_map)
 
-cat("\n✅ Fichiers MICS6 identifiés:", length(mics_files_map), "/ 7\n\n")
-
-# 3. FONCTION D'IMPORT SPSS ===================================================
-
 import_spss_file <- function(filepath, dataset_name) {
-  
-  cat(strrep("=", 70), "\n")
-  cat("📥 Import de:", dataset_name, "->", basename(filepath), "\n")
-  cat(strrep("=", 70), "\n")
-  
-  # Import du fichier SPSS avec haven
+  cat("Import de", dataset_name, ":", basename(filepath), "\n")
   data <- read_sav(filepath, user_na = TRUE)
-  
-  # Informations sur les labels
-  n_labelled <- sum(sapply(data, is.labelled))
-  
-  cat("\n📊 Dimensions:", nrow(data), "lignes x", ncol(data), "colonnes\n")
-  cat("🏷️  Variables avec labels:", n_labelled, "/", ncol(data), "\n")
-  cat("💾 Taille mémoire:", format(object.size(data), units = "Mb"), "\n")
-  
-  # Afficher quelques informations sur les labels
-  if (n_labelled > 0) {
-    cat("\n🔍 Exemples de variables labellisées:\n")
-    labelled_vars <- names(data)[sapply(data, is.labelled)][1:min(5, n_labelled)]
-    for (var in labelled_vars) {
-      cat("  -", var, ":", length(val_labels(data[[var]])), "labels\n")
-    }
-  }
-  
-  cat("\n📝 Premières colonnes:\n")
-  print(names(data)[1:min(15, ncol(data))])
-  
-  cat(strrep("=", 70), "\n\n")
-  
+  cat("  Dimensions:", nrow(data), "lignes x", ncol(data), "colonnes\n")
   return(data)
 }
-
-# 4. IMPORT DES FICHIERS SPSS =================================================
 
 mics_data_spss <- list()
 

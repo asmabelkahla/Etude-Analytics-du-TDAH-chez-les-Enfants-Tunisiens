@@ -2,6 +2,8 @@
 
 ## 📊 Analyse Secondaire des Données MICS6 (2023)
 
+> **✨ Projet Finalisé** - Tous les scripts d'analyse ont été exécutés avec succès. Les rapports HTML sont prêts à être consultés.
+
 ### Contexte du Projet
 
 Ce projet analyse les facteurs périnataux, familiaux et socio-économiques associés au risque théorique de TDAH (Trouble du Déficit de l'Attention avec ou sans Hyperactivité) chez les enfants en Tunisie, en utilisant les données de l'enquête MICS6 (Multiple Indicator Cluster Survey) réalisée en 2023.
