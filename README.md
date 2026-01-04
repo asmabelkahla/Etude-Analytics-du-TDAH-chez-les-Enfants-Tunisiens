@@ -75,8 +75,8 @@ Elle permet de :
 
 ### 1. Cloner le Repository
 ```bash
-git clone https://github.com/votre-username/tdah-tunisie-mics6.git
-cd tdah-tunisie-mics6
+git clone https://github.com/asmabelkahla/Etude-Analytics-du-TDAH-chez-les-Enfants-Tunisiens.git
+cd Etude-Analytics-du-TDAH-chez-les-Enfants-Tunisiens
 ```
 
 ### 2. Installer R et RStudio/VSCode
