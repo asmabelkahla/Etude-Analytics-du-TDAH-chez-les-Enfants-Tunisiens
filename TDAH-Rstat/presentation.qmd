@@ -294,53 +294,6 @@ Et potentiellement **200,000+ enfants** au niveau national
 
 ---
 
-## 📊 Exploration Interactive - Distribution {background-color="#3498db"}
-
-**Exécutez le code pour voir la distribution!**
-
-```{webr-r}
-# Données d'exemple
-set.seed(123)
-n <- 500
-data <- data.frame(
-  score = round(rnorm(n, 25, 12), 1)
-)
-
-hist(data$score, breaks=20, col="steelblue",
-     main="Distribution du Score TDAH",
-     xlab="Score (0-100)", border="white")
-abline(v=c(20,40), col=c("orange","red"), lty=2, lwd=2)
-
-cat("Moyenne:", round(mean(data$score), 2), "\n")
-cat("% Risque Élevé:", round(sum(data$score>=40)/n*100, 1), "%")
-```
-
----
-
-## 📊 Exploration Interactive - Milieu {background-color="#2ecc71"}
-
-**Comparez Urbain vs Rural:**
-
-```{webr-r}
-# Données par milieu
-set.seed(123)
-data_milieu <- data.frame(
-  milieu = sample(c("Urbain","Rural"), 500, replace=TRUE, prob=c(0.6,0.4)),
-  score = round(rnorm(500, 25, 12), 1)
-)
-
-boxplot(score ~ milieu, data=data_milieu,
-        col=c("lightblue","lightgreen"),
-        main="Score TDAH: Urbain vs Rural",
-        ylab="Score TDAH", notch=TRUE)
-abline(h=40, col="red", lty=2, lwd=2)
-
-cat("\nMoyennes:\n")
-print(aggregate(score ~ milieu, data_milieu, mean))
-```
-
----
-
 ## 📉 Résultat 4 : Gradient Socio-économique {.smaller}
 
 ```{r gradient-richesse}
@@ -672,9 +625,8 @@ Une action précoce et ciblée peut **changer des vies**
 ::: {.column width="50%"}
 ### Contributions
 - 👥 Équipes MICS6
-- 💻 Développeurs R/Quarto
-- 📚 Chercheurs cités
-- ❤️ Familles participantes
+- ❤️ Asma 
+-🎓 Mr.Khemaeis Ben Abdallah 
 :::
 :::
 
@@ -697,7 +649,7 @@ asma.belkahla@polytechnicien.tn
 
 ::: {.fragment .fade-in}
 📊 **Rapport complet** : [rapport_principal.html](rapport_principal.html)
-🌐 **Page projet** : [index.html](index.html)
+🌐 **Page projet** : [https://asmabelkahla.github.io/Etude-Analytics-du-TDAH-chez-les-Enfants-Tunisiens/](Etude-Analytics-du-TDAH-chez-les-Enfants-Tunisiens)
 💻 **Code source** : [GitHub](https://github.com/asmabelkahla/Etude-Analytics-du-TDAH-chez-les-Enfants-Tunisiens)
 📧 **Contact** : asma.belkahla@polytechnicien.tn
 :::
