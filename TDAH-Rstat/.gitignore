@@ -17,6 +17,7 @@ data/raw/*.dta
 # Output files
 *.html
 *.pdf
+!_extensions/**
 *_files/
 presentation_files/
 rapport_principal_files/
