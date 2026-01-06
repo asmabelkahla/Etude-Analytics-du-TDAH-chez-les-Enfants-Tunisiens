@@ -240,22 +240,20 @@ data_tdah <- data.frame(
 
 par(mar = c(5, 5, 4, 2), bg = "white", family = "sans")
 
-boxplot(data_tdah$score_tdah,
-        main = "Distribution du Score de Risque TDAH",
-        ylab = "Score TDAH (0–100)",
-        col = "#3498db",
+boxplot(score_tdah ~ milieu,
+        data = data_tdah,
+        main = "Score de Risque TDAH selon le Milieu",
+        ylab = "Score TDAH",
+        col = c("#1abc9c", "#9b59b6"),
         border = "#2c3e50",
-        horizontal = FALSE,
         las = 1)
 
-# Seuils de risque
 abline(h = 20, col = "#f39c12", lty = 2, lwd = 2)
 abline(h = 40, col = "#e74c3c", lty = 2, lwd = 2)
 
-legend("topright",
-       legend = c("Seuil Moyen (20)", "Seuil Élevé (40)"),
-       col = c("#f39c12", "#e74c3c"),
-       lty = 2, lwd = 2,
+legend("topleft",
+       legend = c("Urbain", "Rural"),
+       fill = c("#1abc9c", "#9b59b6"),
        bty = "n")
 
 # Ajouter un cadre pour les statistiques
