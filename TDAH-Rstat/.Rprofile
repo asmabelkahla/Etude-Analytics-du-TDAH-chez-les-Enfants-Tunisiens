@@ -1,4 +1,3 @@
 # .Rprofile
-setwd("C:/Users/GIGABYTE/Desktop/TDAH-Rstat/TDAH-Rstat")
-cat("✅ Répertoire de travail défini automatiquement:\n")
-cat("   ", getwd(), "\n\n")
+# Suppression de setwd pour assurer la portabilité du projet (GitHub Actions, etc.)
+cat("✅ Projet TDAH Tunisie chargé.\n")
