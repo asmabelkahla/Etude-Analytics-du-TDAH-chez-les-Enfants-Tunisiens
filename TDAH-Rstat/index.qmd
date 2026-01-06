@@ -221,7 +221,7 @@ legend("bottom",
 
 # 📊 Exploration Interactive des Données
 
-Cette section vous permet d'**explorer les données de manière interactive**. Cliquez sur **"Run Code"** pour exécuter et afficher les graphiques!
+Cette section vous permet d'**explorer les données de manière interactive**.
 
 ## Distribution du Score de Risque TDAH
 
