@@ -221,13 +221,8 @@ legend("bottom",
 
 # 📊 Exploration Interactive des Données
 
-<<<<<<< HEAD
-Cette section vous permet d'**explorer les données de manière interactive**.
-
-=======
 Cette section permet d'**explorer les données de manière interactive**. 
 ---
->>>>>>> 5b1334c (Feature: Use real project data in interactive webR sections)
 ## Distribution du Score de Risque TDAH
 
 ```{webr-r}
@@ -253,16 +248,6 @@ if (!exists("data_tdah")) {
   })
 }
 
-<<<<<<< HEAD
-data_tdah <- data.frame(
-  milieu = sample(c("Urbain", "Rural"), n, replace = TRUE, prob = c(0.6, 0.4)),
-  richesse = factor(sample(1:5, n, replace = TRUE),
-                    labels = c("Q1 (Pauvre)", "Q2", "Q3", "Q4", "Q5 (Riche)")),
-  score_tdah = round(rnorm(n, mean = 25, sd = 12), 1)
-)
-
-par(mar = c(5, 5, 4, 2), bg = "white", family = "sans")
-=======
 # Histogramme de distribution avec les vraies données
 par(mar = c(5, 5, 4, 2), bg = "white")
 hist(data_tdah$score_tdah,
@@ -273,7 +258,6 @@ hist(data_tdah$score_tdah,
      col = "#3498db",
      border = "white",
      las = 1)
->>>>>>> 5b1334c (Feature: Use real project data in interactive webR sections)
 
 boxplot(score_tdah ~ milieu,
         data = data_tdah,
@@ -283,20 +267,13 @@ boxplot(score_tdah ~ milieu,
         border = "#2c3e50",
         las = 1)
 
-<<<<<<< HEAD
 abline(h = 20, col = "#f39c12", lty = 2, lwd = 2)
 abline(h = 40, col = "#e74c3c", lty = 2, lwd = 2)
 
-legend("topleft",
-       legend = c("Urbain", "Rural"),
-       fill = c("#1abc9c", "#9b59b6"),
-       bty = "n")
-=======
 legend("topright",
        legend = c("Seuil Moyen (20)", "Seuil Élevé (40)"),
        col = c("#f39c12", "#e74c3c"),
        lty = 2, lwd = 3, bty = "n")
->>>>>>> 5b1334c (Feature: Use real project data in interactive webR sections)
 
 mtext(paste0("Moyenne Réelle: ", round(mean(data_tdah$score_tdah, na.rm=T), 2),
              " | N = ", nrow(data_tdah)),
