@@ -30,7 +30,7 @@ jobs:
       - name: Install R Packages
         run: |
           Rscript -e "install.packages('pak')"
-          Rscript -e "pak::pkg_install(c('tidyverse', 'knitr', 'kableExtra', 'scales', 'patchwork', 'broom', 'car', 'gtsummary', 'haven'))"
+          Rscript -e "pak::pkg_install(c('tidyverse', 'knitr', 'kableExtra', 'scales', 'patchwork', 'broom', 'car', 'gtsummary', 'haven', 'skimr'))"
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
