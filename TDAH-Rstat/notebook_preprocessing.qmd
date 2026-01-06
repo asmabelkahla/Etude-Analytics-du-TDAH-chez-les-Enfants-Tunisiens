@@ -12,6 +12,7 @@ format:
     code-tools: true
     df-print: paged
 execute:
+  eval: false
   echo: true
   warning: false
   message: false

@@ -1,0 +1,8 @@
+/* Styles personnalisés pour le projet TDAH Tunisie */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.quarto-title-block .quarto-title-banner {
+  background-color: #2c3e50;
+}
