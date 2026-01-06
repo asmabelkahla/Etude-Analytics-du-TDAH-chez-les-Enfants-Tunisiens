@@ -280,7 +280,7 @@
     "href": "index.html",
     "title": "Projet TDAH Tunisie",
     "section": "",
-    "text": "NoteUne Rencontre qui Change Tout\n\n\n\n“Madame, vous savez… il n’est pas le seul dans sa classe. Nous avons plusieurs enfants avec le même trouble.”\nCes mots de l’institutrice ont résonné différemment ce jour-là. Le fils de mon amie venait d’être diagnostiqué avec un TDAH. Mais ce qui m’a le plus frappée, ce n’était pas seulement son diagnostic — c’était cette révélation inattendue : il y avait d’autres enfants dans la même situation, dans la même école, dans le même quartier.\nCette simple observation a déclenché une série de questions : - Combien d’enfants sont réellement touchés en Tunisie ? - Y a-t-il des facteurs communs qui augmentent ce risque ? - Certaines familles sont-elles plus vulnérables que d’autres ? - Pouvons-nous identifier ces enfants plus tôt pour mieux les accompagner ?\nC’est ainsi qu’est née cette étude. Non pas d’une simple curiosité académique, mais d’une volonté profonde de comprendre pour mieux protéger et accompagner nos enfants.\n\n\n\n\n\nLe Trouble Déficitaire de l’Attention avec ou sans Hyperactivité (TDAH) est l’un des troubles neurodéveloppementaux les plus fréquents de l’enfance, affectant environ 5 à 7% des enfants dans le monde. En Tunisie, peu d’études ont exploré systématiquement les facteurs de risque du TDAH au niveau populationnel.\nCette étude vise à donner des réponses basées sur des données, afin que chaque famille, chaque école, chaque professionnel de santé puisse mieux comprendre et agir.\n\n\n\nIdentifier et quantifier les facteurs de risque socio-démographiques, périnataux et socio-économiques associés à une vulnérabilité accrue au TDAH chez les enfants tunisiens, en utilisant les données représentatives de l’enquête MICS6 Tunisie 2023.\n\n\n\nMICS6 (Multiple Indicator Cluster Survey) - Tunisie 2023\n\nEnquête nationale représentative\nRéalisée par l’Institut National de la Statistique (INS)\nAvec le soutien de l’UNICEF\nÉchantillon : ~20,000 enfants âgés de 0 à 17 ans\nDonnées collectées en 2023",
+    "text": "Le Trouble Déficitaire de l’Attention avec ou sans Hyperactivité (TDAH) est l’un des troubles neurodéveloppementaux les plus fréquents de l’enfance, affectant environ 5 à 7% des enfants dans le monde. En Tunisie, peu d’études ont exploré systématiquement les facteurs de risque du TDAH au niveau populationnel.\n\n\n\nIdentifier et quantifier les facteurs de risque socio-démographiques, périnataux et socio-économiques associés à une vulnérabilité accrue au TDAH chez les enfants tunisiens, en utilisant les données représentatives de l’enquête MICS6 Tunisie 2023.\n\n\n\nMICS6 (Multiple Indicator Cluster Survey) - Tunisie 2023\n\nEnquête nationale représentative\nRéalisée par l’Institut National de la Statistique (INS)\nAvec le soutien de l’UNICEF\nÉchantillon : ~20,000 enfants âgés de 0 à 17 ans\nDonnées collectées en 2023",
     "crumbs": [
       "Accueil",
       "🏠 Accueil"
@@ -335,7 +335,7 @@
     "href": "index.html#variables-étudiées",
     "title": "Projet TDAH Tunisie",
     "section": "Variables Étudiées",
-    "text": "Variables Étudiées\n\nVariable Dépendante\nScore de risque théorique TDAH (0-100) - Basé sur 7 facteurs de risque pondérés selon la littérature scientifique - Catégories : Risque Faible (&lt;20), Moyen (20-39), Élevé (≥40)\n\n\nFacteurs de Risque Analysés\n\n🧬 Facteurs Périnataux\n\nÂge maternel : &lt; 20 ans ou ≥ 35 ans (poids : 15%)\nOrdre de naissance : Rang ≥ 4 (poids : 10%)\nIntervalle intergénésique : &lt; 24 mois (poids : 15%)\n\n\n\n💰 Facteurs Socio-économiques\n\nPauvreté : Quintiles 1-2 (poids : 20%)\nÉducation maternelle : Aucune ou primaire (poids : 15%)\nMilieu de résidence : Rural (poids : 10%)\nTaille ménage : &gt; 7 personnes (poids : 10%)\n\n\n\n👤 Facteur Biologique\n\nSexe : Masculin (poids : 15%)\nNote : Données limitées (3% de l’échantillon)",
+    "text": "Variables Étudiées\n\nVariable Dépendante\nScore de risque théorique TDAH (0-100) - Basé sur 7 facteurs de risque pondérés selon la littérature scientifique - Catégories : Risque Faible (&lt;20), Moyen (20-39), Élevé (≥40)\n\n\nFacteurs de Risque Analysés\n\n🧬 Facteurs Périnataux\n\nÂge maternel : &lt; 20 ans ou ≥ 35 ans (poids : 15%)\nOrdre de naissance : Rang ≥ 4 (poids : 10%)\nIntervalle intergénésique : &lt; 24 mois (poids : 15%)\n\n\n\n💰 Facteurs Socio-économiques\n\nPauvreté : Quintiles 1-2 (poids : 20%)\nÉducation maternelle : Aucune ou primaire (poids : 15%)\nMilieu de résidence : Rural (poids : 10%)\nTaille ménage : &gt; 7 personnes (poids : 10%)\n\n\n\n👤 Facteur Biologique\n\nSexe : Masculin (poids théorique : 15%)\nNote : ⚠️ NON UTILISÉ - Données disponibles pour seulement 3% de l’échantillon (97% manquant). Cette variable n’est donc pas incluse dans les analyses.",
     "crumbs": [
       "Accueil",
       "🏠 Accueil"
@@ -346,7 +346,7 @@
     "href": "index.html#analyses-statistiques",
     "title": "Projet TDAH Tunisie",
     "section": "Analyses Statistiques",
-    "text": "Analyses Statistiques\n\nAnalyses Descriptives\n\nStatistiques univariées et bivariées\nVisualisations (histogrammes, barplots, heatmaps)\nTests du Chi-deux et ANOVA\n\n\n\nAnalyses Multivariées\n\nRégression linéaire multiple : Score continu\nRégression logistique : Risque élevé (≥40)\nCalcul des Odds Ratios ajustés\nTests de multicolinéarité (VIF)",
+    "text": "Analyses Statistiques\n\nAnalyses Descriptives\n\nStatistiques univariées et bivariées\nVisualisations (histogrammes, barplots, heatmaps)\nTests du Chi-deux et ANOVA\n\n\n\nModèles de Machine Learning\n\nRandom Forest : Modèle de classification pour prédire le risque élevé\nMétriques de performance : Accuracy, Precision, Recall, F1-Score, AUC\nImportance des variables : Identification des facteurs les plus prédictifs\nValidation croisée : Évaluation robuste de la performance",
     "crumbs": [
       "Accueil",
       "🏠 Accueil"
@@ -390,7 +390,7 @@
     "href": "index.html#rapports-et-présentations",
     "title": "Projet TDAH Tunisie",
     "section": "Rapports et Présentations",
-    "text": "Rapports et Présentations\n\n\n\nDocument\nDescription\nLien\n\n\n\n\nRapport Principal\nAnalyse complète avec méthodologie, résultats, discussion\nrapport_principal.qmd\n\n\nPrésentation\nDiapositives des résultats clés\npresentation.qmd\n\n\nScripts R\nTous les codes d’analyse\nscripts/\n\n\nFigures\nGraphiques haute résolution\nreports/figures/",
+    "text": "Rapports et Présentations\n\n\n\nDocument\nDescription\nLien\n\n\n\n\nRapport Principal\nAnalyse complète avec méthodologie, résultats, discussion\nrapport_principal.qmd\n\n\nPrésentation\nDiapositives des résultats clés\npresentation.qmd\n\n\nNotebook Prétraitement\nPipeline interactif de prétraitement des données\nnotebook_preprocessing.qmd\n\n\nScripts R\nTous les codes d’analyse\nscripts/",
     "crumbs": [
       "Accueil",
       "🏠 Accueil"
@@ -401,7 +401,7 @@
     "href": "index.html#données-générées",
     "title": "Projet TDAH Tunisie",
     "section": "Données Générées",
-    "text": "Données Générées\n\n\n\nFichier\nDescription\n\n\n\n\ndataset_with_score.rds\nDataset final avec score TDAH\n\n\n05_risk_score.RData\nObjets R du scoring\n\n\n06_models.RData\nModèles statistiques\n\n\nodds_ratios_final.csv\nTableau des OR",
+    "text": "Données Générées\n\n\n\nFichier\nDescription\n\n\n\n\ndataset_preprocessed.rds\nDataset final prétraité avec score TDAH\n\n\n05_risk_score.RData\nObjets R du scoring\n\n\n06_ml_models.RData\nModèles Machine Learning (Random Forest)\n\n\nml_metrics.csv\nMétriques de performance des modèles ML\n\n\nvariable_importance.csv\nImportance des variables prédictives",
     "crumbs": [
       "Accueil",
       "🏠 Accueil"
@@ -456,7 +456,7 @@
     "href": "index.html#contact",
     "title": "Projet TDAH Tunisie",
     "section": "Contact",
-    "text": "Contact\nAuteur : Asma BELKAHLA\nInstitution : Ecole polytechnique de sousse Email : asma.belkahla@polytechnicien.tn Date : Décembre 2025\n\n\n\n\n\n\nNoteNote Importante\n\n\n\nCe projet représente une première analyse populationnelle des facteurs de risque du TDAH en Tunisie. Les résultats doivent être interprétés comme une estimation de la vulnérabilité théorique au TDAH, et non comme une mesure de prévalence clinique.\nDes études complémentaires avec diagnostic clinique sont nécessaires pour valider ces résultats.\n\n\n\nDernière mise à jour : 2026-01-04\n\n\n🎓 Projet academique Module R stat\nDonnées MICS6 - 2023",
+    "text": "Contact\nAuteur : Asma BELKAHLA\nInstitution : Ecole polytechnique de sousse Email : asma.belkahla@polytechnicien.tn\nDate : Décembre 2025\n\n\n\n\n\n\n\n\nNoteNote Importante\n\n\n\nCe projet représente une première analyse populationnelle des facteurs de risque du TDAH en Tunisie. Les résultats doivent être interprétés comme une estimation de la vulnérabilité théorique au TDAH, et non comme une mesure de prévalence clinique.\nDes études complémentaires avec diagnostic clinique sont nécessaires pour valider ces résultats.\n\n\n\nDernière mise à jour : 2026-01-06\n\n\n🎓 Projet de Recherche en R statistiques\nDonnées MICS6 - 2023",
     "crumbs": [
       "Accueil",
       "🏠 Accueil"
@@ -772,6 +772,72 @@
       "Accueil",
       "📚 Documents Principaux",
       "🎤 Présentation"
+    ]
+  },
+  {
+    "objectID": "index.html#contexte",
+    "href": "index.html#contexte",
+    "title": "Projet TDAH Tunisie",
+    "section": "",
+    "text": "Le Trouble Déficitaire de l’Attention avec ou sans Hyperactivité (TDAH) est l’un des troubles neurodéveloppementaux les plus fréquents de l’enfance, affectant environ 5 à 7% des enfants dans le monde. En Tunisie, peu d’études ont exploré systématiquement les facteurs de risque du TDAH au niveau populationnel.",
+    "crumbs": [
+      "Accueil",
+      "🏠 Accueil"
+    ]
+  },
+  {
+    "objectID": "index.html#organisation-des-fichiers",
+    "href": "index.html#organisation-des-fichiers",
+    "title": "Projet TDAH Tunisie",
+    "section": "Organisation des Fichiers",
+    "text": "Organisation des Fichiers\nprojet-tdah-tunisie/\n│\n├── data/\n│   ├── raw/                    # Données brutes MICS6 (.sav)\n│   ├── processed/              # Données nettoyées et enrichies\n│   └── metadata/               # Dictionnaires et métadonnées\n│\n├── scripts/\n│   ├── 00_setup_packages.R           # Configuration environnement\n│   ├── 01_data_import.R              # Import données SPSS\n│   ├── 02_data_cleaning.R            # Nettoyage\n│   ├── 03_feature_engineering.R      # Variables dérivées\n│   ├── 04_descriptive_analysis.R     # Analyses descriptives\n│   ├── 05_risk_score.R               # Score de risque TDAH\n│   └── 06_ml_models.R                # Modèles Machine Learning (Random Forest)\n│\n├── notebook_preprocessing.qmd        # Notebook interactif de prétraitement\n├── rapport_principal.qmd             # Rapport d'analyse complet\n├── presentation.qmd                  # Présentation des résultats\n└── index.qmd                         # Page d'accueil (ce fichier)",
+    "crumbs": [
+      "Accueil",
+      "🏠 Accueil"
+    ]
+  },
+  {
+    "objectID": "index.html#pipeline-danalyse",
+    "href": "index.html#pipeline-danalyse",
+    "title": "Projet TDAH Tunisie",
+    "section": "Pipeline d’Analyse",
+    "text": "Pipeline d’Analyse\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Accueil",
+      "🏠 Accueil"
+    ]
+  },
+  {
+    "objectID": "index.html#distribution-du-score-de-risque-tdah",
+    "href": "index.html#distribution-du-score-de-risque-tdah",
+    "title": "Projet TDAH Tunisie",
+    "section": "Distribution du Score de Risque TDAH",
+    "text": "Distribution du Score de Risque TDAH\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Accueil",
+      "🏠 Accueil"
+    ]
+  },
+  {
+    "objectID": "index.html#score-tdah-par-milieu-de-résidence",
+    "href": "index.html#score-tdah-par-milieu-de-résidence",
+    "title": "Projet TDAH Tunisie",
+    "section": "Score TDAH par Milieu de Résidence",
+    "text": "Score TDAH par Milieu de Résidence\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Accueil",
+      "🏠 Accueil"
+    ]
+  },
+  {
+    "objectID": "index.html#gradient-socio-économique",
+    "href": "index.html#gradient-socio-économique",
+    "title": "Projet TDAH Tunisie",
+    "section": "Gradient Socio-économique",
+    "text": "Gradient Socio-économique\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Accueil",
+      "🏠 Accueil"
     ]
   }
 ]

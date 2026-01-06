@@ -1,0 +1,2037 @@
+dataset,variable,type,is_labelled,n_labels,variable_label,n_missing,pct_missing,n_unique
+bh,HH1,numeric,FALSE,0,Numéro de Grappe,0,0,500
+bh,HH2,numeric,FALSE,0,Numéro de ménage,0,0,22
+bh,LN,numeric,FALSE,0,Numéro de ligne,0,0,11
+bh,BHLN,numeric,FALSE,0,Numéro de ligne de l'historique des naissances,0,0,10
+bh,WM1,numeric,FALSE,0,Numéro de grappe,0,0,500
+bh,WM2,numeric,FALSE,0,Numéro de ménage,0,0,22
+bh,WM3,numeric,FALSE,0,Numéro de ligne de la femme,0,0,11
+bh,WMINT,numeric,FALSE,0,Numéro d'enqueteur,0,0,131
+bh,BH0,numeric,FALSE,0,Numéro de ligne,0,0,10
+bh,BH2,haven_labelled,TRUE,3,Jumeaux,0,0,2
+bh,BH3,haven_labelled,TRUE,3,Sexe de l'enfant,0,0,2
+bh,BH4D,haven_labelled,TRUE,2,Date de naissance,0,0,34
+bh,BH4M,haven_labelled,TRUE,14,Le mois de naissance,0,0,15
+bh,BH4Y,haven_labelled,TRUE,1,Année de naissance,0,0,36
+bh,BH5,haven_labelled,TRUE,2,Toujours en vie,0,0,2
+bh,BH6,haven_labelled,TRUE,1,Âge de l'enfant,183,1.94,35
+bh,BH7,haven_labelled,TRUE,2,Habiter avec le répondant,183,1.94,3
+bh,BH8,haven_labelled,TRUE,1,Numéro de ligne de l'enfant dans le ménage,183,1.94,16
+bh,BH9U,haven_labelled,TRUE,4,Âge au décès (unités),9232,98.06,4
+bh,BH9N,haven_labelled,TRUE,1,Âge au décès (nombre),9232,98.06,22
+bh,BH10,haven_labelled,TRUE,3,Tout autre entre les naissances,0,0,2
+bh,BH4C,numeric,FALSE,0,Date de naissance de l'enfant (CMC),0,0,374
+bh,BH4F,haven_labelled,TRUE,8,Indicateur de date pour BH4C,0,0,6
+bh,BH9C,numeric,FALSE,0,Âge au décès en mois (imputé),9232,98.06,26
+bh,BH9F,haven_labelled,TRUE,9,Indicateur de date pour BH9C,9232,98.06,3
+bh,HH4,numeric,FALSE,0,Numéro chef d'équipe,0,0,24
+bh,HH6,haven_labelled,TRUE,2,Milieu de résidence,0,0,2
+bh,HH7,haven_labelled,TRUE,7,Region,0,0,7
+bh,WDOI,numeric,FALSE,0,Date d’entretien avec la femme (CMC),0,0,1
+bh,WDOB,numeric,FALSE,0,Date de naissance de la femme (CMC),0,0,338
+bh,welevel,haven_labelled,TRUE,5,Education,0,0,4
+bh,insurance,haven_labelled,TRUE,3,Assurance santé,0,0,3
+bh,disability,haven_labelled,TRUE,2,Difficultés fonctionnelles (âge 18-49 ans),0,0,2
+bh,brthord,haven_labelled,TRUE,4,Ordre de naissance,0,0,4
+bh,magebrt,haven_labelled,TRUE,3,Âge de la mère à la naissance,0,0,3
+bh,birthint,haven_labelled,TRUE,5,Intervalle de naissance précédent,0,0,5
+bh,wmweight,numeric,FALSE,0,Poids de l'échantillon de la femme,0,0,90
+bh,wscore,numeric,FALSE,0,Score de richesse combiné,0,0,3570
+bh,windex5,haven_labelled,TRUE,5,Quintile de l’indice de richesse,0,0,5
+bh,windex10,haven_labelled,TRUE,10,Décile de l’indice de richesse,0,0,10
+bh,wscoreu,numeric,FALSE,0,Score de richesse urbaine,3907,41.5,2174
+bh,windex5u,haven_labelled,TRUE,5,Quintile de l’indice de richesse urbaine,3907,41.5,6
+bh,windex10u,haven_labelled,TRUE,10,Décile de l’indice de richesse urbaine,3907,41.5,11
+bh,wscorer,numeric,FALSE,0,Score de richesse rurale,5508,58.5,1398
+bh,windex5r,haven_labelled,TRUE,5,Quintile de l’indice de richesse rurale,5508,58.5,6
+bh,windex10r,haven_labelled,TRUE,10,Décile de l’indice de richesse rurale,5508,58.5,11
+bh,PSU,numeric,FALSE,0,Unité d'échantillonnage primaire,0,0,500
+bh,stratum,numeric,FALSE,0,Strate,0,0,46
+ch,HH1,numeric,FALSE,0,Numéro de Grappe,0,0,472
+ch,HH2,numeric,FALSE,0,Numéro de ménage,0,0,22
+ch,LN,numeric,FALSE,0,Numéro de ligne,0,0,13
+ch,UF1,numeric,FALSE,0,Numéro de grappe,0,0,472
+ch,UF2,numeric,FALSE,0,Numéro de ménage,0,0,22
+ch,UF3,numeric,FALSE,0,Numéro de ligne de l'enfant,0,0,13
+ch,UFINT,numeric,FALSE,0,Numéro d'enqueteur,0,0,129
+ch,UF4,numeric,FALSE,0,Numéro de ligne de la mère / gardien(ne),0,0,11
+ch,UF5,numeric,FALSE,0,Numéro de l’enquêtrice,0,0,129
+ch,UF6,numeric,FALSE,0,Numéro du superviseur,0,0,7
+ch,UF7D,numeric,FALSE,0,Jour de l’enquête,0,0,31
+ch,UF7M,numeric,FALSE,0,Mois de l’enquête,0,0,2
+ch,UF7Y,numeric,FALSE,0,Année de l’enquête,0,0,1
+ch,UF9,haven_labelled,TRUE,2,Répondant à un autre questionnaire,0,0,2
+ch,UF10,haven_labelled,TRUE,2,Consentement,0,0,2
+ch,UF17,haven_labelled,TRUE,7,Résultat de l'entretien pour les enfants de moins de 5 ans,0,0,6
+ch,UF8H,numeric,FALSE,0,Début de l'entretien - Heure,0,0,17
+ch,UF8M,numeric,FALSE,0,Début de l'entretien - Minutes,0,0,60
+ch,UF11H,numeric,FALSE,0,Fin de l'entretien - Heure,111,5.45,18
+ch,UF11M,numeric,FALSE,0,Fin de l'entretien - Minutes,111,5.45,61
+ch,UF12,haven_labelled,TRUE,2,Langue du questionnaire,111,5.45,3
+ch,UF13,haven_labelled,TRUE,3,Langue de l'entretien,111,5.45,4
+ch,UF14,haven_labelled,TRUE,3,Langue maternelle du répondant,111,5.45,4
+ch,UF15,haven_labelled,TRUE,3,Traducteur utilisé,111,5.45,4
+ch,UF15A,haven_labelled,TRUE,3,Enquêteur ménage,1581,77.61,3
+ch,UF15B,haven_labelled,TRUE,3,Avez-vous un numéro de téléphone,1601,78.6,2
+ch,UF15C,haven_labelled,TRUE,3,Consentement pour participer à MICS-PLUS,1601,78.6,4
+ch,UF15D,haven_labelled,TRUE,3,Avoir un téléphone pour recevoir l'appel pour MICS-PLUS,1601,78.6,4
+ch,UF15E,haven_labelled,TRUE,3,Accepter un appel pour MICS-PLUS,1902,93.37,3
+ch,UF15G_P1,haven_labelled,TRUE,3,Valider le premier numéro de téléphone,1902,93.37,2
+ch,UF15J_P1,haven_labelled,TRUE,3,Avoir un autre numéro de téléphone,1902,93.37,3
+ch,UF15G_P2,haven_labelled,TRUE,3,Valider le deuxième numéro de téléphone,2031,99.71,2
+ch,UF15J_P2,haven_labelled,TRUE,3,Avoir un autre numéro de téléphone,2031,99.71,3
+ch,UF15G_P3,haven_labelled,TRUE,3,Valider le troisième numéro de téléphone,2035,99.9,2
+ch,UF15J_P3,haven_labelled,TRUE,3,Avoir un autre numéro de téléphone,2035,99.9,3
+ch,UFHINT,numeric,FALSE,0,Intervieweur en ménage,0,0,129
+ch,UB1D,haven_labelled,TRUE,2,Jour de naissance de l'enfant,111,5.45,34
+ch,UB1M,haven_labelled,TRUE,13,Mois de naissance de l'enfant,111,5.45,14
+ch,UB1Y,haven_labelled,TRUE,1,Année de naissance de l'enfant,111,5.45,7
+ch,UB2,numeric,FALSE,0,Âge de l'enfant,111,5.45,6
+ch,UB6,haven_labelled,TRUE,3,Avez-vous déjà participé à un programme d'éducation de la petite enfance,1116,54.79,4
+ch,UB6A,haven_labelled,TRUE,4,A participé à un programme d'éducation de la petite enfance,1555,76.34,5
+ch,UB7,haven_labelled,TRUE,3,A fréquenté un programme d'éducation de la petite enfance à tout moment depuis le début de l'année scolaire en cours,1555,76.34,3
+ch,UB8,haven_labelled,TRUE,3,Participe actuellement à un programme d'éducation de la petite enfance,1587,77.91,3
+ch,UB9,haven_labelled,TRUE,3,Couvert par n'importe quelle assurance maladie,111,5.45,4
+ch,UB10A,haven_labelled,TRUE,2,Type d'assurance maladie - Mutuelle / Assurance maladie communautaire,0,0,3
+ch,UB10D,haven_labelled,TRUE,2,Type d'assurance maladie - Assurance maladie par l'employeur,0,0,3
+ch,UB10E,haven_labelled,TRUE,2,Type d'assurance maladie - Sécurité sociale,0,0,3
+ch,UB10F,haven_labelled,TRUE,2,Type d'assurance maladie - Autre assurance maladie commerciale souscrite à titre privé,0,0,3
+ch,UB10X,haven_labelled,TRUE,2,Type d'assurance maladie - Autre,0,0,3
+ch,UB10NR,haven_labelled,TRUE,1,Type d'assurance maladie – Non réponse,0,0,2
+ch,BR1,haven_labelled,TRUE,5,Acte de naissance et/ou inscrit au livret de famille,111,5.45,6
+ch,BR2,haven_labelled,TRUE,4,Enregistrement/déclaration à l'état civil,1951,95.78,3
+ch,BR3,haven_labelled,TRUE,3,Savoir enregistrer une naissance,2034,99.85,3
+ch,EC1,haven_labelled,TRUE,12,Nombre de livres pour enfants ou de graphismes pour enfants,111,5.45,12
+ch,EC2A,haven_labelled,TRUE,4,Jouets faits maison,111,5.45,5
+ch,EC2B,haven_labelled,TRUE,4,Jouets des magasins,111,5.45,3
+ch,EC2C,haven_labelled,TRUE,4,Objets ménagers ou objets extérieurs,111,5.45,4
+ch,EC3A,haven_labelled,TRUE,10,Jours laissés seuls pendant plus d'une heure,111,5.45,11
+ch,EC3B,haven_labelled,TRUE,10,"Jours passés sous la garde d'un autre enfant, c'est-à-dire quelqu'un de moins de 10 ans, pendant plus d'une heure",111,5.45,10
+ch,EC5AA,haven_labelled,TRUE,2,Lire des livres - Mère,0,0,3
+ch,EC5AB,haven_labelled,TRUE,2,Lire des livres - Père,0,0,3
+ch,EC5AX,haven_labelled,TRUE,2,Lire des livres - Autre,0,0,3
+ch,EC5AY,haven_labelled,TRUE,2,Lire des livres - Personne,0,0,3
+ch,EC5ANR,haven_labelled,TRUE,1,Lire des livres – Non réponse,0,0,2
+ch,EC5BA,haven_labelled,TRUE,2,Raconter des histoires - Mère,0,0,3
+ch,EC5BB,haven_labelled,TRUE,2,Raconter des histoires - Père,0,0,3
+ch,EC5BX,haven_labelled,TRUE,2,Raconter des histoires - Autre,0,0,3
+ch,EC5BY,haven_labelled,TRUE,2,Raconter des histoires - Personne,0,0,3
+ch,EC5BNR,haven_labelled,TRUE,1,Raconter des histoires – Non réponse,0,0,2
+ch,EC5CA,haven_labelled,TRUE,2,Chanter des chansons - Mère,0,0,3
+ch,EC5CB,haven_labelled,TRUE,2,Chanter des chansons - Père,0,0,3
+ch,EC5CX,haven_labelled,TRUE,2,Chanter des chansons - Autre,0,0,3
+ch,EC5CY,haven_labelled,TRUE,2,Chanter des chansons - Personne,0,0,3
+ch,EC5CNR,haven_labelled,TRUE,1,Chanter des chansons - Non réponse,0,0,2
+ch,EC5DA,haven_labelled,TRUE,2,L'emmener dehors -Mère,0,0,3
+ch,EC5DB,haven_labelled,TRUE,2,L'emmener dehors-Père,0,0,3
+ch,EC5DX,haven_labelled,TRUE,2,L'emmener dehors-Autre,0,0,3
+ch,EC5DY,haven_labelled,TRUE,2,L'emmener dehors-Personne,0,0,3
+ch,EC5DNR,haven_labelled,TRUE,1,L'emmener dehors-Non reponse,0,0,2
+ch,EC5EA,haven_labelled,TRUE,2,Joué avec - Mère,0,0,2
+ch,EC5EB,haven_labelled,TRUE,2,Joué avec - Père,0,0,2
+ch,EC5EX,haven_labelled,TRUE,2,Joué avec - Autre,0,0,2
+ch,EC5EY,haven_labelled,TRUE,2,Joué avec - Personne,0,0,2
+ch,EC5ENR,haven_labelled,TRUE,1,Joué avec - Non réponse,0,0,1
+ch,EC5FA,haven_labelled,TRUE,2,Nommer/compter/ dessiner-Mère,0,0,3
+ch,EC5FB,haven_labelled,TRUE,2,Nommer/compter/ dessiner-Père,0,0,3
+ch,EC5FX,haven_labelled,TRUE,2,Nommer/compter/ dessiner-Autre,0,0,3
+ch,EC5FY,haven_labelled,TRUE,2,Nommer/compter/ dessiner-Personne,0,0,3
+ch,EC5FNR,haven_labelled,TRUE,1,Nommer/compter/ dessiner-Non reponse,0,0,2
+ch,EC21,haven_labelled,TRUE,4,Enfant peut marcher sur une surface inégale,737,36.18,4
+ch,EC22,haven_labelled,TRUE,4,Enfant peut sauter avec les deux pied,737,36.18,4
+ch,EC23,haven_labelled,TRUE,4,Enfant peut s'habiller lui même,737,36.18,4
+ch,EC24,haven_labelled,TRUE,4,Enfant peut attacher ou détacher des boutons sans aide,737,36.18,4
+ch,EC25,haven_labelled,TRUE,4,Enfant peut dire au moins 10 mots ou plus comme maman ou ballon,737,36.18,4
+ch,EC26,haven_labelled,TRUE,4,Enfant peut parler en utilisant des phrases de 3 mots ou plus,737,36.18,4
+ch,EC27,haven_labelled,TRUE,4,Enfant peut parler en utilisant des phrases des 5 mots ou plus,875,42.96,3
+ch,EC28,haven_labelled,TRUE,4,"Enfant peut utiliser correctement l’un des mots ""je"", ""tu"", ""elle"" ou ""il"",",737,36.18,5
+ch,EC29,haven_labelled,TRUE,4,Si vous montrez à l’enfant un objet qu’il (elle) connaît bien peut-(il/elle) le nommer de manière cohérente,737,36.18,4
+ch,EC30,haven_labelled,TRUE,4,Enfant peut reconnaitre au moins 5 lettres de l'alphabet,737,36.18,4
+ch,EC31,haven_labelled,TRUE,4,Enfant peut écrire son propre nom,737,36.18,4
+ch,EC32,haven_labelled,TRUE,4,Enfant connait tous les chiffres de 1 à 5,737,36.18,4
+ch,EC33,haven_labelled,TRUE,4,"Si vous demandez à l’enfant de vous donner 3 objets, tels que 3 pierres vous donne-t-(il/elle) la quantité correcte",737,36.18,4
+ch,EC34,haven_labelled,TRUE,4,Enfant peut compter 10 objets,737,36.18,4
+ch,EC35,haven_labelled,TRUE,4,Enfant peut faire une activité telle que le coloriage,737,36.18,5
+ch,EC36,haven_labelled,TRUE,4,Enfant pose des questions sur des personnes familières autres que les parents,737,36.18,4
+ch,EC37,haven_labelled,TRUE,4,Enfant propose d'aider une personne qui semble avoir besoin d'aide,737,36.18,4
+ch,EC38,haven_labelled,TRUE,4,Enfant s’entend bien avec les autres enfants,737,36.18,4
+ch,EC39,haven_labelled,TRUE,6,Combien de fois enfant semble-t-il être très triste ou déprimé,737,36.18,7
+ch,EC40,haven_labelled,TRUE,6,Par rapport aux enfants du même âge,737,36.18,7
+ch,UCD2A,haven_labelled,TRUE,3,Retiré des privilèges,383,18.8,3
+ch,UCD2B,haven_labelled,TRUE,3,Expliqué pourquoi le comportement était mauvais,383,18.8,4
+ch,UCD2C,haven_labelled,TRUE,3,Secoué l'enfant,383,18.8,4
+ch,UCD2D,haven_labelled,TRUE,3,"A grondé, hurler ou crié après l'enfant",383,18.8,4
+ch,UCD2E,haven_labelled,TRUE,3,A donné à l'enfant autre chose à faire,383,18.8,4
+ch,UCD2F,haven_labelled,TRUE,3,"Donné une fessée, frappé ou giflé sur les fesses à main nue",383,18.8,4
+ch,UCD2G,haven_labelled,TRUE,3,"Frappé l'enfant sur les fesses ou ailleurs avec une ceinture, une brosse, un bâton, etc.",383,18.8,4
+ch,UCD2H,haven_labelled,TRUE,3,"Traité l'enfant d'idiot, de paresseux ou d'un autre nom",383,18.8,4
+ch,UCD2I,haven_labelled,TRUE,3,"Frappé ou giflé l'enfant au visage, à la tête ou aux oreilles",383,18.8,4
+ch,UCD2J,haven_labelled,TRUE,3,"Frappé ou giflé l'enfant à la main, au bras ou à la jambe",383,18.8,4
+ch,UCD2K,haven_labelled,TRUE,3,Battu l'enfant aussi fort que possible,383,18.8,4
+ch,UCD3,haven_labelled,TRUE,2,Mère / Tutrice d'un autre enfant de moins de 5 ans ou d'un enfant sélectionné âgé de 5 à 17 ans,2037,100,1
+ch,UCD4,haven_labelled,TRUE,2,Déjà répondu à la question UCD5 ou FCD5,631,30.98,3
+ch,UCD5,haven_labelled,TRUE,4,L'enfant doit être puni physiquement pour être élevé correctement,869,42.66,4
+ch,UCF2,haven_labelled,TRUE,3,L'enfant porte des lunettes,737,36.18,4
+ch,UCF3,haven_labelled,TRUE,3,L'enfant utilise un appareil auditif,737,36.18,4
+ch,UCF4,haven_labelled,TRUE,3,L'enfant utilise n'importe quel équipement ou reçoit de l'aide pour marcher,737,36.18,4
+ch,UCF7,haven_labelled,TRUE,5,L'enfant a du mal à voir,737,36.18,6
+ch,UCF9,haven_labelled,TRUE,5,L'enfant a du mal à entendre les sons comme les voix des gens ou la musique,737,36.18,5
+ch,UCF11,haven_labelled,TRUE,4,"Sans utiliser d'équipement ou d'assistance, l'enfant a des difficultés à marcher",2008,98.58,3
+ch,UCF12,haven_labelled,TRUE,5,"Lors de l'utilisation d'un équipement ou d'une assistance, l'enfant a des difficultés à marcher",2008,98.58,4
+ch,UCF13,haven_labelled,TRUE,5,"Par rapport aux enfants du même âge, l'enfant a des difficultés à marcher",766,37.6,5
+ch,UCF14,haven_labelled,TRUE,5,"Comparé aux enfants du même âge, l'enfant a du mal à ramasser de petits objets avec sa main",737,36.18,5
+ch,UCF15,haven_labelled,TRUE,5,L'enfant a du mal à comprendre le parent/tuteur,737,36.18,5
+ch,UCF16,haven_labelled,TRUE,5,L'enfant a du mal à être compris par son parent/tuteur lorsqu'il parle,737,36.18,4
+ch,UCF17,haven_labelled,TRUE,5,"Par rapport aux enfants du même âge, l'enfant a du mal à apprendre des choses",737,36.18,5
+ch,UCF18,haven_labelled,TRUE,5,"Par rapport aux enfants du même âge, l'enfant a du mal à jouer",737,36.18,4
+ch,BD2,haven_labelled,TRUE,4,"Par rapport aux enfants du même âge, combien d'enfants donnent des coups de pied, mordent ou frappent d'autres enfants ou adultes.",1032,50.66,4
+ch,BD3,haven_labelled,TRUE,4,Enfant encore allaité,1158,56.85,4
+ch,BD4,haven_labelled,TRUE,4,Enfant a bu quelque chose d'une bouteille,1411,69.27,3
+ch,BD5,haven_labelled,TRUE,4,L'enfant a bu des SRO hier,1411,69.27,4
+ch,BD6,haven_labelled,TRUE,4,L'enfant a bu ou mangé des suppléments de vitamines ou de minéraux hier,1411,69.27,3
+ch,BD7A,haven_labelled,TRUE,4,L'enfant a bu de l'eau plate hier,1411,69.27,4
+ch,BD7B,haven_labelled,TRUE,4,L'enfant a bu du jus ou des boissons à base de jus hier,1411,69.27,3
+ch,BD7C,haven_labelled,TRUE,4,L'enfant a bu du bouillon clair/de la soupe claire hier,1411,69.27,4
+ch,BD7D,haven_labelled,TRUE,4,L'enfant a bu du lait maternisé hier,1411,69.27,4
+ch,BD7D1,haven_labelled,TRUE,9,Nombre de fois où l'enfant a bu du lait maternisé,1894,92.98,10
+ch,BD7E,haven_labelled,TRUE,4,L'enfant a bu du lait d'animaux hier,1411,69.27,4
+ch,BD7E1,haven_labelled,TRUE,9,Nombre de fois où l'enfant a bu d'autres laits d'animaux hier,1786,87.68,10
+ch,BD7X,haven_labelled,TRUE,4,L'enfant a bu un autre liquide hier,1411,69.27,5
+ch,BD8A,haven_labelled,TRUE,4,L'enfant a mangé du yaourt hier,1411,69.27,3
+ch,BD8A1,haven_labelled,TRUE,9,Nombre de fois où l'enfant a mangé du yaourt,1658,81.39,9
+ch,BD8B,haven_labelled,TRUE,4,"L'enfant a mangé hier des aliments enrichis pour bébé (gerber, hero, cerelac, nestum, etc.)",1411,69.27,4
+ch,BD8C,haven_labelled,TRUE,4,L'enfant a mangé hier des aliments à base de céréales,1411,69.27,3
+ch,BD8D,haven_labelled,TRUE,4,"L'enfant a mangé hier de la citrouille, des carottes, des courges, etc. dont l'intérieur est jaune ou orange",1411,69.27,4
+ch,BD8E,haven_labelled,TRUE,4,"L'enfant a mangé hier des pommes de terre blanches, des ignames blanches, du manioc, du manioc, etc., tout autre aliment à base de racines.",1411,69.27,4
+ch,BD8F,haven_labelled,TRUE,4,L'enfant a mangé des légumes à feuilles vertes hier,1411,69.27,4
+ch,BD8G,haven_labelled,TRUE,4,"L'enfant a mangé hier des mangues mûres, des papayes, etc. et tout autre fruit riche en vitamine A.",1411,69.27,4
+ch,BD8H,haven_labelled,TRUE,4,L'enfant a mangé d'autres fruits ou légumes hier,1411,69.27,5
+ch,BD8I,haven_labelled,TRUE,4,"L'enfant a mangé du foie, des reins, du cœur ou d'autres organes hier",1411,69.27,5
+ch,BD8J,haven_labelled,TRUE,4,"L'enfant a mangé de la viande, comme du bœuf, du porc, de l'agneau, de la chèvre, du poulet et du canard hier.",1411,69.27,4
+ch,BD8K,haven_labelled,TRUE,4,L'enfant a mangé des œufs hier,1411,69.27,5
+ch,BD8L,haven_labelled,TRUE,4,L'enfant a mangé du poisson ou des fruits de mer frais ou séchés hier,1411,69.27,4
+ch,BD8M,haven_labelled,TRUE,4,"L'enfant a mangé des haricots, des pois, des lentilles ou des noix ou tout autre aliment fabriqué à partir de ces derniers hier",1411,69.27,4
+ch,BD8N,haven_labelled,TRUE,4,L'enfant a mangé du fromage ou d'autres aliments à base de lait hier,1411,69.27,4
+ch,BD8X,haven_labelled,TRUE,4,"L'enfant a mangé d'autres aliments solides, semi-solides ou mous hier",1411,69.27,5
+ch,BD9,haven_labelled,TRUE,10,Nombre de fois où l'enfant a mangé des aliments solides ou semi-solides,1411,69.27,11
+ch,BD8DUMMY,haven_labelled,TRUE,1,Explication factice pour BD8,1411,69.27,2
+ch,IM2,haven_labelled,TRUE,3,Carnet de vaccination pour enfant,1032,50.66,4
+ch,IM3,haven_labelled,TRUE,3,A déjà eu un carnet de vaccination,1943,95.39,4
+ch,IM4A,haven_labelled,TRUE,3,Lieu de vaccination,1943,95.39,4
+ch,IM4B,haven_labelled,TRUE,3,Lieu de vaccination,1126,55.28,4
+ch,IM5,haven_labelled,TRUE,7,Carnet / document vu,1126,55.28,7
+ch,IM6BD,haven_labelled,TRUE,4,Jour de vaccination BCG,1344,65.98,34
+ch,IM6BM,haven_labelled,TRUE,4,Mois de vaccination BCG,1344,65.98,15
+ch,IM6BY,haven_labelled,TRUE,4,Année de vaccination BCG,1344,65.98,7
+ch,IM6VHB0D,haven_labelled,TRUE,4,Jour de vaccination contre HEPB (VHB-0) (à la naissance),1344,65.98,34
+ch,IM6VHB0M,haven_labelled,TRUE,4,Mois de vaccination contre HEPB (VHB-0) (à la naissance),1344,65.98,15
+ch,IM6VHB0Y,haven_labelled,TRUE,4,Année de vaccination contre HEPB (VHB-0) (à la naissance),1344,65.98,7
+ch,IM6PENTA1D,haven_labelled,TRUE,4,Jour de vaccination contre la Pentavalent (Penta 1),1344,65.98,34
+ch,IM6PENTA1M,haven_labelled,TRUE,4,Mois de vaccination contre la Pentavalent (Penta 1),1344,65.98,15
+ch,IM6PENTA1Y,haven_labelled,TRUE,4,Année de vaccination contre la Pentavalent (Penta 1),1344,65.98,7
+ch,IM6VPI1D,haven_labelled,TRUE,4,Jour de vaccination contre la VPI 1,1344,65.98,34
+ch,IM6VPI1M,haven_labelled,TRUE,4,Mois de vaccination contre la VPI 1,1344,65.98,15
+ch,IM6VPI1Y,haven_labelled,TRUE,4,Année de vaccination contre la VPI 1,1344,65.98,8
+ch,IM6VPC1D,haven_labelled,TRUE,4,Jour de vaccination contre la Coqueluche (VPC1),1344,65.98,34
+ch,IM6VPC1M,haven_labelled,TRUE,4,Mois de vaccination contre la Coqueluche (VPC1),1344,65.98,15
+ch,IM6VPC1Y,haven_labelled,TRUE,4,Année de vaccination contre la Coqueluche (VPC1),1344,65.98,7
+ch,IM6PENTA2D,haven_labelled,TRUE,4,Jour de vaccination contre la Pentavalent (Penta 2),1344,65.98,34
+ch,IM6PENTA2M,numeric,FALSE,0,Mois de vaccination contre la Pentavalent (Penta 2),1344,65.98,15
+ch,IM6PENTA2Y,haven_labelled,TRUE,4,Année de vaccination contre  la Pentavalent (Penta 2),1344,65.98,7
+ch,IM6VPI2D,haven_labelled,TRUE,4,Jour de vaccination VPI 2,1344,65.98,34
+ch,IM6VPI2M,haven_labelled,TRUE,4,Mois de vaccination la VPI 2,1344,65.98,15
+ch,IM6VPI2Y,haven_labelled,TRUE,4,Année de vaccination la VPI 2,1344,65.98,7
+ch,IM6VPC2D,haven_labelled,TRUE,4,Jour de vaccination contre la Coqueluche (VPC2),1344,65.98,35
+ch,IM6VPC2M,haven_labelled,TRUE,4,Mois de vaccination contre la Coqueluche (VPC2),1344,65.98,16
+ch,IM6VPC2Y,haven_labelled,TRUE,4,Année de vaccination contre la Coqueluche (VPC2),1344,65.98,9
+ch,IM6PENTA3D,haven_labelled,TRUE,4,Jour de vaccination contre la Pentavalent (Penta 3),1344,65.98,35
+ch,IM6PENTA3M,haven_labelled,TRUE,4,Mois de vaccination contre la Pentavalent (Penta 3),1344,65.98,16
+ch,IM6PENTA3Y,haven_labelled,TRUE,4,Année de vaccination contre  la Pentavalent (Penta 3),1344,65.98,8
+ch,IM6VPO1D,haven_labelled,TRUE,4,Jour de vaccination antipoliomyélitique oral (VPO 1),1344,65.98,34
+ch,IM6VPO1M,haven_labelled,TRUE,4,Mois de vaccination antipoliomyélitique oral (VPO 1),1344,65.98,15
+ch,IM6VPO1Y,haven_labelled,TRUE,4,Année de vaccination antipoliomyélitique oral (VPO 1),1344,65.98,7
+ch,IM6VPC3D,haven_labelled,TRUE,4,Jour de vaccination contre la Coqueluche (VPC3),1344,65.98,35
+ch,IM6VPC3M,haven_labelled,TRUE,4,Mois de vaccination contre la Coqueluche (VPC3),1344,65.98,16
+ch,IM6VPC3Y,haven_labelled,TRUE,4,Année de vaccination contre la Coqueluche (VPC3),1344,65.98,8
+ch,IM6RR1D,haven_labelled,TRUE,4,Journée de vaccination Rougeole-Rubéole (RR1),1344,65.98,34
+ch,IM6RR1M,haven_labelled,TRUE,4,Mois de vaccination Rougeole-Rubéole (RR1),1344,65.98,15
+ch,IM6RR1Y,haven_labelled,TRUE,4,Année de vaccination Rougeole-Rubéole (RR1),1344,65.98,8
+ch,IM6VHAD,haven_labelled,TRUE,4,Journée de vaccination contre l'hépatite A (VHA),1344,65.98,34
+ch,IM6VHAM,haven_labelled,TRUE,4,Mois de vaccination contre l'hépatite A (VHA),1344,65.98,15
+ch,IM6VHAY,haven_labelled,TRUE,4,Année de vaccination contre l'hépatite A (VHA),1344,65.98,8
+ch,IM6RR2D,haven_labelled,TRUE,4,Journée de vaccination Rougeole-Rubéole (RR2),1344,65.98,34
+ch,IM6RR2M,haven_labelled,TRUE,4,Mois de vaccination Rougeole-Rubéole (RR2),1344,65.98,15
+ch,IM6RR2Y,haven_labelled,TRUE,4,Année de vaccination Rougeole-Rubéole (RR2),1344,65.98,7
+ch,IM6DTCRD,haven_labelled,TRUE,4,"Journée de vaccination la diphtérie, le tétanos et la coqueluche acellulaire (DTCR)",1344,65.98,34
+ch,IM6DTCRM,haven_labelled,TRUE,4,"Mois de vaccination la diphtérie, le tétanos et la coqueluche acellulaire (DTCR)",1344,65.98,15
+ch,IM6DTCRY,haven_labelled,TRUE,4,"Année de vaccination la diphtérie, le tétanos et la coqueluche acellulaire (DTCR)",1344,65.98,7
+ch,IM6VPORD,haven_labelled,TRUE,4,Jour de revaccination antipoliomyélitique oral (VPO R),1344,65.98,34
+ch,IM6VPORM,haven_labelled,TRUE,4,Mois de revaccination antipoliomyélitique oral (VPO R),1344,65.98,15
+ch,IM6VPORY,haven_labelled,TRUE,4,Année de revaccination antipoliomyélitique oral (VPO R),1344,65.98,6
+ch,IM9,haven_labelled,TRUE,4,"L'enfant a reçu d'autres vaccins pendant les campagnes, les journées de vaccination ou les journées de la santé des enfants",1530,75.11,5
+ch,IM11,haven_labelled,TRUE,4,L'enfant a déjà reçu des vaccins,1793,88.02,5
+ch,IM14,haven_labelled,TRUE,4,Enfant ayant déjà été vacciné au BCG,1801,88.41,4
+ch,IM15,haven_labelled,TRUE,5,Vaccination contre l'hépatite B reçue dans les 24 heures suivant la naissance,1801,88.41,5
+ch,IM16,haven_labelled,TRUE,4,Enfant ayant déjà reçu des gouttes contre la polio,1801,88.41,4
+ch,IM18,haven_labelled,TRUE,9,Nombre de fois où des gouttes contre la polio ont été reçues,1813,89,7
+ch,IM19,haven_labelled,TRUE,4,Un enfant a reçu une injection contre la polio avec les dernières gouttes contre la polio,1801,88.41,4
+ch,IM19A,haven_labelled,TRUE,9,Nombre de fois un enfant a reçu une injection contre la polio,1828,89.74,6
+ch,IM20,haven_labelled,TRUE,4,Enfant ayant déjà reçu le vaccin Pentavalent 1,111,5.45,3
+ch,IM20A,haven_labelled,TRUE,4,Enfant ayant déjà reçu le vaccin Pentavalent 2,111,5.45,3
+ch,IM20B,haven_labelled,TRUE,4,Enfant ayant déjà reçu le vaccin Pentavalent 3,111,5.45,3
+ch,IM22,haven_labelled,TRUE,4,Enfant ayant déjà reçu le vaccin Pneumococcal,1801,88.41,4
+ch,IM23,haven_labelled,TRUE,9,Nombre de fois un enfant a reçu le vaccin Pneumococcal,1872,91.9,5
+ch,IM26,haven_labelled,TRUE,4,L'enfant a déjà reçu le vaccin ROR/RR,1801,88.41,4
+ch,IM26A,haven_labelled,TRUE,9,Nombre de fois où le vaccin ROR/MR a été reçu,1859,91.26,5
+ch,IM29,haven_labelled,TRUE,4,L'enfant a déjà reçu le vaccin Hep A,1801,88.41,5
+ch,IM30,haven_labelled,TRUE,4,Nombre de fois où le vaccin Hep A a été reçu,1801,88.41,5
+ch,IMP6BD,haven_labelled,TRUE,4,Jour de vaccination BCG,2014,98.87,16
+ch,IMP6BM,haven_labelled,TRUE,4,Mois de vaccination BCG,2014,98.87,12
+ch,IMP6BY,haven_labelled,TRUE,4,Année de vaccination BCG,2014,98.87,6
+ch,IMP6VHB0D,haven_labelled,TRUE,4,Jour de vaccination VHB-0,2014,98.87,17
+ch,IMP6VHB0M,haven_labelled,TRUE,4,Mois de vaccination VHB-0,2014,98.87,13
+ch,IMP6VHB0Y,haven_labelled,TRUE,4,Année de vaccinationVHB-0,2014,98.87,6
+ch,IMP6HEXA1D,haven_labelled,TRUE,4,Jour de vaccination Hexa1,2014,98.87,9
+ch,IMP6HEXA1M,haven_labelled,TRUE,4,Mois de vaccination Hexa1,2014,98.87,11
+ch,IMP6HEXA1Y,haven_labelled,TRUE,4,Année de vaccination Hexa1,2014,98.87,5
+ch,IMP6HEXA2D,haven_labelled,TRUE,4,Jour de vaccination Hexa2,2014,98.87,9
+ch,IMP6HEXA2M,haven_labelled,TRUE,4,Mois de vaccination Hexa2,2014,98.87,9
+ch,IMP6HEXA2Y,haven_labelled,TRUE,4,Année de vaccinationHexa2,2014,98.87,6
+ch,IMP6HEXA3D,haven_labelled,TRUE,4,Jour de vaccination  Hexa3,2014,98.87,10
+ch,IMP6HEXA3M,haven_labelled,TRUE,4,Mois de vaccination Hexa3,2014,98.87,9
+ch,IMP6HEXA3Y,haven_labelled,TRUE,4,Année de vaccinationHexa3,2014,98.87,6
+ch,IMP6PENTAXIM1D,haven_labelled,TRUE,4,Jour de vaccination Pentaxim1,2014,98.87,15
+ch,IMP6PENTAXIM1M,haven_labelled,TRUE,4,Mois de vaccination Pentaxim1,2014,98.87,11
+ch,IMP6PENTAXIM1Y,haven_labelled,TRUE,4,Année de vaccinationPentaxim1,2014,98.87,5
+ch,IMP6PENTAXIM2D,haven_labelled,TRUE,4,Jour de vaccination Pentaxim2,2014,98.87,14
+ch,IMP6PENTAXIM2M,haven_labelled,TRUE,4,Mois de vaccination Pentaxim2,2014,98.87,10
+ch,IMP6PENTAXIM2Y,haven_labelled,TRUE,4,Année de vaccination Pentaxim2,2014,98.87,7
+ch,IMP6PENTAXIM3D,haven_labelled,TRUE,4,Jour de vaccination Pentaxim3,2014,98.87,14
+ch,IMP6PENTAXIM3M,haven_labelled,TRUE,4,Mois de vaccination Pentaxim3,2014,98.87,10
+ch,IMP6PENTAXIM3Y,haven_labelled,TRUE,4,Année de vaccinationPentaxim3,2014,98.87,7
+ch,IMP6TETRAXIM1D,haven_labelled,TRUE,4,Jour de vaccination Tetraxim1,2014,98.87,6
+ch,IMP6TETRAXIM1M,haven_labelled,TRUE,4,Mois de vaccination Tetraxim1,2014,98.87,6
+ch,IMP6TETRAXIM1Y,haven_labelled,TRUE,4,Année de vaccinationTetraxim1,2014,98.87,3
+ch,IMP6TETRAXIM2D,haven_labelled,TRUE,4,Jour de vaccination Tetraxim2,2014,98.87,5
+ch,IMP6TETRAXIM2M,haven_labelled,TRUE,4,Mois de vaccination Tetraxim2,2014,98.87,4
+ch,IMP6TETRAXIM2Y,haven_labelled,TRUE,4,Année de vaccination Tetraxim2,2014,98.87,3
+ch,IMP6TETRAXIM3D,haven_labelled,TRUE,4,Jour de vaccination Tetraxim3,2014,98.87,4
+ch,IMP6TETRAXIM3M,haven_labelled,TRUE,4,Mois de vaccination Tetraxim3,2014,98.87,4
+ch,IMP6TETRAXIM3Y,haven_labelled,TRUE,4,Année de vaccination Tetraxim3,2014,98.87,4
+ch,IMP6HEPB1D,haven_labelled,TRUE,4,Jour de vaccination HepB1,2014,98.87,10
+ch,IMP6HEPB1M,haven_labelled,TRUE,4,Mois de vaccination HepB1,2014,98.87,11
+ch,IMP6HEPB1Y,haven_labelled,TRUE,4,Année de vaccinationHepB1,2014,98.87,6
+ch,IMP6HEPB2D,haven_labelled,TRUE,4,Jour de vaccination HepB2,2014,98.87,8
+ch,IMP6HEPB2M,haven_labelled,TRUE,4,Mois de vaccination HepB2,2014,98.87,6
+ch,IMP6HEPB2Y,haven_labelled,TRUE,4,Année de vaccinationHepB2,2014,98.87,6
+ch,IMP6HEPB3D,haven_labelled,TRUE,4,Jour de vaccination HepB3,2014,98.87,6
+ch,IMP6HEPB3M,haven_labelled,TRUE,4,Mois de vaccination HepB3,2014,98.87,6
+ch,IMP6HEPB3Y,haven_labelled,TRUE,4,Année de vaccination HepB3,2014,98.87,6
+ch,IMP6HIB1D,haven_labelled,TRUE,4,Jour de vaccination Hib1,2014,98.87,4
+ch,IMP6HIB1M,haven_labelled,TRUE,4,Mois de vaccination Hib1,2014,98.87,4
+ch,IMP6HIB1Y,haven_labelled,TRUE,4,Année de vaccinationHib1,2014,98.87,4
+ch,IMP6HIB2D,haven_labelled,TRUE,4,Jour de vaccination Hib2,2014,98.87,5
+ch,IMP6HIB2M,haven_labelled,TRUE,4,Mois de vaccination Hib2,2014,98.87,4
+ch,IMP6HIB2Y,haven_labelled,TRUE,4,Année de vaccinationHib2,2014,98.87,4
+ch,IMP6HIB3D,haven_labelled,TRUE,4,Jour de vaccination Hib3,2014,98.87,4
+ch,IMP6HIB3M,haven_labelled,TRUE,4,Mois de vaccination Hib3,2014,98.87,4
+ch,IMP6HIB3Y,haven_labelled,TRUE,4,Année de vaccination Hib3,2014,98.87,4
+ch,IMP6PREVNARSYNFLO1D,haven_labelled,TRUE,4,Jour de vaccination Prvenar ou Synflorix1,2014,98.87,10
+ch,IMP6PREVNARSYNFLO1M,haven_labelled,TRUE,4,Mois de vaccination Prevnar ou Synflorix1,2014,98.87,9
+ch,IMP6PREVNARSYNFLO1Y,haven_labelled,TRUE,4,Année de vaccinationPrevnar ou Synflorix1,2014,98.87,6
+ch,IMP6PREVNARSYNFLO2D,haven_labelled,TRUE,4,Jour de vaccination Prvenar ou Synflorix2,2014,98.87,10
+ch,IMP6PREVNARSYNFLO2M,haven_labelled,TRUE,4,Mois de vaccination Prevnar ou Synflorix2,2014,98.87,9
+ch,IMP6PREVNARSYNFLO2Y,haven_labelled,TRUE,4,Année de vaccinationPrevnar ou Synflorix2,2014,98.87,6
+ch,IMP6PREVNARSYNFLO3D,haven_labelled,TRUE,4,Jour de vaccination Prvenar ou Synflorix3,2014,98.87,9
+ch,IMP6PREVNARSYNFLO3M,haven_labelled,TRUE,4,Mois de vaccination Prevnar ou Synflorix3,2014,98.87,9
+ch,IMP6PREVNARSYNFLO3Y,haven_labelled,TRUE,4,Année de vaccination Prevnar ou Synflorix3,2014,98.87,5
+ch,IMP6PREVNARSYNFLO4D,haven_labelled,TRUE,4,Jour de vaccination Prvenar ou Synflorix4,2014,98.87,4
+ch,IMP6PREVNARSYNFLO4M,haven_labelled,TRUE,4,Mois de vaccination Prevnar ou Synflorix4,2014,98.87,4
+ch,IMP6PREVNARSYNFLO4Y,haven_labelled,TRUE,4,Année de vaccination Prevnar ou Synflorix4,2014,98.87,4
+ch,IMP6ROTARIX1D,haven_labelled,TRUE,4,Jour de vaccination  Rotarix1,2014,98.87,6
+ch,IMP6ROTARIX1M,haven_labelled,TRUE,4,Mois de vaccination Rotarix1,2014,98.87,6
+ch,IMP6ROTARIX1Y,haven_labelled,TRUE,4,Année de vaccinationRotarix1,2014,98.87,5
+ch,IMP6ROTARIX2D,haven_labelled,TRUE,4,Jour de vaccination  Rotarix2,2014,98.87,6
+ch,IMP6ROTARIX2M,haven_labelled,TRUE,4,Mois de vaccination Rotarix2,2014,98.87,6
+ch,IMP6ROTARIX2Y,haven_labelled,TRUE,4,Année de vaccination Rotarix2,2014,98.87,5
+ch,IMP6PRIORIX1D,haven_labelled,TRUE,4,Jour de vaccination  Priorix1,2014,98.87,8
+ch,IMP6PRIORIX1M,haven_labelled,TRUE,4,Mois de vaccination Priorix1,2014,98.87,7
+ch,IMP6PRIORIX1Y,haven_labelled,TRUE,4,Année de vaccination Priorix1,2014,98.87,6
+ch,IMP6PRIORIX2D,haven_labelled,TRUE,4,Jour de vaccination  Priorix2,2014,98.87,7
+ch,IMP6PRIORIX2M,haven_labelled,TRUE,4,Mois de vaccination Priorix2,2014,98.87,7
+ch,IMP6PRIORIX2Y,haven_labelled,TRUE,4,Année de vaccination Priorix2,2014,98.87,6
+ch,IMP6HAVRIXHEALIV1D,haven_labelled,TRUE,4,Jour de vaccination Harvix Healiv1,2014,98.87,6
+ch,IMP6HAVRIXHEALIV1M,haven_labelled,TRUE,4,Mois de vaccination Harvix Healiv1,2014,98.87,5
+ch,IMP6HAVRIXHEALIV1Y,haven_labelled,TRUE,4,Année de vaccination Harvix Healiv1,2014,98.87,5
+ch,IMP6HAVRIXHEALIV2D,haven_labelled,TRUE,4,Jour de vaccination Harvix Healiv2,2014,98.87,4
+ch,IMP6HAVRIXHEALIV2M,haven_labelled,TRUE,4,Mois de vaccination Harvix Healiv2,2014,98.87,4
+ch,IMP6HAVRIXHEALIV2Y,haven_labelled,TRUE,4,Année de vaccination Harvix Healiv2,2014,98.87,4
+ch,IMP6RTETRAXIMPENTAD,haven_labelled,TRUE,4,Jour de vaccination Rappel Tetraxim ou Pentaxim,2014,98.87,5
+ch,IMP6RTETRAXIMPENTAM,haven_labelled,TRUE,4,Mois de vaccination Rappel Tetraxim ou Pentaxim,2014,98.87,5
+ch,IMP6RTETRAXIMPENTAY,haven_labelled,TRUE,4,Année de vaccination Rappel Tetraxim ou Pentaxim,2014,98.87,5
+ch,IMP9,haven_labelled,TRUE,4,"L'enfant a-t-il reçu d'autres vaccinations lors de campagnes, journées d'immunisation ou journées de santé infantile",2015,98.92,3
+ch,IMP11,haven_labelled,TRUE,4,L'enfant a-t-il déjà reçu des vaccinations,2016,98.97,3
+ch,IMP14,haven_labelled,TRUE,4,L'enfant a-t-il déjà reçu le vaccin BCG,2017,99.02,2
+ch,IMP15,haven_labelled,TRUE,5,La vaccination contre l'hépatite B a-t-elle été administrée dans les 24 heures suivant la naissance de l'enfant,2017,99.02,3
+ch,IMP20B,haven_labelled,TRUE,4,A deja reçu le vaccin Infanrix Hexa ou Hexaxim,2017,99.02,3
+ch,IMP21B,haven_labelled,TRUE,9,Combien de fois le vaccin Infanrix Hexa ou Hexaxim a été donné ?,2018,99.07,6
+ch,IMP20C,haven_labelled,TRUE,4,A deja reçu 2 injections en meme temps,2036,99.95,2
+ch,IMP21C,haven_labelled,TRUE,9,Combien de fois ces 2 vaccins ont été donnés en meme temps ?,2036,99.95,2
+ch,IMP20D,haven_labelled,TRUE,4,A deja reçu 3 injections en meme temps,2036,99.95,2
+ch,IMP21D,haven_labelled,TRUE,9,Combien de fois ces 3 vaccins ont été donnés en meme temps ?,2037,100,1
+ch,IMP22,haven_labelled,TRUE,4,A deja reçu vaccin Prevenar ou Synflorix,2017,99.02,3
+ch,IMP23,haven_labelled,TRUE,9,Combien de fois reçu vaccin Prevenar ou Synflorix,2019,99.12,6
+ch,IMP24,haven_labelled,TRUE,4,A deja reçu vaccin Rotarix,2017,99.02,4
+ch,IMP25,haven_labelled,TRUE,9,Combien de fois reçu vaccin Rotarix,2021,99.21,4
+ch,IMP26,haven_labelled,TRUE,4,A deja reçu vaccin ROR (Priorix),2017,99.02,4
+ch,IMP26A,haven_labelled,TRUE,9,Combien de fois reçu ROR (Priorix),2023,99.31,4
+ch,IMP29,haven_labelled,TRUE,4,A deja reçu vaccin (Hep -A),2017,99.02,4
+ch,IMP29A,haven_labelled,TRUE,9,Combien de fois reçu vaccin (Hep -A),2025,99.41,4
+ch,IPP6BCGD,haven_labelled,TRUE,4,Jour de vaccination BCG,2019,99.12,17
+ch,IPP6BCGM,haven_labelled,TRUE,4,Mois de vaccination BCG,2019,99.12,12
+ch,IPP6BCGY,haven_labelled,TRUE,4,Année de vaccination BCG,2019,99.12,6
+ch,IPP6VHB0D,haven_labelled,TRUE,4,Jour de vaccination HepB0,2019,99.12,14
+ch,IPP6VHB0M,haven_labelled,TRUE,4,Mois de vaccination HepB0,2019,99.12,12
+ch,IPP6VHB0Y,haven_labelled,TRUE,4,Année de vaccination HepB0,2019,99.12,5
+ch,IPP6PENTA1D,haven_labelled,TRUE,4,Jour de vaccination Penta1,2019,99.12,15
+ch,IPP6PENTA1M,haven_labelled,TRUE,4,Mois de vaccination Penta1,2019,99.12,13
+ch,IPP6PENTA1Y,haven_labelled,TRUE,4,Année de vaccination Penta1,2019,99.12,5
+ch,IPP6VPI1D,haven_labelled,TRUE,4,Jour de vaccination VPI1,2019,99.12,16
+ch,IPP6VPI1M,haven_labelled,TRUE,4,Mois de vaccination VPI1,2019,99.12,13
+ch,IPP6VPI1Y,haven_labelled,TRUE,4,Année de vaccination VPI1,2019,99.12,5
+ch,IPP6HEXA1D,haven_labelled,TRUE,4,Jour de vaccination Hexa 1,2019,99.12,2
+ch,IPP6HEXA1M,haven_labelled,TRUE,4,Mois de vaccination Hexa 1,2019,99.12,2
+ch,IPP6HEXA1Y,haven_labelled,TRUE,4,Année de vaccination Hexa 1,2019,99.12,2
+ch,IPP6PENTAXIM1D,haven_labelled,TRUE,4,Jour de vaccination Pentaxim 1,2019,99.12,2
+ch,IPP6PENTAXIM1M,haven_labelled,TRUE,4,Mois de vaccination Pentaxim 1,2019,99.12,2
+ch,IPP6PENTAXIM1Y,haven_labelled,TRUE,4,Année de vaccination Pentaxim 1,2019,99.12,2
+ch,IPP6TETRAXIM1D,haven_labelled,TRUE,4,Jour de vaccination Tetraxim 1,2019,99.12,2
+ch,IPP6TETRAXIM1M,haven_labelled,TRUE,4,Mois de vaccination Tetraxim 1,2019,99.12,2
+ch,IPP6TETRAXIM1Y,haven_labelled,TRUE,4,Année de vaccination Tetraxim 1,2019,99.12,2
+ch,IPP6HEPB1D,haven_labelled,TRUE,4,Jour de vaccination Hep B1,2019,99.12,2
+ch,IPP6HEPB1M,haven_labelled,TRUE,4,Mois de vaccination Hep B1,2019,99.12,2
+ch,IPP6HEPB1Y,haven_labelled,TRUE,4,Année de vaccination Hep B1,2019,99.12,2
+ch,IPP6HIB1D,haven_labelled,TRUE,4,Jour de vaccination HIB1,2019,99.12,2
+ch,IPP6HIB1M,haven_labelled,TRUE,4,Mois de vaccination HIB1,2019,99.12,2
+ch,IPP6HIB1Y,haven_labelled,TRUE,4,Année de vaccination HIB1,2019,99.12,2
+ch,IPP6VPC1D,haven_labelled,TRUE,4,Jour de vaccination VPC-1,2019,99.12,16
+ch,IPP6VPC1M,haven_labelled,TRUE,4,Mois de vaccination VPC-1,2019,99.12,12
+ch,IPP6VPC1Y,haven_labelled,TRUE,4,Année de vaccination VPC-1,2019,99.12,5
+ch,IPP6PENTA2D,haven_labelled,TRUE,4,Jour de vaccination Penta2,2019,99.12,16
+ch,IPP6PENTA2M,haven_labelled,TRUE,4,Mois de vaccination Penta2,2019,99.12,13
+ch,IPP6PENTA2Y,haven_labelled,TRUE,4,Année de vaccination Penta2,2019,99.12,5
+ch,IPP6VPI2D,haven_labelled,TRUE,4,Jour de vaccination VPI2,2019,99.12,16
+ch,IPP6VPI2M,haven_labelled,TRUE,4,Mois de vaccination VPI2,2019,99.12,13
+ch,IPP6VPI2Y,haven_labelled,TRUE,4,Année de vaccination VPI2,2019,99.12,5
+ch,IPP6HEXA2D,haven_labelled,TRUE,4,Jour de vaccination Hexa 2,2019,99.12,2
+ch,IPP6HEXA2M,haven_labelled,TRUE,4,Mois de vaccination Hexa 2,2019,99.12,2
+ch,IPP6HEXA2Y,haven_labelled,TRUE,4,Année de vaccination Hexa 2,2019,99.12,2
+ch,IPP6PENTAXIM2D,haven_labelled,TRUE,4,Jour de vaccination Pentaxim 2,2019,99.12,2
+ch,IPP6PENTAXIM2M,haven_labelled,TRUE,4,Mois de vaccination Pentaxim 2,2019,99.12,2
+ch,IPP6PENTAXIM2Y,haven_labelled,TRUE,4,Année de vaccination Pentaxim 2,2019,99.12,2
+ch,IPP6TETRAXIM2D,haven_labelled,TRUE,4,Jour de vaccination Tetraxim 2,2019,99.12,2
+ch,IPP6TETRAXIM2M,haven_labelled,TRUE,4,Mois de vaccination Tetraxim 2,2019,99.12,2
+ch,IPP6TETRAXIM2Y,haven_labelled,TRUE,4,Année de vaccinationTetraxim 2,2019,99.12,2
+ch,IPP6HEPB2D,haven_labelled,TRUE,4,Jour de vaccination Hep B2,2019,99.12,2
+ch,IPP6HEPB2M,haven_labelled,TRUE,4,Mois de vaccination Hep B2,2019,99.12,2
+ch,IPP6HEPB2Y,haven_labelled,TRUE,4,Année de vaccination Hep B2,2019,99.12,2
+ch,IPP6HIB2D,haven_labelled,TRUE,4,Jour de vaccination HIB2,2019,99.12,2
+ch,IPP6HIB2M,haven_labelled,TRUE,4,Mois de vaccination HIB2,2019,99.12,2
+ch,IPP6HIB2Y,haven_labelled,TRUE,4,Année de vaccination HIB2,2019,99.12,2
+ch,IPP6VPC2D,haven_labelled,TRUE,4,Jour de vaccination VPC-2,2019,99.12,16
+ch,IPP6VPC2M,haven_labelled,TRUE,4,Mois de vaccination VPC-2,2019,99.12,11
+ch,IPP6VPC2Y,haven_labelled,TRUE,4,Année de vaccinationVPC-2,2019,99.12,6
+ch,IPP6PENTA3D,haven_labelled,TRUE,4,Jour de vaccination Penta3,2019,99.12,14
+ch,IPP6PENTA3M,haven_labelled,TRUE,4,Mois de vaccination Penta3,2019,99.12,13
+ch,IPP6PENTA3Y,haven_labelled,TRUE,4,Année de vaccination Penta3,2019,99.12,6
+ch,IPP6VPO1D,haven_labelled,TRUE,4,Jour de vaccination VPO1,2019,99.12,15
+ch,IPP6VPO1M,haven_labelled,TRUE,4,Mois de vaccination VPO1,2019,99.12,13
+ch,IPP6VPO1Y,haven_labelled,TRUE,4,Année de vaccinationVPO1,2019,99.12,6
+ch,IPP6HEXA3D,haven_labelled,TRUE,4,Jour de vaccination Hexa 3,2019,99.12,2
+ch,IPP6HEXA3M,haven_labelled,TRUE,4,Mois de vaccination Hexa 3,2019,99.12,2
+ch,IPP6HEXA3Y,haven_labelled,TRUE,4,Année de vaccination Hexa 3,2019,99.12,2
+ch,IPP6PENTAXIM3D,haven_labelled,TRUE,4,Jour de vaccination Pentaxim 3,2019,99.12,2
+ch,IPP6PENTAXIM3M,haven_labelled,TRUE,4,Mois de vaccination Pentaxim 3,2019,99.12,2
+ch,IPP6PENTAXIM3Y,haven_labelled,TRUE,4,Année de vaccination Pentaxim 3,2019,99.12,2
+ch,IPP6TETRAXIM3D,haven_labelled,TRUE,4,Jour de vaccination Tetraxim 3,2019,99.12,2
+ch,IPP6TETRAXIM3M,haven_labelled,TRUE,4,Mois de vaccination Tetraxim 3,2019,99.12,2
+ch,IPP6TETRAXIM3Y,haven_labelled,TRUE,4,Année de vaccination Tetraxim 3,2019,99.12,2
+ch,IPP6HEPB3D,haven_labelled,TRUE,4,Jour de vaccination Hep B3,2019,99.12,2
+ch,IPP6HEPB3M,haven_labelled,TRUE,4,Mois de vaccination Hep B3,2019,99.12,2
+ch,IPP6HEPB3Y,haven_labelled,TRUE,4,Année de vaccination Hep B3,2019,99.12,2
+ch,IPP6HIB3D,haven_labelled,TRUE,4,Jour de vaccination HIB3,2019,99.12,2
+ch,IPP6HIB3M,haven_labelled,TRUE,4,Mois de vaccination HIB3,2019,99.12,2
+ch,IPP6HIB3Y,haven_labelled,TRUE,4,Année de vaccination HIB3,2019,99.12,2
+ch,IPP6VPC3D,haven_labelled,TRUE,4,Jour de vaccination VPC-3,2019,99.12,13
+ch,IPP6VPC3M,haven_labelled,TRUE,4,Mois de vaccination VPC-3,2019,99.12,10
+ch,IPP6VPC3Y,haven_labelled,TRUE,4,Année de vaccination VPC-3,2019,99.12,5
+ch,IPP6PREVNARSYNFLO4D,haven_labelled,TRUE,4,Jour de vaccination Prvenar ou Synflorix4,2019,99.12,2
+ch,IPP6PREVNARSYNFLO4M,haven_labelled,TRUE,4,Mois de vaccination Prevnar ou Synflorix4,2019,99.12,2
+ch,IPP6PREVNARSYNFLO4Y,haven_labelled,TRUE,4,Année de vaccination Prevnar ou Synflorix4,2019,99.12,2
+ch,IPP6ROTARIX1D,haven_labelled,TRUE,4,Jour de vaccination Rotarix1,2019,99.12,4
+ch,IPP6ROTARIX1M,haven_labelled,TRUE,4,Mois de vaccination Rotarix1,2019,99.12,4
+ch,IPP6ROTARIX1Y,haven_labelled,TRUE,4,Année de vaccination Rotarix1,2019,99.12,3
+ch,IPP6ROTARIX2D,haven_labelled,TRUE,4,Jour de vaccination Rotarix2,2019,99.12,4
+ch,IPP6ROTARIX2M,haven_labelled,TRUE,4,Mois de vaccination Rotarix2,2019,99.12,4
+ch,IPP6ROTARIX2Y,haven_labelled,TRUE,4,Année de vaccination Rotarix2,2019,99.12,3
+ch,IPP6RR1D,haven_labelled,TRUE,4,Jour de vaccination RR1 / ROR1 /PRIORIX1,2019,99.12,11
+ch,IPP6RR1M,haven_labelled,TRUE,4,Mois de vaccination RR1 / ROR1 /PRIORIX1,2019,99.12,9
+ch,IPP6RR1Y,haven_labelled,TRUE,4,Année de vaccinationRR1 / ROR1 /PRIORIX1,2019,99.12,5
+ch,IPP6VHAD,haven_labelled,TRUE,4,Jour de vaccination VHA / HAVRIX /HEALIVE 1,2019,99.12,11
+ch,IPP6VHAM,haven_labelled,TRUE,4,Mois de vaccination VHA / HAVRIX /HEALIVE 1,2019,99.12,9
+ch,IPP6VHAY,haven_labelled,TRUE,4,Année de vaccination VHA / HAVRIX /HEALIVE 1,2019,99.12,6
+ch,IPP6HAVRIXHEALIV2D,haven_labelled,TRUE,4,Jour de vaccination Harvix Healiv2,2019,99.12,3
+ch,IPP6HAVRIXHEALIV2M,haven_labelled,TRUE,4,Mois de vaccination Harvix Healiv2,2019,99.12,3
+ch,IPP6HAVRIXHEALIV2Y,haven_labelled,TRUE,4,Année de vaccination Harvix Healiv2,2019,99.12,3
+ch,IPP6RR2D,haven_labelled,TRUE,4,Jour de vaccination RR2 / ROR2 /PRIORIX2,2019,99.12,8
+ch,IPP6RR2M,haven_labelled,TRUE,4,Mois de vaccination RR2 / ROR2 /PRIORIX2,2019,99.12,7
+ch,IPP6RR2Y,haven_labelled,TRUE,4,Année de vaccination RR2 / ROR2 /PRIORIX2,2019,99.12,4
+ch,IPP6RTETRAPENTAD,haven_labelled,TRUE,4,Jour de vaccination Rappel Tetraxim ou Pentaxim ou DTC,2019,99.12,7
+ch,IPP6RTETRAPENTAM,haven_labelled,TRUE,4,Mois de vaccination Rappel Tetraxim ou Pentaxim ou DTC,2019,99.12,5
+ch,IPP6RTETRAPENTAY,haven_labelled,TRUE,4,Année de vaccinationRappel Tetraxim ou Pentaxim ou DTC,2019,99.12,4
+ch,IPP6VPORD,haven_labelled,TRUE,4,Jour de vaccination VPO-R,2019,99.12,8
+ch,IPP6VPORM,haven_labelled,TRUE,4,Mois de vaccination VPO-R,2019,99.12,6
+ch,IPP6VPORY,haven_labelled,TRUE,4,Année de vaccination VPO-R,2019,99.12,4
+ch,IMPP9,haven_labelled,TRUE,4,"L'enfant a-t-il reçu d'autres vaccinations lors de campagnes, journées d'immunisation ou journées de santé infantile",2019,99.12,3
+ch,IMPP11,haven_labelled,TRUE,4,L'enfant a-t-il déjà reçu des vaccinations,2031,99.71,2
+ch,IMPP14,haven_labelled,TRUE,4,L'enfant a-t-il déjà reçu le vaccin BCG,2031,99.71,2
+ch,IMPP15,haven_labelled,TRUE,5,La vaccination contre l'hépatite B a-t-elle été administrée dans les 24 heures suivant la naissance de l'enfant,2031,99.71,3
+ch,IMPP16,haven_labelled,TRUE,4,A deja reçu le vaccin sous forme de gouttes polio,2031,99.71,2
+ch,IMPP18,haven_labelled,TRUE,9,Combien de fois reçu vaccin sous forme de gouttes polio,2031,99.71,4
+ch,IMPP19,haven_labelled,TRUE,4,A deja reçu le vaccin injection polio,2031,99.71,2
+ch,IMPP19A,haven_labelled,TRUE,9,Combien de fois reçu vaccin injection polio,2031,99.71,3
+ch,IMPP20A,haven_labelled,TRUE,4,A deja reçu le vaccin pentavalent,2031,99.71,2
+ch,IMPP21A,haven_labelled,TRUE,9,Combien de fois reçu vaccin pentavalent,2031,99.71,5
+ch,IMPP20B,haven_labelled,TRUE,4,A deja reçu Infanrix Hexa,2037,100,1
+ch,IMPP21B,haven_labelled,TRUE,9,Combien de fois reçu Infanrix Hexa,2037,100,1
+ch,IMPP20C,haven_labelled,TRUE,4,A deja reçu 2 injections en meme temps,2037,100,1
+ch,IMPP21C,haven_labelled,TRUE,9,Combien de fois ces 2 injections en meme temps,2037,100,1
+ch,IMPP20D,haven_labelled,TRUE,4,A deja reçu 3 injections en meme temps,2037,100,1
+ch,IMPP21D,haven_labelled,TRUE,9,Combien de fois ces 3 vaccins ont été donnés en meme temps ?,2037,100,1
+ch,IMPP22,haven_labelled,TRUE,4,A deja reçu vaccin Prevenar ou Synflorix,2031,99.71,4
+ch,IMPP23,haven_labelled,TRUE,9,Combien de fois reçu vaccin Prevenar ou Synflorix,2033,99.8,4
+ch,IMPP24,haven_labelled,TRUE,4,A deja reçu vaccin Rotarix,2031,99.71,4
+ch,IMPP25,haven_labelled,TRUE,9,Combien de fois reçu vaccin Rotarix,2033,99.8,5
+ch,IMPP26,haven_labelled,TRUE,4,A deja reçu vaccin ROR (Priorix),2031,99.71,3
+ch,IMPP26A,haven_labelled,TRUE,9,Combien de fois reçu ROR (Priorix),2032,99.75,3
+ch,IMPP29,haven_labelled,TRUE,4,A deja reçu vaccin (Hep -A),2031,99.71,3
+ch,IMPP29A,haven_labelled,TRUE,9,Combien de fois reçu vaccin (Hep -A),2034,99.85,3
+ch,CA1,haven_labelled,TRUE,4,L'enfant a eu la diarrhée au cours des deux dernières semaines,111,5.45,4
+ch,CA3,haven_labelled,TRUE,7,L'enfant a bu moins ou plus pendant la diarrhée,1923,94.4,7
+ch,CA4,haven_labelled,TRUE,8,L'enfant a mangé moins ou plus pendant la diarrhée,1923,94.4,8
+ch,CA5,haven_labelled,TRUE,4,A demandé des conseils ou un traitement pour la diarrhée de n'importe quelle source,1923,94.4,3
+ch,CA6A,haven_labelled,TRUE,2,Lieu de soins recherché : Hôpital gouvernemental,0,0,2
+ch,CA6B,haven_labelled,TRUE,2,Lieu de soins recherché : Centre de santé gouvernemental,0,0,2
+ch,CA6E,haven_labelled,TRUE,2,Lieu de soins recherché : Clinique mobile / Strategie avanchee,0,0,1
+ch,CA6H,haven_labelled,TRUE,2,Lieu de soins recherché : Autre medical public,0,0,1
+ch,CA6I,haven_labelled,TRUE,2,Lieu de soins recherché : Hôpital privé/clinique,0,0,2
+ch,CA6J,haven_labelled,TRUE,2,Lieu de soins recherché : Médecin privé,0,0,2
+ch,CA6K,haven_labelled,TRUE,2,Lieu de soins recherché : Pharmacie privée,0,0,2
+ch,CA6O,haven_labelled,TRUE,2,Lieu de soins recherché : Autre medical privée,0,0,1
+ch,CA6P,haven_labelled,TRUE,2,Lieu de soins recherché : Famille / Ami(s),0,0,2
+ch,CA6Q,haven_labelled,TRUE,2,Lieu de soins recherché : Boutique / Marché / Rue,0,0,1
+ch,CA6R,haven_labelled,TRUE,2,Lieu de soins recherché : Praticien traditionnel,0,0,1
+ch,CA6X,haven_labelled,TRUE,2,Lieu de soins recherché : Autre,0,0,2
+ch,CA6NR,haven_labelled,TRUE,1,Lieu de soins recherché : Non reponse,0,0,1
+ch,CA7A,haven_labelled,TRUE,4,Enfant ayant reçu un liquide préparé à partir d’un sachet spécial appelé SRO,1923,94.4,4
+ch,CA7B,haven_labelled,TRUE,4,Enfant ayant reçu du liquide SRO,1923,94.4,4
+ch,CA7C,haven_labelled,TRUE,4,Enfant recevant des comprimés de zinc ou du sirop,1923,94.4,4
+ch,CA7D,haven_labelled,TRUE,4,Enfant ayant reçu une solution maison,1923,94.4,3
+ch,CA9A,haven_labelled,TRUE,2,Lieu d'obtention des SRO : Hôpital gouvernemental,0,0,2
+ch,CA9B,haven_labelled,TRUE,2,Lieu d'obtention des SRO : Centre de santé gouvernemental,0,0,2
+ch,CA9E,haven_labelled,TRUE,2,Lieu d'obtention des SRO : Clinique mobile / Strategie avanchee,0,0,1
+ch,CA9H,haven_labelled,TRUE,2,Lieu d'obtention des SRO : Autre medical public,0,0,1
+ch,CA9I,haven_labelled,TRUE,2,Lieu d'obtention des SRO : Hôpital privé/clinique,0,0,2
+ch,CA9J,haven_labelled,TRUE,2,Lieu d'obtention des SRO : Médecin privé,0,0,2
+ch,CA9K,haven_labelled,TRUE,2,Lieu d'obtention des SRO : Pharmacie privée,0,0,2
+ch,CA9O,haven_labelled,TRUE,2,Lieu d'obtention des SRO : Autre medical privée,0,0,1
+ch,CA9P,haven_labelled,TRUE,2,Lieu d'obtention des SRO : Famille / Ami(s),0,0,2
+ch,CA9Q,haven_labelled,TRUE,2,Lieu d'obtention des SRO : Boutique / Marché / Rue,0,0,1
+ch,CA9R,haven_labelled,TRUE,2,Lieu d'obtention des SRO : Praticien traditionnel,0,0,1
+ch,CA9X,haven_labelled,TRUE,2,Lieu d'obtention des SRO : Autre,0,0,1
+ch,CA9Z,haven_labelled,TRUE,2,Lieu d'obtention des SRO : NSP / Ne se souvient pas,0,0,1
+ch,CA9NR,haven_labelled,TRUE,1,Lieu d'obtention des SRO : Non reponse,0,0,1
+ch,CA11A,haven_labelled,TRUE,2,Lieu où se trouve le zinc : Hôpital gouvernemental,0,0,2
+ch,CA11B,haven_labelled,TRUE,2,Lieu où se trouve le zinc : Centre de santé gouvernemental,0,0,1
+ch,CA11E,haven_labelled,TRUE,2,Lieu où se trouve le zinc : Clinique mobile / Strategie avanchee,0,0,1
+ch,CA11H,haven_labelled,TRUE,2,Lieu où se trouve le zinc : Autre medical public,0,0,1
+ch,CA11I,haven_labelled,TRUE,2,Lieu où se trouve le zinc : Hôpital privé/clinique,0,0,1
+ch,CA11J,haven_labelled,TRUE,2,Lieu où se trouve le zinc : Médecin privé,0,0,1
+ch,CA11K,haven_labelled,TRUE,2,Lieu où se trouve le zinc : Pharmacie privée,0,0,2
+ch,CA11O,haven_labelled,TRUE,2,Lieu où se trouve le zinc : Autre medical privée,0,0,1
+ch,CA11P,haven_labelled,TRUE,2,Lieu où se trouve le zinc : Famille / Ami(s),0,0,1
+ch,CA11Q,haven_labelled,TRUE,2,Lieu où se trouve le zinc : Boutique / Marché / Rue,0,0,1
+ch,CA11R,haven_labelled,TRUE,2,Lieu où se trouve le zinc : Praticien traditionnel,0,0,1
+ch,CA11X,haven_labelled,TRUE,2,Lieu où se trouve le zinc : Autre,0,0,1
+ch,CA11Z,haven_labelled,TRUE,2,Lieu où se trouve le zinc : NSP / Ne se souvient pas,0,0,1
+ch,CA11NR,haven_labelled,TRUE,1,Lieu où se trouve le zinc : Non reponse,0,0,1
+ch,CA12,haven_labelled,TRUE,4,Quelque chose d’autre a été donnée pour traiter la diarrhée,1923,94.4,4
+ch,CA13A,haven_labelled,TRUE,2,Autres traitement (comprimes ou sirop): Antibiotique,0,0,3
+ch,CA13B,haven_labelled,TRUE,2,Autres traitement (comprimes ou sirop): Antimotilite (anti-diarrheique),0,0,3
+ch,CA13G,haven_labelled,TRUE,2,Autres traitement (comprimes ou sirop): Autre,0,0,2
+ch,CA13H,haven_labelled,TRUE,2,Autres traitement (comprimes ou sirop): Inconnu,0,0,2
+ch,CA13L,haven_labelled,TRUE,2,Autres traitement (Injection): Antibiotique,0,0,2
+ch,CA13M,haven_labelled,TRUE,2,Autres traitement (Injection): Pas antibiotique,0,0,2
+ch,CA13N,haven_labelled,TRUE,2,Autres traitement (Injection): Inconnue,0,0,2
+ch,CA13O,haven_labelled,TRUE,2,Autres traitement: Intraveineuse (IV),0,0,3
+ch,CA13Q,haven_labelled,TRUE,2,Autres traitement: Remede maison / Herbe medicinale,0,0,3
+ch,CA13X,haven_labelled,TRUE,2,Autres traitement: Autre,0,0,3
+ch,CA13NR,haven_labelled,TRUE,1,Autres traitement: Non reponse,0,0,2
+ch,CA14,haven_labelled,TRUE,4,Enfant ayant eu de la fièvre au cours des deux dernières semaines,111,5.45,4
+ch,CA16,haven_labelled,TRUE,4,Enfant ayant souffert de la toux au cours des deux dernières semaines,111,5.45,4
+ch,CA17,haven_labelled,TRUE,4,Enfant ayant des difficultés à respirer quand il avait de la toux,111,5.45,4
+ch,CA18,haven_labelled,TRUE,5,"Symptomes dues au un problème de bronches, ou à un nez bouché ou qui coulait",1756,86.21,6
+ch,CA20,haven_labelled,TRUE,4,A demandé des conseils ou un traitement pour une maladie,1542,75.7,5
+ch,CA21A,haven_labelled,TRUE,2,Lieu de recherche des conseils ou du traitement : Hôpital gouvernemental,0,0,2
+ch,CA21B,haven_labelled,TRUE,2,Lieu de recherche des conseils ou du traitement : Centre de santé gouvernemental,0,0,2
+ch,CA21E,haven_labelled,TRUE,2,Lieu de recherche des conseils ou du traitement : Clinique mobile / Strategie avanchee,0,0,1
+ch,CA21H,haven_labelled,TRUE,2,Lieu de recherche des conseils ou du traitement : Autre medical public,0,0,2
+ch,CA21I,haven_labelled,TRUE,2,Lieu de recherche des conseils ou du traitement : Hôpital privé/clinique,0,0,2
+ch,CA21J,haven_labelled,TRUE,2,Lieu de recherche des conseils ou du traitement : Médecin privé,0,0,2
+ch,CA21K,haven_labelled,TRUE,2,Lieu de recherche des conseils ou du traitement : Pharmacie privée,0,0,2
+ch,CA21O,haven_labelled,TRUE,2,Lieu de recherche des conseils ou du traitement : Autre medical privée,0,0,2
+ch,CA21P,haven_labelled,TRUE,2,Lieu de recherche des conseils ou du traitement : Famille / Ami(s),0,0,2
+ch,CA21Q,haven_labelled,TRUE,2,Lieu de recherche des conseils ou du traitement : Boutique / Marché / Rue,0,0,1
+ch,CA21R,haven_labelled,TRUE,2,Lieu de recherche des conseils ou du traitement : Praticien traditionnel,0,0,2
+ch,CA21X,haven_labelled,TRUE,2,Lieu de recherche des conseils ou du traitement : Autre,0,0,2
+ch,CA21NR,haven_labelled,TRUE,1,Lieu de recherche des conseils ou du traitement : Non reponse,0,0,1
+ch,CA22,haven_labelled,TRUE,4,Donné des médicaments pour traiter cette maladie,1542,75.7,4
+ch,CA23L,haven_labelled,TRUE,2,Médicament: Antibiotiques : Amoxicilline,0,0,3
+ch,CA23M,haven_labelled,TRUE,2,Médicament: Antibiotiques : Cotrimoxazole,0,0,3
+ch,CA23N,haven_labelled,TRUE,2,Médicament: Antibiotiques : Autres comprimes ou sirop antibiotique,0,0,3
+ch,CA23O,haven_labelled,TRUE,2,Médicament: Antibiotiques : Autre injection/antibiotique,0,0,3
+ch,CA23R,haven_labelled,TRUE,2,Médicament: Paracetamol / Panadol / Acetaminonphen,0,0,3
+ch,CA23S,haven_labelled,TRUE,2,Médicament: Aspirine,0,0,3
+ch,CA23T,haven_labelled,TRUE,2,Médicament: Ibuprofen,0,0,3
+ch,CA23X,haven_labelled,TRUE,2,Médicament: Autre,0,0,3
+ch,CA23Z,haven_labelled,TRUE,2,Médicament: NSP,0,0,3
+ch,CA23NR,haven_labelled,TRUE,1,Médicament: Non reponse,0,0,2
+ch,CA25A,haven_labelled,TRUE,2,Lieu de l'obtention du médicament : Hôpital gouvernemental,0,0,2
+ch,CA25B,haven_labelled,TRUE,2,Lieu de l'obtention du médicament : Centre de santé gouvernemental,0,0,2
+ch,CA25E,haven_labelled,TRUE,2,Lieu de l'obtention du médicament : Clinique mobile / Strategie avanchee,0,0,2
+ch,CA25H,haven_labelled,TRUE,2,Lieu de l'obtention du médicament : Autre medical public,0,0,1
+ch,CA25I,haven_labelled,TRUE,2,Lieu de l'obtention du médicament : Hôpital privé/clinique,0,0,2
+ch,CA25J,haven_labelled,TRUE,2,Lieu de l'obtention du médicament : Médecin privé,0,0,2
+ch,CA25K,haven_labelled,TRUE,2,Lieu de l'obtention du médicament : Pharmacie privée,0,0,2
+ch,CA25O,haven_labelled,TRUE,2,Lieu de l'obtention du médicament : Autre medical privée,0,0,2
+ch,CA25P,haven_labelled,TRUE,2,Lieu de l'obtention du médicament : Famille / Ami(s),0,0,2
+ch,CA25Q,haven_labelled,TRUE,2,Lieu de l'obtention du médicament : Boutique / Marché / Rue,0,0,1
+ch,CA25R,haven_labelled,TRUE,2,Lieu de l'obtention du médicament : Praticien traditionnel,0,0,1
+ch,CA25X,haven_labelled,TRUE,2,Lieu de l'obtention du médicament : Autre,0,0,2
+ch,CA25Z,haven_labelled,TRUE,2,Lieu de l'obtention du médicament : NSP / Ne se souvient pas,0,0,1
+ch,CA25NR,haven_labelled,TRUE,1,Lieu de l'obtention du médicament : Non reponse,0,0,1
+ch,CA31,haven_labelled,TRUE,9,Qu'est-ce qui a été fait pour se débarrasser des selles,1032,50.66,9
+ch,AN1_DQ,numeric,FALSE,0,Numéro de grappe:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,466
+ch,AN2_DQ,numeric,FALSE,0,Numéro de ménage:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,23
+ch,AN3_DQ,numeric,FALSE,0,Numéro de ligne de l'enfant:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,14
+ch,AN4_DQ,numeric,FALSE,0,Âge de l'enfant:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,6
+ch,AN5_DQ,numeric,FALSE,0,Numéro de ligne de la mère:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,12
+ch,AN6_DQ,numeric,FALSE,0,Numéro d'enqueteur:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,129
+ch,AN7_DQ,numeric,FALSE,0,Numéro de mesureur:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,78
+ch,AN8_DQ,haven_labelled,TRUE,1,Poids de l'enfant (kilogrammes):  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,236
+ch,AN9_DQ,haven_labelled,TRUE,3,Enfant déshabillé au minimum:  [À ne pas utiliser : Préoccupations concernant la qualité des données],214,10.51,4
+ch,AN11_DQ,haven_labelled,TRUE,1,Longueur ou taille de l'enfant (centimètres):  [À ne pas utiliser : Préoccupations concernant la qualité des données],146,7.17,549
+ch,AN12_DQ,haven_labelled,TRUE,3,Enfant mesuré couché ou debout:  [À ne pas utiliser : Préoccupations concernant la qualité des données],229,11.24,4
+ch,AN13D_DQ,numeric,FALSE,0,Jour de mesure:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,32
+ch,AN13M_DQ,haven_labelled,TRUE,12,Mois de mesure:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,7
+ch,AN13Y_DQ,numeric,FALSE,0,Année de mesure:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,2
+ch,HH4,numeric,FALSE,0,Numéro chef d'équipe,0,0,24
+ch,HH6,haven_labelled,TRUE,2,Milieu de résidence,0,0,2
+ch,HH7,haven_labelled,TRUE,7,Region,0,0,7
+ch,HL4,haven_labelled,TRUE,2,Sexe,0,0,2
+ch,ED5A,haven_labelled,TRUE,8,Quel est le plus haut niveau d’école que (nom) a fréquenté,134,6.58,8
+ch,ED5B,haven_labelled,TRUE,2,Quel est le plus haut classe/année (nom) a fréquenté,136,6.68,10
+ch,CDOI,numeric,FALSE,0,Date de l'entretien de l'enfant (CMC),0,0,2
+ch,CDOB,numeric,FALSE,0,Date de naissance de l'enfant (CMC),111,5.45,61
+ch,CAGE,numeric,FALSE,0,Age (en mois),111,5.45,61
+ch,CAGE_6,haven_labelled,TRUE,6,Age (en mois),111,5.45,7
+ch,CAGE_11,haven_labelled,TRUE,5,Age (en mois),111,5.45,6
+ch,CAGED,numeric,FALSE,0,Age (en jours),111,5.45,1189
+ch,HAP_DQ,numeric,FALSE,0,Taille pour âge centile NCHS [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,769
+ch,HAZ_DQ,numeric,FALSE,0,Taille pour âge z-score NCHS:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,703
+ch,HAM_DQ,numeric,FALSE,0,"Taille pour âge, pourcentage de la médiane de référence NCHS:  [À ne pas utiliser : Préoccupations concernant la qualité des données]",111,5.45,400
+ch,WAP_DQ,numeric,FALSE,0,Poids pour âge centile NCHS: [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,787
+ch,WAZ_DQ,numeric,FALSE,0,Poids pour âge z-score NCHS:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,590
+ch,WAM_DQ,numeric,FALSE,0,"Poids pour âge, pourcentage de la médiane de référence NCHS:  [À ne pas utiliser : Préoccupations concernant la qualité des données]",111,5.45,668
+ch,WHP_DQ,numeric,FALSE,0,Poids pour taille centile NCHS:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,730
+ch,WHZ_DQ,numeric,FALSE,0,Poids pour taille z-score NCHS:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,636
+ch,WHM_DQ,numeric,FALSE,0,Poids pour taille pourcentage de la médiane de référence NCHS:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,640
+ch,FLAG_DQ,haven_labelled,TRUE,8,Signal pour les indicateurs anthropométriques:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,9
+ch,BMI_DQ,haven_labelled,TRUE,1,Indice de masse corporelle OMS:  [À ne pas utiliser : Préoccupations concernant la qualité des données],113,5.55,881
+ch,ZBMI_DQ,haven_labelled,TRUE,1,Indice de masse corporelle z-score OMS:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,597
+ch,HAZ2_DQ,haven_labelled,TRUE,1,Taille pour âge z-score OMS:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,650
+ch,WAZ2_DQ,haven_labelled,TRUE,1,Poids pour âge z-score OMS:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,548
+ch,WHZ2_DQ,haven_labelled,TRUE,1,Poids pour taille z-score OMS:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,591
+ch,HAZFLAG_DQ,haven_labelled,TRUE,2,Taille par rapport à l'âge drapeau OMS:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,3
+ch,WAZFLAG_DQ,haven_labelled,TRUE,2,Indicateur poids/âge OMS:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,3
+ch,WHZFLAG_DQ,haven_labelled,TRUE,2,Poids pour taille drapeau OMS:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,3
+ch,BMIFLAG_DQ,haven_labelled,TRUE,2,Indicateur IMC OMS:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,3
+ch,WHZNOAGE_DQ,haven_labelled,TRUE,2,Poids pour taille – Signaux sur l’âge OMS:  [À ne pas utiliser : Préoccupations concernant la qualité des données],111,5.45,3
+ch,melevel,haven_labelled,TRUE,5,L'éducation de la mère,0,0,5
+ch,cinsurance,haven_labelled,TRUE,3,Assurance santé,111,5.45,4
+ch,cdisability,haven_labelled,TRUE,2,Difficultés fonctionnelles (âge 2-4 ans),737,36.18,3
+ch,caretakerdis,haven_labelled,TRUE,3,Difficultés fonctionnelles (âge 18-49 ans),0,0,3
+ch,bcg,haven_labelled,TRUE,4,BCG,111,5.45,5
+ch,polio1,haven_labelled,TRUE,4,VPI 1,111,5.45,4
+ch,polio2,haven_labelled,TRUE,4,VPI 2,111,5.45,4
+ch,polio3,haven_labelled,TRUE,4,VPO/VPI 3,111,5.45,4
+ch,hepB0,haven_labelled,TRUE,4,VHB à la naissance,111,5.45,5
+ch,hepB0day,haven_labelled,TRUE,4,VHB dans les 24 heures,111,5.45,4
+ch,hepB0later,haven_labelled,TRUE,4,VHB plus tard,111,5.45,4
+ch,DTC1,haven_labelled,TRUE,4,DTC1,111,5.45,4
+ch,DTC2,haven_labelled,TRUE,4,DTC2,111,5.45,4
+ch,DTC3,haven_labelled,TRUE,4,DTC3,111,5.45,4
+ch,Hib1,haven_labelled,TRUE,4,Hib 1,111,5.45,4
+ch,Hib2,haven_labelled,TRUE,4,Hib 2,111,5.45,4
+ch,Hib3,haven_labelled,TRUE,4,Hib 3,111,5.45,4
+ch,HepB1,haven_labelled,TRUE,4,HepB1,111,5.45,4
+ch,HepB2,haven_labelled,TRUE,4,HepB2,111,5.45,4
+ch,HepB3,haven_labelled,TRUE,4,HepB3,111,5.45,4
+ch,pneumo1,haven_labelled,TRUE,4,Pneumococcal (Conjugate) 1,111,5.45,5
+ch,pneumo2,haven_labelled,TRUE,4,Pneumococcal (Conjugate) 2,111,5.45,5
+ch,pneumo3,haven_labelled,TRUE,4,Pneumococcal (Conjugate) 3,111,5.45,5
+ch,measles1,haven_labelled,TRUE,4,MMR1,111,5.45,4
+ch,measles2,haven_labelled,TRUE,4,MMR2,111,5.45,4
+ch,HepA,haven_labelled,TRUE,4,HepA,111,5.45,5
+ch,basicvacc,haven_labelled,TRUE,4,Vaccinations de base sans ROR,111,5.45,4
+ch,basicvacc1,haven_labelled,TRUE,4,Vaccinations de base avec ROR,111,5.45,5
+ch,allvacc,haven_labelled,TRUE,4,All vaccinations,111,5.45,5
+ch,novacc,haven_labelled,TRUE,4,No vaccinations,111,5.45,5
+ch,chweight,numeric,FALSE,0,Poids de l'échantillon des enfants de moins de 5 ans,0,0,94
+ch,wscore,numeric,FALSE,0,Score de richesse combiné,0,0,1470
+ch,windex5,haven_labelled,TRUE,5,Quintile de l’indice de richesse,0,0,6
+ch,windex10,haven_labelled,TRUE,10,Décile de l’indice de richesse,0,0,11
+ch,wscoreu,numeric,FALSE,0,Score de richesse urbaine,887,43.54,811
+ch,windex5u,haven_labelled,TRUE,5,Quintile de l’indice de richesse urbaine,887,43.54,7
+ch,windex10u,haven_labelled,TRUE,10,Décile de l’indice de richesse urbaine,887,43.54,12
+ch,wscorer,numeric,FALSE,0,Score de richesse rurale,1039,51.01,662
+ch,windex5r,haven_labelled,TRUE,5,Quintile de l’indice de richesse rurale,1039,51.01,7
+ch,windex10r,haven_labelled,TRUE,10,Décile de l’indice de richesse rurale,1039,51.01,12
+ch,PSU,numeric,FALSE,0,Unité d'échantillonnage primaire,0,0,472
+ch,stratum,numeric,FALSE,0,Strate,0,0,46
+fs,HH1,numeric,FALSE,0,Numéro de Grappe,0,0,498
+fs,HH2,numeric,FALSE,0,Numéro de ménage,0,0,22
+fs,LN,numeric,FALSE,0,Numéro de ligne,0,0,10
+fs,FS1,numeric,FALSE,0,Numéro de grappe,0,0,498
+fs,FS2,numeric,FALSE,0,Numéro de ménage,0,0,22
+fs,FSINT,numeric,FALSE,0,Numéro d'enqueteur,0,0,130
+fs,FS3,numeric,FALSE,0,Numéro de ligne de l’enfant,0,0,10
+fs,FS4,numeric,FALSE,0,Numéro de ligne de la Mère / Tutrice,0,0,10
+fs,FS5,numeric,FALSE,0,Numéro d'enqueteur,0,0,130
+fs,FS6,numeric,FALSE,0,Numéro de superviseur,0,0,24
+fs,FS7D,numeric,FALSE,0,Jour de l’interview,0,0,31
+fs,FS7M,numeric,FALSE,0,Mois de l’interview,0,0,2
+fs,FS7Y,numeric,FALSE,0,Année de l’interview,0,0,1
+fs,FS9,haven_labelled,TRUE,2,Répondant à un autre questionnaire,0,0,2
+fs,FS10,haven_labelled,TRUE,2,Consentement,0,0,2
+fs,FS17,haven_labelled,TRUE,7,Résultat de l’interview pour les enfants de 5-17 ans,0,0,6
+fs,FS8H,numeric,FALSE,0,Debut de l’interview - Heure,161,4.23,21
+fs,FS8M,haven_labelled,TRUE,1,Debut de l’interview - Minutes,161,4.23,61
+fs,FS11H,numeric,FALSE,0,Fin de l’interview - Heure,161,4.23,21
+fs,FS11M,haven_labelled,TRUE,1,Fin de l’interview - Minutes,161,4.23,61
+fs,FS12,haven_labelled,TRUE,2,Langue du Questionnaire,161,4.23,3
+fs,FS13,haven_labelled,TRUE,4,Langue de l’Interview,161,4.23,3
+fs,FS14,haven_labelled,TRUE,4,Langue maternelle du Répondant,161,4.23,3
+fs,FS15,haven_labelled,TRUE,4,Traducteur utilisé,161,4.23,5
+fs,FS15A,haven_labelled,TRUE,3,Entrevue réalisée par le même enquêteur,161,4.23,4
+fs,FS15B,haven_labelled,TRUE,3,Ménage possédant un téléphone,308,8.09,4
+fs,FS15C,haven_labelled,TRUE,3,Consentement à participer à MICS-PLUS,308,8.09,4
+fs,FS15D,haven_labelled,TRUE,3,Possède un téléphone pour recevoir les appels pour MICS-PLUS,2483,65.24,4
+fs,FS15E,haven_labelled,TRUE,3,Accepter un appel pour MICS-PLUS,2839,74.59,4
+fs,FS15G_P1,haven_labelled,TRUE,4,Valider le premier numéro de téléphone,2839,74.59,4
+fs,FS15J_P1,haven_labelled,TRUE,4,Possède un autre numéro de téléphone,2839,74.59,4
+fs,FS15G_P2,haven_labelled,TRUE,3,Valider le deuxième numéro de téléphone,3743,98.34,3
+fs,FS15J_P2,haven_labelled,TRUE,3,Possède un autre numéro de téléphone,3743,98.34,4
+fs,FS15G_P3,haven_labelled,TRUE,3,Valider le troisième numéro de téléphone,3795,99.71,3
+fs,FS15J_P3,haven_labelled,TRUE,3,Possède un autre numéro de téléphone,3795,99.71,3
+fs,FSHINT,numeric,FALSE,0,Intervieweur du ménage,0,0,130
+fs,CB2M,haven_labelled,TRUE,14,Mois de naissance de l’enfant,161,4.23,15
+fs,CB2Y,haven_labelled,TRUE,2,Année de naissance de l’enfant,161,4.23,16
+fs,CB3,numeric,FALSE,0,Age de l’enfant,161,4.23,14
+fs,CB4,haven_labelled,TRUE,3,A déjà été scolarisé ou suivi un programme de petite enfance,161,4.23,3
+fs,CB5A,haven_labelled,TRUE,6,Niveau élevé d’éducation atteint,216,5.68,5
+fs,CB5B,haven_labelled,TRUE,2,Classe la plus élevée atteint sur ce niveau,550,14.45,10
+fs,CB6,haven_labelled,TRUE,4,A déjà terminé cette année/année,550,14.45,5
+fs,CB7,haven_labelled,TRUE,4,A fréquenté une école ou un programme pour la petite enfance au cours de l'année scolaire en cours,216,5.68,4
+fs,CB8A,haven_labelled,TRUE,10,Niveau d'éducation fréquenté l'année scolaire en cours,540,14.19,10
+fs,CB8B,haven_labelled,TRUE,2,Classe fréquentée à ce niveau au cours de l'année scolaire en cours,865,22.73,10
+fs,CB9,haven_labelled,TRUE,4,A fréquenté une école ou un programme pour la petite enfance au cours de l'année scolaire précédente,216,5.68,5
+fs,CB10A,haven_labelled,TRUE,13,Niveau d'études suivi l'année scolaire précédente,601,15.79,8
+fs,CB10B,haven_labelled,TRUE,2,Classe fréquentée à ce niveau au cours de l'année scolaire précédente,1098,28.85,10
+fs,CB11,haven_labelled,TRUE,3,Couvert par n'importe quelle assurance maladie,161,4.23,4
+fs,CB12A,haven_labelled,TRUE,2,Type d'assurance maladie - Mutuelle de santé / Assurance maladie communautaire,0,0,3
+fs,CB12D,haven_labelled,TRUE,2,Type d'assurance maladie - Assurance maladie par l'employeur,0,0,3
+fs,CB12E,haven_labelled,TRUE,2,Type d'assurance maladie - Sécurité sociale,0,0,3
+fs,CB12F,haven_labelled,TRUE,2,Type d'assurance maladie - Autre assurance maladie commerciale souscrite à titre privé,0,0,3
+fs,CB12X,haven_labelled,TRUE,2,Type d'assurance maladie - Autre,0,0,3
+fs,CB12NR,haven_labelled,TRUE,1,Type d'assurance maladie – Non réponse,0,0,2
+fs,CL1A,haven_labelled,TRUE,3,"A travaillé sur terrain, ferme, potager ou s’est occupé des animaux la semaine la semaine dernière",161,4.23,4
+fs,CL1B,haven_labelled,TRUE,3,A aidé dans une entreprise familiale la semaine dernière,161,4.23,4
+fs,CL1C,haven_labelled,TRUE,3,Articles produits ou vendus au cours de la semaine dernière,161,4.23,4
+fs,CL1D,haven_labelled,TRUE,3,A exercé une activité artistique ou culturelle la semaine dernière,161,4.23,4
+fs,CL1E,haven_labelled,TRUE,3,"A exercé une activité dans des bars, cabarets, boîtes de nuit la semaine dernière",161,4.23,4
+fs,CL1X,haven_labelled,TRUE,3,A exercé toute autre activité lucrative au cours de la semaine dernière,161,4.23,4
+fs,CL3,haven_labelled,TRUE,1,Heures travaillées la semaine dernière,3509,92.2,27
+fs,CL4,haven_labelled,TRUE,3,Activités nécessitant de porter de lourdes charges,3509,92.2,4
+fs,CL5,haven_labelled,TRUE,3,Activités requises pour travailler avec des outils dangereux ou de la machinerie lourde,3509,92.2,4
+fs,CL6A,haven_labelled,TRUE,3,"Description du travail : exposé à la poussière, aux fumées ou aux gaz",3509,92.2,4
+fs,CL6B,haven_labelled,TRUE,3,Description du travail : exposé à des températures ou à une humidité extrême,3509,92.2,4
+fs,CL6C,haven_labelled,TRUE,3,Description du travail : exposé à un bruit fort ou à des vibrations,3509,92.2,4
+fs,CL6D,haven_labelled,TRUE,3,Description du travail : requis pour travailler en hauteur,3509,92.2,3
+fs,CL6E,haven_labelled,TRUE,3,Description du travail : requis pour travailler avec des produits chimiques,3509,92.2,4
+fs,CL6F,haven_labelled,TRUE,3,"Description du travail : exposé à l’alcool, au tabac et à des comportements à risque",3509,92.2,3
+fs,CL6X,haven_labelled,TRUE,3,Description du travail : exposé à d'autres situations,3509,92.2,4
+fs,CL7,haven_labelled,TRUE,3,Est allé chercher de l'eau la semaine dernière,161,4.23,4
+fs,CL8,haven_labelled,TRUE,1,Heures passées à aller chercher de l'eau au cours de la semaine dernière,3559,93.51,16
+fs,CL9,haven_labelled,TRUE,3,A ramassé du bois de chauffage la semaine dernière,161,4.23,4
+fs,CL10,haven_labelled,TRUE,1,Heures passées à ramasser du bois de chauffage au cours de la semaine dernière,3736,98.16,11
+fs,CL11A,haven_labelled,TRUE,3,Tâches ménagères de la semaine dernière : courses,161,4.23,4
+fs,CL11B,haven_labelled,TRUE,3,Tâches ménagères de la semaine dernière : cuisine,161,4.23,4
+fs,CL11C,haven_labelled,TRUE,3,Tâches ménagères de la semaine dernière : faire la vaisselle ou faire le ménage dans la maison,161,4.23,4
+fs,CL11D,haven_labelled,TRUE,3,Tâches ménagères de la semaine dernière : laver les vêtements,161,4.23,4
+fs,CL11E,haven_labelled,TRUE,3,Tâches ménagères de la semaine dernière : s'occuper des enfants,161,4.23,4
+fs,CL11F,haven_labelled,TRUE,3,Tâches ménagères de la semaine dernière : prendre soin des personnes âgées ou malades,161,4.23,4
+fs,CL11X,haven_labelled,TRUE,3,Tâches ménagères de la semaine dernière : autres tâches ménagères,161,4.23,4
+fs,CL13,haven_labelled,TRUE,1,Nombre d'heures travaillées au cours de la semaine dernière,2060,54.13,30
+fs,FCD2A,haven_labelled,TRUE,3,Retiré des privilèges,1045,27.46,4
+fs,FCD2B,haven_labelled,TRUE,3,Expliqué pourquoi le comportement était mauvais,1045,27.46,4
+fs,FCD2C,haven_labelled,TRUE,3,Secoué l'enfant,1045,27.46,4
+fs,FCD2D,haven_labelled,TRUE,3,"A grondé, hurler ou crié après l'enfant",1045,27.46,4
+fs,FCD2E,haven_labelled,TRUE,3,A donné à l'enfant autre chose à faire,1045,27.46,4
+fs,FCD2F,haven_labelled,TRUE,3,"Donné une fessée, frappé ou giflé sur les fesses à main nue",1045,27.46,4
+fs,FCD2G,haven_labelled,TRUE,3,"Frappé l'enfant sur les fesses ou ailleurs avec une ceinture, une brosse, un bâton, etc.",1045,27.46,4
+fs,FCD2H,haven_labelled,TRUE,3,"Traité l'enfant d'idiot, de paresseux ou d'un autre nom",1045,27.46,4
+fs,FCD2I,haven_labelled,TRUE,3,"Frappé ou giflé l'enfant au visage, à la tête ou aux oreilles",1045,27.46,4
+fs,FCD2J,haven_labelled,TRUE,3,"Frappé ou giflé l'enfant à la main, au bras ou à la jambe",1045,27.46,4
+fs,FCD2K,haven_labelled,TRUE,3,Battu l'enfant aussi fort que possible,1045,27.46,4
+fs,FCD4,haven_labelled,TRUE,3,Déjà répondu à la question UCD5,2940,77.25,4
+fs,FCD5,haven_labelled,TRUE,4,L'enfant doit être puni physiquement pour être élevé correctement,1334,35.05,5
+fs,FCF1,haven_labelled,TRUE,3,L'enfant porte des lunettes ou des lentilles de contact,161,4.23,4
+fs,FCF2,haven_labelled,TRUE,3,L'enfant utilise un appareil auditif,161,4.23,4
+fs,FCF3,haven_labelled,TRUE,3,L'enfant utilise n'importe quel équipement ou reçoit de l'aide pour marcher,161,4.23,4
+fs,FCF6,haven_labelled,TRUE,5,L'enfant a du mal à voir,161,4.23,6
+fs,FCF8,haven_labelled,TRUE,5,L'enfant a du mal à entendre les sons comme les voix des gens ou la musique,161,4.23,6
+fs,FCF10,haven_labelled,TRUE,5,"Sans utiliser d'équipement ou d'assistance, l'enfant a du mal à marcher 100 mètres",3656,96.06,5
+fs,FCF11,haven_labelled,TRUE,5,"Sans utiliser d'équipement ou d'assistance, l'enfant a de la difficulté à marcher 500 mètres",3801,99.87,3
+fs,FCF12,haven_labelled,TRUE,5,"Lorsqu'il utilise un équipement ou une assistance, l'enfant a des difficultés à marcher 100 mètres",3656,96.06,5
+fs,FCF13,haven_labelled,TRUE,5,"Lorsqu'il utilise un équipement ou une assistance, l'enfant a des difficultés à marcher 500 mètres",3665,96.3,5
+fs,FCF14,haven_labelled,TRUE,5,"Par rapport aux enfants du même âge, l'enfant a du mal à marcher 100 mètres",299,7.86,5
+fs,FCF15,haven_labelled,TRUE,5,"Comparé aux enfants du même âge, l'enfant a du mal à marcher 500 mètres",311,8.17,6
+fs,FCF16,haven_labelled,TRUE,5,"L'enfant a des difficultés à prendre soin de lui-même, comme se nourrir ou s'habiller.",161,4.23,6
+fs,FCF17,haven_labelled,TRUE,5,L'enfant a du mal à être compris par les personnes au sein de son foyer,161,4.23,6
+fs,FCF18,haven_labelled,TRUE,5,L'enfant a du mal à être compris par des personnes extérieures à son foyer,161,4.23,6
+fs,FCF19,haven_labelled,TRUE,5,"Par rapport aux enfants du même âge, l'enfant a du mal à apprendre des choses",161,4.23,6
+fs,FCF20,haven_labelled,TRUE,5,"Comparé aux enfants du même âge, l'enfant a du mal à se souvenir des choses",161,4.23,6
+fs,FCF21,haven_labelled,TRUE,5,L'enfant a du mal à se concentrer sur une activité qu'il aime,161,4.23,6
+fs,FCF22,haven_labelled,TRUE,5,L'enfant a du mal à accepter les changements dans sa routine,161,4.23,6
+fs,FCF23,haven_labelled,TRUE,5,"Par rapport aux enfants du même âge, l'enfant a du mal à contrôler son comportement",161,4.23,6
+fs,FCF24,haven_labelled,TRUE,5,L'enfant a du mal à se faire des amis,161,4.23,6
+fs,FCF25,haven_labelled,TRUE,6,"À quelle fréquence l’enfant semble très anxieux, nerveux ou inquiet",161,4.23,7
+fs,FCF26,haven_labelled,TRUE,6,À quelle fréquence l’enfant semble très triste ou déprimé,161,4.23,7
+fs,PR3,haven_labelled,TRUE,4,Nombre de livres pour enfants ou d'albums (cahier de graphismes) pour enfants,1689,44.38,13
+fs,PR5,haven_labelled,TRUE,4,L'enfant a déjà eu des devoirs,1853,48.69,4
+fs,PR6,haven_labelled,TRUE,4,N'importe qui aide un enfant à faire ses devoirs,1907,50.11,4
+fs,PR7,haven_labelled,TRUE,4,L'école a un conseil d'administration scolaire auquel les parents peuvent participer,1853,48.69,5
+fs,PR8,haven_labelled,TRUE,4,Participation à une réunion PTA / SMC au cours des 12 derniers mois,3480,91.43,4
+fs,PR9A,haven_labelled,TRUE,4,Lors de la réunion - discuter d'un plan pour résoudre les problèmes éducatifs clés auxquels l'école de l'enfant est confrontée,3585,94.19,4
+fs,PR9B,haven_labelled,TRUE,4,Lors de la réunion – discuter du budget de l'école ou de l'utilisation des fonds reçus par l'école de l'enfant,3585,94.19,4
+fs,PR10,haven_labelled,TRUE,4,Au cours des 12 derniers mois - reçu un bulletin scolaire,1853,48.69,5
+fs,PR11A,haven_labelled,TRUE,4,"Au cours des 12 derniers mois, aller à l'école pour - une assemblée scolaire, une fête scolaire ou un événement sportif",1853,48.69,5
+fs,PR11B,haven_labelled,TRUE,4,"Au cours des 12 derniers mois, aller à l'école pour - discuter des progrès de l'enfant avec les enseignants de l'enfant",1853,48.69,5
+fs,PR12A,haven_labelled,TRUE,4,"Au cours des 12 derniers mois, l'école a été fermée en raison de catastrophes naturelles.",1853,48.69,5
+fs,PR12B,haven_labelled,TRUE,4,"Au cours des 12 derniers mois, l'école a fermé ses portes en raison de catastrophes causées par l'homme.",1853,48.69,5
+fs,PR12C,haven_labelled,TRUE,4,"Au cours des 12 derniers mois, l'école a été fermée en raison de - grève des enseignants ou absence des enseignants",1853,48.69,5
+fs,PR12X,haven_labelled,TRUE,4,"Au cours des 12 derniers mois, l'école a fermé pour - toute autre raison",1853,48.69,5
+fs,PR13,haven_labelled,TRUE,4,"Au cours des 12 derniers mois, l'enfant n'a pas pu assister aux cours en raison de l'absence du professeur.",1853,48.69,5
+fs,PR15,haven_labelled,TRUE,4,Contacter les responsables de l'école ou les instances dirigeantes de l'école lorsque cela s'est produit,2387,62.72,4
+fs,FL1,haven_labelled,TRUE,2,Consentement,1689,44.38,3
+fs,FL2H,numeric,FALSE,0,Début de l'entretien avec l'enfant - Heure,1883,49.47,22
+fs,FL2M,haven_labelled,TRUE,1,Début de l'entretien avec l'enfant - Minutes,1883,49.47,61
+fs,FL3,haven_labelled,TRUE,2,Consentement,1883,49.47,3
+fs,FL4A,haven_labelled,TRUE,2,Vous n'êtes pas seul avec l'enfant à moins qu'il ne soit au moins visible par un adulte connu de l'enfant,0,0,2
+fs,FL4B,haven_labelled,TRUE,2,"Vous avez engagé une conversation avec l'enfant et établi des relations, par ex. utiliser un brise-glace",0,0,2
+fs,FL4C,haven_labelled,TRUE,2,"L'enfant est assis confortablement, capable d'utiliser le livre de lecture et de chiffres sans difficulté tandis que vous voyez quelle page est ouverte",0,0,2
+fs,FL6A,haven_labelled,TRUE,3,L'enfant lit des livres,1941,51,4
+fs,FL6B,haven_labelled,TRUE,3,Quelqu'un a lu des livres à un enfant,1941,51,4
+fs,FL7,haven_labelled,TRUE,5,Langue que l'enfant parle la plupart du temps à la maison,1941,51,5
+fs,FL9,haven_labelled,TRUE,5,Lange que professeur utilise la plupart du temps lorsqu'il enseigne à un enfant en classe,1945,51.1,4
+fs,FL10,haven_labelled,TRUE,5,Accepte de lire une histoire,1941,51,4
+fs,FL13,haven_labelled,TRUE,1,Livre donné à l'enfant - Introduction manuelle,3032,79.66,2
+fs,FL14,haven_labelled,TRUE,3,L'enfant a lu correctement chaque mot de la pratique,3032,79.66,4
+fs,FL15,haven_labelled,TRUE,4,Lecture terminée : Quel âge a Sam ?,3154,82.87,5
+fs,FL16,haven_labelled,TRUE,1,FL16 : Sam a 5 ans,0,0,2
+fs,FL17,haven_labelled,TRUE,5,Une autre question : qui est le plus âgé : Sam ou Tina,3165,83.16,4
+fs,FL18,haven_labelled,TRUE,1,FL18 : Tina est plus âgée que Sam. Tina a 6 ans et Sam 5 ans.,0,0,2
+fs,FLINTRO,haven_labelled,TRUE,1,FL19. INTRO,2151,56.52,2
+fs,FL19W1,haven_labelled,TRUE,3,Mot1,2151,56.52,5
+fs,FL19W2,haven_labelled,TRUE,3,Mot2,2151,56.52,5
+fs,FL19W3,haven_labelled,TRUE,3,Mot3,2151,56.52,5
+fs,FL19W4,haven_labelled,TRUE,3,Mot4,2151,56.52,5
+fs,FL19W5,haven_labelled,TRUE,3,Mot5,2151,56.52,5
+fs,FL19W6,haven_labelled,TRUE,3,Mot6,2151,56.52,5
+fs,FL19W7,haven_labelled,TRUE,3,Mot7,2151,56.52,5
+fs,FL19W8,haven_labelled,TRUE,3,Mot8,2151,56.52,5
+fs,FL19W9,haven_labelled,TRUE,3,Mot9,2151,56.52,5
+fs,FL19W10,haven_labelled,TRUE,3,Mot10,2151,56.52,5
+fs,FL19W11,haven_labelled,TRUE,3,Mot11,2151,56.52,5
+fs,FL19W12,haven_labelled,TRUE,3,Mot12,2151,56.52,5
+fs,FL19W13,haven_labelled,TRUE,3,Mot13,2151,56.52,5
+fs,FL19W14,haven_labelled,TRUE,3,Mot14,2151,56.52,5
+fs,FL19W15,haven_labelled,TRUE,3,Mot15,2151,56.52,5
+fs,FL19W16,haven_labelled,TRUE,3,Mot16,2151,56.52,5
+fs,FL19W17,haven_labelled,TRUE,3,Mot17,2151,56.52,5
+fs,FL19W18,haven_labelled,TRUE,3,Mot18,2151,56.52,5
+fs,FL19W19,haven_labelled,TRUE,3,Mot19,2151,56.52,5
+fs,FL19W20,haven_labelled,TRUE,3,Mot20,2151,56.52,5
+fs,FL19W21,haven_labelled,TRUE,3,Mot21,2151,56.52,5
+fs,FL19W22,haven_labelled,TRUE,3,Mot22,2151,56.52,5
+fs,FL19W23,haven_labelled,TRUE,3,Mot23,2151,56.52,5
+fs,FL19W24,haven_labelled,TRUE,3,Mot24,2151,56.52,5
+fs,FL19W25,haven_labelled,TRUE,3,Mot25,2151,56.52,5
+fs,FL19W26,haven_labelled,TRUE,3,Mot26,2151,56.52,5
+fs,FL19W27,haven_labelled,TRUE,3,Mot27,2151,56.52,5
+fs,FL19W28,haven_labelled,TRUE,3,Mot28,2151,56.52,5
+fs,FL19W29,haven_labelled,TRUE,3,Mot29,2151,56.52,5
+fs,FL19W30,haven_labelled,TRUE,3,Mot30,2151,56.52,5
+fs,FL19W31,haven_labelled,TRUE,3,Mot31,2151,56.52,5
+fs,FL19W32,haven_labelled,TRUE,3,Mot32,2151,56.52,5
+fs,FL19W33,haven_labelled,TRUE,3,Mot33,2151,56.52,5
+fs,FL19W34,haven_labelled,TRUE,3,Mot34,2151,56.52,5
+fs,FL19W35,haven_labelled,TRUE,3,Mot35,2151,56.52,5
+fs,FL19W36,haven_labelled,TRUE,3,Mot36,2151,56.52,5
+fs,FL19W37,haven_labelled,TRUE,3,Mot37,2151,56.52,5
+fs,FL19W38,haven_labelled,TRUE,3,Mot38,2151,56.52,5
+fs,FL19W39,haven_labelled,TRUE,3,Mot39,2151,56.52,5
+fs,FL19W40,haven_labelled,TRUE,3,Mot40,2151,56.52,5
+fs,FL19W41,haven_labelled,TRUE,3,Mot41,2151,56.52,5
+fs,FL19W42,haven_labelled,TRUE,3,Mot42,2151,56.52,5
+fs,FL19W43,haven_labelled,TRUE,3,Mot43,2151,56.52,5
+fs,FL19W44,haven_labelled,TRUE,3,Mot44,2151,56.52,5
+fs,FL19W45,haven_labelled,TRUE,3,Mot45,2151,56.52,5
+fs,FL19W46,haven_labelled,TRUE,3,Mot46,2151,56.52,5
+fs,FL19W47,haven_labelled,TRUE,3,Mot47,2151,56.52,5
+fs,FL19W48,haven_labelled,TRUE,3,Mot48,2151,56.52,5
+fs,FL19W49,haven_labelled,TRUE,3,Mot49,2151,56.52,5
+fs,FL19W50,haven_labelled,TRUE,3,Mot50,2151,56.52,5
+fs,FL19W51,haven_labelled,TRUE,3,Mot51,2151,56.52,5
+fs,FL19W52,haven_labelled,TRUE,3,Mot52,2151,56.52,5
+fs,FL19W53,haven_labelled,TRUE,3,Mot53,2151,56.52,5
+fs,FL19W54,haven_labelled,TRUE,3,Mot54,2151,56.52,5
+fs,FL19W55,haven_labelled,TRUE,3,Mot55,2151,56.52,5
+fs,FL19W56,haven_labelled,TRUE,3,Mot56,2151,56.52,5
+fs,FL19W57,haven_labelled,TRUE,3,Mot57,2151,56.52,5
+fs,FL19W58,haven_labelled,TRUE,3,Mot58,2151,56.52,5
+fs,FL19W59,haven_labelled,TRUE,3,Mot59,2151,56.52,5
+fs,FL19W60,haven_labelled,TRUE,3,Mot60,2151,56.52,5
+fs,FL19W61,haven_labelled,TRUE,3,Mot61,2151,56.52,5
+fs,FL19W62,haven_labelled,TRUE,3,Mot62,2151,56.52,5
+fs,FL19W63,haven_labelled,TRUE,3,Mot63,2151,56.52,5
+fs,FL19W64,haven_labelled,TRUE,3,Mot64,2151,56.52,5
+fs,FL19W65,haven_labelled,TRUE,3,Mot65,2151,56.52,5
+fs,FL19W66,haven_labelled,TRUE,3,Mot66,2151,56.52,5
+fs,FL19W67,haven_labelled,TRUE,3,Mot67,2151,56.52,5
+fs,FL19W68,haven_labelled,TRUE,3,Mot68,2151,56.52,5
+fs,FL19W69,haven_labelled,TRUE,3,Mot69,2151,56.52,5
+fs,FL19W70,haven_labelled,TRUE,3,Mot70,2151,56.52,5
+fs,FL19W71,haven_labelled,TRUE,3,Mot71,2151,56.52,5
+fs,FL19W72,haven_labelled,TRUE,3,Mot72,2151,56.52,5
+fs,FL20A,haven_labelled,TRUE,1,Nombre total de mots tentés,2151,56.52,61
+fs,FL20B,haven_labelled,TRUE,1,Nombre total de mots incorrects ou manqués,2151,56.52,35
+fs,FL21,haven_labelled,TRUE,4,À quel point l'enfant a-t-il bien lu l'histoire,2151,56.52,4
+fs,FL22A,haven_labelled,TRUE,4,Compréhension de l'histoire : 1 (Dans quelle classe se trouve Moïse),2166,56.91,5
+fs,FL22B,haven_labelled,TRUE,4,Compréhension de l'histoire : 2 (Qu'est-ce que Moïse a vu sur le chemin du retour),2166,56.91,5
+fs,FL22C,haven_labelled,TRUE,4,Compréhension de l'histoire : 3 (Pourquoi Moïse s'est-il mis à pleurer),2166,56.91,5
+fs,FL22D,haven_labelled,TRUE,4,Compréhension de l'histoire : 4 (Où Moïse est-il tombé (vers le bas)),2166,56.91,5
+fs,FL22E,haven_labelled,TRUE,4,Compréhension de l'histoire : 5 (Pourquoi Moïse était-il heureux),2166,56.91,5
+fs,FL23A,haven_labelled,TRUE,3,L'enfant reconnaît le symbole : 9,1941,51,4
+fs,FL23B,haven_labelled,TRUE,3,L'enfant reconnaît le symbole : 12,1941,51,4
+fs,FL23C,haven_labelled,TRUE,3,L'enfant reconnaît le symbole : 30,1941,51,4
+fs,FL23D,haven_labelled,TRUE,3,L'enfant reconnaît le symbole : 48,1941,51,4
+fs,FL23E,haven_labelled,TRUE,3,L'enfant reconnaît le symbole : 74,1941,51,4
+fs,FL23F,haven_labelled,TRUE,3,L'enfant reconnaît le symbole : 731,1941,51,4
+fs,FL24A,haven_labelled,TRUE,4,L’enfant identifie le plus grand des deux nombres : 7-5,1941,51,4
+fs,FL24B,haven_labelled,TRUE,4,L’enfant identifie le plus grand des deux nombres : 11-24,1941,51,4
+fs,FL24C,haven_labelled,TRUE,4,L’enfant identifie le plus grand des deux nombres : 58-49,1941,51,4
+fs,FL24D,haven_labelled,TRUE,4,L’enfant identifie le plus grand des deux nombres : 65-67,1941,51,4
+fs,FL24E,haven_labelled,TRUE,4,L’enfant identifie le plus grand des deux nombres : 146-154,1941,51,4
+fs,FL25A,haven_labelled,TRUE,4,L'enfant additionne correctement les nombres : 3+2,1941,51,4
+fs,FL25B,haven_labelled,TRUE,4,L'enfant additionne correctement les nombres : 8+6,1941,51,4
+fs,FL25C,haven_labelled,TRUE,4,L'enfant additionne correctement les nombres : 7+3,1941,51,4
+fs,FL25D,haven_labelled,TRUE,4,L'enfant additionne correctement les nombres : 13+6,1941,51,4
+fs,FL25E,haven_labelled,TRUE,4,L'enfant additionne correctement les nombres : 12+24,1941,51,4
+fs,FL27A,haven_labelled,TRUE,4,L'enfant identifie le numéro suivant : 5-6-7-X,1941,51,4
+fs,FL27B,haven_labelled,TRUE,4,L'enfant identifie le numéro suivant : 14-15-X-17,1941,51,4
+fs,FL27C,haven_labelled,TRUE,4,L'enfant identifie le numéro suivant : 20-X-40-50,1941,51,4
+fs,FL27D,haven_labelled,TRUE,4,L'enfant identifie le numéro suivant : 2-4-6-X,1941,51,5
+fs,FL27E,haven_labelled,TRUE,4,L'enfant identifie le numéro suivant : 5-8-11-X,1941,51,4
+fs,FL26,haven_labelled,TRUE,1,Introduction manuelle,0,0,2
+fs,FL28,haven_labelled,TRUE,7,Résultat de l'entretien avec l'enfant,1689,44.38,7
+fs,FMT4,haven_labelled,TRUE,3,Utilisation d'un ordinateur ou d'une tablette auparavant,1689,44.38,4
+fs,FMT5,haven_labelled,TRUE,5,Utilisation d'un ordinateur / d'une tablette au cours des 3 derniers mois,3031,79.64,6
+fs,HH6,haven_labelled,TRUE,2,Milieu de résidence,0,0,2
+fs,HH7,haven_labelled,TRUE,7,Region,0,0,7
+fs,HL4,haven_labelled,TRUE,2,Sexe,0,0,2
+fs,HH52,numeric,FALSE,0,Nombre d'enfants de 5 à 17 ans,0,0,7
+fs,FSAGE,haven_labelled,TRUE,3,Age,161,4.23,4
+fs,FSDOI,numeric,FALSE,0,Date de l'entretien enfant 5-17 ans (CMC),0,0,2
+fs,FSDOB,numeric,FALSE,0,Date de naissance de l'enfant 5-17 (CMC),161,4.23,158
+fs,fsweight,numeric,FALSE,0,Poids de l'échantillon des enfants de 5 à 17 ans,0,0,338
+fs,fshweight,numeric,FALSE,0,Poids de l'échantillon du ménage des enfants de 5 à 17 ans,0,0,90
+fs,wscore,numeric,FALSE,0,Score de richesse combiné,0,0,3619
+fs,windex5,haven_labelled,TRUE,5,Quintile de l’indice de richesse,0,0,6
+fs,windex10,haven_labelled,TRUE,10,Décile de l’indice de richesse,0,0,11
+fs,wscoreu,numeric,FALSE,0,Score de richesse urbaine,1383,36.34,2238
+fs,windex5u,haven_labelled,TRUE,5,Quintile de l’indice de richesse urbaine,1383,36.34,7
+fs,windex10u,haven_labelled,TRUE,10,Décile de l’indice de richesse urbaine,1383,36.34,12
+fs,wscorer,numeric,FALSE,0,Score de richesse rurale,2262,59.43,1384
+fs,windex5r,haven_labelled,TRUE,5,Quintile de l’indice de richesse rurale,2262,59.43,7
+fs,windex10r,haven_labelled,TRUE,10,Décile de l’indice de richesse rurale,2262,59.43,12
+fs,melevel,haven_labelled,TRUE,5,Niveau d'instruction de la mère,0,0,5
+fs,fselevel,haven_labelled,TRUE,5,Niveau d'instruction de l'enfant,161,4.23,4
+fs,schage,haven_labelled,TRUE,2,Age en début d'année scolaire,0,0,15
+fs,fsinsurance,haven_labelled,TRUE,3,Assurance maladie,161,4.23,4
+fs,fsdisability,haven_labelled,TRUE,2,Difficultés fonctionnelles de l'enfant 5-17 ans,161,4.23,3
+fs,caretakerdis,haven_labelled,TRUE,3,Difficultés fonctionnelles (18-49 ans),0,0,3
+fs,PSU,numeric,FALSE,0,Unité d'échantillonnage primaire,0,0,498
+fs,stratum,numeric,FALSE,0,Strate,0,0,46
+hh,HH1,numeric,FALSE,0,Numéro de Grappe,0,0,500
+hh,HH2,numeric,FALSE,0,Numéro de ménage,0,0,22
+hh,HH3,numeric,FALSE,0,Numéro d'enqueteur,0,0,138
+hh,HH4,numeric,FALSE,0,Numéro du chef d'equipe,0,0,24
+hh,HH5D,numeric,FALSE,0,Jour de l'interview,0,0,31
+hh,HH5M,numeric,FALSE,0,Mois de l'interview,0,0,3
+hh,HH5Y,haven_labelled,TRUE,1,Année de l'interview,0,0,1
+hh,HH6,haven_labelled,TRUE,2,Milieu de résidence,0,0,2
+hh,HH7,haven_labelled,TRUE,7,Region,0,0,7
+hh,HH8,haven_labelled,TRUE,2,Ménage sélectionné pour l'enquete Homme ?,0,0,2
+hh,HH9,haven_labelled,TRUE,2,Ménage sélectionné pour les tests de qualité de l'eau,0,0,2
+hh,HH10,haven_labelled,TRUE,2,Ménage sélectionné pour le test à blanc,0,0,2
+hh,HH11H,numeric,FALSE,0,Heure début de l'interview,0,0,20
+hh,HH11M,numeric,FALSE,0,Minute début de l'interview,0,0,60
+hh,HH12,haven_labelled,TRUE,2,Consentement,0,0,2
+hh,HH46,haven_labelled,TRUE,8,Résultat de l'enquête du Questionnaire Ménage,0,0,8
+hh,HH13H,numeric,FALSE,0,Heure de fin de l'interview,2063,18.75,21
+hh,HH13M,numeric,FALSE,0,Minute de fin de l'interview,2063,18.75,61
+hh,HH14,haven_labelled,TRUE,2,Langue du Questionnaire,2063,18.75,3
+hh,HH15,haven_labelled,TRUE,3,Langue de l'interview,2063,18.75,4
+hh,HH16,haven_labelled,TRUE,3,Langue maternelle du/de la répondant(e),2063,18.75,4
+hh,HH17,haven_labelled,TRUE,3,Besoin d'un traducteur,2063,18.75,4
+hh,HH26A,numeric,FALSE,0,Numéro de Rang de l'enfant (5-17),7194,65.4,6
+hh,HH26B,numeric,FALSE,0,Numéro de ligne de l'enfant (5-17),7194,65.4,11
+hh,HH26C,numeric,FALSE,0,Age de l'enfant,7194,65.4,14
+hh,HH33X$01,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$02,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,10966,99.69,3
+hh,HH33X$03,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,10744,97.67,3
+hh,HH33X$04,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,10754,97.76,3
+hh,HH33X$05,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,10844,98.58,3
+hh,HH33X$06,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,10931,99.37,3
+hh,HH33X$07,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,10985,99.86,3
+hh,HH33X$08,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,10994,99.95,3
+hh,HH33X$09,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,10999,99.99,2
+hh,HH33X$10,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$11,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$12,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$13,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$14,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$15,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$16,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$17,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$18,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$19,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$20,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$21,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$22,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$23,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$24,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$25,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$26,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$27,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$28,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$29,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$30,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$31,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$32,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$33,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$34,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$35,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$36,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$37,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$38,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$39,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$40,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$41,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$42,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$43,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$44,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$45,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$46,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$47,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$48,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$49,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33X$50,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les filles de 15 à 17 ans,11000,100,1
+hh,HH33,haven_labelled,TRUE,3,Consentement des femmes âgées de 15-17,10262,93.29,4
+hh,HH39X$01,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$02,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,10996,99.96,2
+hh,HH39X$03,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,10937,99.43,3
+hh,HH39X$04,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,10941,99.46,3
+hh,HH39X$05,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,10964,99.67,3
+hh,HH39X$06,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,10990,99.91,3
+hh,HH39X$07,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,10999,99.99,2
+hh,HH39X$08,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,10998,99.98,2
+hh,HH39X$09,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$10,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$11,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,10999,99.99,2
+hh,HH39X$12,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$13,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$14,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$15,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$16,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$17,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$18,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$19,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$20,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$21,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$22,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$23,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$24,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$25,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$26,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$27,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$28,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$29,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$30,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$31,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$32,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$33,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$34,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$35,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$36,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$37,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$38,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$39,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$40,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$41,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$42,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$43,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$44,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$45,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$46,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$47,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$48,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$49,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39X$50,haven_labelled,TRUE,2,Liste pour vérifier le consentement pour les entretiens avec les garçons de 15 à 17 ans,11000,100,1
+hh,HH39,haven_labelled,TRUE,3,Consentement des hommes âgés de 15-17,10838,98.53,4
+hh,HH44,haven_labelled,TRUE,2,Consentement pour les tests de qualité de l'eau,9392,85.38,3
+hh,HH44A,haven_labelled,TRUE,2,Consentement pour MICS-PLUS,2063,18.75,3
+hh,HH44B,haven_labelled,TRUE,2,Participer à MICS-PLUS,3592,32.65,3
+hh,HH44C,haven_labelled,TRUE,2,Avez-vous un numéro de téléphone,5805,52.77,3
+hh,HH44D,haven_labelled,TRUE,2,"Oui, pour avoir un appel de MICS6-PLUS",6257,56.88,2
+hh,HH44F_P1,haven_labelled,TRUE,2,Valider le premier numéro de téléphone,6257,56.88,2
+hh,HH44F_P2,haven_labelled,TRUE,2,Valider le deuxième numéro de téléphone,10766,97.87,2
+hh,HH44F_P3,haven_labelled,TRUE,2,Valider le troisième numéro de téléphone,10948,99.53,2
+hh,HH44I_P1,haven_labelled,TRUE,2,Numéro de téléphone privé - Premier,6257,56.88,3
+hh,HH44I_P2,haven_labelled,TRUE,2,Numéro de téléphone privé - Deuxième,10766,97.87,3
+hh,HH44I_P3,haven_labelled,TRUE,2,Numéro de téléphone privé - Troisième,11000,100,1
+hh,HH47,numeric,FALSE,0,Numéro de ligne du répondant au Questionnaire Ménage,2063,18.75,12
+hh,HH48,numeric,FALSE,0,Nombre total de membres du ménage,2063,18.75,14
+hh,HH49,numeric,FALSE,0,Nombre total de femmes éligibles,2063,18.75,9
+hh,HH50,numeric,FALSE,0,Nombre d'hommes de 15 à 49 ans [Si le ménage est sélectionné pour le questionnaire pour les hommes],2063,18.75,8
+hh,HH50A,numeric,FALSE,0,Nombre d'hommes de 15 à 49 ans dans les ménages interrogés,2063,18.75,8
+hh,HH51,numeric,FALSE,0,Nombre d'enfants de moins de 5 ans,2063,18.75,5
+hh,HH52,numeric,FALSE,0,Nombre d'enfants de 5 à 17 ans,2063,18.75,9
+hh,hh52a,numeric,FALSE,0,Nombre de ménage avec un enfant de 5-17 ans éligible,2063,18.75,3
+hh,HH53,numeric,FALSE,0,Nombre total de questionnaires femmes remplis,2063,18.75,8
+hh,HH54,numeric,FALSE,0,Nombre de questionnaires homme complétés [Si le ménage est sélectionné pour le Questionnaire Homme],2063,18.75,7
+hh,HH55,numeric,FALSE,0,Nombre de questionnaires moins de 5 ans remplis,2063,18.75,5
+hh,HH56,numeric,FALSE,0,Nombre de questionnaires FC remplis (5-17 ans),2063,18.75,3
+hh,INTROHL,haven_labelled,TRUE,1,Introduction à la liste des ménages (HH),0,0,2
+hh,HHAUX,haven_labelled,TRUE,2,Autres membres du ménage,2063,18.75,2
+hh,HHWQ,haven_labelled,TRUE,1,Invite pour la qualité de l'eau,0,0,2
+hh,HHFIN,haven_labelled,TRUE,3,Terminer,2063,18.75,2
+hh,HC3,haven_labelled,TRUE,2,Combien de chambres les membres de ce ménage utilisent-ils habituellement pour dormir,2063,18.75,17
+hh,HC4,haven_labelled,TRUE,10,Matériau principal du sol du logement,2063,18.75,10
+hh,HC5,haven_labelled,TRUE,15,Matériau principal du toit,2063,18.75,16
+hh,HC6,haven_labelled,TRUE,16,Matériau principal des murs extérieurs,2063,18.75,15
+hh,HC7A,haven_labelled,TRUE,3,Est-ce qu'il y a dans ce ménage : Une ligne de téléphone fixe,2063,18.75,4
+hh,HC7B,haven_labelled,TRUE,3,Est-ce qu'il y a dans ce ménage : Radio,2063,18.75,4
+hh,HC8,haven_labelled,TRUE,4,Avez-vous l’électricité dans votre ménage,2063,18.75,5
+hh,HC9A,haven_labelled,TRUE,3,Est-ce qu’il y a dans ce ménage: télévision,2096,19.05,4
+hh,HC9B,haven_labelled,TRUE,3,Est-ce qu’il y a dans ce ménage: réfrigérateur,2096,19.05,4
+hh,HC9C,haven_labelled,TRUE,3,Est-ce qu’il y a dans ce ménage: lave-linge,2096,19.05,4
+hh,HC9D,haven_labelled,TRUE,3,Est-ce qu’il y a dans ce ménage: cuisinière avec four,2096,19.05,4
+hh,HC9E,haven_labelled,TRUE,3,Est-ce qu’il y a dans ce ménage: four électrique,2096,19.05,4
+hh,HC9F,haven_labelled,TRUE,3,Est-ce qu’il y a dans ce ménage: lave-vaisselle,2096,19.05,4
+hh,HC10B,haven_labelled,TRUE,3,Est-ce qu’un membre de votre ménage possède : Bicyclette,2063,18.75,4
+hh,HC10C,haven_labelled,TRUE,3,Est-ce qu’un membre de votre ménage possède : Une mobylette ou un scooter,2063,18.75,4
+hh,HC10D,haven_labelled,TRUE,3,Est-ce qu’un membre de votre ménage possède : Une charrette tirée par un animal,2063,18.75,4
+hh,HC10E,haven_labelled,TRUE,3,"Est-ce qu’un membre de votre ménage possède : Une voiture, un camion ou une camionnette",2063,18.75,4
+hh,HC10F,haven_labelled,TRUE,3,Est-ce qu’un membre de votre ménage possède : Un bateau à moteur,2063,18.75,4
+hh,HC11,haven_labelled,TRUE,3,Est-ce qu’un membre de ce ménage a un ordinateur,2063,18.75,4
+hh,HC12,haven_labelled,TRUE,3,Est-ce qu’un membre de ce ménage a un téléphone mobile,2063,18.75,4
+hh,HC13,haven_labelled,TRUE,3,Avez-vous accès à Internet à la maison,2063,18.75,4
+hh,HC14,haven_labelled,TRUE,6,Est-ce que vous ou quelqu’un d’autre vivant dans ce ménage est propriétaire de ce logement,2063,18.75,7
+hh,HC15,haven_labelled,TRUE,3,Est-ce qu’un membre de ce ménage a de la terre qui peut être utilisée pour l’agriculture,2063,18.75,4
+hh,HC16,haven_labelled,TRUE,3,Combien de champs possède le ménage,9027,82.06,35
+hh,HC17,haven_labelled,TRUE,3,"Est-ce que ce ménage possède du bétail, des troupeaux, d’autres animaux de ferme ou de la volaille",2063,18.75,4
+hh,HC18A,haven_labelled,TRUE,3,Vaches laitières ou taureaux,9490,86.27,18
+hh,HC18B,haven_labelled,TRUE,3,Autre bétail,9490,86.27,31
+hh,HC18C,haven_labelled,TRUE,3,"Chevaux, ânes ou mules",9490,86.27,12
+hh,HC18D,haven_labelled,TRUE,3,Chèvres,9490,86.27,22
+hh,HC18E,haven_labelled,TRUE,3,Moutons,9490,86.27,37
+hh,HC18F,haven_labelled,TRUE,3,Poules ou volaille,9490,86.27,31
+hh,HC18X,haven_labelled,TRUE,3,Autre,9490,86.27,17
+hh,HC19,haven_labelled,TRUE,3,Est-ce qu’un membre de ce ménage a un compte en banque,2063,18.75,4
+hh,ST2$1,haven_labelled,TRUE,3,Connaissez-vous (Nom du programme),2063,18.75,4
+hh,ST2$2,haven_labelled,TRUE,3,Connaissez-vous (Nom du programme),2063,18.75,4
+hh,ST2$3,haven_labelled,TRUE,3,Connaissez-vous (Nom du programme),2740,24.91,4
+hh,ST2$4,haven_labelled,TRUE,3,Connaissez-vous (Nom du programme),2063,18.75,4
+hh,ST2$5,haven_labelled,TRUE,3,Connaissez-vous (Nom du programme),2063,18.75,4
+hh,ST2$6,haven_labelled,TRUE,3,Connaissez-vous (Nom du programme),2063,18.75,4
+hh,ST3$1,haven_labelled,TRUE,4,Est-ce votre ménage ou n’importe quel membre de votre ménage a reçu un support à travers (nom du programme) ?,3313,30.12,5
+hh,ST3$2,haven_labelled,TRUE,4,Est-ce votre ménage ou n’importe quel membre de votre ménage a reçu un support à travers (nom du programme) ?,4273,38.85,5
+hh,ST3$3,haven_labelled,TRUE,4,Est-ce votre ménage ou n’importe quel membre de votre ménage a reçu un support à travers (nom du programme) ?,4409,40.08,5
+hh,ST3$4,haven_labelled,TRUE,4,Est-ce votre ménage ou n’importe quel membre de votre ménage a reçu un support à travers (nom du programme) ?,6607,60.06,5
+hh,ST3$5,haven_labelled,TRUE,4,Est-ce votre ménage ou n’importe quel membre de votre ménage a reçu un support à travers (nom du programme) ?,7792,70.84,5
+hh,ST3$6,haven_labelled,TRUE,4,Est-ce votre ménage ou n’importe quel membre de votre ménage a reçu un support à travers (nom du programme) ?,8676,78.87,5
+hh,ST3A$1,haven_labelled,TRUE,2,Enfant âgé de plus de 18 ans,10179,92.54,3
+hh,ST3A$2,haven_labelled,TRUE,2,Enfant âgé de plus de 18 ans,10845,98.59,3
+hh,ST3A$3,haven_labelled,TRUE,2,Enfant âgé de plus de 18 ans,9835,89.41,3
+hh,ST3A$4,haven_labelled,TRUE,2,Enfant âgé de plus de 18 ans,11000,100,1
+hh,ST3A$5,haven_labelled,TRUE,2,Enfant âgé de plus de 18 ans,11000,100,1
+hh,ST3A$6,haven_labelled,TRUE,2,Enfant âgé de plus de 18 ans,11000,100,1
+hh,ST3B$1,haven_labelled,TRUE,3,Le ménage reçoit une allocation mensuelle pour enfants de 30 dinars,10712,97.38,4
+hh,ST3B$2,haven_labelled,TRUE,3,Le ménage reçoit une allocation mensuelle pour enfants de 30 dinars,10938,99.44,4
+hh,ST3B$3,haven_labelled,TRUE,3,Le ménage reçoit une allocation mensuelle pour enfants de 30 dinars,10261,93.28,4
+hh,ST3B$4,haven_labelled,TRUE,3,Le ménage reçoit une allocation mensuelle pour enfants de 30 dinars,11000,100,1
+hh,ST3B$5,haven_labelled,TRUE,3,Le ménage reçoit une allocation mensuelle pour enfants de 30 dinars,11000,100,1
+hh,ST3B$6,haven_labelled,TRUE,3,Le ménage reçoit une allocation mensuelle pour enfants de 30 dinars,11000,100,1
+hh,ST3B1A$1,numeric,FALSE,0,Nombre d'enfants de 0 à 5 ans,10922,99.29,5
+hh,ST3B1A$2,numeric,FALSE,0,Nombre d'enfants de 0 à 5 ans,10990,99.91,2
+hh,ST3B1A$3,numeric,FALSE,0,Nombre d'enfants de 0 à 5 ans,10758,97.8,5
+hh,ST3B1A$4,numeric,FALSE,0,Nombre d'enfants de 0 à 5 ans,11000,100,1
+hh,ST3B1A$5,numeric,FALSE,0,Nombre d'enfants de 0 à 5 ans,11000,100,1
+hh,ST3B1A$6,numeric,FALSE,0,Nombre d'enfants de 0 à 5 ans,11000,100,1
+hh,ST3B1B$1,numeric,FALSE,0,Nombre d'enfants entre 6 et 18 ans,10922,99.29,7
+hh,ST3B1B$2,numeric,FALSE,0,Nombre d'enfants entre 6 et 18 ans,10990,99.91,4
+hh,ST3B1B$3,numeric,FALSE,0,Nombre d'enfants entre 6 et 18 ans,10758,97.8,5
+hh,ST3B1B$4,numeric,FALSE,0,Nombre d'enfants entre 6 et 18 ans,11000,100,1
+hh,ST3B1B$5,numeric,FALSE,0,Nombre d'enfants entre 6 et 18 ans,11000,100,1
+hh,ST3B1B$6,numeric,FALSE,0,Nombre d'enfants entre 6 et 18 ans,11000,100,1
+hh,ST3B2$1,haven_labelled,TRUE,3,Reçoit la gratification de 30 dinars chaque mois,10922,99.29,4
+hh,ST3B2$2,haven_labelled,TRUE,3,Reçoit la gratification de 30 dinars chaque mois,10990,99.91,4
+hh,ST3B2$3,haven_labelled,TRUE,3,Reçoit la gratification de 30 dinars chaque mois,10758,97.8,4
+hh,ST3B2$4,haven_labelled,TRUE,3,Reçoit la gratification de 30 dinars chaque mois,11000,100,1
+hh,ST3B2$5,haven_labelled,TRUE,3,Reçoit la gratification de 30 dinars chaque mois,11000,100,1
+hh,ST3B2$6,haven_labelled,TRUE,3,Reçoit la gratification de 30 dinars chaque mois,11000,100,1
+hh,ST3C$1,haven_labelled,TRUE,2,"Enfants de moins de 18 ans, fréquentation scolaire",10712,97.38,3
+hh,ST3C$2,haven_labelled,TRUE,2,"Enfants de moins de 18 ans, fréquentation scolaire",10938,99.44,3
+hh,ST3C$3,haven_labelled,TRUE,2,"Enfants de moins de 18 ans, fréquentation scolaire",10261,93.28,3
+hh,ST3C$4,haven_labelled,TRUE,2,"Enfants de moins de 18 ans, fréquentation scolaire",11000,100,1
+hh,ST3C$5,haven_labelled,TRUE,2,"Enfants de moins de 18 ans, fréquentation scolaire",11000,100,1
+hh,ST3C$6,haven_labelled,TRUE,2,"Enfants de moins de 18 ans, fréquentation scolaire",11000,100,1
+hh,ST3D$1,haven_labelled,TRUE,3,Les enfants qui étudient au sein de la famille bénéficient de la bourse de rentrée scolaire 2022/2023,10759,97.81,4
+hh,ST3D$2,haven_labelled,TRUE,3,Les enfants qui étudient au sein de la famille bénéficient de la bourse de rentrée scolaire 2022/2023,10950,99.55,4
+hh,ST3D$3,haven_labelled,TRUE,3,Les enfants qui étudient au sein de la famille bénéficient de la bourse de rentrée scolaire 2022/2023,10409,94.63,4
+hh,ST3D$4,haven_labelled,TRUE,3,Les enfants qui étudient au sein de la famille bénéficient de la bourse de rentrée scolaire 2022/2023,11000,100,1
+hh,ST3D$5,haven_labelled,TRUE,3,Les enfants qui étudient au sein de la famille bénéficient de la bourse de rentrée scolaire 2022/2023,11000,100,1
+hh,ST3D$6,haven_labelled,TRUE,3,Les enfants qui étudient au sein de la famille bénéficient de la bourse de rentrée scolaire 2022/2023,11000,100,1
+hh,ST3D1$1,numeric,FALSE,0,Nombre d'enfants bénéficiant de la bourse de rentrée scolaire 2022/2023,10920,99.27,7
+hh,ST3D1$2,numeric,FALSE,0,Nombre d'enfants bénéficiant de la bourse de rentrée scolaire 2022/2023,10992,99.93,4
+hh,ST3D1$3,numeric,FALSE,0,Nombre d'enfants bénéficiant de la bourse de rentrée scolaire 2022/2023,10826,98.42,7
+hh,ST3D1$4,numeric,FALSE,0,Nombre d'enfants bénéficiant de la bourse de rentrée scolaire 2022/2023,11000,100,1
+hh,ST3D1$5,numeric,FALSE,0,Nombre d'enfants bénéficiant de la bourse de rentrée scolaire 2022/2023,11000,100,1
+hh,ST3D1$6,numeric,FALSE,0,Nombre d'enfants bénéficiant de la bourse de rentrée scolaire 2022/2023,11000,100,1
+hh,ST4U$1,haven_labelled,TRUE,3,Il y a combien de temps que votre ménage ou quelqu’un de votre ménage avez/a reçu le support de (nom du programme) ? (unité),10179,92.54,4
+hh,ST4U$2,haven_labelled,TRUE,3,Il y a combien de temps que votre ménage ou quelqu’un de votre ménage avez/a reçu le support de (nom du programme) ? (unité),10845,98.59,4
+hh,ST4U$3,haven_labelled,TRUE,3,Il y a combien de temps que votre ménage ou quelqu’un de votre ménage avez/a reçu le support de (nom du programme) ? (unité),9835,89.41,4
+hh,ST4U$4,haven_labelled,TRUE,3,Il y a combien de temps que votre ménage ou quelqu’un de votre ménage avez/a reçu le support de (nom du programme) ? (unité),10906,99.15,4
+hh,ST4U$5,haven_labelled,TRUE,3,Il y a combien de temps que votre ménage ou quelqu’un de votre ménage avez/a reçu le support de (nom du programme) ? (unité),10984,99.85,3
+hh,ST4U$6,haven_labelled,TRUE,3,Il y a combien de temps que votre ménage ou quelqu’un de votre ménage avez/a reçu le support de (nom du programme) ? (unité),10993,99.94,3
+hh,ST4N$1,haven_labelled,TRUE,2,Il y a combien de temps que votre ménage ou quelqu’un de votre ménage avez/a reçu le support de (nom du programme) ? (nombre),10179,92.54,18
+hh,ST4N$2,haven_labelled,TRUE,2,Il y a combien de temps que votre ménage ou quelqu’un de votre ménage avez/a reçu le support de (nom du programme) ? (nombre),10845,98.59,18
+hh,ST4N$3,haven_labelled,TRUE,2,Il y a combien de temps que votre ménage ou quelqu’un de votre ménage avez/a reçu le support de (nom du programme) ? (nombre),9835,89.41,18
+hh,ST4N$4,haven_labelled,TRUE,2,Il y a combien de temps que votre ménage ou quelqu’un de votre ménage avez/a reçu le support de (nom du programme) ? (nombre),10906,99.15,15
+hh,ST4N$5,haven_labelled,TRUE,2,Il y a combien de temps que votre ménage ou quelqu’un de votre ménage avez/a reçu le support de (nom du programme) ? (nombre),10984,99.85,8
+hh,ST4N$6,haven_labelled,TRUE,2,Il y a combien de temps que votre ménage ou quelqu’un de votre ménage avez/a reçu le support de (nom du programme) ? (nombre),10993,99.94,8
+hh,EU1,haven_labelled,TRUE,10,Quel type de cuisinière utilisez-vous principalement pour faire la cuisine,2063,18.75,11
+hh,EU2,haven_labelled,TRUE,4,Est-ce qu’il y a une cheminée,10971,99.74,4
+hh,EU3,haven_labelled,TRUE,4,Est-ce qu’il y a un ventilateur,10971,99.74,4
+hh,EU4,haven_labelled,TRUE,12,Quel type de combustible ou de source d’énergie est utilisée pour cette cuisinière,10947,99.52,7
+hh,EU5,haven_labelled,TRUE,7,Où est-ce que la cuisine est habituellement faite,2093,19.03,8
+hh,EU6,haven_labelled,TRUE,9,Type de chauffage dans le ménage,2063,18.75,10
+hh,EU7,haven_labelled,TRUE,4,Le chauffage d'appoint a une cheminée,4533,41.21,5
+hh,EU8,haven_labelled,TRUE,17,Type de source d'énergie pour le chauffage,4150,37.73,18
+hh,EU9,haven_labelled,TRUE,15,Qu’est-ce que votre ménage utilise principalement pour éclairer le logement,2063,18.75,14
+hh,WS1,haven_labelled,TRUE,17,Quelle est la source principale d’eau de boisson utilisée par les membres de votre ménage,2063,18.75,18
+hh,WS2,haven_labelled,TRUE,16,Quelle est la source principale d’eau utilisée par les membres de ce ménage pour d’autres besoins comme cuisiner ou se laver les mains,9002,81.84,15
+hh,WS3,haven_labelled,TRUE,4,Où se trouve la source d’approvisionnement en eau,9318,84.71,5
+hh,WS4,haven_labelled,TRUE,3,"Combien de temps faut-il aller à la source de l’eau, prendre de l’eau et revenir",9169,83.35,39
+hh,WS5,haven_labelled,TRUE,1,Qui va habituellement à la source pour collecter de l’eau pour votre ménage,10156,92.33,9
+hh,WS6,haven_labelled,TRUE,2,"Depuis (jour de la semaine) dernier, combien de fois cette personne est-elle allée collecter de l’eau",10156,92.33,21
+hh,WS7,haven_labelled,TRUE,4,"Durant le mois dernier, y a-t-il eu des moments où votre ménage n’a pas eu la quantité nécessaire d’eau à boire",2063,18.75,5
+hh,WS8,haven_labelled,TRUE,6,"Pour quelle raison principale, n’avez-vous pas pu accéder à de l’eau en quantité suffisante quand vous en avez eu besoin",8148,74.07,7
+hh,WS9,haven_labelled,TRUE,4,"Faites-vous, ou n’importe quel autre membre de ce ménage fait-il quelque chose à l’eau pour la rendre plus saine à boire",2063,18.75,5
+hh,WS10A,haven_labelled,TRUE,2,Traitement de l'eau: BOUILLIR,0,0,2
+hh,WS10B,haven_labelled,TRUE,2,Traitement de l'eau: AJOUTER DE LA JAVEL / CHLORE,0,0,2
+hh,WS10C,haven_labelled,TRUE,2,Traitement de l'eau: FILTRER A TRAVERS UN TISSU,0,0,2
+hh,WS10D,haven_labelled,TRUE,2,"Traitement de l'eau: UTILISER UN FILTRE A EAU (CERAMIQUE, SABLE, COMPOSITE, ETC.)",0,0,2
+hh,WS10E,haven_labelled,TRUE,2,Traitement de l'eau: DESINFECTION SOLAIRE,0,0,2
+hh,WS10F,haven_labelled,TRUE,2,Traitement de l'eau: LA LAISSER REPOSER ET DECANTER,0,0,2
+hh,WS10G,haven_labelled,TRUE,2,Traitement de l'eau: AJOUTER DE LA CHAUX,0,0,2
+hh,WS10X,haven_labelled,TRUE,2,Traitement de l'eau: AUTRE,0,0,2
+hh,WS10Z,haven_labelled,TRUE,2,Traitement de l'eau: NSP,0,0,2
+hh,WS10NR,haven_labelled,TRUE,1,Traitement de l'eau: NON REPONSE,0,0,1
+hh,WS11,haven_labelled,TRUE,9,Quel type de toilettes les membres de ce ménage utilisent-ils habituellement,2063,18.75,10
+hh,WS12,haven_labelled,TRUE,6,Est-ce que vos (réponse de WS11) ont déjà été vidées,7696,69.96,7
+hh,WS13,haven_labelled,TRUE,8,La dernière fois que les toilettes ont été vidées où le contenu a-t-il été mis,9548,86.8,8
+hh,WS14,haven_labelled,TRUE,4,Où est-ce que vos toilettes sont situées,2118,19.25,5
+hh,WS15,haven_labelled,TRUE,3,Partagez-vous ces toilettes avec des personnes qui ne sont pas membres de votre ménage,2118,19.25,4
+hh,WS16,haven_labelled,TRUE,3,Partagez-vous ces toilettes avec des personnes membres d’autres ménages ou s’agit-il de toilettes publiques ouvertes à tous,10822,98.38,4
+hh,WS17,haven_labelled,TRUE,11,"Combien de ménages au total, y compris le vôtre, se partagent ces toilettes",10888,98.98,9
+hh,HW1,haven_labelled,TRUE,6,"Pouvez-vous SVP, me montrer où les membres de votre ménage se lavent le plus souvent les mains",2063,18.75,7
+hh,HW2,haven_labelled,TRUE,3,Présence d’eau au lieu de lavage des mains,3147,28.61,4
+hh,HW3,haven_labelled,TRUE,3,"Y a-t-il du savon, de la lessive ou de la cendre/boue/sable sur le lieu de lavage des mains",3147,28.61,4
+hh,HW4,haven_labelled,TRUE,6,Où est-ce que vous ou les autres membres de votre ménage vous lavez-vous le plus souvent les mains,10108,91.89,7
+hh,HW5,haven_labelled,TRUE,3,"Avez-vous du savon, de la lessive ou de la cendre/boue/sable dans votre maison pour vous laver les mains",9523,86.57,4
+hh,HW6,haven_labelled,TRUE,3,Pouvez-vous me le montrer SVP,9748,88.62,4
+hh,HW7A,haven_labelled,TRUE,2,BARRE DE SAVON/ SAVON LIQUIDE,0,0,3
+hh,HW7B,haven_labelled,TRUE,2,DETERGENT (POUDRE/LIQUIDE / PATE),0,0,3
+hh,HW7Z,haven_labelled,TRUE,2,CENDRE/ BOUE/ TERRE,0,0,3
+hh,HW7NR,haven_labelled,TRUE,1,Non réponse,0,0,2
+hh,WQ1,numeric,FALSE,0,Numéro de Grappe,9392,85.38,494
+hh,WQ2,numeric,FALSE,0,Numéro de ménage,9392,85.38,6
+hh,WQ3,numeric,FALSE,0,Numéro du testeur,9392,85.38,41
+hh,WQ4,numeric,FALSE,0,Numéro du superviseur,9392,85.38,134
+hh,WQ5D,numeric,FALSE,0,Jour de l'entretien,9392,85.38,30
+hh,WQ5M,numeric,FALSE,0,Mois de l'entretien,9392,85.38,5
+hh,WQ5Y,numeric,FALSE,0,Année de l'entretien,9392,85.38,2
+hh,WQ6,haven_labelled,TRUE,2,Ménage sélectionné pour le test blanc,9392,85.38,3
+hh,WQ8,haven_labelled,TRUE,2,Consentement pour les tests de qualité de l'eau,9392,85.38,3
+hh,WQ31,haven_labelled,TRUE,5,Résultat des tests de qualité de l'eau,9546,86.78,3
+hh,WQ10H,numeric,FALSE,0,Début du test de qualité de l'eau - Heure,9392,85.38,12
+hh,WQ10M,numeric,FALSE,0,Début du test de qualité de l'eau - Minutes,9392,85.38,61
+hh,WQ23H,numeric,FALSE,0,Fin du test de qualité de l'eau - Heure,9546,86.78,12
+hh,WQ23M,numeric,FALSE,0,Fin du test de qualité de l'eau - Minutes,9546,86.78,61
+hh,WQ11,haven_labelled,TRUE,3,Un verre d'eau que vous donneriez à un enfant à boire,9392,85.38,4
+hh,WQ12,haven_labelled,TRUE,4,L'eau a été prélevée à la source,9546,86.78,5
+hh,WQ14,haven_labelled,TRUE,4,Avez-vous fait quelque chose pour rendre l'eau potable?,9546,86.78,4
+hh,WQ15A,haven_labelled,TRUE,2,Traitement de l'eau : Faire bouillir,0,0,2
+hh,WQ15B,haven_labelled,TRUE,2,Traitement de l'eau : Ajouter de l'eau de Javel/chlore,0,0,2
+hh,WQ15C,haven_labelled,TRUE,2,Traitement de l'eau : Filtrer à travers un tissu,0,0,2
+hh,WQ15D,haven_labelled,TRUE,2,Traitement de l'eau : Utiliser un filtre à eau,0,0,2
+hh,WQ15E,haven_labelled,TRUE,2,Traitement de l'eau : Désinfection solaire,0,0,2
+hh,WQ15F,haven_labelled,TRUE,2,Traitement de l'eau : Laisser reposer et décanter,0,0,2
+hh,WQ15G,haven_labelled,TRUE,2,Traitement de l'eau : Ajouter de la chaux,0,0,2
+hh,WQ15X,haven_labelled,TRUE,2,Traitement de l'eau : Autre,0,0,2
+hh,WQ15Z,haven_labelled,TRUE,2,Traitement de l'eau : Je ne sais pas,0,0,1
+hh,WQ15NR,haven_labelled,TRUE,1,Traitement de l'eau : Manquant,0,0,1
+hh,WQ16,haven_labelled,TRUE,3,L'eau du verre provenait-elle de la source principale?,9546,86.78,3
+hh,WQ17,haven_labelled,TRUE,17,Source d'eau d'où provient le verre d'eau,10838,98.53,13
+hh,WQ18,haven_labelled,TRUE,7,La principale source d'eau a été montrée,9546,86.78,7
+hh,WQ19,haven_labelled,TRUE,3,Échantillon d'eau de la source prélevé,9643,87.66,3
+hh,WQ20,haven_labelled,TRUE,2,Ménage sélectionné pour le test blanc,9546,86.78,3
+hh,WQ21,haven_labelled,TRUE,3,Test blanc disponible,10642,96.75,3
+hh,WQ24D,numeric,FALSE,0,Date à laquelle le résultat du test de qualité de l'eau a été lu - Jour,9546,86.78,19
+hh,WQ24M,numeric,FALSE,0,Date à laquelle le résultat du test de qualité de l'eau a été lu - Mois,9546,86.78,7
+hh,WQ24Y,numeric,FALSE,0,Date à laquelle le résultat du test de qualité de l'eau a été lu - Année,9546,86.78,2
+hh,WQ25H,numeric,FALSE,0,Heure à laquelle le résultat a été lu,9546,86.78,17
+hh,WQ25M,numeric,FALSE,0,Minutes à laquelle le résultat a été lu,9546,86.78,61
+hh,WQ26,haven_labelled,TRUE,2,Test d'eau du ménage (100 ml),9546,86.78,63
+hh,WQ27,haven_labelled,TRUE,2,Test d'eau de la source (100 ml),9673,87.94,44
+hh,WQ29,haven_labelled,TRUE,2,Test d'eau blanc (100 ml),10686,97.15,2
+hh,HHSEX,haven_labelled,TRUE,3,Sexe du Chef de ménage,2063,18.75,3
+hh,HHAGE,numeric,FALSE,0,Age du Chef de ménage,2063,18.75,80
+hh,helevel,haven_labelled,TRUE,5,Education du Chef de ménage,2063,18.75,6
+hh,hhweight,numeric,FALSE,0,Poids de l'échantillon des ménages,0,0,96
+hh,wqhweight,numeric,FALSE,0,Poids pour la qualité de l'eau du ménage (WQT),0,0,92
+hh,wqsweight,numeric,FALSE,0,Poids pour la source de la qualité de l'eau (WQT),0,0,93
+hh,wscore,numeric,FALSE,0,Score de richesse combiné,0,0,8807
+hh,windex5,haven_labelled,TRUE,5,Quintile de l’indice de richesse,0,0,6
+hh,windex10,haven_labelled,TRUE,10,Décile de l’indice de richesse,0,0,11
+hh,wscoreu,numeric,FALSE,0,Score de richesse urbaine,3237,29.43,5575
+hh,windex5u,haven_labelled,TRUE,5,Quintile de l’indice de richesse urbaine,3237,29.43,7
+hh,windex10u,haven_labelled,TRUE,10,Décile de l’indice de richesse urbaine,3237,29.43,12
+hh,wscorer,numeric,FALSE,0,Score de richesse rurale,5700,51.82,3235
+hh,windex5r,haven_labelled,TRUE,5,Quintile de l’indice de richesse rurale,5700,51.82,7
+hh,windex10r,haven_labelled,TRUE,10,Décile de l’indice de richesse rurale,5700,51.82,12
+hh,PSU,numeric,FALSE,0,Unité d'échantillonnage primaire,0,0,500
+hh,stratum,numeric,FALSE,0,Strate,0,0,46
+hl,HH1,numeric,FALSE,0,Numéro de Grappe,0,0,500
+hl,HH2,numeric,FALSE,0,Numéro de ménage,0,0,22
+hl,HL1,numeric,FALSE,0,Numéro de ligne,0,0,15
+hl,HL3,haven_labelled,TRUE,17,Lien de parenté avec le chef du ménage,0,0,16
+hl,HL4,haven_labelled,TRUE,2,Sexe,0,0,2
+hl,HL5M,haven_labelled,TRUE,14,Mois de naissance,0,0,14
+hl,HL5Y,haven_labelled,TRUE,2,Année de naissance,0,0,104
+hl,HL6,haven_labelled,TRUE,3,Age,0,0,98
+hl,HL8,haven_labelled,TRUE,1,Numéro de ligne si c’est une femme de 15-49 ans,0,0,12
+hl,HL9,haven_labelled,TRUE,1,Numéro de ligne si c’est un homme de 15-49 ans,25673,77.17,13
+hl,HL10,haven_labelled,TRUE,1,Numéro de ligne si c’est enfant âgé de 0-4 ans,0,0,14
+hl,HL11,haven_labelled,TRUE,2,Membres âgés de 0-17 ans,0,0,2
+hl,HL12,haven_labelled,TRUE,4,Mère biologique est vivante,23881,71.78,5
+hl,HL13,haven_labelled,TRUE,3,Mère biologique vit dans le ménage,23941,71.96,3
+hl,HL14,haven_labelled,TRUE,1,Numéro de ligne de la mère dans le ménage,24014,72.18,12
+hl,HL15,haven_labelled,TRUE,6,Où est-ce que la mère biologique habite,33197,99.78,6
+hl,HL16,haven_labelled,TRUE,4,Père biologique est vivant,23881,71.78,5
+hl,HL17,haven_labelled,TRUE,3,Père biologique vit dans le ménage,24163,72.63,4
+hl,HL18,haven_labelled,TRUE,1,Numéro de ligne du père dans le ménage,24711,74.27,9
+hl,HL19,haven_labelled,TRUE,6,Où est-ce que le père biologique habite,32722,98.35,7
+hl,HL20,haven_labelled,TRUE,1,Numéro de ligne de la mère ou du gardien principal pour les enfants de 0 à 17 ans,23881,71.78,13
+hl,ED1,numeric,FALSE,0,Numéro de ligne,0,0,15
+hl,ED2A,numeric,FALSE,0,Age,0,0,98
+hl,ED3,haven_labelled,TRUE,2,Agé de 3 ans et plus,0,0,2
+hl,ED4,haven_labelled,TRUE,3,(Nom) a-t-il/elle déjà fréquenté l’école ou un programme d’éducation pré-primaire,1067,3.21,4
+hl,ED5A,haven_labelled,TRUE,8,Quel est le plus haut niveau d’école que (nom) a fréquenté,5866,17.63,9
+hl,ED5B,haven_labelled,TRUE,2,Quel est le plus haut classe/année (nom) a fréquenté,7056,21.21,12
+hl,ED6,haven_labelled,TRUE,4,Est-ce que (nom) a terminé cette (classe/année),7086,21.3,5
+hl,ED7,haven_labelled,TRUE,2,Agé de 3-24 ans,5866,17.63,3
+hl,ED8,haven_labelled,TRUE,2,Vérifier ED4 : a déjà fréquenté l’école ou le pré primaire,22740,68.35,2
+hl,ED9,haven_labelled,TRUE,3,"A n’importe quel moment de l'année scolaire 2022-2023 est-ce que (nom) a fréquenté l’école, ou l'école maternelle",22740,68.35,4
+hl,ED10A,haven_labelled,TRUE,13,Durant l’année scolaire 2022-2023 quel est le niveau d'école que (nom) a fréquenté,24876,74.77,13
+hl,ED10B,haven_labelled,TRUE,2,Durant l’année scolaire 2022-2023 quel est la classe/année que (nom) a fréquentés,25899,77.84,11
+hl,ED11,haven_labelled,TRUE,5,Est-ce que (nom) va à l’école publique,25899,77.84,4
+hl,ED12,haven_labelled,TRUE,4,Est-ce que (nom) a bénéficié d'un programme de soutien aux frais de scolarité pour l'année scolaire 2022-2023,25899,77.84,4
+hl,ED13A,haven_labelled,TRUE,2,Soutien scolaire : GOUVT./PUBLIC,0,0,2
+hl,ED13C,haven_labelled,TRUE,2,Soutien scolaire : ORG. RELIGIEUSES -ONG,0,0,2
+hl,ED13D,haven_labelled,TRUE,2,Soutien scolaire : PRIVE,0,0,2
+hl,ED13X,haven_labelled,TRUE,2,Soutien scolaire : AUTRE,0,0,2
+hl,ED13Z,haven_labelled,TRUE,2,Soutien scolaire : NSP,0,0,2
+hl,ED13NR,haven_labelled,TRUE,2,Soutien scolaire: Non réponse,0,0,1
+hl,ED14,haven_labelled,TRUE,4,"Pour l'année scolaire 2022-2023, (nom) a-t-il/elle reçu un soutien matériel ou de l’argent",25899,77.84,4
+hl,ED15,haven_labelled,TRUE,4,"A n’importe quel moment de l’année scolaire 2021-2022, est-ce que (nom) a fréquenté l’école ou l'école maternelle",22740,68.35,5
+hl,ED16A,haven_labelled,TRUE,13,"Durant l’année scolaire 2021-2022, quel est le niveau d’école que (nom) a fréquenté",25136,75.55,13
+hl,ED16B,haven_labelled,TRUE,2,"Durant l’année scolaire 2021-2022, quel est la classe/année que (nom) a fréquentés",26156,78.62,11
+hl,AE1,numeric,FALSE,0,Numéro de ligne,0,0,15
+hl,AE2B,numeric,FALSE,0,Âge,0,0,98
+hl,AE3A,haven_labelled,TRUE,2,Âge supérieur à 18,0,0,2
+hl,AE3,haven_labelled,TRUE,4,Allocation familiale du Fonds social,24541,73.76,5
+hl,AE4,haven_labelled,TRUE,2,Âge supérieur à 16,0,0,2
+hl,AE5,haven_labelled,TRUE,5,Situation,7777,23.38,6
+hl,AE6,haven_labelled,TRUE,3,Bénéficier d'une bourse,30294,91.06,4
+hl,AE7,haven_labelled,TRUE,3,Statut dans la profession,24399,73.34,4
+hl,AE8,haven_labelled,TRUE,2,Travail dans le secteur public,26543,79.78,3
+hl,AE9,haven_labelled,TRUE,3,Accès à la couverture santé et sociale,23731,71.33,4
+hl,AE10,haven_labelled,TRUE,4,Accès à l'assurance maladie,7777,23.38,5
+hl,AE11A,haven_labelled,TRUE,1,Type d'assurance maladie : CNAM,0,0,2
+hl,AE11B,haven_labelled,TRUE,1,Type d'assurance maladie : AMEN_FREE,0,0,2
+hl,AE11C,haven_labelled,TRUE,1,Type d'assurance maladie : AMEN_LOWCOST,0,0,2
+hl,AE11D,haven_labelled,TRUE,1,Type d'assurance maladie : PRIVÉE,0,0,2
+hl,AE11X,haven_labelled,TRUE,1,Type d'assurance maladie : AUTRE,0,0,2
+hl,HH4,numeric,FALSE,0,Numéro chef d'équipe,0,0,24
+hl,HH5D,numeric,FALSE,0,Jour de l'interview,0,0,31
+hl,HH5M,numeric,FALSE,0,Mois de l'interview,0,0,2
+hl,HH5Y,haven_labelled,TRUE,1,Année de l'interview,0,0,1
+hl,HH6,haven_labelled,TRUE,2,Milieu de résidence,0,0,2
+hl,HH7,haven_labelled,TRUE,7,Region,0,0,7
+hl,MLINE,haven_labelled,TRUE,1,Numéro de ligne de la mère,23881,71.78,13
+hl,FLINE,haven_labelled,TRUE,1,Numéro de ligne du père,23881,71.78,10
+hl,HHSEX,haven_labelled,TRUE,3,Sexe du chef de ménage,0,0,2
+hl,HHAGE,numeric,FALSE,0,Âge du chef de ménage,0,0,79
+hl,helevel,haven_labelled,TRUE,5,Niveau d'instruction du chef de ménage,0,0,5
+hl,melevel,haven_labelled,TRUE,5,Niveau d'instruction de la mère,23882,71.78,6
+hl,felevel,haven_labelled,TRUE,6,Niveau d'instruction du père,23881,71.78,7
+hl,schage,haven_labelled,TRUE,2,Age en début d'année scolaire,0,0,103
+hl,caretakerdis,haven_labelled,TRUE,3,Difficultés fonctionnelles (âge 18-49 ans),0,0,3
+hl,hhweight,numeric,FALSE,0,Poids de l'échantillon des ménages,0,0,95
+hl,wscore,numeric,FALSE,0,Score de richesse combiné,0,0,8806
+hl,windex5,haven_labelled,TRUE,5,Quintile de l’indice de richesse,0,0,5
+hl,windex10,haven_labelled,TRUE,10,Décile de l’indice de richesse,0,0,10
+hl,wscoreu,numeric,FALSE,0,Score de richesse urbaine,12776,38.4,5574
+hl,windex5u,haven_labelled,TRUE,5,Quintile de l’indice de richesse urbaine,12776,38.4,6
+hl,windex10u,haven_labelled,TRUE,10,Décile de l’indice de richesse urbaine,12776,38.4,11
+hl,wscorer,numeric,FALSE,0,Score de richesse rurale,20494,61.6,3234
+hl,windex5r,haven_labelled,TRUE,5,Quintile de l’indice de richesse rurale,20494,61.6,6
+hl,windex10r,haven_labelled,TRUE,10,Décile de l’indice de richesse rurale,20494,61.6,11
+hl,PSU,numeric,FALSE,0,Unité d'échantillonnage primaire,0,0,500
+hl,stratum,numeric,FALSE,0,Strate,0,0,46
+mn,HH1,numeric,FALSE,0,Numéro de Grappe,0,0,472
+mn,HH2,numeric,FALSE,0,Numéro de ménage,0,0,5
+mn,LN,numeric,FALSE,0,Numéro de ligne,0,0,11
+mn,MWM1,numeric,FALSE,0,Numéro de cluster,0,0,472
+mn,MWM2,numeric,FALSE,0,Numéro de ménage,0,0,5
+mn,MWM3,numeric,FALSE,0,Numéro de ligne de l'homme,0,0,11
+mn,MWMINT,numeric,FALSE,0,Numéro d'enqueteur,36,2.12,129
+mn,MWM4,numeric,FALSE,0,Numéro du superviseur,0,0,24
+mn,MWM5,numeric,FALSE,0,Numéro d'enqueteur,36,2.12,129
+mn,MWM6D,numeric,FALSE,0,Jour d'entretien,0,0,31
+mn,MWM6M,numeric,FALSE,0,Mois d'entretien,0,0,2
+mn,MWM6Y,numeric,FALSE,0,Année de l'entretien,0,0,1
+mn,MWM8,haven_labelled,TRUE,2,Répondant à un autre questionnaire,0,0,2
+mn,MWM9,haven_labelled,TRUE,2,Consentement,0,0,2
+mn,MWM17,haven_labelled,TRUE,7,Résultat de l'entretien avec l'homme,0,0,6
+mn,MWM7H,haven_labelled,TRUE,1,Début de l'entretien - Heure,300,17.7,17
+mn,MWM7M,haven_labelled,TRUE,1,Début de l'entretien - Minutes,300,17.7,61
+mn,MWM10H,haven_labelled,TRUE,1,Fin de l'entretien - Heure,300,17.7,18
+mn,MWM10M,haven_labelled,TRUE,1,Fin de l'entretien - Minutes,300,17.7,61
+mn,MWM11,haven_labelled,TRUE,3,Entretien réalisé en privé,300,17.7,4
+mn,MWM12,haven_labelled,TRUE,2,Langue du questionnaire,300,17.7,2
+mn,MWM13,haven_labelled,TRUE,2,Langue de l'entretien,300,17.7,3
+mn,MWM14,haven_labelled,TRUE,3,Langue maternelle du répondant,300,17.7,4
+mn,MWM15,haven_labelled,TRUE,3,Traducteur utilisé,300,17.7,4
+mn,MWM15A,haven_labelled,TRUE,2,Interviewé par le même enquêteur,509,30.03,3
+mn,MWM15B,haven_labelled,TRUE,2,Ménage a un téléphone,549,32.39,3
+mn,MWM15C,haven_labelled,TRUE,2,Consentement à participer à MICS-PLUS,549,32.39,3
+mn,MWM15D,haven_labelled,TRUE,2,Avoir un téléphone pour recevoir l'appel pour MICS-PLUS,1334,78.7,3
+mn,MWM15E,haven_labelled,TRUE,2,Accepter un appel pour MICS-PLUS,1395,82.3,3
+mn,MWM15G_P1,haven_labelled,TRUE,2,Valider le premier numéro de téléphone,1428,84.25,2
+mn,MWM15J_P1,haven_labelled,TRUE,2,Avoir un autre numéro de téléphone,1428,84.25,3
+mn,MWM15G_P2,haven_labelled,TRUE,2,Valider le deuxième numéro de téléphone,1683,99.29,2
+mn,MWM15J_P2,haven_labelled,TRUE,2,Avoir un autre numéro de téléphone,1683,99.29,3
+mn,MWM15G_P3,haven_labelled,TRUE,2,Valider le troisième numéro de téléphone,1690,99.71,2
+mn,MWM15J_P3,haven_labelled,TRUE,2,Avoir un autre numéro de téléphone,1690,99.71,2
+mn,MWMHINT,numeric,FALSE,0,Enquêteur du ménage,36,2.12,129
+mn,MWB1,haven_labelled,TRUE,2,Vérifier : Répondant au questionnaire du ménage,1695,100,1
+mn,MWB2,haven_labelled,TRUE,2,Vérifier : Niveau d'éducation le plus élevé atteint,1695,100,1
+mn,MWB3M,haven_labelled,TRUE,14,Mois de naissance de l'homme,300,17.7,15
+mn,MWB3Y,haven_labelled,TRUE,2,Année de naissance de l'homme,300,17.7,39
+mn,MWB4,numeric,FALSE,0,Âge de l'homme,300,17.7,36
+mn,MWB5,haven_labelled,TRUE,3,A déjà fréquenté l'école,300,17.7,3
+mn,MWB6A,haven_labelled,TRUE,8,Plus haut niveau d'école fréquenté,322,19,7
+mn,MWB6B,haven_labelled,TRUE,2,Plus haute classe faite à ce niveau,323,19.06,10
+mn,MWB7,haven_labelled,TRUE,3,Avez-vous déjà terminé cette classe/année,323,19.06,4
+mn,MWB9,haven_labelled,TRUE,3,Fréquenté l'école durant l'année scolaire en cours,1278,75.4,3
+mn,MWB10A,haven_labelled,TRUE,12,Niveau d'éducation fréquenté l'année scolaire en cours,1481,87.37,9
+mn,MWB10B,haven_labelled,TRUE,2,Classe fréquentée à ce niveau au cours de l'année scolaire en cours,1481,87.37,9
+mn,MWB11,haven_labelled,TRUE,3,Fréquenté l'école l'année scolaire précédente,1278,75.4,3
+mn,MWB12A,haven_labelled,TRUE,12,Niveau d'études suivi l'année scolaire précédente,1465,86.43,8
+mn,MWB12B,haven_labelled,TRUE,2,Classe fréquentée à ce niveau au cours de l'année scolaire précédente,1465,86.43,10
+mn,MWB14,haven_labelled,TRUE,5,Peut lire une partie de la phrase,1398,82.48,5
+mn,MWB15,haven_labelled,TRUE,3,Durée de vie dans le lieu actuel,300,17.7,49
+mn,MWB16,haven_labelled,TRUE,3,Lieu de résidence avant de déménager vers le lieu actuel,1376,81.18,4
+mn,MWB17,haven_labelled,TRUE,9,Région avant de déménager vers l'endroit actuel,1376,81.18,10
+mn,MWB18,haven_labelled,TRUE,3,Couvert par une assurance maladie,300,17.7,4
+mn,MMT1,haven_labelled,TRUE,5,Fréquence de lecture d'un journal ou d'un magazine,300,17.7,5
+mn,MMT2,haven_labelled,TRUE,5,Fréquence d'écoute de la radio,300,17.7,6
+mn,MMT3,haven_labelled,TRUE,5,Fréquence de regarder la télévision,300,17.7,6
+mn,MMT4,haven_labelled,TRUE,3,Avez-vous déjà utilisé un ordinateur ou une tablette,300,17.7,4
+mn,MMT5,haven_labelled,TRUE,5,Utilisation d'un ordinateur/tablette au cours des 3 derniers mois,1027,60.59,6
+mn,MMT6A,haven_labelled,TRUE,3,Au cours des 3 derniers mois : Copier ou déplacer un fichier ou un dossier,1286,75.87,3
+mn,MMT6B,haven_labelled,TRUE,3,Au cours des 3 derniers mois : Utiliser un copier/coller dans le document,1286,75.87,4
+mn,MMT6C,haven_labelled,TRUE,3,Au cours des 3 derniers mois : Envoyer un e-mail avec fichier joint,1286,75.87,4
+mn,MMT6D,haven_labelled,TRUE,3,Au cours des 3 derniers mois : Utiliser une formule arithmétique de base dans une feuille de calcul,1286,75.87,4
+mn,MMT6E,haven_labelled,TRUE,3,Au cours des 3 derniers mois : connectez et installez un nouvel appareil,1286,75.87,4
+mn,MMT6F,haven_labelled,TRUE,3,Au cours des 3 derniers mois : Installer et configurer le logiciel,1286,75.87,4
+mn,MMT6G,haven_labelled,TRUE,3,Au cours des 3 derniers mois : Créer une présentation électronique,1286,75.87,4
+mn,MMT6H,haven_labelled,TRUE,3,Au cours des 3 derniers mois : Transférer un fichier,1286,75.87,4
+mn,MMT6I,haven_labelled,TRUE,3,Au cours des 3 derniers mois : Écrire un programme informatique,1286,75.87,4
+mn,MMT9,haven_labelled,TRUE,3,Avez-vous déjà utilisé Internet,343,20.24,4
+mn,MMT10,haven_labelled,TRUE,5,Utilisation d'Internet au cours des 3 derniers mois,628,37.05,6
+mn,MMT11,haven_labelled,TRUE,3,Posséder un téléphone mobile,300,17.7,3
+mn,MMT12,haven_labelled,TRUE,5,Utilisation du téléphone portable au cours des 3 derniers mois,300,17.7,6
+mn,MCM1,haven_labelled,TRUE,2,A déjà engendré un enfant,1163,68.61,3
+mn,MCM2,haven_labelled,TRUE,2,Tous les fils ou filles vivant avec vous,1223,72.15,3
+mn,MCM3,numeric,FALSE,0,Fils vivant avec toi,1230,72.57,6
+mn,MCM4,numeric,FALSE,0,Filles vivant avec vous,1230,72.57,7
+mn,MCM5,haven_labelled,TRUE,2,Tous les fils ou filles qui ne vivent pas avec vous,1223,72.15,3
+mn,MCM6,numeric,FALSE,0,Fils vivant ailleurs,1677,98.94,5
+mn,MCM7,numeric,FALSE,0,Filles vivant ailleurs,1677,98.94,4
+mn,MCM8,haven_labelled,TRUE,2,A déjà eu un enfant qui est décédé,1163,68.61,3
+mn,MCM9,numeric,FALSE,0,Garçons morts,1674,98.76,5
+mn,MCM10,numeric,FALSE,0,Filles mortes,1674,98.76,4
+mn,MCM11,numeric,FALSE,0,Enfants jamais engendrés,1163,68.61,10
+mn,MCM12,haven_labelled,TRUE,2,Confirmer le nombre total d'enfants jamais engendrés,1163,68.61,2
+mn,MCM15,haven_labelled,TRUE,3,Même mère biologique,1311,77.35,3
+mn,MCM16,haven_labelled,TRUE,1,Nombre de femmes interrogées ayant engendré des enfants avec,1693,99.88,2
+mn,MCM17,haven_labelled,TRUE,1,Âge à la naissance du premier enfant,1311,77.35,27
+mn,MCM18M,haven_labelled,TRUE,14,Mois de la dernière naissance,1221,72.04,15
+mn,MCM18Y,haven_labelled,TRUE,1,Année de la dernière naissance,1221,72.04,22
+mn,MDV1A,haven_labelled,TRUE,4,Si elle sort sans en parler à son mari : les coups sur la femme sont justifiés,300,17.7,5
+mn,MDV1B,haven_labelled,TRUE,4,Si elle néglige les enfants : les coups sur la femme sont justifiés,300,17.7,5
+mn,MDV1C,haven_labelled,TRUE,4,Si elle se dispute avec son mari : les coups sur la femme sont justifiés,300,17.7,5
+mn,MDV1D,haven_labelled,TRUE,4,Si elle refuse d’avoir des relations sexuelles avec son mari : les coups sur la femme sont justifiés,300,17.7,5
+mn,MDV1E,haven_labelled,TRUE,4,Si elle brûle la nourriture : les coups sur la femme sont justifiés,300,17.7,5
+mn,MVT1,haven_labelled,TRUE,4,"Quelqu'un a pris ou essayé de prendre quelque chose, en recourant à la force ou en menaçant de recourir à la force",300,17.7,4
+mn,MVT2,haven_labelled,TRUE,4,La victimisation s'est produite au cours des 12 derniers mois,1645,97.05,4
+mn,MVT3,haven_labelled,TRUE,5,Nombre de victimisations survenues au cours de la dernière année,1675,98.82,3
+mn,MVT5,haven_labelled,TRUE,4,"La dernière fois que cela s'est produit, quelque chose a-t-il été volé",1645,97.05,3
+mn,MVT6,haven_labelled,TRUE,4,La ou les personnes possédaient une arme,1645,97.05,4
+mn,MVT7A,haven_labelled,TRUE,4,"Le(s) agresseur(s) avaient un couteau, une arme à feu ou autre chose utilisé comme arme : Un couteau",0,0,2
+mn,MVT7B,haven_labelled,TRUE,2,"Le(s) agresseur(s) avaient un couteau, une arme à feu ou autre chose utilisé comme arme : Une arme à feu",0,0,2
+mn,MVT7X,haven_labelled,TRUE,2,"Le(s) agresseur(s) avaient un couteau, une arme à feu ou autre chose utilisé comme arme : Autre arme",0,0,2
+mn,MVT7NR,haven_labelled,TRUE,1,"Le(s) agresseur(s) avaient un couteau, une arme à feu ou autre chose utilisé comme arme : Aucune réponse",0,0,1
+mn,MVT8,haven_labelled,TRUE,5,Incident signalé à la police,1645,97.05,5
+mn,MVT9,haven_labelled,TRUE,4,Agressé physiquement en dehors de l'incident précédent,300,17.7,5
+mn,MVT10,haven_labelled,TRUE,4,L'attaque a eu lieu au cours des 12 derniers mois,1674,98.76,4
+mn,MVT11,haven_labelled,TRUE,5,Nombre de fois où l'attaque s'est produite au cours de la dernière année,1684,99.35,3
+mn,MVT12,haven_labelled,TRUE,10,L'attaque du lieu a eu lieu la dernière fois,1674,98.76,6
+mn,MVT13,haven_labelled,TRUE,5,Nombre de personnes impliquées dans la réalisation de l'infraction,1674,98.76,4
+mn,MVT14,haven_labelled,TRUE,4,L’agresseur reconnu au moment de l'incident,1674,98.76,3
+mn,MVT17,haven_labelled,TRUE,4,La ou les personnes possédaient une arme,1674,98.76,3
+mn,MVT18A,haven_labelled,TRUE,2,"Le(s) agresseur(s) avaient un couteau, une arme à feu ou autre chose utilisé comme arme : Un couteau",0,0,2
+mn,MVT18B,haven_labelled,TRUE,2,"Le(s) agresseur(s) avaient un couteau, une arme à feu ou autre chose utilisé comme arme : Une arme à feu",0,0,1
+mn,MVT18X,haven_labelled,TRUE,2,"Le(s) agresseur(s) avaient un couteau, une arme à feu ou autre chose utilisé comme arme : Autre arme",0,0,2
+mn,MVT18NR,haven_labelled,TRUE,1,"Le(s) agresseur(s) avaient un couteau, une arme à feu ou autre chose utilisé comme arme : Aucune réponse",0,0,1
+mn,MVT19,haven_labelled,TRUE,5,Incident signalé à la police,1674,98.76,3
+mn,MVT20,haven_labelled,TRUE,6,Se sentir en sécurité en marchant seul dans le quartier la nuit tombée,300,17.7,6
+mn,MVT21,haven_labelled,TRUE,6,Se sentir en sécurité seul à la maison après la tombée de la nuit,300,17.7,5
+mn,MVT22A,haven_labelled,TRUE,4,"Au cours des 12 derniers mois, s'est senti victime de discrimination : origine ethnique ou issue de l'immigration",300,17.7,4
+mn,MVT22B,haven_labelled,TRUE,4,"Au cours des 12 derniers mois, vous vous êtes senti discriminé : sexe",300,17.7,4
+mn,MVT22C,haven_labelled,TRUE,4,"Au cours des 12 derniers mois, vous vous êtes senti discriminé : orientation sexuelle",300,17.7,5
+mn,MVT22D,haven_labelled,TRUE,4,"Au cours des 12 derniers mois, vous vous êtes senti victime de discrimination : Âge",300,17.7,4
+mn,MVT22E,haven_labelled,TRUE,4,"Au cours des 12 derniers mois, vous vous êtes senti discriminé : religion ou conviction",300,17.7,4
+mn,MVT22F,haven_labelled,TRUE,4,"Au cours des 12 derniers mois, vous vous êtes senti discriminé : handicap",300,17.7,5
+mn,MVT22X,haven_labelled,TRUE,4,"Au cours des 12 derniers mois, vous vous êtes senti discriminé : toute autre raison",300,17.7,5
+mn,MMA1,haven_labelled,TRUE,3,Actuellement marié ou vivant avec une femme,300,17.7,4
+mn,MMA5,haven_labelled,TRUE,3,Déjà marié ou vécu avec une femme,818,48.26,4
+mn,MMA6,haven_labelled,TRUE,3,Situation matrimoniale,1681,99.17,3
+mn,MMA7,haven_labelled,TRUE,3,Marié ou vécu avec une femme une ou plusieurs fois,1163,68.61,3
+mn,MMA8M,haven_labelled,TRUE,14,Mois de la première union,1163,68.61,15
+mn,MMA8Y,haven_labelled,TRUE,2,Année de première union,1163,68.61,31
+mn,MMA11,haven_labelled,TRUE,2,Âge à la première union,1682,99.23,3
+mn,MAF2,haven_labelled,TRUE,3,Utilisez des lunettes ou des lentilles de contact,428,25.25,4
+mn,MAF3,haven_labelled,TRUE,3,Utiliser une aide auditive,428,25.25,4
+mn,MAF6,haven_labelled,TRUE,5,Difficulté à voir,428,25.25,6
+mn,MAF8,haven_labelled,TRUE,5,Difficulté à entendre si vous utilisez une aide auditive,428,25.25,5
+mn,MAF9,haven_labelled,TRUE,5,Difficulté à marcher ou à monter les marches,428,25.25,6
+mn,MAF10,haven_labelled,TRUE,5,Difficulté à se souvenir ou à se concentrer,428,25.25,5
+mn,MAF11,haven_labelled,TRUE,5,"Difficulté à prendre soin de soi, comme se laver partout ou s'habiller",428,25.25,6
+mn,MAF12,haven_labelled,TRUE,4,Difficulté à communiquer,428,25.25,5
+mn,MHA1,haven_labelled,TRUE,3,Avez-vous déjà entendu parler du VIH ou du SIDA,300,17.7,4
+mn,MHA2,haven_labelled,TRUE,4,Peut éviter le VIH en ayant un partenaire non infecté,565,33.33,5
+mn,MHA3,haven_labelled,TRUE,4,Peut contracter le VIH à cause des piqûres de moustiques,565,33.33,5
+mn,MHA4,haven_labelled,TRUE,4,Peut éviter le VIH en utilisant correctement un préservatif à chaque fois,565,33.33,5
+mn,MHA5,haven_labelled,TRUE,4,Peut contracter le VIH en partageant de la nourriture avec une personne séropositive,565,33.33,5
+mn,MHA6,haven_labelled,TRUE,4,Peut contracter le VIH par des moyens surnaturels,565,33.33,5
+mn,MHA7,haven_labelled,TRUE,4,Une personne d’apparence saine peut être séropositive,565,33.33,5
+mn,MHA8A,haven_labelled,TRUE,4,Le VIH de la mère à l'enfant pendant la grossesse,565,33.33,5
+mn,MHA8B,haven_labelled,TRUE,4,Le VIH de la mère à l'enfant pendant l'accouchement,565,33.33,5
+mn,MHA8C,haven_labelled,TRUE,4,Le VIH de la mère à l'enfant par l'allaitement,565,33.33,5
+mn,MHA10,haven_labelled,TRUE,4,Connaître les médicaments utilisés pour réduire le risque de transmission au bébé,1114,65.72,4
+mn,MHA24,haven_labelled,TRUE,4,A déjà été testé pour le VIH,565,33.33,5
+mn,MHA25,haven_labelled,TRUE,4,Moment le plus récent du test de dépistage du VIH,1657,97.76,5
+mn,MHA26,haven_labelled,TRUE,4,Réception des résultats du test VIH,1657,97.76,3
+mn,MHA27,haven_labelled,TRUE,4,Connaître un endroit pour passer un test de dépistage du VIH,603,35.58,5
+mn,MHA28,haven_labelled,TRUE,3,J'ai entendu parler d'un kit de test pour le dépistage du VIH,565,33.33,4
+mn,MHA29,haven_labelled,TRUE,3,Vous êtes-vous déjà testé à l'aide d'un kit de test,1590,93.81,4
+mn,MHA30,haven_labelled,TRUE,4,Achèterait des légumes frais à un commerçant atteint du virus du SIDA,565,33.33,5
+mn,MHA31,haven_labelled,TRUE,4,Les enfants vivant avec le VIH devraient être autorisés à fréquenter l'école avec d'autres enfants,565,33.33,5
+mn,MHA32,haven_labelled,TRUE,4,Les gens hésitent à faire un test de dépistage du VIH parce qu’ils ont peur de la réaction des autres si le résultat du test est positif.,565,33.33,5
+mn,MHA33,haven_labelled,TRUE,4,"Les gens parlent en mal des personnes vivant avec le VIH, ou dont on pense qu'elles vivent avec le VIH.",565,33.33,5
+mn,MHA34,haven_labelled,TRUE,4,"Les personnes vivant avec le VIH, ou soupçonnées de vivre avec le VIH, perdent le respect des autres",565,33.33,5
+mn,MHA35,haven_labelled,TRUE,4,D'accord avec l'énoncé suivant : J'aurais honte si un membre de ma famille était atteint du VIH,565,33.33,5
+mn,MHA36,haven_labelled,TRUE,4,Peur de contracter le VIH par contact avec la salive d'une personne vivant avec le VIH,565,33.33,5
+mn,MTA1,haven_labelled,TRUE,3,Avez-vous déjà essayé de fumer la cigarette,300,17.7,4
+mn,MTA2,haven_labelled,TRUE,2,Âge auquel la cigarette a été fumée pour la première fois,907,53.51,33
+mn,MTA3,haven_labelled,TRUE,3,Je fume actuellement des cigarettes,918,54.16,4
+mn,MTA4,haven_labelled,TRUE,1,Nombre de cigarettes fumées au cours des dernières 24 heures,1069,63.07,32
+mn,MTA5,haven_labelled,TRUE,3,Nombre de jours pendant lesquels des cigarettes ont été fumées au cours du mois dernier,1069,63.07,12
+mn,MTA6,haven_labelled,TRUE,3,Avez-vous déjà essayé des produits du tabac fumés autres que les cigarettes,300,17.7,4
+mn,MTA7,haven_labelled,TRUE,3,Vous avez consommé des produits du tabac fumés au cours du mois dernier,1341,79.12,3
+mn,MTA8A,haven_labelled,TRUE,2,Type de produit du tabac fumé : Cigares,0,0,2
+mn,MTA8B,haven_labelled,TRUE,2,Type de produit du tabac fumé : Pipe à eau,0,0,2
+mn,MTA8C,haven_labelled,TRUE,2,Type de produit du tabac fumé : Cigarillos,0,0,2
+mn,MTA8D,haven_labelled,TRUE,2,Type de produit du tabac fumé : Pipe,0,0,2
+mn,MTA8X,haven_labelled,TRUE,2,Type de produit du tabac fumé : Autre,0,0,2
+mn,MTA8NR,haven_labelled,TRUE,1,Type de produit du tabac fumé : Non réponse,0,0,1
+mn,MTA9,haven_labelled,TRUE,3,Nombre de jours pendant lesquels des produits du tabac ont été fumés au cours du mois dernier,1621,95.63,11
+mn,MTA10,haven_labelled,TRUE,3,Avez-vous déjà essayé n'importe quelle forme de produits du tabac sans fumée,300,17.7,4
+mn,MTA11,haven_labelled,TRUE,3,Vous avez utilisé des produits du tabac sans fumée au cours du mois dernier,1604,94.63,3
+mn,MTA12B,haven_labelled,TRUE,2,Type de produit du tabac sans fumée utilisé : Tabac à priser,0,0,2
+mn,MTA12X,haven_labelled,TRUE,2,Type de produit du tabac sans fumée utilisé : Autre,0,0,2
+mn,MTA12NR,haven_labelled,TRUE,1,Type de produit du tabac sans fumée utilisé : Aucune réponse,0,0,1
+mn,MTA13,haven_labelled,TRUE,3,Nombre de jours pendant lesquels des produits du tabac sans fumée ont été consommés au cours du mois dernier,1678,99,7
+mn,MTA14,haven_labelled,TRUE,3,Avez-vous déjà bu de l'alcool,300,17.7,4
+mn,MTA15,haven_labelled,TRUE,2,Âge auquel l'alcool a été consommé pour la première fois,1423,83.95,28
+mn,MTA16,haven_labelled,TRUE,4,Nombre de jours où au moins une boisson alcoolisée a été consommée au cours du mois dernier,1446,85.31,12
+mn,MTA17,haven_labelled,TRUE,1,Nombre de boissons habituellement consommées,1607,94.81,22
+mn,HH4,numeric,FALSE,0,Numéro chef d'équipe,300,17.7,25
+mn,HH6,haven_labelled,TRUE,2,Milieu de résidence,300,17.7,3
+mn,HH7,haven_labelled,TRUE,7,Region,300,17.7,8
+mn,MWDOI,numeric,FALSE,0,Date de l'entretien homme (CMC),300,17.7,2
+mn,MWDOB,numeric,FALSE,0,Date de naissance de l'homme (CMC),300,17.7,403
+mn,MWAGE,haven_labelled,TRUE,7,Age,300,17.7,8
+mn,MWDOM,numeric,FALSE,0,Date de mariage de l'homme (CMC),1163,68.61,189
+mn,MWAGEM,numeric,FALSE,0,Âge au premier mariage/union de l'homme,1163,68.61,32
+mn,MMSTATUS,haven_labelled,TRUE,3,Situation matrimoniale/syndicale de l'homme,300,17.7,5
+mn,AE10,haven_labelled,TRUE,4,Accès à l'assurance maladie,0,0,4
+mn,mnweight,numeric,FALSE,0,Poids de l'échantillon pour hommes,0,0,85
+mn,wscore,numeric,FALSE,0,Score de richesse combiné,0,0,1100
+mn,windex5,haven_labelled,TRUE,5,Quintile de l’indice de richesse,0,0,6
+mn,windex10,haven_labelled,TRUE,10,Décile de l’indice de richesse,0,0,11
+mn,wscoreu,numeric,FALSE,0,Score de richesse urbaine,554,32.68,663
+mn,windex5u,haven_labelled,TRUE,5,Quintile de l’indice de richesse urbaine,554,32.68,7
+mn,windex10u,haven_labelled,TRUE,10,Décile de l’indice de richesse urbaine,554,32.68,12
+mn,wscorer,numeric,FALSE,0,Score de richesse rurale,841,49.62,440
+mn,windex5r,haven_labelled,TRUE,5,Quintile de l’indice de richesse rurale,841,49.62,7
+mn,windex10r,haven_labelled,TRUE,10,Décile de l’indice de richesse rurale,841,49.62,12
+mn,mwelevel,haven_labelled,TRUE,5,Éducation,300,17.7,6
+mn,minsurance,haven_labelled,TRUE,3,Assurance-maladie,300,17.7,4
+mn,mdisability,haven_labelled,TRUE,2,Difficultés fonctionnelles (18-49 ans),428,25.25,3
+mn,PSU,numeric,FALSE,0,Unité d'échantillonnage primaire,0,0,472
+mn,stratum,numeric,FALSE,0,Strate,0,0,45
+wm,HH1,numeric,FALSE,0,Numéro de Grappe,0,0,500
+wm,HH2,numeric,FALSE,0,Numéro de ménage,0,0,22
+wm,LN,numeric,FALSE,0,Numéro de ligne,0,0,11
+wm,WM1,numeric,FALSE,0,Numéro de Grappe,0,0,500
+wm,WM2,numeric,FALSE,0,Numéro de menage,0,0,22
+wm,WM3,numeric,FALSE,0,Numéro de ligne de la Femme,0,0,11
+wm,WMINT,numeric,FALSE,0,Numéro d'enqueteur,66,0.85,133
+wm,WM4,numeric,FALSE,0,Numéro du chef d'equipe,0,0,24
+wm,WM5,numeric,FALSE,0,Numéro d'enqueteur,66,0.85,133
+wm,WM6D,numeric,FALSE,0,Jour de l'interview,0,0,31
+wm,WM6M,numeric,FALSE,0,Mois de l'interview,0,0,3
+wm,WM6Y,numeric,FALSE,0,Année de l'interview,0,0,1
+wm,WM8,haven_labelled,TRUE,2,Répondant à un autre questionnaire,0,0,2
+wm,WM9,haven_labelled,TRUE,2,Consentement,0,0,2
+wm,WM17,haven_labelled,TRUE,7,Résultat de l’interview de la Femme,0,0,7
+wm,WM7H,numeric,FALSE,0,Début de l’interview - Heure,644,8.27,22
+wm,WM7M,numeric,FALSE,0,Début de l’interview - Minutes,644,8.27,61
+wm,WM10H,numeric,FALSE,0,Fin de l’interview - Heure,650,8.34,22
+wm,WM10M,numeric,FALSE,0,Fin de l’interview - Minutes,650,8.34,61
+wm,WM11,haven_labelled,TRUE,3,Interview complété en privé,650,8.34,4
+wm,WM12,haven_labelled,TRUE,2,Langue du Questionnaire,650,8.34,3
+wm,WM13,haven_labelled,TRUE,3,Langue de l’Interview,650,8.34,4
+wm,WM14,haven_labelled,TRUE,3,Langue maternelle du Répondant,650,8.34,4
+wm,WM15,haven_labelled,TRUE,3,Traducteur utilisé,650,8.34,4
+wm,WM15A,haven_labelled,TRUE,2,Enquêteur du ménage,4112,52.79,3
+wm,WM15B,haven_labelled,TRUE,2,Avez-vous un numéro de téléphone,4254,54.61,3
+wm,WM15C,haven_labelled,TRUE,2,Consentement pour participer à MICS-PLUS,4254,54.61,3
+wm,WM15D,haven_labelled,TRUE,2,Avoir un téléphone pour recevoir un appel pour MICS-PLUS,4254,54.61,3
+wm,WM15E,haven_labelled,TRUE,2,Accepter un appel pour MICS-PLUS,6614,84.9,3
+wm,WM15G_P1,haven_labelled,TRUE,2,Valider le premier numéro de téléphone,6907,88.66,2
+wm,WM15J_P1,haven_labelled,TRUE,2,Avoir un autre numéro de téléphone,6907,88.66,3
+wm,WM15G_P2,haven_labelled,TRUE,2,Valider le deuxième numéro de téléphone,7759,99.6,2
+wm,WM15J_P2,haven_labelled,TRUE,2,Avoir un autre numéro de téléphone,7759,99.6,3
+wm,WM15G_P3,haven_labelled,TRUE,2,Valider le troisième numéro de téléphone,7778,99.85,2
+wm,WM15J_P3,haven_labelled,TRUE,2,Avoir un autre numéro de téléphone,7778,99.85,2
+wm,WMHINT,numeric,FALSE,0,Enquêteur pour le questionnaire ménager,66,0.85,133
+wm,WB3M,haven_labelled,TRUE,14,Mois de naissance de la femme,650,8.34,16
+wm,WB3Y,haven_labelled,TRUE,2,Année de naissance de la femme,650,8.34,39
+wm,WB4,numeric,FALSE,0,Age de la femme,650,8.34,36
+wm,WB5,haven_labelled,TRUE,3,A déjà fréquenté l’école,650,8.34,3
+wm,WB6A,haven_labelled,TRUE,8,Plus haut d’éducation atteint,1087,13.95,7
+wm,WB6B,haven_labelled,TRUE,2,Classe la plus élevée fréquenté à ce niveau,1092,14.02,12
+wm,WB7,haven_labelled,TRUE,4,A déjà complété cette classe / année,1092,14.02,5
+wm,WB9,haven_labelled,TRUE,4,Fréquente l’école durant l’année en cours,5895,75.67,3
+wm,WB10A,haven_labelled,TRUE,11,Niveau d’éducation fréquenté année en cours,6500,83.44,11
+wm,WB10B,haven_labelled,TRUE,2,Classe fréquentée à ce niveau durant l’année en cours,6500,83.44,10
+wm,WB11,haven_labelled,TRUE,3,A fréquenté l’école l’année scolaire précédente,5895,75.67,3
+wm,WB12A,haven_labelled,TRUE,12,Niveau d’éducation fréquenté au cours de l’année scolaire précédente,6430,82.54,10
+wm,WB12B,haven_labelled,TRUE,2,Classe fréquentée à ce niveau au cours de l’année scolaire précédente,6430,82.54,10
+wm,WB14,haven_labelled,TRUE,5,Peut lire une phrase,5981,76.78,5
+wm,WB15,haven_labelled,TRUE,3,Durée de résidence sur le lieu d’habitation actuel,650,8.34,52
+wm,WB16,haven_labelled,TRUE,3,Lieu de résidence antérieure (avant le lieu actuel),4960,63.67,4
+wm,WB17,haven_labelled,TRUE,9,Région de résidence antérieur (avant la région actuelle),4960,63.67,10
+wm,WB18,haven_labelled,TRUE,3,Couvert par une assurance médicale,650,8.34,4
+wm,MT1,haven_labelled,TRUE,5,Fréquence de lecture d'un journal ou d'un magazine,650,8.34,6
+wm,MT2,haven_labelled,TRUE,5,Fréquence d’écoute à la radio,650,8.34,6
+wm,MT3,haven_labelled,TRUE,5,Fréquence à regarder la télévision,650,8.34,6
+wm,MT4,haven_labelled,TRUE,3,A déjà utilisé un ordinateur ou une tablette,650,8.34,4
+wm,MT5,haven_labelled,TRUE,5,Utilisation d’ordinateur / tablettes au cours des 3 derniers mois,4714,60.51,6
+wm,MT6A,haven_labelled,TRUE,3,Au cours des 3 derniers mois : Copier ou déplacer un fichier ou un répertoire,5775,74.13,4
+wm,MT6B,haven_labelled,TRUE,3,Au cours des 3 derniers mois : Utilisation de copier / coller dans un document,5775,74.13,4
+wm,MT6C,haven_labelled,TRUE,3,Au cours des 3 derniers mois : Envoyer un e-mail avec un fichier attaché,5775,74.13,4
+wm,MT6D,haven_labelled,TRUE,3,Au cours des 3 derniers mois : Utilisation d’une formule basique dans une feuille Excel,5775,74.13,4
+wm,MT6E,haven_labelled,TRUE,3,Au cours des 3 derniers mois : Connecter et installer un nouvel appareil,5775,74.13,4
+wm,MT6F,haven_labelled,TRUE,3,Au cours des 3 derniers mois : Installer et configurer un logiciel,5775,74.13,4
+wm,MT6G,haven_labelled,TRUE,3,Au cours des 3 derniers mois : Créer une présentation électronique,5775,74.13,4
+wm,MT6H,haven_labelled,TRUE,3,Au cours des 3 derniers mois : Transférer un fichier,5775,74.13,4
+wm,MT6I,haven_labelled,TRUE,3,Au cours des 3 derniers mois : Ecrire un programme informatique,5775,74.13,4
+wm,MT9,haven_labelled,TRUE,3,Avez – vous déjà utilisé Internet,939,12.05,4
+wm,MT10,haven_labelled,TRUE,5,Utilisation d'Internet au cours des 3 derniers mois,3099,39.78,6
+wm,MT11,haven_labelled,TRUE,3,Posséder un téléphone mobile,650,8.34,4
+wm,MT12,haven_labelled,TRUE,5,Utilisation du téléphone portable au cours des 3 derniers mois,650,8.34,6
+wm,MA1,haven_labelled,TRUE,3,Actuellement mariée ou vivant avec un homme,650,8.34,4
+wm,MA2,haven_labelled,TRUE,2,Âge du mari/partenaire,4056,52.07,60
+wm,MA5,haven_labelled,TRUE,3,A déjà été mariée ou a vécu avec un homme,4384,56.28,4
+wm,MA6,haven_labelled,TRUE,3,Statut matrimonial,7558,97.02,4
+wm,MA7,haven_labelled,TRUE,3,Mariée ou a vécu avec un homme une fois ou plusieurs fois,3824,49.09,4
+wm,MA8M,haven_labelled,TRUE,14,Mois de la première union,3824,49.09,15
+wm,MA8Y,haven_labelled,TRUE,2,Année de la première union,3824,49.09,38
+wm,MA11,haven_labelled,TRUE,2,Âge lors de la première union,7694,98.77,21
+wm,CM1,haven_labelled,TRUE,2,Déjà accouché,3824,49.09,3
+wm,CM2,haven_labelled,TRUE,2,Fils ou filles vivant avec vous,4145,53.21,3
+wm,CM3,numeric,FALSE,0,Fils vivant avec vous,4209,54.03,8
+wm,CM4,numeric,FALSE,0,Filles vivant avec vous,4209,54.03,7
+wm,CM5,haven_labelled,TRUE,2,Fils ou filles ne vivant pas avec vous,4145,53.21,3
+wm,CM6,numeric,FALSE,0,Fils vivant ailleurs,7570,97.18,5
+wm,CM7,numeric,FALSE,0,Filles vivant ailleurs,7570,97.18,6
+wm,CM8,haven_labelled,TRUE,2,A déjà eu un enfant qui est décédé,3824,49.09,3
+wm,CM9,numeric,FALSE,0,Garçons morts,7634,98,5
+wm,CM10,numeric,FALSE,0,Filles mortes,7634,98,4
+wm,CM11,numeric,FALSE,0,Enfants nés,3824,49.09,12
+wm,CM12,haven_labelled,TRUE,2,Confirmer le nombre total d'enfants nés,3824,49.09,3
+wm,CM15,haven_labelled,TRUE,2,Vérifiez le nombre total d'enfants nés,4163,53.44,2
+wm,CM17,haven_labelled,TRUE,2,Naissances vivantes au cours des deux dernières années,4163,53.44,3
+wm,BH11,haven_labelled,TRUE,2,Toute autre naissance vivante,4163,53.44,2
+wm,DB2,haven_labelled,TRUE,3,Le dernier enfant était – il désiré,7157,91.87,3
+wm,DB4,haven_labelled,TRUE,3,Vouloir un enfant plus tard ou ne pas vouloir d'autres enfants,7629,97.93,4
+wm,MN2,haven_labelled,TRUE,3,A reçu des soins prénatals,7157,91.87,3
+wm,MN3A,haven_labelled,TRUE,2,Prestataire de soins prénatals : Médecin,0,0,2
+wm,MN3B,haven_labelled,TRUE,2,Prestataire de soins prénatals : Infirmière/sage-femme,0,0,2
+wm,MN3F,haven_labelled,TRUE,2,Prestataire de soins prénatals : Accoucheuse traditionnelle,0,0,2
+wm,MN3X,haven_labelled,TRUE,2,Prestataire de soins prénatals : Autre,0,0,1
+wm,MN3NR,character,FALSE,0,Prestataire de soins prénatals : Pas de réponse,0,0,1
+wm,MN4AU,haven_labelled,TRUE,3,Semaines ou mois de grossesse lors des premiers soins prénatals - unité,7214,92.61,3
+wm,MN4AN,haven_labelled,TRUE,2,Semaines ou mois de grossesse lors des premiers soins prénatals - nombre,7214,92.61,14
+wm,MN5,haven_labelled,TRUE,2,Nombre de fois où des soins prénatals sont reçus,7214,92.61,22
+wm,MN6A,haven_labelled,TRUE,3,Pression artérielle,7214,92.61,3
+wm,MN6B,haven_labelled,TRUE,3,Échantillon d'urine,7214,92.61,3
+wm,MN6C,haven_labelled,TRUE,3,Échantillon de sang,7214,92.61,4
+wm,MN8,haven_labelled,TRUE,4,Injection d'anatoxine tétanique au cours de la dernière grossesse,7157,91.87,4
+wm,MN9,haven_labelled,TRUE,2,Doses d'anatoxine tétanique au cours de la dernière grossesse,7562,97.07,8
+wm,MN11,haven_labelled,TRUE,4,Injection d'anatoxine tétanique avant la dernière grossesse,7229,92.8,5
+wm,MN12,haven_labelled,TRUE,3,Doses d'anatoxine tétanique avant la dernière grossesse,7602,97.59,8
+wm,MN14,haven_labelled,TRUE,2,Dernière dose d'anatoxine tétanique reçue quelques années avant la dernière grossesse,7602,97.59,23
+wm,MN19A,haven_labelled,TRUE,2,Assistance à l'accouchement : Médecin,0,0,2
+wm,MN19B,haven_labelled,TRUE,2,Assistance à l'accouchement : Infirmière / Sage-femme,0,0,2
+wm,MN19F,haven_labelled,TRUE,2,Assistance à l'accouchement : Accoucheuse traditionnelle,0,0,2
+wm,MN19H,haven_labelled,TRUE,2,Assistance à l'accouchement : Parent / Ami,0,0,2
+wm,MN19X,haven_labelled,TRUE,2,Assistance à la livraison : Autre,0,0,1
+wm,MN19Y,haven_labelled,TRUE,2,Assistance à la livraison : Personne,0,0,2
+wm,MN19NR,haven_labelled,TRUE,1,Assistance à la livraison : Non réponse,0,0,1
+wm,MN20,haven_labelled,TRUE,10,Lieu d’accouchement,7157,91.87,10
+wm,MN21,haven_labelled,TRUE,3,Accouchement par césarienne,7166,91.99,4
+wm,MN22,haven_labelled,TRUE,3,Décision prise de subir une césarienne,7532,96.69,4
+wm,MN23,haven_labelled,TRUE,4,"Après la naissance, le bébé était posé directement sur la peau nue du sein de la mère",7157,91.87,5
+wm,MN24,haven_labelled,TRUE,4,Le bébé a été enveloppé avant d'être placé sur la poitrine de sa mère,7410,95.12,4
+wm,MN25,haven_labelled,TRUE,4,Bébé a été séché ou essuyé peu après la naissance,7157,91.87,4
+wm,MN26U,haven_labelled,TRUE,4,Heure du bain de bébé - unité,7157,91.87,5
+wm,MN26N,haven_labelled,TRUE,4,Heure à laquelle bébé a pris le bain - nombre,7157,91.87,23
+wm,MN28,haven_labelled,TRUE,6,Qu'est-ce qui a été utilisé pour couper le cordon,7781,99.88,5
+wm,MN29,haven_labelled,TRUE,4,Instrument utilisé pour couper le cordon bouilli avant utilisation,7781,99.88,5
+wm,MN30,haven_labelled,TRUE,4,Quelque chose est appliqué sur le cordon après qu'il ait été coupé,7157,91.87,5
+wm,MN31A,haven_labelled,TRUE,2,Ce qui a été appliqué sur le cordon : Chlorhexidine,0,0,2
+wm,MN31B,haven_labelled,TRUE,2,Ce qui a été appliqué sur le cordon : Autre antiseptique,0,0,2
+wm,MN31X,haven_labelled,TRUE,2,Ce qui a été appliqué sur le cordon : Autre,0,0,2
+wm,MN31Z,haven_labelled,TRUE,2,Ce qui a été appliqué sur le cordon : NSP / Je ne me souviens pas,0,0,2
+wm,MN31NR,haven_labelled,TRUE,1,Ce qui a été appliqué sur le cordon : Non réponse,0,0,1
+wm,MN32,haven_labelled,TRUE,7,Taille de l'enfant à la naissance,7157,91.87,8
+wm,MN33,haven_labelled,TRUE,4,Pesée à la naissance,7157,91.87,5
+wm,MN34A,haven_labelled,TRUE,3,Poids sur la carte ou de mémoire,7195,92.36,3
+wm,MN34,haven_labelled,TRUE,1,Poids à la naissance (kilogrammes),7195,92.36,83
+wm,MN35,haven_labelled,TRUE,3,Période menstruelle revenue depuis la naissance de l'enfant,7157,91.87,4
+wm,MN36,haven_labelled,TRUE,3,Avez-vous déjà allaité,7157,91.87,4
+wm,MN37U,haven_labelled,TRUE,4,Heure de mise au sein bébé - unité,7202,92.45,4
+wm,MN37N,haven_labelled,TRUE,3,Heure de mise au sein de bébé - nombre,7202,92.45,21
+wm,MN38,haven_labelled,TRUE,3,"Dans les 3 jours suivant l'accouchement, l'enfant reçoit autre chose à boire que le lait maternel",7202,92.45,3
+wm,MN39A,haven_labelled,TRUE,2,Enfant reçoit à boire : Lait (autre que le lait maternel),0,0,3
+wm,MN39B,haven_labelled,TRUE,2,Enfant reçoit à boire : Eau plate,0,0,3
+wm,MN39C,haven_labelled,TRUE,2,Enfant reçoit à boire : Sucre ou eau glucose,0,0,3
+wm,MN39D,haven_labelled,TRUE,2,Enfant reçoit à boire : Eau de grippe,0,0,3
+wm,MN39E,haven_labelled,TRUE,2,Enfant reçoit à boire : Solution sucre - sel - eau,0,0,3
+wm,MN39F,haven_labelled,TRUE,2,Enfant reçoit à boire : Jus de fruit,0,0,2
+wm,MN39G,haven_labelled,TRUE,2,Enfant reçoit à boire : Préparations pour nourrissons,0,0,3
+wm,MN39H,haven_labelled,TRUE,2,Enfant reçoit à boire : Thé / Infusions,0,0,3
+wm,MN39I,haven_labelled,TRUE,2,Enfant reçoit à boire : Miel,0,0,3
+wm,MN39J,haven_labelled,TRUE,2,Enfant reçoit à boire : Médicament prescrit,0,0,3
+wm,MN39X,haven_labelled,TRUE,2,Enfant reçoit à boire : Autre,0,0,3
+wm,MN39Y,haven_labelled,TRUE,2,Enfant reçoit à boire : N’a rien reçu à boire,0,0,3
+wm,MN39NR,haven_labelled,TRUE,1,Enfant reçoit à boire : Non réponse,0,0,2
+wm,PN3U,haven_labelled,TRUE,4,Durée de séjour dans la formation sanitaire - unité,7166,91.99,4
+wm,PN3N,haven_labelled,TRUE,2,Durée de séjour dans l'établissement sanitaire - nombre,7166,91.99,24
+wm,PN4,haven_labelled,TRUE,3,La santé du bébé contrôlée avant de quitter l'établissement de santé,7166,91.99,4
+wm,PN5,haven_labelled,TRUE,3,La santé de la mère contrôlée avant de quitter l'établissement de santé,7166,91.99,3
+wm,PN6,haven_labelled,TRUE,3,La santé du bébé contrôlée après avoir quitté l'établissement de santé,7166,91.99,3
+wm,PN8,haven_labelled,TRUE,3,Bébé contrôlé après l'accouchement,7786,99.95,4
+wm,PN9,haven_labelled,TRUE,3,La mère a été contrôlée après la fin de l'accouchement,7786,99.95,4
+wm,PN10,haven_labelled,TRUE,3,Consultation supplémentaire du bébé après l'accouchement,7786,99.95,4
+wm,PN11,haven_labelled,TRUE,3,Bébé contrôlé après l'accouchement,7785,99.94,2
+wm,PN12,haven_labelled,TRUE,3,Nombre de fois où bébé a été contrôlé,7432,95.4,4
+wm,PN13U,haven_labelled,TRUE,4,Combien de temps après l'accouchement le premier contrôle du bébé a-t-il eu lieu - unité,7432,95.4,4
+wm,PN13N,haven_labelled,TRUE,2,Combien de temps après l'accouchement le premier contrôle du bébé a-t-il eu lieu - nombre,7432,95.4,17
+wm,PN14A,haven_labelled,TRUE,2,Personne vérifiant la santé du bébé : Médecin,0,0,2
+wm,PN14B,haven_labelled,TRUE,2,Personne vérifiant la santé du bébé : Infirmière/sage-femme,0,0,2
+wm,PN14F,haven_labelled,TRUE,2,Personne vérifiant la santé du bébé : Accoucheuse traditionnelle,0,0,2
+wm,PN14H,haven_labelled,TRUE,2,Personne vérifiant la santé du bébé : Parent/ami,0,0,1
+wm,PN14X,haven_labelled,TRUE,2,Personne vérifiant la santé du bébé : Autre,0,0,1
+wm,PN14NR,haven_labelled,TRUE,1,Personne vérifiant la santé du bébé : Non réponse,0,0,1
+wm,PN15,haven_labelled,TRUE,9,Lieu où la santé du bébé a été contrôlée,7432,95.4,8
+wm,PN17,haven_labelled,TRUE,3,La santé de la mère contrôlée après avoir quitté l'établissement de santé,7166,91.99,3
+wm,PN19,haven_labelled,TRUE,3,La santé de la mère contrôlée après l'accouchement,7786,99.95,4
+wm,PN20,haven_labelled,TRUE,3,La santé de la mère contrôlée après la naissance du bébé,7785,99.94,3
+wm,PN21,haven_labelled,TRUE,3,Nombre de fois où la santé de la mère a été contrôlée après l'accouchement,7572,97.2,4
+wm,PN22U,haven_labelled,TRUE,4,Combien de temps après l'accouchement a eu lieu le premier contrôle de la mère - unité,7572,97.2,4
+wm,PN22N,haven_labelled,TRUE,2,Combien de temps après l'accouchement a eu lieu le premier contrôle de la mère - numéro,7572,97.2,15
+wm,PN23A,haven_labelled,TRUE,2,Personne vérifiant la santé de la mère : Médecin,0,0,2
+wm,PN23B,haven_labelled,TRUE,2,Personne vérifiant la santé de la mère : Infirmière/sage-femme,0,0,2
+wm,PN23F,haven_labelled,TRUE,2,Personne vérifiant la santé de la mère : Accoucheuse traditionnelle,0,0,2
+wm,PN23H,haven_labelled,TRUE,2,Personne vérifiant la santé de la mère : Parent/ami,0,0,1
+wm,PN23X,haven_labelled,TRUE,2,Personne vérifiant la santé de la mère : Autre,0,0,1
+wm,PN23NR,haven_labelled,TRUE,1,Personne vérifiant la santé de la mère : Pas de réponse,0,0,1
+wm,PN24,haven_labelled,TRUE,10,Lieu où la santé de la mère a été contrôlée,7572,97.2,7
+wm,PN25A,haven_labelled,TRUE,4,Pendant les deux jours suivant la naissance : prestataire de soins examine le cordon,7157,91.87,5
+wm,PN25B,haven_labelled,TRUE,4,Pendant les deux jours suivant la naissance : prestataire de soins prend la température,7157,91.87,5
+wm,PN25C,haven_labelled,TRUE,4,Pendant les deux jours suivant la naissance : prestataire de soins donne des conseils sur l’allaitement maternel,7157,91.87,5
+wm,PN27,haven_labelled,TRUE,4,Pendant les deux jours suivant la naissance : prestataire de soins observe l'allaitement de l'enfant.,7202,92.45,4
+wm,PN29,haven_labelled,TRUE,3,Pendant les deux jours suivant la naissance : prestataire de soins a pesé à nouveau l'enfant.,7157,91.87,4
+wm,PN30,haven_labelled,TRUE,3,Pendant les deux jours suivant la naissance : prestataire de soins a donné des informations sur les symptômes,7157,91.87,4
+wm,CP1,haven_labelled,TRUE,4,Actuellement enceinte,4062,52.14,5
+wm,CP2,haven_labelled,TRUE,3,Utilise actuellement une méthode pour éviter une grossesse,4224,54.22,4
+wm,CP3,haven_labelled,TRUE,3,Avez-vous déjà utilisé une méthode pour éviter une grossesse,6077,78.01,4
+wm,CP4A,haven_labelled,TRUE,2,Méthode actuelle : Stérilisation féminine,0,0,3
+wm,CP4B,haven_labelled,TRUE,2,Méthode actuelle : Stérilisation masculine,0,0,3
+wm,CP4C,haven_labelled,TRUE,2,Méthode actuelle : DIU,0,0,3
+wm,CP4D,haven_labelled,TRUE,2,Méthode actuelle : Injectables,0,0,3
+wm,CP4E,haven_labelled,TRUE,2,Méthode actuelle : Implants,0,0,3
+wm,CP4F,haven_labelled,TRUE,2,Méthode actuelle : Pilule,0,0,3
+wm,CP4G,haven_labelled,TRUE,2,Méthode actuelle : Préservatif masculin,0,0,3
+wm,CP4H,haven_labelled,TRUE,2,Méthode actuelle : Préservatif féminin,0,0,3
+wm,CP4I,haven_labelled,TRUE,2,Méthode actuelle : Diaphragme,0,0,3
+wm,CP4J,haven_labelled,TRUE,2,Méthode actuelle : Mousse / Gelée,0,0,3
+wm,CP4K,haven_labelled,TRUE,2,Méthode de l'aménorrhée lactationnelle (MAMA),0,0,3
+wm,CP4L,haven_labelled,TRUE,2,Méthode actuelle : Abstinence périodique / Rythme,0,0,3
+wm,CP4M,haven_labelled,TRUE,2,Méthode actuelle : Retrait,0,0,3
+wm,CP4X,haven_labelled,TRUE,2,Méthode actuelle : Autre,0,0,3
+wm,CP4NR,haven_labelled,TRUE,1,Méthode actuelle : Non réponse,0,0,2
+wm,UN2,haven_labelled,TRUE,3,Je voulais tomber enceinte à ce moment-là,7628,97.92,3
+wm,UN4,haven_labelled,TRUE,3,Je voulais bébé plus tard ou je ne voulais pas d'autres enfants,7749,99.47,3
+wm,UN5,haven_labelled,TRUE,4,J'aimerais avoir un autre enfant (actuellement enceinte),7628,97.92,4
+wm,UN7,haven_labelled,TRUE,5,J'aimerais avoir un autre enfant (pas actuellement enceinte),4282,54.97,6
+wm,UN8U,haven_labelled,TRUE,3,Temps d'attente souhaité (unité),7192,92.32,4
+wm,UN8N,haven_labelled,TRUE,5,Temps d'attente souhaité (nombre),7192,92.32,20
+wm,UN11,haven_labelled,TRUE,4,Capable de tomber enceinte,6416,82.36,5
+wm,UN12A,haven_labelled,TRUE,2,Raison : Rapports sexuels peu fréquents / Pas de sexe,0,0,3
+wm,UN12B,haven_labelled,TRUE,2,Raison : Ménopause,0,0,3
+wm,UN12C,haven_labelled,TRUE,2,Raison : Jamais eu ses règles,0,0,3
+wm,UN12D,haven_labelled,TRUE,2,Raison : Hystérectomie,0,0,3
+wm,UN12E,haven_labelled,TRUE,2,Raison : J'essaie de tomber enceinte depuis 2 ans ou plus sans résultat,0,0,3
+wm,UN12F,haven_labelled,TRUE,2,Raison : aménorrhée post-partum,0,0,3
+wm,UN12G,haven_labelled,TRUE,2,Raison : Allaitement,0,0,3
+wm,UN12H,haven_labelled,TRUE,2,Raison : Trop vieux,0,0,3
+wm,UN12I,haven_labelled,TRUE,2,Raison : Fataliste,0,0,3
+wm,UN12X,haven_labelled,TRUE,2,Raison : Autre,0,0,3
+wm,UN12Z,haven_labelled,TRUE,2,Raison : NSP,0,0,3
+wm,UN12NR,haven_labelled,TRUE,1,Raison : Non réponse,0,0,2
+wm,UN14U,haven_labelled,TRUE,5,Début des dernières règles - unité,661,8.49,6
+wm,UN14N,haven_labelled,TRUE,4,Début des dernières règles - nombre,661,8.49,36
+wm,UN16,haven_labelled,TRUE,4,"Activités sociales, journées d'école ou de travail non fréquentées en raison de la menstruation",956,12.27,5
+wm,UN17,haven_labelled,TRUE,4,Disponibilité d'un endroit privé pour se laver pendant les dernières règles,956,12.27,5
+wm,UN18,haven_labelled,TRUE,4,"Utilisation de matériaux tels que des serviettes hygiéniques, des tampons ou des chiffons",956,12.27,5
+wm,UN19,haven_labelled,TRUE,4,Matériaux réutilisables,1478,18.97,4
+wm,DV1A,haven_labelled,TRUE,4,Si elle sort sans en parler à son mari : les coups sur la femme sont justifiés,650,8.34,5
+wm,DV1B,haven_labelled,TRUE,4,Si elle néglige les enfants : les coups sur la femme sont justifiés,650,8.34,5
+wm,DV1C,haven_labelled,TRUE,4,Si elle se dispute avec son mari : les coups sur la femme sont justifiés,650,8.34,5
+wm,DV1D,haven_labelled,TRUE,4,Si elle refuse d’avoir des relations sexuelles avec son mari : les coups sur la femme sont justifiés,650,8.34,5
+wm,DV1E,haven_labelled,TRUE,4,Si elle brûle la nourriture : les coups sur la femme sont justifiés,650,8.34,5
+wm,VT1,haven_labelled,TRUE,4,"Quelqu'un a pris ou essayé de prendre quelque chose, en recourant à la force ou en menaçant de recourir à la force",650,8.34,5
+wm,VT2,haven_labelled,TRUE,4,La victimisation s'est produite au cours des 12 derniers mois,7658,98.31,5
+wm,VT3,haven_labelled,TRUE,5,Nombre de cas de victimisation survenues au cours de la dernière année,7717,99.06,4
+wm,VT5,haven_labelled,TRUE,4,"La dernière fois que cela s'est produit, quelque chose a-t-il été volé",7658,98.31,4
+wm,VT6,haven_labelled,TRUE,4,La ou les personnes possédaient une arme,7658,98.31,4
+wm,VT7A,haven_labelled,TRUE,2,"Le(s) assaillant(s) avaient un couteau, une arme à feu ou autre chose utilisé comme arme : Un couteau",0,0,3
+wm,VT7B,haven_labelled,TRUE,2,"Le(s) assaillant(s) avaient un couteau, une arme à feu ou autre chose utilisé comme arme : Une arme à feu",0,0,2
+wm,VT7X,haven_labelled,TRUE,2,"Le(s) assaillant(s) avaient un couteau, une arme à feu ou autre chose utilisé comme arme : Autre arme",0,0,2
+wm,VT7NR,haven_labelled,TRUE,1,"Le(s) assaillant(s) avaient un couteau, une arme à feu ou autre chose utilisé comme arme : Non réponse",0,0,2
+wm,VT8,haven_labelled,TRUE,5,Incident signalé à la police,7658,98.31,5
+wm,VT9,haven_labelled,TRUE,4,Agressé physiquement,650,8.34,5
+wm,VT10,haven_labelled,TRUE,4,L'attaque a eu lieu au cours des 12 derniers mois,7724,99.15,4
+wm,VT11,haven_labelled,TRUE,5,Nombre de fois où l'attaque s'est produite au cours de la dernière année,7754,99.54,6
+wm,VT12,haven_labelled,TRUE,10,Lieu de l'attaque de la dernière fois,7724,99.15,8
+wm,VT13,haven_labelled,TRUE,5,Nombre de personnes impliquées dans la réalisation de l'infraction,7724,99.15,6
+wm,VT14,haven_labelled,TRUE,4,Au moins un des délinquants reconnus au moment de l'incident,7724,99.15,4
+wm,VT17,haven_labelled,TRUE,4,La ou les personnes possédaient une arme,7724,99.15,5
+wm,VT18A,haven_labelled,TRUE,2,"Le(s) délinquant(s) avaient un couteau, une arme à feu ou autre chose utilisé comme arme : Un couteau",0,0,2
+wm,VT18B,haven_labelled,TRUE,2,"Le ou les délinquants avaient un couteau, une arme à feu ou autre chose comme arme : Une arme à feu",0,0,1
+wm,VT18X,haven_labelled,TRUE,2,"Le ou les délinquants avaient un couteau, une arme à feu ou autre chose comme arme : Autre arme",0,0,2
+wm,VT18NR,haven_labelled,TRUE,1,"Le(s) délinquant(s) avaient un couteau, une arme à feu ou autre chose utilisé comme arme : Non réponse",0,0,1
+wm,VT19,haven_labelled,TRUE,5,Incident signalé à la police,7724,99.15,6
+wm,VT20,haven_labelled,TRUE,6,Se sentir en sécurité en marchant seul dans le quartier pendant la nuit,650,8.34,7
+wm,VT21,haven_labelled,TRUE,6,Se sentir en sécurité seul à la maison après la tombée de la nuit,650,8.34,7
+wm,VT22A,haven_labelled,TRUE,4,"Au cours des 12 derniers mois, vous vous êtes senti discriminé : Origine ethnique ou issue de l'immigration",650,8.34,5
+wm,VT22B,haven_labelled,TRUE,4,"Au cours des 12 derniers mois, vous vous êtes senti discriminé : Sexe",650,8.34,5
+wm,VT22C,haven_labelled,TRUE,4,"Au cours des 12 derniers mois, vous vous êtes senti discriminé : Orientation sexuelle",650,8.34,5
+wm,VT22D,haven_labelled,TRUE,4,"Au cours des 12 derniers mois, vous vous êtes senti victime de discrimination : Âge",650,8.34,5
+wm,VT22E,haven_labelled,TRUE,4,"Au cours des 12 derniers mois, vous vous êtes senti discriminé : Religion ou conviction",650,8.34,5
+wm,VT22F,haven_labelled,TRUE,4,"Au cours des 12 derniers mois, vous vous êtes senti discriminé : Handicap",650,8.34,5
+wm,VT22X,haven_labelled,TRUE,4,"Au cours des 12 derniers mois, vous vous êtes senti discriminé : Toute autre raison",650,8.34,5
+wm,AF2,haven_labelled,TRUE,3,Utilise des lunettes ou des lentilles de contact,1325,17.01,4
+wm,AF3,haven_labelled,TRUE,3,Utilise une aide auditive,1325,17.01,4
+wm,AF6,haven_labelled,TRUE,5,"Difficulté à voir, même si vous portez des lunettes ou des lentilles de contact",1325,17.01,6
+wm,AF8,haven_labelled,TRUE,5,"Difficulté à entendre, même si vous utilisez un appareil auditif",1325,17.01,6
+wm,AF9,haven_labelled,TRUE,5,Difficulté à marcher ou à monter les escaliers,1325,17.01,6
+wm,AF10,haven_labelled,TRUE,5,Difficulté à se souvenir ou à se concentrer,1325,17.01,6
+wm,AF11,haven_labelled,TRUE,5,"Difficulté à prendre soin de soi, comme se laver partout ou s'habiller",1325,17.01,6
+wm,AF12,haven_labelled,TRUE,4,Difficulté à communiquer,1325,17.01,5
+wm,HA1,haven_labelled,TRUE,3,Avez-vous déjà entendu parler du VIH ou du SIDA,650,8.34,4
+wm,HA2,haven_labelled,TRUE,4,Peut éviter le VIH en ayant un partenaire non infecté,1862,23.9,5
+wm,HA3,haven_labelled,TRUE,4,Peut contracter le VIH à cause des piqûres de moustiques,1862,23.9,5
+wm,HA4,haven_labelled,TRUE,4,Peut éviter le VIH en utilisant correctement un préservatif à chaque fois,1862,23.9,5
+wm,HA5,haven_labelled,TRUE,4,Peut contracter le VIH en partageant de la nourriture avec une personne séropositive,1862,23.9,5
+wm,HA6,haven_labelled,TRUE,4,Peut contracter le VIH par des moyens surnaturels,1862,23.9,5
+wm,HA7,haven_labelled,TRUE,4,Une personne d’apparence saine peut être séropositive,1862,23.9,5
+wm,HA8A,haven_labelled,TRUE,4,Le VIH de la mère à l'enfant pendant la grossesse,1862,23.9,5
+wm,HA8B,haven_labelled,TRUE,4,Le VIH de la mère à l'enfant pendant l'accouchement,1862,23.9,5
+wm,HA8C,haven_labelled,TRUE,4,Le VIH de la mère à l'enfant par l'allaitement,1862,23.9,5
+wm,HA10,haven_labelled,TRUE,4,Connaître les médicaments utilisés pour réduire le risque de transmission au bébé,3902,50.09,5
+wm,HA13A,haven_labelled,TRUE,4,Information sur le VIH reçue lors d'une visite de soins prénatals : VIH de la mère,7296,93.66,5
+wm,HA13B,haven_labelled,TRUE,4,Recevoir des informations sur le VIH lors de la visite de soins prénatals : Choses à faire,7296,93.66,5
+wm,HA13C,haven_labelled,TRUE,4,Recevoir des informations sur le VIH lors de la visite de soins prénatals : Dépisté pour le VIH,7296,93.66,5
+wm,HA13D,haven_labelled,TRUE,4,Recevoir des informations Ayant reçu des informations sur le VIH lors de la visite de soins prénatals : On lui a proposé un test,7296,93.66,5
+wm,HA14,haven_labelled,TRUE,4,Testé pour le VIH dans le cadre des soins prénatals,7296,93.66,5
+wm,HA15,haven_labelled,TRUE,4,Résultats reçus des tests pendant les soins prénatals,7750,99.49,3
+wm,HA16,haven_labelled,TRUE,4,A reçu une consultation après un test pendant les soins prénatals,7753,99.53,3
+wm,HA18,haven_labelled,TRUE,3,Test de dépistage du VIH proposé avant l'accouchement,7266,93.27,4
+wm,HA19,haven_labelled,TRUE,4,Testé pour le VIH lors de l'accouchement,7266,93.27,5
+wm,HA20,haven_labelled,TRUE,3,Résultats des tests reçus lors de  l'accouchement,7769,99.73,3
+wm,HA22,haven_labelled,TRUE,3,Testé pour le VIH depuis le test pendant la grossesse,7742,99.38,3
+wm,HA23,haven_labelled,TRUE,4,Moment le plus récent du test de dépistage du VIH,7750,99.49,5
+wm,HA24,haven_labelled,TRUE,3,A déjà été testé pour le VIH,1910,24.52,4
+wm,HA25,haven_labelled,TRUE,4,Moment le plus récent du test de dépistage du VIH,7540,96.79,5
+wm,HA26,haven_labelled,TRUE,4,Réception des résultats du test VIH,7540,96.79,5
+wm,HA27,haven_labelled,TRUE,3,Connaître un endroit pour passer un test de dépistage du VIH,2152,27.63,4
+wm,HA28,haven_labelled,TRUE,3,J'ai entendu parler d'un kit de test pour le dépistage du VIH,1862,23.9,4
+wm,HA29,haven_labelled,TRUE,3,Vous êtes-vous déjà testé à l'aide d'un kit de test,7276,93.4,4
+wm,HA30,haven_labelled,TRUE,4,Achèterait des légumes frais à un commerçant atteint du virus du SIDA,1862,23.9,5
+wm,HA31,haven_labelled,TRUE,4,Les enfants vivant avec le VIH devraient être autorisés à fréquenter l'école avec d'autres enfants,1862,23.9,5
+wm,HA32,haven_labelled,TRUE,4,Les gens hésitent à faire un test de dépistage du VIH parce qu’ils ont peur de la réaction des autres si le résultat du test est positif.,1862,23.9,5
+wm,HA33,haven_labelled,TRUE,4,"Les gens parlent en mal des personnes vivant avec le VIH, ou dont on pense qu'elles vivent avec le VIH.",1862,23.9,5
+wm,HA34,haven_labelled,TRUE,4,"Les personnes vivant avec le VIH, ou soupçonnées de vivre avec le VIH, perdent le respect des autres",1862,23.9,5
+wm,HA35,haven_labelled,TRUE,4,D'accord avec l'énoncé suivant : J'aurais honte si un membre de ma famille était atteint du VIH,1862,23.9,5
+wm,HA36,haven_labelled,TRUE,5,Peur de contracter le VIH par contact avec la salive d'une personne vivant avec le VIH,1862,23.9,6
+wm,TA1,haven_labelled,TRUE,3,Avez-vous déjà essayé de fumer la cigarette,650,8.34,4
+wm,TA2,haven_labelled,TRUE,2,Âge auquel la cigarette a été fumée pour la première fois,7565,97.11,33
+wm,TA3,haven_labelled,TRUE,3,Je fume actuellement des cigarettes,7580,97.3,3
+wm,TA4,haven_labelled,TRUE,1,Nombre de cigarettes fumées au cours des dernières 24 heures,7723,99.14,23
+wm,TA5,haven_labelled,TRUE,3,Nombre de jours pendant lesquels des cigarettes ont été fumées au cours du mois dernier,7723,99.14,6
+wm,TA6,haven_labelled,TRUE,3,Avez-vous déjà essayé des produits du tabac fumés autres que les cigarettes,650,8.34,4
+wm,TA7,haven_labelled,TRUE,3,Vous avez consommé des produits du tabac fumés au cours du mois dernier,7641,98.09,3
+wm,TA8A,haven_labelled,TRUE,2,Type de produit du tabac fumé : Cigares,0,0,2
+wm,TA8B,haven_labelled,TRUE,2,Type de produit du tabac fumé : Pipe à eau,0,0,2
+wm,TA8C,haven_labelled,TRUE,2,Type de produit du tabac fumé : Cigarillos,0,0,2
+wm,TA8D,haven_labelled,TRUE,2,Type de produit du tabac fumé : Pipe,0,0,2
+wm,TA8X,haven_labelled,TRUE,2,Type de produit du tabac fumé : Autre,0,0,2
+wm,TA8NR,haven_labelled,TRUE,1,Type de produit du tabac fumé : Non réponse,0,0,1
+wm,TA9,haven_labelled,TRUE,3,Nombre de jours pendant lesquels des produits du tabac ont été fumés au cours du mois dernier,7771,99.76,9
+wm,TA10,haven_labelled,TRUE,3,Avez-vous déjà essayé n'importe quelle forme de produits du tabac sans fumée,650,8.34,4
+wm,TA11,haven_labelled,TRUE,3,Vous avez utilisé des produits du tabac sans fumée au cours du mois dernier,7747,99.45,4
+wm,TA12B,haven_labelled,TRUE,2,Type de produit du tabac sans fumée utilisé : Tabac à chiquer,0,0,2
+wm,TA12X,haven_labelled,TRUE,2,Type de produit du tabac sans fumée utilisé : Autre,0,0,1
+wm,TA12NR,haven_labelled,TRUE,1,Type de produit du tabac sans fumée utilisé : Non réponse,0,0,1
+wm,TA13,haven_labelled,TRUE,3,Nombre de jours pendant lesquels des produits du tabac sans fumée ont été consommés au cours du mois dernier,7786,99.95,3
+wm,TA14,haven_labelled,TRUE,3,Avez-vous déjà bu de l'alcool,650,8.34,4
+wm,TA15,haven_labelled,TRUE,2,Âge auquel l'alcool a été consommé pour la première fois,7747,99.45,16
+wm,TA16,haven_labelled,TRUE,4,Nombre de jours où au moins une boisson alcoolisée a été consommée au cours du mois dernier,7748,99.46,5
+wm,TA17,haven_labelled,TRUE,1,Nombre de boissons habituellement consommées,7783,99.91,5
+wm,HH4,numeric,FALSE,0,Numéro chef d'équipe,650,8.34,25
+wm,HH6,haven_labelled,TRUE,2,Milieu de résidence,650,8.34,3
+wm,HH7,haven_labelled,TRUE,7,Region,650,8.34,8
+wm,WDOI,numeric,FALSE,0,Date de l’interview de la femme (CMC),650,8.34,3
+wm,WDOB,numeric,FALSE,0,Date de naissance de la femme (CMC),650,8.34,421
+wm,WAGE,haven_labelled,TRUE,7,Age,650,8.34,8
+wm,WDOM,numeric,FALSE,0,Date de mariage de femme (CMC),3830,49.17,370
+wm,WAGEM,numeric,FALSE,0,Age au premier mariage/union de la femme,3830,49.17,40
+wm,WDOBFC,numeric,FALSE,0,Date de naissance du premier enfant (CMC),4182,53.68,368
+wm,WDOBLC,numeric,FALSE,0,Date de naissance du dernier enfant (CMC),4182,53.68,292
+wm,BH3_FIRST,haven_labelled,TRUE,3,Sexe du premier enfant,4182,53.68,3
+wm,BH3_LAST,haven_labelled,TRUE,3,Sexe du dernier enfant,4182,53.68,3
+wm,MSTATUS,haven_labelled,TRUE,3,Situation matrimoniale de la femme,650,8.34,5
+wm,CEB,numeric,FALSE,0,Enfants nés au total,650,8.34,12
+wm,CSURV,numeric,FALSE,0,Enfants en vie,650,8.34,12
+wm,CDEAD,numeric,FALSE,0,Enfants morts,650,8.34,6
+wm,AE10,haven_labelled,TRUE,4,Accès à l'assurance maladie,650,8.34,5
+wm,insurance,haven_labelled,TRUE,3,Assurance maladie,650,8.34,4
+wm,disability,haven_labelled,TRUE,2,Difficultés fonctionnelles (âge 18-49 ans),1325,17.01,3
+wm,welevel,haven_labelled,TRUE,5,Éducation,650,8.34,5
+wm,wmweight,numeric,FALSE,0,Poids de l'échantillon de la femme,0,0,91
+wm,wscore,numeric,FALSE,0,Score de richesse combiné,0,0,5519
+wm,windex5,haven_labelled,TRUE,5,Quintile de l’indice de richesse,0,0,6
+wm,windex10,haven_labelled,TRUE,10,Décile de l’indice de richesse,0,0,11
+wm,wscoreu,numeric,FALSE,0,Score de richesse urbaine,2721,34.93,3413
+wm,windex5u,haven_labelled,TRUE,5,Quintile de l’indice de richesse urbaine,2721,34.93,7
+wm,windex10u,haven_labelled,TRUE,10,Décile de l’indice de richesse urbaine,2721,34.93,12
+wm,wscorer,numeric,FALSE,0,Score de richesse rurale,4419,56.73,2109
+wm,windex5r,haven_labelled,TRUE,5,Quintile de l’indice de richesse rurale,4419,56.73,7
+wm,windex10r,haven_labelled,TRUE,10,Décile de l’indice de richesse rurale,4419,56.73,12
+wm,PSU,numeric,FALSE,0,Unité d'échantillonnage primaire,0,0,500
+wm,stratum,numeric,FALSE,0,Strate,0,0,46
