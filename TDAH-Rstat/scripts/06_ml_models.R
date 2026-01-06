@@ -14,10 +14,10 @@ gc()
 
 # Charger les bibliothèques
 library(tidyverse)
-library(randomForest)  # Random Forest
-library(caret)         # Pour la validation croisée et les métriques
-library(pROC)          # Pour les courbes ROC
-library(ggplot2)       # Visualisations
+library(randomForest) # Random Forest
+library(caret) # Pour la validation croisée et les métriques
+library(pROC) # Pour les courbes ROC
+library(ggplot2) # Visualisations
 
 project_root <- getwd()
 
@@ -102,10 +102,16 @@ cat("   - Ensemble de test:", nrow(test_data), "observations\n\n")
 
 # Vérifier l'équilibre des classes dans les deux ensembles
 cat("Distribution dans l'ensemble d'entraînement:\n")
-table(train_data$risque_tdah_eleve) %>% prop.table() %>% round(3) %>% print()
+table(train_data$risque_tdah_eleve) %>%
+  prop.table() %>%
+  round(3) %>%
+  print()
 
 cat("\nDistribution dans l'ensemble de test:\n")
-table(test_data$risque_tdah_eleve) %>% prop.table() %>% round(3) %>% print()
+table(test_data$risque_tdah_eleve) %>%
+  prop.table() %>%
+  round(3) %>%
+  print()
 cat("\n\n")
 
 # 4. MODÈLE 1: RANDOM FOREST ==================================================
@@ -122,9 +128,9 @@ rf_model <- randomForest(
   risque_tdah_eleve ~ age_annees + milieu + richesse_cat +
     educ_mere_cat + age_mere_cat + ordre_cat,
   data = train_data,
-  ntree = 500,           # Nombre d'arbres
-  mtry = 3,              # Nombre de variables par split
-  importance = TRUE,     # Calculer l'importance des variables
+  ntree = 500, # Nombre d'arbres
+  mtry = 3, # Nombre de variables par split
+  importance = TRUE, # Calculer l'importance des variables
   proximity = FALSE
 )
 
@@ -229,8 +235,9 @@ roc_plot <- ggroc(roc_rf) +
     title = "Courbe ROC - Random Forest",
     x = "1 - Spécificité (Faux Positifs)",
     y = "Sensibilité (Vrais Positifs)",
-    subtitle = paste("AUC =", round(auc_roc), 3))
-  ) +
+    subtitle = paste("AUC =", round(auc_roc), 3)
+  )
++
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5, face = "bold"))
 
@@ -246,9 +253,9 @@ cat("⏳ Exécution de la validation croisée 5-fold...\n")
 
 # Configuration de la validation croisée
 train_control <- trainControl(
-  method = "cv",               # Validation croisée
-  number = 5,                  # 5 folds
-  classProbs = TRUE,           # Calculer les probabilités
+  method = "cv", # Validation croisée
+  number = 5, # 5 folds
+  classProbs = TRUE, # Calculer les probabilités
   summaryFunction = twoClassSummary,
   savePredictions = "final"
 )
@@ -408,7 +415,9 @@ cat(strrep("-", 70), "\n")
 top3 <- importance_rf %>% slice_head(n = 3)
 for (i in 1:3) {
   cat("  ", i, ". ", top3$Variable[i], " (",
-      round(top3$MeanDecreaseGini[i], 2), ")\n", sep = "")
+    round(top3$MeanDecreaseGini[i], 2), ")\n",
+    sep = ""
+  )
 }
 
 cat("\n")
