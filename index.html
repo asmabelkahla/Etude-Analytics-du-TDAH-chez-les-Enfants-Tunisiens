@@ -405,7 +405,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"# Pipeline d'analyse - Version haute qualité\nlibrary(graphics)\n\n# Définir les étapes du pipeline\netapes <- list(\n  list(nom = \"Données brutes\\nMICS6 .sav\", x = 1, y = 2, couleur = \"#e1f5ff\"),\n  list(nom = \"01: Import\\nSPSS\", x = 2.5, y = 2, couleur = \"#ffffff\"),\n  list(nom = \"02: Nettoyage\", x = 4, y = 2, couleur = \"#ffffff\"),\n  list(nom = \"03: Feature\\nEngineering\", x = 5.5, y = 2, couleur = \"#ffffff\"),\n  list(nom = \"04: Analyses\\nDescriptives\", x = 7, y = 3, couleur = \"#ffffff\"),\n  list(nom = \"05: Score de\\nRisque\", x = 7, y = 1, couleur = \"#ffffff\"),\n  list(nom = \"06: Modèles ML\\nRandom Forest\", x = 8.5, y = 2, couleur = \"#ffeaa7\"),\n  list(nom = \"Rapport Final\", x = 10, y = 2, couleur = \"#d4edda\")\n)\n\n# Créer le graphique avec fond blanc\npar(mar = c(2, 2, 4, 2), bg = \"white\")\nplot(0, 0, type = \"n\", xlim = c(0, 11), ylim = c(0, 4),\n     xlab = \"\", ylab = \"\", axes = FALSE, asp = 1,\n     main = \"Pipeline d'Analyse du Projet TDAH\",\n     cex.main = 1.5, font.main = 2, col.main = \"#2c3e50\")\n\n# Dessiner un fond léger\nrect(0, 0, 11, 4, col = \"#f8f9fa\", border = NA)\n\n# Définir les connexions\nconnexions <- list(\n  c(1, 2), c(2, 3), c(3, 4),\n  c(4, 5), c(4, 6), c(6, 7),\n  c(5, 8), c(7, 8)\n)\n\n# Dessiner les flèches avec style amélioré\nfor (conn in connexions) {\n  x1 <- etapes[[conn[1]]]$x\n  y1 <- etapes[[conn[1]]]$y\n  x2 <- etapes[[conn[2]]]$x\n  y2 <- etapes[[conn[2]]]$y\n\n  # Calculer les points de début et fin (bords des boîtes)\n  dx <- x2 - x1\n  dy <- y2 - y1\n  dist <- sqrt(dx^2 + dy^2)\n\n  if (dist > 0) {\n    offset_x <- 0.6 * dx / dist\n    offset_y <- 0.35 * dy / dist\n\n    x1_adj <- x1 + offset_x\n    y1_adj <- y1 + offset_y\n    x2_adj <- x2 - offset_x\n    y2_adj <- y2 - offset_y\n\n    arrows(x1_adj, y1_adj, x2_adj, y2_adj,\n           length = 0.15, lwd = 3, col = \"#3498db\",\n           angle = 20, code = 2)\n  }\n}\n\n# Dessiner les boîtes avec ombre\nfor (i in 1:length(etapes)) {\n  etape <- etapes[[i]]\n\n  # Ombre portée\n  rect(etape$x - 0.55, etape$y - 0.32,\n       etape$x + 0.55, etape$y + 0.32,\n       col = \"#00000020\", border = NA)\n\n  # Boîte principale\n  rect(etape$x - 0.6, etape$y - 0.35,\n       etape$x + 0.6, etape$y + 0.35,\n       col = etape$couleur,\n       border = \"#2c3e50\",\n       lwd = 2.5)\n\n  # Texte\n  text(etape$x, etape$y, etape$nom,\n       cex = 0.75, font = 2, col = \"#2c3e50\")\n}\n\n# Légende améliorée\nlegend(\"bottom\",\n       legend = c(\"Données d'entrée\", \"Modèles ML\", \"Résultat final\"),\n       fill = c(\"#e1f5ff\", \"#ffeaa7\", \"#d4edda\"),\n       border = \"#2c3e50\",\n       cex = 0.9,\n       pt.cex = 2,\n       bty = \"o\",\n       bg = \"white\",\n       box.lwd = 2,\n       box.col = \"#2c3e50\",\n       horiz = TRUE)","id":1,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"echo":"false","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"# Créer des données d'exemple (similaires à votre étude)\nset.seed(123)\nn <- 500\n\ndata_tdah <- data.frame(\n  milieu = sample(c(\"Urbain\", \"Rural\"), n, replace = TRUE, prob = c(0.6, 0.4)),\n  richesse = factor(sample(1:5, n, replace = TRUE),\n                    labels = c(\"Q1 (Pauvre)\", \"Q2\", \"Q3\", \"Q4\", \"Q5 (Riche)\")),\n  score_tdah = round(rnorm(n, mean = 25, sd = 12), 1)\n)\n\npar(mar = c(5, 5, 4, 2), bg = \"white\", family = \"sans\")\n\nboxplot(data_tdah$score_tdah,\n        main = \"Distribution du Score de Risque TDAH\",\n        ylab = \"Score TDAH (0–100)\",\n        col = \"#3498db\",\n        border = \"#2c3e50\",\n        horizontal = FALSE,\n        las = 1)\n\n# Seuils de risque\nabline(h = 20, col = \"#f39c12\", lty = 2, lwd = 2)\nabline(h = 40, col = \"#e74c3c\", lty = 2, lwd = 2)\n\nlegend(\"topright\",\n       legend = c(\"Seuil Moyen (20)\", \"Seuil Élevé (40)\"),\n       col = c(\"#f39c12\", \"#e74c3c\"),\n       lty = 2, lwd = 2,\n       bty = \"n\")\n\n# Ajouter un cadre pour les statistiques\nmtext(paste0(\"Moyenne: \", round(mean(data_tdah$score_tdah), 2),\n             \" | % Risque Élevé: \", round(sum(data_tdah$score_tdah >= 40)/n*100, 1), \"%\"),\n      side = 3, line = 0.5, cex = 0.9, col = \"#2c3e50\")","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"echo":"false","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"# Boxplot par milieu avec style amélioré\npar(mar = c(5, 5, 4, 2), bg = \"white\", family = \"sans\")\nboxplot(score_tdah ~ milieu,\n        data = data_tdah,\n        main = \"Score TDAH: Urbain vs Rural\",\n        xlab = \"Milieu de Résidence\",\n        ylab = \"Score TDAH\",\n        col = c(\"#74b9ff\", \"#55efc4\"),\n        border = c(\"#0984e3\", \"#00b894\"),\n        notch = TRUE,\n        las = 1,\n        lwd = 2,\n        cex.main = 1.4,\n        cex.lab = 1.1,\n        cex.axis = 1,\n        boxwex = 0.6)\n\n# Ligne de seuil\nabline(h = 40, col = \"#e74c3c\", lty = 2, lwd = 3)\n\n# Légende\nlegend(\"topleft\",\n       legend = \"Seuil Risque Élevé (40)\",\n       col = \"#e74c3c\",\n       lty = 2, lwd = 3,\n       bty = \"n\",\n       cex = 1.1)\n\n# Statistiques en bas\nmoyennes <- aggregate(score_tdah ~ milieu, data = data_tdah, FUN = mean)\nmtext(paste0(\"Moyennes - Urbain: \", round(moyennes[2,2], 1),\n             \" | Rural: \", round(moyennes[1,2], 1)),\n      side = 3, line = 0.5, cex = 0.9, col = \"#2c3e50\")","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"echo":"false","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"# Boxplot par quintile de richesse avec style amélioré\npar(mar = c(7, 5, 4, 2), bg = \"white\", family = \"sans\")\n\n# Couleurs en gradient\ncouleurs_gradient <- c(\"#e74c3c\", \"#e67e22\", \"#f39c12\", \"#2ecc71\", \"#27ae60\")\n\nboxplot(score_tdah ~ richesse,\n        data = data_tdah,\n        main = \"Score TDAH par Quintile de Richesse\",\n        xlab = \"\",\n        ylab = \"Score TDAH\",\n        col = couleurs_gradient,\n        border = c(\"#c0392b\", \"#d35400\", \"#f39c12\", \"#27ae60\", \"#229954\"),\n        las = 2,\n        lwd = 2,\n        cex.main = 1.4,\n        cex.lab = 1.1,\n        cex.axis = 0.9,\n        boxwex = 0.7)\n\n# Titre de l'axe X\nmtext(\"Quintile de Richesse\", side = 1, line = 5.5, cex = 1.1)\n\n# Ligne de seuil\nabline(h = 40, col = \"#e74c3c\", lty = 2, lwd = 3)\n\n# Légende\nlegend(\"topright\",\n       legend = \"Seuil Risque Élevé (40)\",\n       col = \"#e74c3c\",\n       lty = 2, lwd = 3,\n       bty = \"n\",\n       cex = 1.1)\n\n# Ajouter grille légère\ngrid(nx = NA, ny = NULL, col = \"#00000010\", lty = 1)\n\n# Statistiques\nmoyennes <- aggregate(score_tdah ~ richesse, data = data_tdah, FUN = mean)\ncat(\"\\n📊 Gradient socio-économique clair:\\n\")\ncat(\"Q1 (Pauvre):\", round(moyennes[1,2], 1), \"→ Q5 (Riche):\", round(moyennes[5,2], 1), \"\\n\")","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"echo":"false","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-4","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
+globalThis.qwebrCellDetails = [{"code":"# Pipeline d'analyse - Version haute qualité\nlibrary(graphics)\n\n# Définir les étapes du pipeline\netapes <- list(\n  list(nom = \"Données brutes\\nMICS6 .sav\", x = 1, y = 2, couleur = \"#e1f5ff\"),\n  list(nom = \"01: Import\\nSPSS\", x = 2.5, y = 2, couleur = \"#ffffff\"),\n  list(nom = \"02: Nettoyage\", x = 4, y = 2, couleur = \"#ffffff\"),\n  list(nom = \"03: Feature\\nEngineering\", x = 5.5, y = 2, couleur = \"#ffffff\"),\n  list(nom = \"04: Analyses\\nDescriptives\", x = 7, y = 3, couleur = \"#ffffff\"),\n  list(nom = \"05: Score de\\nRisque\", x = 7, y = 1, couleur = \"#ffffff\"),\n  list(nom = \"06: Modèles ML\\nRandom Forest\", x = 8.5, y = 2, couleur = \"#ffeaa7\"),\n  list(nom = \"Rapport Final\", x = 10, y = 2, couleur = \"#d4edda\")\n)\n\n# Créer le graphique avec fond blanc\npar(mar = c(2, 2, 4, 2), bg = \"white\")\nplot(0, 0, type = \"n\", xlim = c(0, 11), ylim = c(0, 4),\n     xlab = \"\", ylab = \"\", axes = FALSE, asp = 1,\n     main = \"Pipeline d'Analyse du Projet TDAH\",\n     cex.main = 1.5, font.main = 2, col.main = \"#2c3e50\")\n\n# Dessiner un fond léger\nrect(0, 0, 11, 4, col = \"#f8f9fa\", border = NA)\n\n# Définir les connexions\nconnexions <- list(\n  c(1, 2), c(2, 3), c(3, 4),\n  c(4, 5), c(4, 6), c(6, 7),\n  c(5, 8), c(7, 8)\n)\n\n# Dessiner les flèches avec style amélioré\nfor (conn in connexions) {\n  x1 <- etapes[[conn[1]]]$x\n  y1 <- etapes[[conn[1]]]$y\n  x2 <- etapes[[conn[2]]]$x\n  y2 <- etapes[[conn[2]]]$y\n\n  # Calculer les points de début et fin (bords des boîtes)\n  dx <- x2 - x1\n  dy <- y2 - y1\n  dist <- sqrt(dx^2 + dy^2)\n\n  if (dist > 0) {\n    offset_x <- 0.6 * dx / dist\n    offset_y <- 0.35 * dy / dist\n\n    x1_adj <- x1 + offset_x\n    y1_adj <- y1 + offset_y\n    x2_adj <- x2 - offset_x\n    y2_adj <- y2 - offset_y\n\n    arrows(x1_adj, y1_adj, x2_adj, y2_adj,\n           length = 0.15, lwd = 3, col = \"#3498db\",\n           angle = 20, code = 2)\n  }\n}\n\n# Dessiner les boîtes avec ombre\nfor (i in 1:length(etapes)) {\n  etape <- etapes[[i]]\n\n  # Ombre portée\n  rect(etape$x - 0.55, etape$y - 0.32,\n       etape$x + 0.55, etape$y + 0.32,\n       col = \"#00000020\", border = NA)\n\n  # Boîte principale\n  rect(etape$x - 0.6, etape$y - 0.35,\n       etape$x + 0.6, etape$y + 0.35,\n       col = etape$couleur,\n       border = \"#2c3e50\",\n       lwd = 2.5)\n\n  # Texte\n  text(etape$x, etape$y, etape$nom,\n       cex = 0.75, font = 2, col = \"#2c3e50\")\n}\n\n# Légende améliorée\nlegend(\"bottom\",\n       legend = c(\"Données d'entrée\", \"Modèles ML\", \"Résultat final\"),\n       fill = c(\"#e1f5ff\", \"#ffeaa7\", \"#d4edda\"),\n       border = \"#2c3e50\",\n       cex = 0.9,\n       pt.cex = 2,\n       bty = \"o\",\n       bg = \"white\",\n       box.lwd = 2,\n       box.col = \"#2c3e50\",\n       horiz = TRUE)","id":1,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"echo":"false","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"# Créer des données d'exemple (similaires à votre étude)\nset.seed(123)\nn <- 500\n\ndata_tdah <- data.frame(\n  milieu = sample(c(\"Urbain\", \"Rural\"), n, replace = TRUE, prob = c(0.6, 0.4)),\n  richesse = factor(sample(1:5, n, replace = TRUE),\n                    labels = c(\"Q1 (Pauvre)\", \"Q2\", \"Q3\", \"Q4\", \"Q5 (Riche)\")),\n  score_tdah = round(rnorm(n, mean = 25, sd = 12), 1)\n)\n\npar(mar = c(5, 5, 4, 2), bg = \"white\", family = \"sans\")\n\nboxplot(score_tdah ~ milieu,\n        data = data_tdah,\n        main = \"Score de Risque TDAH selon le Milieu\",\n        ylab = \"Score TDAH\",\n        col = c(\"#1abc9c\", \"#9b59b6\"),\n        border = \"#2c3e50\",\n        las = 1)\n\nabline(h = 20, col = \"#f39c12\", lty = 2, lwd = 2)\nabline(h = 40, col = \"#e74c3c\", lty = 2, lwd = 2)\n\nlegend(\"topleft\",\n       legend = c(\"Urbain\", \"Rural\"),\n       fill = c(\"#1abc9c\", \"#9b59b6\"),\n       bty = \"n\")\n\n# Ajouter un cadre pour les statistiques\nmtext(paste0(\"Moyenne: \", round(mean(data_tdah$score_tdah), 2),\n             \" | % Risque Élevé: \", round(sum(data_tdah$score_tdah >= 40)/n*100, 1), \"%\"),\n      side = 3, line = 0.5, cex = 0.9, col = \"#2c3e50\")","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"echo":"false","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"# Boxplot par milieu avec style amélioré\npar(mar = c(5, 5, 4, 2), bg = \"white\", family = \"sans\")\nboxplot(score_tdah ~ milieu,\n        data = data_tdah,\n        main = \"Score TDAH: Urbain vs Rural\",\n        xlab = \"Milieu de Résidence\",\n        ylab = \"Score TDAH\",\n        col = c(\"#74b9ff\", \"#55efc4\"),\n        border = c(\"#0984e3\", \"#00b894\"),\n        notch = TRUE,\n        las = 1,\n        lwd = 2,\n        cex.main = 1.4,\n        cex.lab = 1.1,\n        cex.axis = 1,\n        boxwex = 0.6)\n\n# Ligne de seuil\nabline(h = 40, col = \"#e74c3c\", lty = 2, lwd = 3)\n\n# Légende\nlegend(\"topleft\",\n       legend = \"Seuil Risque Élevé (40)\",\n       col = \"#e74c3c\",\n       lty = 2, lwd = 3,\n       bty = \"n\",\n       cex = 1.1)\n\n# Statistiques en bas\nmoyennes <- aggregate(score_tdah ~ milieu, data = data_tdah, FUN = mean)\nmtext(paste0(\"Moyennes - Urbain: \", round(moyennes[2,2], 1),\n             \" | Rural: \", round(moyennes[1,2], 1)),\n      side = 3, line = 0.5, cex = 0.9, col = \"#2c3e50\")","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"echo":"false","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"# Boxplot par quintile de richesse avec style amélioré\npar(mar = c(7, 5, 4, 2), bg = \"white\", family = \"sans\")\n\n# Couleurs en gradient\ncouleurs_gradient <- c(\"#e74c3c\", \"#e67e22\", \"#f39c12\", \"#2ecc71\", \"#27ae60\")\n\nboxplot(score_tdah ~ richesse,\n        data = data_tdah,\n        main = \"Score TDAH par Quintile de Richesse\",\n        xlab = \"\",\n        ylab = \"Score TDAH\",\n        col = couleurs_gradient,\n        border = c(\"#c0392b\", \"#d35400\", \"#f39c12\", \"#27ae60\", \"#229954\"),\n        las = 2,\n        lwd = 2,\n        cex.main = 1.4,\n        cex.lab = 1.1,\n        cex.axis = 0.9,\n        boxwex = 0.7)\n\n# Titre de l'axe X\nmtext(\"Quintile de Richesse\", side = 1, line = 5.5, cex = 1.1)\n\n# Ligne de seuil\nabline(h = 40, col = \"#e74c3c\", lty = 2, lwd = 3)\n\n# Légende\nlegend(\"topright\",\n       legend = \"Seuil Risque Élevé (40)\",\n       col = \"#e74c3c\",\n       lty = 2, lwd = 3,\n       bty = \"n\",\n       cex = 1.1)\n\n# Ajouter grille légère\ngrid(nx = NA, ny = NULL, col = \"#00000010\", lty = 1)\n\n# Statistiques\nmoyennes <- aggregate(score_tdah ~ richesse, data = data_tdah, FUN = mean)\ncat(\"\\n📊 Gradient socio-économique clair:\\n\")\ncat(\"Q1 (Pauvre):\", round(moyennes[1,2], 1), \"→ Q5 (Riche):\", round(moyennes[5,2], 1), \"\\n\")","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"echo":"false","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-4","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
 
 </script>
 <script type="module">
@@ -3208,277 +3208,275 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <span id="cb2-240"><a href="#cb2-240" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-241"><a href="#cb2-241" aria-hidden="true" tabindex="-1"></a><span class="in">par(mar = c(5, 5, 4, 2), bg = "white", family = "sans")</span></span>
 <span id="cb2-242"><a href="#cb2-242" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-243"><a href="#cb2-243" aria-hidden="true" tabindex="-1"></a><span class="in">boxplot(data_tdah$score_tdah,</span></span>
-<span id="cb2-244"><a href="#cb2-244" aria-hidden="true" tabindex="-1"></a><span class="in">        main = "Distribution du Score de Risque TDAH",</span></span>
-<span id="cb2-245"><a href="#cb2-245" aria-hidden="true" tabindex="-1"></a><span class="in">        ylab = "Score TDAH (0–100)",</span></span>
-<span id="cb2-246"><a href="#cb2-246" aria-hidden="true" tabindex="-1"></a><span class="in">        col = "#3498db",</span></span>
-<span id="cb2-247"><a href="#cb2-247" aria-hidden="true" tabindex="-1"></a><span class="in">        border = "#2c3e50",</span></span>
-<span id="cb2-248"><a href="#cb2-248" aria-hidden="true" tabindex="-1"></a><span class="in">        horizontal = FALSE,</span></span>
+<span id="cb2-243"><a href="#cb2-243" aria-hidden="true" tabindex="-1"></a><span class="in">boxplot(score_tdah ~ milieu,</span></span>
+<span id="cb2-244"><a href="#cb2-244" aria-hidden="true" tabindex="-1"></a><span class="in">        data = data_tdah,</span></span>
+<span id="cb2-245"><a href="#cb2-245" aria-hidden="true" tabindex="-1"></a><span class="in">        main = "Score de Risque TDAH selon le Milieu",</span></span>
+<span id="cb2-246"><a href="#cb2-246" aria-hidden="true" tabindex="-1"></a><span class="in">        ylab = "Score TDAH",</span></span>
+<span id="cb2-247"><a href="#cb2-247" aria-hidden="true" tabindex="-1"></a><span class="in">        col = c("#1abc9c", "#9b59b6"),</span></span>
+<span id="cb2-248"><a href="#cb2-248" aria-hidden="true" tabindex="-1"></a><span class="in">        border = "#2c3e50",</span></span>
 <span id="cb2-249"><a href="#cb2-249" aria-hidden="true" tabindex="-1"></a><span class="in">        las = 1)</span></span>
 <span id="cb2-250"><a href="#cb2-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-251"><a href="#cb2-251" aria-hidden="true" tabindex="-1"></a><span class="in"># Seuils de risque</span></span>
-<span id="cb2-252"><a href="#cb2-252" aria-hidden="true" tabindex="-1"></a><span class="in">abline(h = 20, col = "#f39c12", lty = 2, lwd = 2)</span></span>
-<span id="cb2-253"><a href="#cb2-253" aria-hidden="true" tabindex="-1"></a><span class="in">abline(h = 40, col = "#e74c3c", lty = 2, lwd = 2)</span></span>
-<span id="cb2-254"><a href="#cb2-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-255"><a href="#cb2-255" aria-hidden="true" tabindex="-1"></a><span class="in">legend("topright",</span></span>
-<span id="cb2-256"><a href="#cb2-256" aria-hidden="true" tabindex="-1"></a><span class="in">       legend = c("Seuil Moyen (20)", "Seuil Élevé (40)"),</span></span>
-<span id="cb2-257"><a href="#cb2-257" aria-hidden="true" tabindex="-1"></a><span class="in">       col = c("#f39c12", "#e74c3c"),</span></span>
-<span id="cb2-258"><a href="#cb2-258" aria-hidden="true" tabindex="-1"></a><span class="in">       lty = 2, lwd = 2,</span></span>
-<span id="cb2-259"><a href="#cb2-259" aria-hidden="true" tabindex="-1"></a><span class="in">       bty = "n")</span></span>
-<span id="cb2-260"><a href="#cb2-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-261"><a href="#cb2-261" aria-hidden="true" tabindex="-1"></a><span class="in"># Ajouter un cadre pour les statistiques</span></span>
-<span id="cb2-262"><a href="#cb2-262" aria-hidden="true" tabindex="-1"></a><span class="in">mtext(paste0("Moyenne: ", round(mean(data_tdah$score_tdah), 2),</span></span>
-<span id="cb2-263"><a href="#cb2-263" aria-hidden="true" tabindex="-1"></a><span class="in">             " | % Risque Élevé: ", round(sum(data_tdah$score_tdah &gt;= 40)/n*100, 1), "%"),</span></span>
-<span id="cb2-264"><a href="#cb2-264" aria-hidden="true" tabindex="-1"></a><span class="in">      side = 3, line = 0.5, cex = 0.9, col = "#2c3e50")</span></span>
-<span id="cb2-265"><a href="#cb2-265" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-251"><a href="#cb2-251" aria-hidden="true" tabindex="-1"></a><span class="in">abline(h = 20, col = "#f39c12", lty = 2, lwd = 2)</span></span>
+<span id="cb2-252"><a href="#cb2-252" aria-hidden="true" tabindex="-1"></a><span class="in">abline(h = 40, col = "#e74c3c", lty = 2, lwd = 2)</span></span>
+<span id="cb2-253"><a href="#cb2-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-254"><a href="#cb2-254" aria-hidden="true" tabindex="-1"></a><span class="in">legend("topleft",</span></span>
+<span id="cb2-255"><a href="#cb2-255" aria-hidden="true" tabindex="-1"></a><span class="in">       legend = c("Urbain", "Rural"),</span></span>
+<span id="cb2-256"><a href="#cb2-256" aria-hidden="true" tabindex="-1"></a><span class="in">       fill = c("#1abc9c", "#9b59b6"),</span></span>
+<span id="cb2-257"><a href="#cb2-257" aria-hidden="true" tabindex="-1"></a><span class="in">       bty = "n")</span></span>
+<span id="cb2-258"><a href="#cb2-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-259"><a href="#cb2-259" aria-hidden="true" tabindex="-1"></a><span class="in"># Ajouter un cadre pour les statistiques</span></span>
+<span id="cb2-260"><a href="#cb2-260" aria-hidden="true" tabindex="-1"></a><span class="in">mtext(paste0("Moyenne: ", round(mean(data_tdah$score_tdah), 2),</span></span>
+<span id="cb2-261"><a href="#cb2-261" aria-hidden="true" tabindex="-1"></a><span class="in">             " | % Risque Élevé: ", round(sum(data_tdah$score_tdah &gt;= 40)/n*100, 1), "%"),</span></span>
+<span id="cb2-262"><a href="#cb2-262" aria-hidden="true" tabindex="-1"></a><span class="in">      side = 3, line = 0.5, cex = 0.9, col = "#2c3e50")</span></span>
+<span id="cb2-263"><a href="#cb2-263" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-264"><a href="#cb2-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-265"><a href="#cb2-265" aria-hidden="true" tabindex="-1"></a><span class="fu">## Score TDAH par Milieu de Résidence</span></span>
 <span id="cb2-266"><a href="#cb2-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-267"><a href="#cb2-267" aria-hidden="true" tabindex="-1"></a><span class="fu">## Score TDAH par Milieu de Résidence</span></span>
-<span id="cb2-268"><a href="#cb2-268" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-269"><a href="#cb2-269" aria-hidden="true" tabindex="-1"></a><span class="in">```{webr-r}</span></span>
-<span id="cb2-270"><a href="#cb2-270" aria-hidden="true" tabindex="-1"></a><span class="in">#| echo: false</span></span>
-<span id="cb2-271"><a href="#cb2-271" aria-hidden="true" tabindex="-1"></a><span class="in"># Boxplot par milieu avec style amélioré</span></span>
-<span id="cb2-272"><a href="#cb2-272" aria-hidden="true" tabindex="-1"></a><span class="in">par(mar = c(5, 5, 4, 2), bg = "white", family = "sans")</span></span>
-<span id="cb2-273"><a href="#cb2-273" aria-hidden="true" tabindex="-1"></a><span class="in">boxplot(score_tdah ~ milieu,</span></span>
-<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a><span class="in">        data = data_tdah,</span></span>
-<span id="cb2-275"><a href="#cb2-275" aria-hidden="true" tabindex="-1"></a><span class="in">        main = "Score TDAH: Urbain vs Rural",</span></span>
-<span id="cb2-276"><a href="#cb2-276" aria-hidden="true" tabindex="-1"></a><span class="in">        xlab = "Milieu de Résidence",</span></span>
-<span id="cb2-277"><a href="#cb2-277" aria-hidden="true" tabindex="-1"></a><span class="in">        ylab = "Score TDAH",</span></span>
-<span id="cb2-278"><a href="#cb2-278" aria-hidden="true" tabindex="-1"></a><span class="in">        col = c("#74b9ff", "#55efc4"),</span></span>
-<span id="cb2-279"><a href="#cb2-279" aria-hidden="true" tabindex="-1"></a><span class="in">        border = c("#0984e3", "#00b894"),</span></span>
-<span id="cb2-280"><a href="#cb2-280" aria-hidden="true" tabindex="-1"></a><span class="in">        notch = TRUE,</span></span>
-<span id="cb2-281"><a href="#cb2-281" aria-hidden="true" tabindex="-1"></a><span class="in">        las = 1,</span></span>
-<span id="cb2-282"><a href="#cb2-282" aria-hidden="true" tabindex="-1"></a><span class="in">        lwd = 2,</span></span>
-<span id="cb2-283"><a href="#cb2-283" aria-hidden="true" tabindex="-1"></a><span class="in">        cex.main = 1.4,</span></span>
-<span id="cb2-284"><a href="#cb2-284" aria-hidden="true" tabindex="-1"></a><span class="in">        cex.lab = 1.1,</span></span>
-<span id="cb2-285"><a href="#cb2-285" aria-hidden="true" tabindex="-1"></a><span class="in">        cex.axis = 1,</span></span>
-<span id="cb2-286"><a href="#cb2-286" aria-hidden="true" tabindex="-1"></a><span class="in">        boxwex = 0.6)</span></span>
-<span id="cb2-287"><a href="#cb2-287" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-288"><a href="#cb2-288" aria-hidden="true" tabindex="-1"></a><span class="in"># Ligne de seuil</span></span>
-<span id="cb2-289"><a href="#cb2-289" aria-hidden="true" tabindex="-1"></a><span class="in">abline(h = 40, col = "#e74c3c", lty = 2, lwd = 3)</span></span>
-<span id="cb2-290"><a href="#cb2-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-291"><a href="#cb2-291" aria-hidden="true" tabindex="-1"></a><span class="in"># Légende</span></span>
-<span id="cb2-292"><a href="#cb2-292" aria-hidden="true" tabindex="-1"></a><span class="in">legend("topleft",</span></span>
-<span id="cb2-293"><a href="#cb2-293" aria-hidden="true" tabindex="-1"></a><span class="in">       legend = "Seuil Risque Élevé (40)",</span></span>
-<span id="cb2-294"><a href="#cb2-294" aria-hidden="true" tabindex="-1"></a><span class="in">       col = "#e74c3c",</span></span>
-<span id="cb2-295"><a href="#cb2-295" aria-hidden="true" tabindex="-1"></a><span class="in">       lty = 2, lwd = 3,</span></span>
-<span id="cb2-296"><a href="#cb2-296" aria-hidden="true" tabindex="-1"></a><span class="in">       bty = "n",</span></span>
-<span id="cb2-297"><a href="#cb2-297" aria-hidden="true" tabindex="-1"></a><span class="in">       cex = 1.1)</span></span>
-<span id="cb2-298"><a href="#cb2-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-299"><a href="#cb2-299" aria-hidden="true" tabindex="-1"></a><span class="in"># Statistiques en bas</span></span>
-<span id="cb2-300"><a href="#cb2-300" aria-hidden="true" tabindex="-1"></a><span class="in">moyennes &lt;- aggregate(score_tdah ~ milieu, data = data_tdah, FUN = mean)</span></span>
-<span id="cb2-301"><a href="#cb2-301" aria-hidden="true" tabindex="-1"></a><span class="in">mtext(paste0("Moyennes - Urbain: ", round(moyennes[2,2], 1),</span></span>
-<span id="cb2-302"><a href="#cb2-302" aria-hidden="true" tabindex="-1"></a><span class="in">             " | Rural: ", round(moyennes[1,2], 1)),</span></span>
-<span id="cb2-303"><a href="#cb2-303" aria-hidden="true" tabindex="-1"></a><span class="in">      side = 3, line = 0.5, cex = 0.9, col = "#2c3e50")</span></span>
-<span id="cb2-304"><a href="#cb2-304" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-267"><a href="#cb2-267" aria-hidden="true" tabindex="-1"></a><span class="in">```{webr-r}</span></span>
+<span id="cb2-268"><a href="#cb2-268" aria-hidden="true" tabindex="-1"></a><span class="in">#| echo: false</span></span>
+<span id="cb2-269"><a href="#cb2-269" aria-hidden="true" tabindex="-1"></a><span class="in"># Boxplot par milieu avec style amélioré</span></span>
+<span id="cb2-270"><a href="#cb2-270" aria-hidden="true" tabindex="-1"></a><span class="in">par(mar = c(5, 5, 4, 2), bg = "white", family = "sans")</span></span>
+<span id="cb2-271"><a href="#cb2-271" aria-hidden="true" tabindex="-1"></a><span class="in">boxplot(score_tdah ~ milieu,</span></span>
+<span id="cb2-272"><a href="#cb2-272" aria-hidden="true" tabindex="-1"></a><span class="in">        data = data_tdah,</span></span>
+<span id="cb2-273"><a href="#cb2-273" aria-hidden="true" tabindex="-1"></a><span class="in">        main = "Score TDAH: Urbain vs Rural",</span></span>
+<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a><span class="in">        xlab = "Milieu de Résidence",</span></span>
+<span id="cb2-275"><a href="#cb2-275" aria-hidden="true" tabindex="-1"></a><span class="in">        ylab = "Score TDAH",</span></span>
+<span id="cb2-276"><a href="#cb2-276" aria-hidden="true" tabindex="-1"></a><span class="in">        col = c("#74b9ff", "#55efc4"),</span></span>
+<span id="cb2-277"><a href="#cb2-277" aria-hidden="true" tabindex="-1"></a><span class="in">        border = c("#0984e3", "#00b894"),</span></span>
+<span id="cb2-278"><a href="#cb2-278" aria-hidden="true" tabindex="-1"></a><span class="in">        notch = TRUE,</span></span>
+<span id="cb2-279"><a href="#cb2-279" aria-hidden="true" tabindex="-1"></a><span class="in">        las = 1,</span></span>
+<span id="cb2-280"><a href="#cb2-280" aria-hidden="true" tabindex="-1"></a><span class="in">        lwd = 2,</span></span>
+<span id="cb2-281"><a href="#cb2-281" aria-hidden="true" tabindex="-1"></a><span class="in">        cex.main = 1.4,</span></span>
+<span id="cb2-282"><a href="#cb2-282" aria-hidden="true" tabindex="-1"></a><span class="in">        cex.lab = 1.1,</span></span>
+<span id="cb2-283"><a href="#cb2-283" aria-hidden="true" tabindex="-1"></a><span class="in">        cex.axis = 1,</span></span>
+<span id="cb2-284"><a href="#cb2-284" aria-hidden="true" tabindex="-1"></a><span class="in">        boxwex = 0.6)</span></span>
+<span id="cb2-285"><a href="#cb2-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-286"><a href="#cb2-286" aria-hidden="true" tabindex="-1"></a><span class="in"># Ligne de seuil</span></span>
+<span id="cb2-287"><a href="#cb2-287" aria-hidden="true" tabindex="-1"></a><span class="in">abline(h = 40, col = "#e74c3c", lty = 2, lwd = 3)</span></span>
+<span id="cb2-288"><a href="#cb2-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-289"><a href="#cb2-289" aria-hidden="true" tabindex="-1"></a><span class="in"># Légende</span></span>
+<span id="cb2-290"><a href="#cb2-290" aria-hidden="true" tabindex="-1"></a><span class="in">legend("topleft",</span></span>
+<span id="cb2-291"><a href="#cb2-291" aria-hidden="true" tabindex="-1"></a><span class="in">       legend = "Seuil Risque Élevé (40)",</span></span>
+<span id="cb2-292"><a href="#cb2-292" aria-hidden="true" tabindex="-1"></a><span class="in">       col = "#e74c3c",</span></span>
+<span id="cb2-293"><a href="#cb2-293" aria-hidden="true" tabindex="-1"></a><span class="in">       lty = 2, lwd = 3,</span></span>
+<span id="cb2-294"><a href="#cb2-294" aria-hidden="true" tabindex="-1"></a><span class="in">       bty = "n",</span></span>
+<span id="cb2-295"><a href="#cb2-295" aria-hidden="true" tabindex="-1"></a><span class="in">       cex = 1.1)</span></span>
+<span id="cb2-296"><a href="#cb2-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-297"><a href="#cb2-297" aria-hidden="true" tabindex="-1"></a><span class="in"># Statistiques en bas</span></span>
+<span id="cb2-298"><a href="#cb2-298" aria-hidden="true" tabindex="-1"></a><span class="in">moyennes &lt;- aggregate(score_tdah ~ milieu, data = data_tdah, FUN = mean)</span></span>
+<span id="cb2-299"><a href="#cb2-299" aria-hidden="true" tabindex="-1"></a><span class="in">mtext(paste0("Moyennes - Urbain: ", round(moyennes[2,2], 1),</span></span>
+<span id="cb2-300"><a href="#cb2-300" aria-hidden="true" tabindex="-1"></a><span class="in">             " | Rural: ", round(moyennes[1,2], 1)),</span></span>
+<span id="cb2-301"><a href="#cb2-301" aria-hidden="true" tabindex="-1"></a><span class="in">      side = 3, line = 0.5, cex = 0.9, col = "#2c3e50")</span></span>
+<span id="cb2-302"><a href="#cb2-302" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-303"><a href="#cb2-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-304"><a href="#cb2-304" aria-hidden="true" tabindex="-1"></a><span class="fu">## Gradient Socio-économique</span></span>
 <span id="cb2-305"><a href="#cb2-305" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-306"><a href="#cb2-306" aria-hidden="true" tabindex="-1"></a><span class="fu">## Gradient Socio-économique</span></span>
-<span id="cb2-307"><a href="#cb2-307" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-308"><a href="#cb2-308" aria-hidden="true" tabindex="-1"></a><span class="in">```{webr-r}</span></span>
-<span id="cb2-309"><a href="#cb2-309" aria-hidden="true" tabindex="-1"></a><span class="in">#| echo: false</span></span>
-<span id="cb2-310"><a href="#cb2-310" aria-hidden="true" tabindex="-1"></a><span class="in"># Boxplot par quintile de richesse avec style amélioré</span></span>
-<span id="cb2-311"><a href="#cb2-311" aria-hidden="true" tabindex="-1"></a><span class="in">par(mar = c(7, 5, 4, 2), bg = "white", family = "sans")</span></span>
-<span id="cb2-312"><a href="#cb2-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-313"><a href="#cb2-313" aria-hidden="true" tabindex="-1"></a><span class="in"># Couleurs en gradient</span></span>
-<span id="cb2-314"><a href="#cb2-314" aria-hidden="true" tabindex="-1"></a><span class="in">couleurs_gradient &lt;- c("#e74c3c", "#e67e22", "#f39c12", "#2ecc71", "#27ae60")</span></span>
-<span id="cb2-315"><a href="#cb2-315" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-316"><a href="#cb2-316" aria-hidden="true" tabindex="-1"></a><span class="in">boxplot(score_tdah ~ richesse,</span></span>
-<span id="cb2-317"><a href="#cb2-317" aria-hidden="true" tabindex="-1"></a><span class="in">        data = data_tdah,</span></span>
-<span id="cb2-318"><a href="#cb2-318" aria-hidden="true" tabindex="-1"></a><span class="in">        main = "Score TDAH par Quintile de Richesse",</span></span>
-<span id="cb2-319"><a href="#cb2-319" aria-hidden="true" tabindex="-1"></a><span class="in">        xlab = "",</span></span>
-<span id="cb2-320"><a href="#cb2-320" aria-hidden="true" tabindex="-1"></a><span class="in">        ylab = "Score TDAH",</span></span>
-<span id="cb2-321"><a href="#cb2-321" aria-hidden="true" tabindex="-1"></a><span class="in">        col = couleurs_gradient,</span></span>
-<span id="cb2-322"><a href="#cb2-322" aria-hidden="true" tabindex="-1"></a><span class="in">        border = c("#c0392b", "#d35400", "#f39c12", "#27ae60", "#229954"),</span></span>
-<span id="cb2-323"><a href="#cb2-323" aria-hidden="true" tabindex="-1"></a><span class="in">        las = 2,</span></span>
-<span id="cb2-324"><a href="#cb2-324" aria-hidden="true" tabindex="-1"></a><span class="in">        lwd = 2,</span></span>
-<span id="cb2-325"><a href="#cb2-325" aria-hidden="true" tabindex="-1"></a><span class="in">        cex.main = 1.4,</span></span>
-<span id="cb2-326"><a href="#cb2-326" aria-hidden="true" tabindex="-1"></a><span class="in">        cex.lab = 1.1,</span></span>
-<span id="cb2-327"><a href="#cb2-327" aria-hidden="true" tabindex="-1"></a><span class="in">        cex.axis = 0.9,</span></span>
-<span id="cb2-328"><a href="#cb2-328" aria-hidden="true" tabindex="-1"></a><span class="in">        boxwex = 0.7)</span></span>
-<span id="cb2-329"><a href="#cb2-329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-330"><a href="#cb2-330" aria-hidden="true" tabindex="-1"></a><span class="in"># Titre de l'axe X</span></span>
-<span id="cb2-331"><a href="#cb2-331" aria-hidden="true" tabindex="-1"></a><span class="in">mtext("Quintile de Richesse", side = 1, line = 5.5, cex = 1.1)</span></span>
-<span id="cb2-332"><a href="#cb2-332" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-333"><a href="#cb2-333" aria-hidden="true" tabindex="-1"></a><span class="in"># Ligne de seuil</span></span>
-<span id="cb2-334"><a href="#cb2-334" aria-hidden="true" tabindex="-1"></a><span class="in">abline(h = 40, col = "#e74c3c", lty = 2, lwd = 3)</span></span>
-<span id="cb2-335"><a href="#cb2-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-336"><a href="#cb2-336" aria-hidden="true" tabindex="-1"></a><span class="in"># Légende</span></span>
-<span id="cb2-337"><a href="#cb2-337" aria-hidden="true" tabindex="-1"></a><span class="in">legend("topright",</span></span>
-<span id="cb2-338"><a href="#cb2-338" aria-hidden="true" tabindex="-1"></a><span class="in">       legend = "Seuil Risque Élevé (40)",</span></span>
-<span id="cb2-339"><a href="#cb2-339" aria-hidden="true" tabindex="-1"></a><span class="in">       col = "#e74c3c",</span></span>
-<span id="cb2-340"><a href="#cb2-340" aria-hidden="true" tabindex="-1"></a><span class="in">       lty = 2, lwd = 3,</span></span>
-<span id="cb2-341"><a href="#cb2-341" aria-hidden="true" tabindex="-1"></a><span class="in">       bty = "n",</span></span>
-<span id="cb2-342"><a href="#cb2-342" aria-hidden="true" tabindex="-1"></a><span class="in">       cex = 1.1)</span></span>
-<span id="cb2-343"><a href="#cb2-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-344"><a href="#cb2-344" aria-hidden="true" tabindex="-1"></a><span class="in"># Ajouter grille légère</span></span>
-<span id="cb2-345"><a href="#cb2-345" aria-hidden="true" tabindex="-1"></a><span class="in">grid(nx = NA, ny = NULL, col = "#00000010", lty = 1)</span></span>
-<span id="cb2-346"><a href="#cb2-346" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-347"><a href="#cb2-347" aria-hidden="true" tabindex="-1"></a><span class="in"># Statistiques</span></span>
-<span id="cb2-348"><a href="#cb2-348" aria-hidden="true" tabindex="-1"></a><span class="in">moyennes &lt;- aggregate(score_tdah ~ richesse, data = data_tdah, FUN = mean)</span></span>
-<span id="cb2-349"><a href="#cb2-349" aria-hidden="true" tabindex="-1"></a><span class="in">cat("\n📊 Gradient socio-économique clair:\n")</span></span>
-<span id="cb2-350"><a href="#cb2-350" aria-hidden="true" tabindex="-1"></a><span class="in">cat("Q1 (Pauvre):", round(moyennes[1,2], 1), "→ Q5 (Riche):", round(moyennes[5,2], 1), "\n")</span></span>
-<span id="cb2-351"><a href="#cb2-351" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-306"><a href="#cb2-306" aria-hidden="true" tabindex="-1"></a><span class="in">```{webr-r}</span></span>
+<span id="cb2-307"><a href="#cb2-307" aria-hidden="true" tabindex="-1"></a><span class="in">#| echo: false</span></span>
+<span id="cb2-308"><a href="#cb2-308" aria-hidden="true" tabindex="-1"></a><span class="in"># Boxplot par quintile de richesse avec style amélioré</span></span>
+<span id="cb2-309"><a href="#cb2-309" aria-hidden="true" tabindex="-1"></a><span class="in">par(mar = c(7, 5, 4, 2), bg = "white", family = "sans")</span></span>
+<span id="cb2-310"><a href="#cb2-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-311"><a href="#cb2-311" aria-hidden="true" tabindex="-1"></a><span class="in"># Couleurs en gradient</span></span>
+<span id="cb2-312"><a href="#cb2-312" aria-hidden="true" tabindex="-1"></a><span class="in">couleurs_gradient &lt;- c("#e74c3c", "#e67e22", "#f39c12", "#2ecc71", "#27ae60")</span></span>
+<span id="cb2-313"><a href="#cb2-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-314"><a href="#cb2-314" aria-hidden="true" tabindex="-1"></a><span class="in">boxplot(score_tdah ~ richesse,</span></span>
+<span id="cb2-315"><a href="#cb2-315" aria-hidden="true" tabindex="-1"></a><span class="in">        data = data_tdah,</span></span>
+<span id="cb2-316"><a href="#cb2-316" aria-hidden="true" tabindex="-1"></a><span class="in">        main = "Score TDAH par Quintile de Richesse",</span></span>
+<span id="cb2-317"><a href="#cb2-317" aria-hidden="true" tabindex="-1"></a><span class="in">        xlab = "",</span></span>
+<span id="cb2-318"><a href="#cb2-318" aria-hidden="true" tabindex="-1"></a><span class="in">        ylab = "Score TDAH",</span></span>
+<span id="cb2-319"><a href="#cb2-319" aria-hidden="true" tabindex="-1"></a><span class="in">        col = couleurs_gradient,</span></span>
+<span id="cb2-320"><a href="#cb2-320" aria-hidden="true" tabindex="-1"></a><span class="in">        border = c("#c0392b", "#d35400", "#f39c12", "#27ae60", "#229954"),</span></span>
+<span id="cb2-321"><a href="#cb2-321" aria-hidden="true" tabindex="-1"></a><span class="in">        las = 2,</span></span>
+<span id="cb2-322"><a href="#cb2-322" aria-hidden="true" tabindex="-1"></a><span class="in">        lwd = 2,</span></span>
+<span id="cb2-323"><a href="#cb2-323" aria-hidden="true" tabindex="-1"></a><span class="in">        cex.main = 1.4,</span></span>
+<span id="cb2-324"><a href="#cb2-324" aria-hidden="true" tabindex="-1"></a><span class="in">        cex.lab = 1.1,</span></span>
+<span id="cb2-325"><a href="#cb2-325" aria-hidden="true" tabindex="-1"></a><span class="in">        cex.axis = 0.9,</span></span>
+<span id="cb2-326"><a href="#cb2-326" aria-hidden="true" tabindex="-1"></a><span class="in">        boxwex = 0.7)</span></span>
+<span id="cb2-327"><a href="#cb2-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-328"><a href="#cb2-328" aria-hidden="true" tabindex="-1"></a><span class="in"># Titre de l'axe X</span></span>
+<span id="cb2-329"><a href="#cb2-329" aria-hidden="true" tabindex="-1"></a><span class="in">mtext("Quintile de Richesse", side = 1, line = 5.5, cex = 1.1)</span></span>
+<span id="cb2-330"><a href="#cb2-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-331"><a href="#cb2-331" aria-hidden="true" tabindex="-1"></a><span class="in"># Ligne de seuil</span></span>
+<span id="cb2-332"><a href="#cb2-332" aria-hidden="true" tabindex="-1"></a><span class="in">abline(h = 40, col = "#e74c3c", lty = 2, lwd = 3)</span></span>
+<span id="cb2-333"><a href="#cb2-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-334"><a href="#cb2-334" aria-hidden="true" tabindex="-1"></a><span class="in"># Légende</span></span>
+<span id="cb2-335"><a href="#cb2-335" aria-hidden="true" tabindex="-1"></a><span class="in">legend("topright",</span></span>
+<span id="cb2-336"><a href="#cb2-336" aria-hidden="true" tabindex="-1"></a><span class="in">       legend = "Seuil Risque Élevé (40)",</span></span>
+<span id="cb2-337"><a href="#cb2-337" aria-hidden="true" tabindex="-1"></a><span class="in">       col = "#e74c3c",</span></span>
+<span id="cb2-338"><a href="#cb2-338" aria-hidden="true" tabindex="-1"></a><span class="in">       lty = 2, lwd = 3,</span></span>
+<span id="cb2-339"><a href="#cb2-339" aria-hidden="true" tabindex="-1"></a><span class="in">       bty = "n",</span></span>
+<span id="cb2-340"><a href="#cb2-340" aria-hidden="true" tabindex="-1"></a><span class="in">       cex = 1.1)</span></span>
+<span id="cb2-341"><a href="#cb2-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-342"><a href="#cb2-342" aria-hidden="true" tabindex="-1"></a><span class="in"># Ajouter grille légère</span></span>
+<span id="cb2-343"><a href="#cb2-343" aria-hidden="true" tabindex="-1"></a><span class="in">grid(nx = NA, ny = NULL, col = "#00000010", lty = 1)</span></span>
+<span id="cb2-344"><a href="#cb2-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-345"><a href="#cb2-345" aria-hidden="true" tabindex="-1"></a><span class="in"># Statistiques</span></span>
+<span id="cb2-346"><a href="#cb2-346" aria-hidden="true" tabindex="-1"></a><span class="in">moyennes &lt;- aggregate(score_tdah ~ richesse, data = data_tdah, FUN = mean)</span></span>
+<span id="cb2-347"><a href="#cb2-347" aria-hidden="true" tabindex="-1"></a><span class="in">cat("\n📊 Gradient socio-économique clair:\n")</span></span>
+<span id="cb2-348"><a href="#cb2-348" aria-hidden="true" tabindex="-1"></a><span class="in">cat("Q1 (Pauvre):", round(moyennes[1,2], 1), "→ Q5 (Riche):", round(moyennes[5,2], 1), "\n")</span></span>
+<span id="cb2-349"><a href="#cb2-349" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-350"><a href="#cb2-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-351"><a href="#cb2-351" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb2-352"><a href="#cb2-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-353"><a href="#cb2-353" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-353"><a href="#cb2-353" aria-hidden="true" tabindex="-1"></a><span class="fu"># 📈 Principaux Résultats</span></span>
 <span id="cb2-354"><a href="#cb2-354" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-355"><a href="#cb2-355" aria-hidden="true" tabindex="-1"></a><span class="fu"># 📈 Principaux Résultats</span></span>
+<span id="cb2-355"><a href="#cb2-355" aria-hidden="true" tabindex="-1"></a><span class="fu">## Vue d'Ensemble</span></span>
 <span id="cb2-356"><a href="#cb2-356" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-357"><a href="#cb2-357" aria-hidden="true" tabindex="-1"></a><span class="fu">## Vue d'Ensemble</span></span>
-<span id="cb2-358"><a href="#cb2-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-359"><a href="#cb2-359" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
-<span id="cb2-360"><a href="#cb2-360" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prévalence du Risque Élevé</span></span>
-<span id="cb2-361"><a href="#cb2-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-362"><a href="#cb2-362" aria-hidden="true" tabindex="-1"></a>**~10% des enfants tunisiens** présentent un score de risque théorique élevé (≥40), soit environ 1 enfant sur 10.</span>
-<span id="cb2-363"><a href="#cb2-363" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-357"><a href="#cb2-357" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb2-358"><a href="#cb2-358" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prévalence du Risque Élevé</span></span>
+<span id="cb2-359"><a href="#cb2-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-360"><a href="#cb2-360" aria-hidden="true" tabindex="-1"></a>**~10% des enfants tunisiens** présentent un score de risque théorique élevé (≥40), soit environ 1 enfant sur 10.</span>
+<span id="cb2-361"><a href="#cb2-361" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-362"><a href="#cb2-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-363"><a href="#cb2-363" aria-hidden="true" tabindex="-1"></a><span class="fu">## Facteurs de Risque Majeurs</span></span>
 <span id="cb2-364"><a href="#cb2-364" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-365"><a href="#cb2-365" aria-hidden="true" tabindex="-1"></a><span class="fu">## Facteurs de Risque Majeurs</span></span>
-<span id="cb2-366"><a href="#cb2-366" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-367"><a href="#cb2-367" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. Pauvreté 💸</span></span>
-<span id="cb2-368"><a href="#cb2-368" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**OR = 2.5-3.0** (Quintile 1 vs Quintile 5)</span>
-<span id="cb2-369"><a href="#cb2-369" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Gradient socio-économique très net</span>
-<span id="cb2-370"><a href="#cb2-370" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Association forte et significative (p &lt; 0.001)</span>
-<span id="cb2-371"><a href="#cb2-371" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-372"><a href="#cb2-372" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. Faible Éducation Maternelle 📚</span></span>
-<span id="cb2-373"><a href="#cb2-373" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**OR = 1.8-2.2** (Aucune éducation vs Supérieur)</span>
-<span id="cb2-374"><a href="#cb2-374" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Effet protecteur de l'éducation</span>
-<span id="cb2-375"><a href="#cb2-375" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Rôle central dans la prévention</span>
-<span id="cb2-376"><a href="#cb2-376" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-377"><a href="#cb2-377" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. Milieu Rural 🌾</span></span>
-<span id="cb2-378"><a href="#cb2-378" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**OR = 1.5-1.8** (Rural vs Urbain)</span>
-<span id="cb2-379"><a href="#cb2-379" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Scores plus élevés en zone rurale</span>
-<span id="cb2-380"><a href="#cb2-380" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Cumul de désavantages</span>
-<span id="cb2-381"><a href="#cb2-381" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-382"><a href="#cb2-382" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4. Rang de Naissance Élevé 👶👶👶</span></span>
-<span id="cb2-383"><a href="#cb2-383" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**OR = 1.4-1.6** (Rang ≥7 vs Premier)</span>
-<span id="cb2-384"><a href="#cb2-384" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Effet dose-réponse</span>
-<span id="cb2-385"><a href="#cb2-385" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Lié à la taille familiale</span>
+<span id="cb2-365"><a href="#cb2-365" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. Pauvreté 💸</span></span>
+<span id="cb2-366"><a href="#cb2-366" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**OR = 2.5-3.0** (Quintile 1 vs Quintile 5)</span>
+<span id="cb2-367"><a href="#cb2-367" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Gradient socio-économique très net</span>
+<span id="cb2-368"><a href="#cb2-368" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Association forte et significative (p &lt; 0.001)</span>
+<span id="cb2-369"><a href="#cb2-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-370"><a href="#cb2-370" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. Faible Éducation Maternelle 📚</span></span>
+<span id="cb2-371"><a href="#cb2-371" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**OR = 1.8-2.2** (Aucune éducation vs Supérieur)</span>
+<span id="cb2-372"><a href="#cb2-372" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Effet protecteur de l'éducation</span>
+<span id="cb2-373"><a href="#cb2-373" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Rôle central dans la prévention</span>
+<span id="cb2-374"><a href="#cb2-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-375"><a href="#cb2-375" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. Milieu Rural 🌾</span></span>
+<span id="cb2-376"><a href="#cb2-376" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**OR = 1.5-1.8** (Rural vs Urbain)</span>
+<span id="cb2-377"><a href="#cb2-377" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Scores plus élevés en zone rurale</span>
+<span id="cb2-378"><a href="#cb2-378" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Cumul de désavantages</span>
+<span id="cb2-379"><a href="#cb2-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-380"><a href="#cb2-380" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4. Rang de Naissance Élevé 👶👶👶</span></span>
+<span id="cb2-381"><a href="#cb2-381" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**OR = 1.4-1.6** (Rang ≥7 vs Premier)</span>
+<span id="cb2-382"><a href="#cb2-382" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Effet dose-réponse</span>
+<span id="cb2-383"><a href="#cb2-383" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Lié à la taille familiale</span>
+<span id="cb2-384"><a href="#cb2-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-385"><a href="#cb2-385" aria-hidden="true" tabindex="-1"></a><span class="fu">## Populations Vulnérables</span></span>
 <span id="cb2-386"><a href="#cb2-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-387"><a href="#cb2-387" aria-hidden="true" tabindex="-1"></a><span class="fu">## Populations Vulnérables</span></span>
-<span id="cb2-388"><a href="#cb2-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-389"><a href="#cb2-389" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
-<span id="cb2-390"><a href="#cb2-390" aria-hidden="true" tabindex="-1"></a><span class="fu">## Profil à Haut Risque</span></span>
-<span id="cb2-391"><a href="#cb2-391" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-392"><a href="#cb2-392" aria-hidden="true" tabindex="-1"></a>Les enfants les plus à risque cumulent :</span>
-<span id="cb2-393"><a href="#cb2-393" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>🌾 Milieu rural</span>
-<span id="cb2-394"><a href="#cb2-394" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>💸 Pauvreté (Q1-Q2) : 75%</span>
-<span id="cb2-395"><a href="#cb2-395" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>📚 Faible éducation maternelle : 68%</span>
-<span id="cb2-396"><a href="#cb2-396" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>👪 Famille nombreuse (&gt;7) : 52%</span>
-<span id="cb2-397"><a href="#cb2-397" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>🎯 Rang de naissance ≥4 : 45%</span>
-<span id="cb2-398"><a href="#cb2-398" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-387"><a href="#cb2-387" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
+<span id="cb2-388"><a href="#cb2-388" aria-hidden="true" tabindex="-1"></a><span class="fu">## Profil à Haut Risque</span></span>
+<span id="cb2-389"><a href="#cb2-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-390"><a href="#cb2-390" aria-hidden="true" tabindex="-1"></a>Les enfants les plus à risque cumulent :</span>
+<span id="cb2-391"><a href="#cb2-391" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>🌾 Milieu rural</span>
+<span id="cb2-392"><a href="#cb2-392" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>💸 Pauvreté (Q1-Q2) : 75%</span>
+<span id="cb2-393"><a href="#cb2-393" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>📚 Faible éducation maternelle : 68%</span>
+<span id="cb2-394"><a href="#cb2-394" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>👪 Famille nombreuse (&gt;7) : 52%</span>
+<span id="cb2-395"><a href="#cb2-395" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>🎯 Rang de naissance ≥4 : 45%</span>
+<span id="cb2-396"><a href="#cb2-396" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-397"><a href="#cb2-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-398"><a href="#cb2-398" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb2-399"><a href="#cb2-399" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-400"><a href="#cb2-400" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-400"><a href="#cb2-400" aria-hidden="true" tabindex="-1"></a><span class="fu"># 📋 Documents Disponibles</span></span>
 <span id="cb2-401"><a href="#cb2-401" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-402"><a href="#cb2-402" aria-hidden="true" tabindex="-1"></a><span class="fu"># 📋 Documents Disponibles</span></span>
+<span id="cb2-402"><a href="#cb2-402" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rapports et Présentations</span></span>
 <span id="cb2-403"><a href="#cb2-403" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-404"><a href="#cb2-404" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rapports et Présentations</span></span>
-<span id="cb2-405"><a href="#cb2-405" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-406"><a href="#cb2-406" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Document <span class="pp">|</span> Description <span class="pp">|</span> Lien <span class="pp">|</span></span>
-<span id="cb2-407"><a href="#cb2-407" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------|-------------|------|</span></span>
-<span id="cb2-408"><a href="#cb2-408" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Rapport Principal** <span class="pp">|</span> Analyse complète avec méthodologie, résultats, discussion <span class="pp">|</span> <span class="co">[</span><span class="ot">rapport_principal.qmd</span><span class="co">](rapport_principal.qmd)</span> <span class="pp">|</span></span>
-<span id="cb2-409"><a href="#cb2-409" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Présentation** <span class="pp">|</span> Diapositives des résultats clés <span class="pp">|</span> <span class="co">[</span><span class="ot">presentation.qmd</span><span class="co">](presentation.qmd)</span> <span class="pp">|</span></span>
-<span id="cb2-410"><a href="#cb2-410" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Notebook Prétraitement** <span class="pp">|</span> Pipeline interactif de prétraitement des données <span class="pp">|</span> <span class="co">[</span><span class="ot">notebook_preprocessing.qmd</span><span class="co">](notebook_preprocessing.qmd)</span> <span class="pp">|</span></span>
-<span id="cb2-411"><a href="#cb2-411" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Scripts R** <span class="pp">|</span> Tous les codes d'analyse <span class="pp">|</span> <span class="co">[</span><span class="ot">scripts/</span><span class="co">](scripts/)</span> <span class="pp">|</span></span>
+<span id="cb2-404"><a href="#cb2-404" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Document <span class="pp">|</span> Description <span class="pp">|</span> Lien <span class="pp">|</span></span>
+<span id="cb2-405"><a href="#cb2-405" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------|-------------|------|</span></span>
+<span id="cb2-406"><a href="#cb2-406" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Rapport Principal** <span class="pp">|</span> Analyse complète avec méthodologie, résultats, discussion <span class="pp">|</span> <span class="co">[</span><span class="ot">rapport_principal.qmd</span><span class="co">](rapport_principal.qmd)</span> <span class="pp">|</span></span>
+<span id="cb2-407"><a href="#cb2-407" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Présentation** <span class="pp">|</span> Diapositives des résultats clés <span class="pp">|</span> <span class="co">[</span><span class="ot">presentation.qmd</span><span class="co">](presentation.qmd)</span> <span class="pp">|</span></span>
+<span id="cb2-408"><a href="#cb2-408" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Notebook Prétraitement** <span class="pp">|</span> Pipeline interactif de prétraitement des données <span class="pp">|</span> <span class="co">[</span><span class="ot">notebook_preprocessing.qmd</span><span class="co">](notebook_preprocessing.qmd)</span> <span class="pp">|</span></span>
+<span id="cb2-409"><a href="#cb2-409" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Scripts R** <span class="pp">|</span> Tous les codes d'analyse <span class="pp">|</span> <span class="co">[</span><span class="ot">scripts/</span><span class="co">](scripts/)</span> <span class="pp">|</span></span>
+<span id="cb2-410"><a href="#cb2-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-411"><a href="#cb2-411" aria-hidden="true" tabindex="-1"></a><span class="fu">## Données Générées</span></span>
 <span id="cb2-412"><a href="#cb2-412" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-413"><a href="#cb2-413" aria-hidden="true" tabindex="-1"></a><span class="fu">## Données Générées</span></span>
-<span id="cb2-414"><a href="#cb2-414" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-415"><a href="#cb2-415" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Fichier <span class="pp">|</span> Description <span class="pp">|</span></span>
-<span id="cb2-416"><a href="#cb2-416" aria-hidden="true" tabindex="-1"></a><span class="pp">|---------|-------------|</span></span>
-<span id="cb2-417"><a href="#cb2-417" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`dataset_preprocessed.rds`</span> <span class="pp">|</span> Dataset final prétraité avec score TDAH <span class="pp">|</span></span>
-<span id="cb2-418"><a href="#cb2-418" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`05_risk_score.RData`</span> <span class="pp">|</span> Objets R du scoring <span class="pp">|</span></span>
-<span id="cb2-419"><a href="#cb2-419" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`06_ml_models.RData`</span> <span class="pp">|</span> Modèles Machine Learning (Random Forest) <span class="pp">|</span></span>
-<span id="cb2-420"><a href="#cb2-420" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`ml_metrics.csv`</span> <span class="pp">|</span> Métriques de performance des modèles ML <span class="pp">|</span></span>
-<span id="cb2-421"><a href="#cb2-421" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`variable_importance.csv`</span> <span class="pp">|</span> Importance des variables prédictives <span class="pp">|</span></span>
+<span id="cb2-413"><a href="#cb2-413" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Fichier <span class="pp">|</span> Description <span class="pp">|</span></span>
+<span id="cb2-414"><a href="#cb2-414" aria-hidden="true" tabindex="-1"></a><span class="pp">|---------|-------------|</span></span>
+<span id="cb2-415"><a href="#cb2-415" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`dataset_preprocessed.rds`</span> <span class="pp">|</span> Dataset final prétraité avec score TDAH <span class="pp">|</span></span>
+<span id="cb2-416"><a href="#cb2-416" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`05_risk_score.RData`</span> <span class="pp">|</span> Objets R du scoring <span class="pp">|</span></span>
+<span id="cb2-417"><a href="#cb2-417" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`06_ml_models.RData`</span> <span class="pp">|</span> Modèles Machine Learning (Random Forest) <span class="pp">|</span></span>
+<span id="cb2-418"><a href="#cb2-418" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`ml_metrics.csv`</span> <span class="pp">|</span> Métriques de performance des modèles ML <span class="pp">|</span></span>
+<span id="cb2-419"><a href="#cb2-419" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`variable_importance.csv`</span> <span class="pp">|</span> Importance des variables prédictives <span class="pp">|</span></span>
+<span id="cb2-420"><a href="#cb2-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-421"><a href="#cb2-421" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb2-422"><a href="#cb2-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-423"><a href="#cb2-423" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-423"><a href="#cb2-423" aria-hidden="true" tabindex="-1"></a><span class="fu"># 💡 Implications et Recommandations</span></span>
 <span id="cb2-424"><a href="#cb2-424" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-425"><a href="#cb2-425" aria-hidden="true" tabindex="-1"></a><span class="fu"># 💡 Implications et Recommandations</span></span>
+<span id="cb2-425"><a href="#cb2-425" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pour la Santé Publique</span></span>
 <span id="cb2-426"><a href="#cb2-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-427"><a href="#cb2-427" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pour la Santé Publique</span></span>
+<span id="cb2-427"><a href="#cb2-427" aria-hidden="true" tabindex="-1"></a><span class="fu">### ✅ Actions Prioritaires</span></span>
 <span id="cb2-428"><a href="#cb2-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-429"><a href="#cb2-429" aria-hidden="true" tabindex="-1"></a><span class="fu">### ✅ Actions Prioritaires</span></span>
-<span id="cb2-430"><a href="#cb2-430" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-431"><a href="#cb2-431" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Dépistage Ciblé**</span>
-<span id="cb2-432"><a href="#cb2-432" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Identifier les enfants à haut risque</span>
-<span id="cb2-433"><a href="#cb2-433" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Focus sur milieu rural pauvre</span>
-<span id="cb2-434"><a href="#cb2-434" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Outil de screening basé sur le score</span>
-<span id="cb2-435"><a href="#cb2-435" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-436"><a href="#cb2-436" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Prévention Primaire**</span>
-<span id="cb2-437"><a href="#cb2-437" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Interventions précoces auprès femmes enceintes à risque</span>
-<span id="cb2-438"><a href="#cb2-438" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Espacement des naissances</span>
-<span id="cb2-439"><a href="#cb2-439" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Planification familiale</span>
-<span id="cb2-440"><a href="#cb2-440" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-441"><a href="#cb2-441" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Renforcement des Services**</span>
-<span id="cb2-442"><a href="#cb2-442" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Développer services santé mentale infantile</span>
-<span id="cb2-443"><a href="#cb2-443" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Former professionnels de santé</span>
-<span id="cb2-444"><a href="#cb2-444" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Améliorer accès en milieu rural</span>
+<span id="cb2-429"><a href="#cb2-429" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Dépistage Ciblé**</span>
+<span id="cb2-430"><a href="#cb2-430" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Identifier les enfants à haut risque</span>
+<span id="cb2-431"><a href="#cb2-431" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Focus sur milieu rural pauvre</span>
+<span id="cb2-432"><a href="#cb2-432" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Outil de screening basé sur le score</span>
+<span id="cb2-433"><a href="#cb2-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-434"><a href="#cb2-434" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Prévention Primaire**</span>
+<span id="cb2-435"><a href="#cb2-435" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Interventions précoces auprès femmes enceintes à risque</span>
+<span id="cb2-436"><a href="#cb2-436" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Espacement des naissances</span>
+<span id="cb2-437"><a href="#cb2-437" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Planification familiale</span>
+<span id="cb2-438"><a href="#cb2-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-439"><a href="#cb2-439" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Renforcement des Services**</span>
+<span id="cb2-440"><a href="#cb2-440" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Développer services santé mentale infantile</span>
+<span id="cb2-441"><a href="#cb2-441" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Former professionnels de santé</span>
+<span id="cb2-442"><a href="#cb2-442" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Améliorer accès en milieu rural</span>
+<span id="cb2-443"><a href="#cb2-443" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-444"><a href="#cb2-444" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pour les Politiques Publiques</span></span>
 <span id="cb2-445"><a href="#cb2-445" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-446"><a href="#cb2-446" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pour les Politiques Publiques</span></span>
+<span id="cb2-446"><a href="#cb2-446" aria-hidden="true" tabindex="-1"></a><span class="fu">### 🎯 Leviers d'Action</span></span>
 <span id="cb2-447"><a href="#cb2-447" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-448"><a href="#cb2-448" aria-hidden="true" tabindex="-1"></a><span class="fu">### 🎯 Leviers d'Action</span></span>
-<span id="cb2-449"><a href="#cb2-449" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-450"><a href="#cb2-450" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Éducation**</span>
-<span id="cb2-451"><a href="#cb2-451" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>📚 Scolarisation des filles</span>
-<span id="cb2-452"><a href="#cb2-452" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>👨‍👩‍👧‍👦 Programmes de soutien parental</span>
-<span id="cb2-453"><a href="#cb2-453" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>🏫 Interventions en milieu scolaire</span>
-<span id="cb2-454"><a href="#cb2-454" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-455"><a href="#cb2-455" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Réduction des Inégalités**</span>
-<span id="cb2-456"><a href="#cb2-456" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>💰 Lutte contre la pauvreté infantile</span>
-<span id="cb2-457"><a href="#cb2-457" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>🌆 Réduction du gradient urbain-rural</span>
-<span id="cb2-458"><a href="#cb2-458" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>🏥 Équité d'accès aux soins</span>
-<span id="cb2-459"><a href="#cb2-459" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-460"><a href="#cb2-460" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Recherche**</span>
-<span id="cb2-461"><a href="#cb2-461" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>🔬 Validation du score contre diagnostics</span>
-<span id="cb2-462"><a href="#cb2-462" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>📊 Études longitudinales</span>
-<span id="cb2-463"><a href="#cb2-463" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>🧪 Évaluation des interventions</span>
+<span id="cb2-448"><a href="#cb2-448" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Éducation**</span>
+<span id="cb2-449"><a href="#cb2-449" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>📚 Scolarisation des filles</span>
+<span id="cb2-450"><a href="#cb2-450" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>👨‍👩‍👧‍👦 Programmes de soutien parental</span>
+<span id="cb2-451"><a href="#cb2-451" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>🏫 Interventions en milieu scolaire</span>
+<span id="cb2-452"><a href="#cb2-452" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-453"><a href="#cb2-453" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Réduction des Inégalités**</span>
+<span id="cb2-454"><a href="#cb2-454" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>💰 Lutte contre la pauvreté infantile</span>
+<span id="cb2-455"><a href="#cb2-455" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>🌆 Réduction du gradient urbain-rural</span>
+<span id="cb2-456"><a href="#cb2-456" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>🏥 Équité d'accès aux soins</span>
+<span id="cb2-457"><a href="#cb2-457" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-458"><a href="#cb2-458" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Recherche**</span>
+<span id="cb2-459"><a href="#cb2-459" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>🔬 Validation du score contre diagnostics</span>
+<span id="cb2-460"><a href="#cb2-460" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>📊 Études longitudinales</span>
+<span id="cb2-461"><a href="#cb2-461" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>🧪 Évaluation des interventions</span>
+<span id="cb2-462"><a href="#cb2-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-463"><a href="#cb2-463" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb2-464"><a href="#cb2-464" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-465"><a href="#cb2-465" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-465"><a href="#cb2-465" aria-hidden="true" tabindex="-1"></a><span class="fu"># 📚 Ressources et Références</span></span>
 <span id="cb2-466"><a href="#cb2-466" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-467"><a href="#cb2-467" aria-hidden="true" tabindex="-1"></a><span class="fu"># 📚 Ressources et Références</span></span>
+<span id="cb2-467"><a href="#cb2-467" aria-hidden="true" tabindex="-1"></a><span class="fu">## Publications Clés</span></span>
 <span id="cb2-468"><a href="#cb2-468" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-469"><a href="#cb2-469" aria-hidden="true" tabindex="-1"></a><span class="fu">## Publications Clés</span></span>
-<span id="cb2-470"><a href="#cb2-470" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-471"><a href="#cb2-471" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Thapar et al. (2013)** - Âge maternel et TDAH</span>
-<span id="cb2-472"><a href="#cb2-472" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Russell et al. (2014, 2016)** - Pauvreté et TDAH</span>
-<span id="cb2-473"><a href="#cb2-473" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Rowland et al. (2018)** - Éducation maternelle</span>
-<span id="cb2-474"><a href="#cb2-474" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Willcutt (2012)** - Prévalence et facteurs de risque</span>
+<span id="cb2-469"><a href="#cb2-469" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Thapar et al. (2013)** - Âge maternel et TDAH</span>
+<span id="cb2-470"><a href="#cb2-470" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Russell et al. (2014, 2016)** - Pauvreté et TDAH</span>
+<span id="cb2-471"><a href="#cb2-471" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Rowland et al. (2018)** - Éducation maternelle</span>
+<span id="cb2-472"><a href="#cb2-472" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Willcutt (2012)** - Prévalence et facteurs de risque</span>
+<span id="cb2-473"><a href="#cb2-473" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-474"><a href="#cb2-474" aria-hidden="true" tabindex="-1"></a><span class="fu">## Liens Utiles</span></span>
 <span id="cb2-475"><a href="#cb2-475" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-476"><a href="#cb2-476" aria-hidden="true" tabindex="-1"></a><span class="fu">## Liens Utiles</span></span>
-<span id="cb2-477"><a href="#cb2-477" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-478"><a href="#cb2-478" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">UNICEF MICS</span><span class="co">](https://mics.unicef.org/)</span> - Site officiel MICS</span>
-<span id="cb2-479"><a href="#cb2-479" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">INS Tunisie</span><span class="co">](http://www.ins.tn/)</span> - Institut National de la Statistique</span>
-<span id="cb2-480"><a href="#cb2-480" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">TDAH France</span><span class="co">](https://www.tdah-france.fr/)</span> - Association TDAH</span>
+<span id="cb2-476"><a href="#cb2-476" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">UNICEF MICS</span><span class="co">](https://mics.unicef.org/)</span> - Site officiel MICS</span>
+<span id="cb2-477"><a href="#cb2-477" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">INS Tunisie</span><span class="co">](http://www.ins.tn/)</span> - Institut National de la Statistique</span>
+<span id="cb2-478"><a href="#cb2-478" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">TDAH France</span><span class="co">](https://www.tdah-france.fr/)</span> - Association TDAH</span>
+<span id="cb2-479"><a href="#cb2-479" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-480"><a href="#cb2-480" aria-hidden="true" tabindex="-1"></a><span class="fu">## Contact</span></span>
 <span id="cb2-481"><a href="#cb2-481" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-482"><a href="#cb2-482" aria-hidden="true" tabindex="-1"></a><span class="fu">## Contact</span></span>
-<span id="cb2-483"><a href="#cb2-483" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-484"><a href="#cb2-484" aria-hidden="true" tabindex="-1"></a>**Auteur** : Asma BELKAHLA  </span>
-<span id="cb2-485"><a href="#cb2-485" aria-hidden="true" tabindex="-1"></a>**Institution** : Ecole polytechnique de sousse </span>
-<span id="cb2-486"><a href="#cb2-486" aria-hidden="true" tabindex="-1"></a>**Email** : asma.belkahla@polytechnicien.tn  </span>
-<span id="cb2-487"><a href="#cb2-487" aria-hidden="true" tabindex="-1"></a>**Date** : Décembre 2025</span>
+<span id="cb2-482"><a href="#cb2-482" aria-hidden="true" tabindex="-1"></a>**Auteur** : Asma BELKAHLA  </span>
+<span id="cb2-483"><a href="#cb2-483" aria-hidden="true" tabindex="-1"></a>**Institution** : Ecole polytechnique de sousse </span>
+<span id="cb2-484"><a href="#cb2-484" aria-hidden="true" tabindex="-1"></a>**Email** : asma.belkahla@polytechnicien.tn  </span>
+<span id="cb2-485"><a href="#cb2-485" aria-hidden="true" tabindex="-1"></a>**Date** : Décembre 2025</span>
+<span id="cb2-486"><a href="#cb2-486" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-487"><a href="#cb2-487" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb2-488"><a href="#cb2-488" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-489"><a href="#cb2-489" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-489"><a href="#cb2-489" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-490"><a href="#cb2-490" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-491"><a href="#cb2-491" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-491"><a href="#cb2-491" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb2-492"><a href="#cb2-492" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-493"><a href="#cb2-493" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb2-494"><a href="#cb2-494" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-495"><a href="#cb2-495" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb2-496"><a href="#cb2-496" aria-hidden="true" tabindex="-1"></a><span class="fu">## Note Importante</span></span>
+<span id="cb2-493"><a href="#cb2-493" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb2-494"><a href="#cb2-494" aria-hidden="true" tabindex="-1"></a><span class="fu">## Note Importante</span></span>
+<span id="cb2-495"><a href="#cb2-495" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-496"><a href="#cb2-496" aria-hidden="true" tabindex="-1"></a>Ce projet représente une **première analyse populationnelle** des facteurs de risque du TDAH en Tunisie. Les résultats doivent être interprétés comme une estimation de la **vulnérabilité théorique** au TDAH, et non comme une mesure de prévalence clinique.</span>
 <span id="cb2-497"><a href="#cb2-497" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-498"><a href="#cb2-498" aria-hidden="true" tabindex="-1"></a>Ce projet représente une **première analyse populationnelle** des facteurs de risque du TDAH en Tunisie. Les résultats doivent être interprétés comme une estimation de la **vulnérabilité théorique** au TDAH, et non comme une mesure de prévalence clinique.</span>
-<span id="cb2-499"><a href="#cb2-499" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-500"><a href="#cb2-500" aria-hidden="true" tabindex="-1"></a>Des études complémentaires avec diagnostic clinique sont nécessaires pour valider ces résultats.</span>
-<span id="cb2-501"><a href="#cb2-501" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-498"><a href="#cb2-498" aria-hidden="true" tabindex="-1"></a>Des études complémentaires avec diagnostic clinique sont nécessaires pour valider ces résultats.</span>
+<span id="cb2-499"><a href="#cb2-499" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-500"><a href="#cb2-500" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-501"><a href="#cb2-501" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb2-502"><a href="#cb2-502" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-503"><a href="#cb2-503" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-503"><a href="#cb2-503" aria-hidden="true" tabindex="-1"></a>*Dernière mise à jour : `r Sys.Date()`*</span>
 <span id="cb2-504"><a href="#cb2-504" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-505"><a href="#cb2-505" aria-hidden="true" tabindex="-1"></a>*Dernière mise à jour : `r Sys.Date()`*</span>
+<span id="cb2-505"><a href="#cb2-505" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb2-506"><a href="#cb2-506" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-507"><a href="#cb2-507" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb2-508"><a href="#cb2-508" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-509"><a href="#cb2-509" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb2-510"><a href="#cb2-510" aria-hidden="true" tabindex="-1"></a>**🎓 Projet de Recherche en R statistiques**  </span>
-<span id="cb2-511"><a href="#cb2-511" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-512"><a href="#cb2-512" aria-hidden="true" tabindex="-1"></a>**Données MICS6 - 2023**</span>
-<span id="cb2-513"><a href="#cb2-513" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb2-507"><a href="#cb2-507" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
+<span id="cb2-508"><a href="#cb2-508" aria-hidden="true" tabindex="-1"></a>**🎓 Projet de Recherche en R statistiques**  </span>
+<span id="cb2-509"><a href="#cb2-509" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-510"><a href="#cb2-510" aria-hidden="true" tabindex="-1"></a>**Données MICS6 - 2023**</span>
+<span id="cb2-511"><a href="#cb2-511" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <script type="module">
