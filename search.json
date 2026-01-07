@@ -88,7 +88,7 @@
     "href": "notebook_preprocessing.html#limitations",
     "title": "Notebook de Prétraitement des Données",
     "section": "Limitations",
-    "text": "Limitations\n\nLe score de risque est théorique et ne remplace pas un diagnostic clinique\nCertaines variables ont des valeurs manquantes importantes\nLes poids sont basés sur la littérature internationale et peuvent nécessiter une validation locale\n\n\nNotebook généré le 2026-01-06"
+    "text": "Limitations\n\nLe score de risque est théorique et ne remplace pas un diagnostic clinique\nCertaines variables ont des valeurs manquantes importantes\nLes poids sont basés sur la littérature internationale et peuvent nécessiter une validation locale\n\n\nNotebook généré le 2026-01-07"
   },
   {
     "objectID": "index.html",
@@ -326,7 +326,7 @@
     "href": "index.html#contact",
     "title": "Projet TDAH Tunisie",
     "section": "Contact",
-    "text": "Contact\nAuteur : Asma BELKAHLA\nInstitution : Ecole polytechnique de sousse Email : asma.belkahla@polytechnicien.tn\nDate : Décembre 2025\n\n\n\n\n\n\n\n\nNoteNote Importante\n\n\n\nCe projet représente une première analyse populationnelle des facteurs de risque du TDAH en Tunisie. Les résultats doivent être interprétés comme une estimation de la vulnérabilité théorique au TDAH, et non comme une mesure de prévalence clinique.\nDes études complémentaires avec diagnostic clinique sont nécessaires pour valider ces résultats.\n\n\n\nDernière mise à jour : 2026-01-06\n\n\n🎓 Projet de Recherche en R statistiques\nDonnées MICS6 - 2023",
+    "text": "Contact\nAuteur : Asma BELKAHLA\nInstitution : Ecole polytechnique de sousse Email : asma.belkahla@polytechnicien.tn\nDate : Décembre 2025\n\n\n\n\n\n\n\n\nNoteNote Importante\n\n\n\nCe projet représente une première analyse populationnelle des facteurs de risque du TDAH en Tunisie. Les résultats doivent être interprétés comme une estimation de la vulnérabilité théorique au TDAH, et non comme une mesure de prévalence clinique.\nDes études complémentaires avec diagnostic clinique sont nécessaires pour valider ces résultats.\n\n\n\nDernière mise à jour : 2026-01-07\n\n\n🎓 Projet de Recherche en R statistiques\nDonnées MICS6 - 2023",
     "crumbs": [
       "Accueil",
       "🏠 Accueil"
@@ -841,7 +841,7 @@
     "href": "rapport_principal.html#implications",
     "title": "Facteurs de Risque du TDAH chez les Enfants Tunisiens",
     "section": "5.2 Implications",
-    "text": "5.2 Implications\nPour la santé publique : Cibler les interventions, développer des outils de dépistage, réduire les inégalités\nPour les politiques publiques : Investir dans l’éducation, renforcer les services de santé mentale, améliorer l’accès aux soins ruraux\nPour la recherche : Valider le score, études longitudinales, évaluation des interventions\n\nCitation suggérée : Belkahla, A. (2025). Facteurs de risque du TDAH chez les enfants tunisiens : Analyse des données MICS6 Tunisie 2023. [Rapport de recherche].\n\nFin du rapport - Généré le 2026-01-06",
+    "text": "5.2 Implications\nPour la santé publique : Cibler les interventions, développer des outils de dépistage, réduire les inégalités\nPour les politiques publiques : Investir dans l’éducation, renforcer les services de santé mentale, améliorer l’accès aux soins ruraux\nPour la recherche : Valider le score, études longitudinales, évaluation des interventions\n\nCitation suggérée : Belkahla, A. (2025). Facteurs de risque du TDAH chez les enfants tunisiens : Analyse des données MICS6 Tunisie 2023. [Rapport de recherche].\n\nFin du rapport - Généré le 2026-01-07",
     "crumbs": [
       "Accueil",
       "📚 Documents Principaux",
