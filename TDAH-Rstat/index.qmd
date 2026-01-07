@@ -219,53 +219,54 @@ legend("bottom",
 
 ---
 
-# 📊 Exploration Interactive (Données Réelles)
+# 📊 Exploration Interactive des Données
 
----
+
 ## Distribution du Score de Risque TDAH
 
 ```{webr-r}
 #| echo: false
-# Chargement d'un échantillon pour la rapidité
-if (!exists("data_tdah")) {
-  tryCatch({
-    # Téléchargement de l'échantillon (1000 lignes) pour plus de fluidité
-    download.file("data/processed/dataset_sample.csv", "tdah_sample.csv")
-    data_tdah <- read.csv("tdah_sample.csv")
-    data_tdah$richesse <- data_tdah$richesse_cat
-    n <- nrow(data_tdah)
-  }, error = function(e) {
-    # Fallback
-    set.seed(123)
-    n <- 500
-    data_tdah <<- data.frame(
-      milieu = sample(c("Urbain", "Rural"), n, replace = TRUE),
-      richesse = factor(sample(1:5, n, replace = TRUE), labels = c("Q1", "Q2", "Q3", "Q4", "Q5")),
-      score_tdah = round(rnorm(n, 25, 12), 1)
-    )
-  })
-}
+# Créer des données d'exemple 
+# pour un chargement plus rapide
+set.seed(123)
+n <- 500
 
-# Histogramme
-par(mar = c(5, 5, 4, 2), bg = "white")
+data_tdah <- data.frame(
+  milieu = sample(c("Urbain", "Rural"), n, replace = TRUE, prob = c(0.6, 0.4)),
+  richesse = factor(sample(1:5, n, replace = TRUE),
+                    labels = c("Q1 (Pauvre)", "Q2", "Q3", "Q4", "Q5 (Riche)")),
+  score_tdah = round(rnorm(n, mean = 25, sd = 12), 1)
+)
+
+# Histogramme de distribution avec style amélioré
+par(mar = c(5, 5, 4, 2), bg = "white", family = "sans")
 hist(data_tdah$score_tdah,
      breaks = 20,
-     main = "Distribution du Score (Échantillon de 1000 enfants)",
+     main = "Distribution du Score de Risque TDAH",
      xlab = "Score TDAH (0-100)",
      ylab = "Fréquence",
      col = "#3498db",
      border = "white",
-     las = 1)
+     las = 1,
+     cex.main = 1.4,
+     cex.lab = 1.1,
+     cex.axis = 1)
 
+# Ajouter les seuils de risque
 abline(v = 20, col = "#f39c12", lty = 2, lwd = 3)
 abline(v = 40, col = "#e74c3c", lty = 2, lwd = 3)
 
+# Légende améliorée
 legend("topright",
        legend = c("Seuil Moyen (20)", "Seuil Élevé (40)"),
        col = c("#f39c12", "#e74c3c"),
-       lty = 2, lwd = 3, bty = "n")
+       lty = 2, lwd = 3,
+       bty = "n",
+       cex = 1.1)
 
-mtext(paste0("Échantillon Réel (N=1000) | Moyenne: ", round(mean(data_tdah$score_tdah, na.rm=T), 2)),
+# Ajouter un cadre pour les statistiques
+mtext(paste0("Moyenne: ", round(mean(data_tdah$score_tdah), 2),
+             " | % Risque Élevé: ", round(sum(data_tdah$score_tdah >= 40)/n*100, 1), "%"),
       side = 3, line = 0.5, cex = 0.9, col = "#2c3e50")
 ```
 
@@ -273,56 +274,78 @@ mtext(paste0("Échantillon Réel (N=1000) | Moyenne: ", round(mean(data_tdah$sco
 
 ```{webr-r}
 #| echo: false
-# Boxplot par milieu sur données réelles
-par(mar = c(5, 5, 4, 2))
+# Boxplot par milieu avec style amélioré
+par(mar = c(5, 5, 4, 2), bg = "white", family = "sans")
 boxplot(score_tdah ~ milieu,
         data = data_tdah,
-        main = "Score TDAH: Urbain vs Rural (Données Réelles)",
+        main = "Score TDAH: Urbain vs Rural",
         xlab = "Milieu de Résidence",
         ylab = "Score TDAH",
         col = c("#74b9ff", "#55efc4"),
-        border = "#2d3436",
+        border = c("#0984e3", "#00b894"),
+        notch = TRUE,
         las = 1,
-        lwd = 2)
+        lwd = 2,
+        cex.main = 1.4,
+        cex.lab = 1.1,
+        cex.axis = 1,
+        boxwex = 0.6)
 
 # Ligne de seuil
 abline(h = 40, col = "#e74c3c", lty = 2, lwd = 3)
 
+# Légende
 legend("topleft",
        legend = "Seuil Risque Élevé (40)",
        col = "#e74c3c",
-       lty = 2, lwd = 3, bty = "n")
+       lty = 2, lwd = 3,
+       bty = "n",
+       cex = 1.1)
 
-# Calcul des moyennes par groupe
-if ("milieu" %in% names(data_tdah)) {
-  moy_milieu <- aggregate(score_tdah ~ milieu, data = data_tdah, FUN = mean)
-  mtext(paste0("Moyenne Urbain: ", round(moy_milieu[moy_milieu$milieu=="Urbain", 2], 1),
-               " | Rural: ", round(moy_milieu[moy_milieu$milieu=="Rural", 2], 1)),
-        side = 3, line = 0.5, cex = 0.9)
-}
+# Statistiques en bas
+moyennes <- aggregate(score_tdah ~ milieu, data = data_tdah, FUN = mean)
+mtext(paste0("Moyennes - Urbain: ", round(moyennes[2,2], 1),
+             " | Rural: ", round(moyennes[1,2], 1)),
+      side = 3, line = 0.5, cex = 0.9, col = "#2c3e50")
 ```
 
 ## Gradient Socio-économique
 
 ```{webr-r}
 #| echo: false
-# Gradient socio-économique (Données Réelles)
-par(mar = c(7, 5, 4, 2))
+# Boxplot par quintile de richesse avec style amélioré
+par(mar = c(7, 5, 4, 2), bg = "white", family = "sans")
 
 # Couleurs en gradient
 couleurs_gradient <- c("#e74c3c", "#e67e22", "#f39c12", "#2ecc71", "#27ae60")
 
 boxplot(score_tdah ~ richesse,
         data = data_tdah,
-        main = "Score TDAH par Quintile de Richesse (Réel)",
+        main = "Score TDAH par Quintile de Richesse",
         xlab = "",
         ylab = "Score TDAH",
         col = couleurs_gradient,
+        border = c("#c0392b", "#d35400", "#f39c12", "#27ae60", "#229954"),
         las = 2,
-        lwd = 2)
+        lwd = 2,
+        cex.main = 1.4,
+        cex.lab = 1.1,
+        cex.axis = 0.9,
+        boxwex = 0.7)
 
-mtext("Quintile de Richesse", side = 1, line = 5.5)
+# Titre de l'axe X
+mtext("Quintile de Richesse", side = 1, line = 5.5, cex = 1.1)
+
+# Ligne de seuil
 abline(h = 40, col = "#e74c3c", lty = 2, lwd = 3)
+
+# Légende
+legend("topright",
+       legend = "Seuil Risque Élevé (40)",
+       col = "#e74c3c",
+       lty = 2, lwd = 3,
+       bty = "n",
+       cex = 1.1)
 
 # Ajouter grille légère
 grid(nx = NA, ny = NULL, col = "#00000010", lty = 1)
