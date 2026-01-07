@@ -221,23 +221,22 @@ legend("bottom",
 
 # 📊 Exploration Interactive (Données Réelles)
 
-Cette section permet d'**explorer les données de manière interactive**. 
+Cette section permet d'**explorer un échantillon représentatif de 1000 enfants** issu de l'étude (pour un chargement plus rapide).
 ---
 ## Distribution du Score de Risque TDAH
 
 ```{webr-r}
 #| echo: false
-# Chargement des données réelles
+# Chargement d'un échantillon pour la rapidité
 if (!exists("data_tdah")) {
   tryCatch({
-    # Sur le serveur, le chemin est relatif à l'URL de la page
-    # WebbR peut lire directement depuis une URL ou on peut télécharger
-    download.file("data/processed/dataset_with_score.csv", "tdah_real_data.csv")
-    data_tdah <- read.csv("tdah_real_data.csv")
+    # Téléchargement de l'échantillon (1000 lignes) pour plus de fluidité
+    download.file("data/processed/dataset_sample.csv", "tdah_sample.csv")
+    data_tdah <- read.csv("tdah_sample.csv")
     data_tdah$richesse <- data_tdah$richesse_cat
     n <- nrow(data_tdah)
   }, error = function(e) {
-    # Fallback au cas où le fichier n'est pas accessible
+    # Fallback
     set.seed(123)
     n <- 500
     data_tdah <<- data.frame(
@@ -248,35 +247,26 @@ if (!exists("data_tdah")) {
   })
 }
 
-# Histogramme de distribution avec les vraies données
+# Histogramme
 par(mar = c(5, 5, 4, 2), bg = "white")
 hist(data_tdah$score_tdah,
      breaks = 20,
-     main = "Distribution du Score de Risque TDAH (Données Réelles)",
+     main = "Distribution du Score (Échantillon de 1000 enfants)",
      xlab = "Score TDAH (0-100)",
-     ylab = "Nombre d'enfants",
+     ylab = "Fréquence",
      col = "#3498db",
      border = "white",
      las = 1)
 
-boxplot(score_tdah ~ milieu,
-        data = data_tdah,
-        main = "Score de Risque TDAH selon le Milieu",
-        ylab = "Score TDAH",
-        col = c("#1abc9c", "#9b59b6"),
-        border = "#2c3e50",
-        las = 1)
-
-abline(h = 20, col = "#f39c12", lty = 2, lwd = 2)
-abline(h = 40, col = "#e74c3c", lty = 2, lwd = 2)
+abline(v = 20, col = "#f39c12", lty = 2, lwd = 3)
+abline(v = 40, col = "#e74c3c", lty = 2, lwd = 3)
 
 legend("topright",
        legend = c("Seuil Moyen (20)", "Seuil Élevé (40)"),
        col = c("#f39c12", "#e74c3c"),
        lty = 2, lwd = 3, bty = "n")
 
-mtext(paste0("Moyenne Réelle: ", round(mean(data_tdah$score_tdah, na.rm=T), 2),
-             " | N = ", nrow(data_tdah)),
+mtext(paste0("Échantillon Réel (N=1000) | Moyenne: ", round(mean(data_tdah$score_tdah, na.rm=T), 2)),
       side = 3, line = 0.5, cex = 0.9, col = "#2c3e50")
 ```
 
