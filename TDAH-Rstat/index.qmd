@@ -219,7 +219,7 @@ legend("bottom",
 
 ---
 
-# 📊 Exploration Interactive des Données
+# 📊 Exploration Interactive (Données Réelles)
 
 Cette section permet d'**explorer les données de manière interactive**. 
 ---
