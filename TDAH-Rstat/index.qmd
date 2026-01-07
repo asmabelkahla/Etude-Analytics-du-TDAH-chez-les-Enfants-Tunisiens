@@ -221,7 +221,7 @@ legend("bottom",
 
 # 📊 Exploration Interactive (Données Réelles)
 
-Cette section permet d'**explorer un échantillon représentatif de 1000 enfants** issu de l'étude (pour un chargement plus rapide).
+## Cette section permet d'**explorer un échantillon représentatif de 1000 enfants** issu de l'étude (pour un chargement plus rapide).
 ---
 ## Distribution du Score de Risque TDAH
 
